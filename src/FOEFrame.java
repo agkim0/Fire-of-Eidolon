@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Collection;
@@ -27,7 +28,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private JButton btn_Join = new JButton("Join");
     private JButton btn_RB = new JButton("");
 
-    public FOEFrame(/*GameDate gameDate,*/ ObjectInputStream os, String username){
+    public FOEFrame(/*GameDate gameDate,*/ ObjectInputStream os, String username) throws IOException {
         super("FOE Game");
         //this.gameDate = gameDate;
         this.os = os;
@@ -39,7 +40,14 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         setResizable(false);
         setAlwaysOnTop(true);
         setVisible(true);
-        //logo = ImageIO.read(new File(""));
+        logo = ImageIO.read(new File("Game images//Fire of Eidolon Title.png"));
+        aelfric_Token = ImageIO.read(new File("token pieces//character tokens//aelfric character token.png"));
+        cecelia_Token = ImageIO.read(new File("token pieces//character tokens//cecelia character token.png"));
+        daga_Token = ImageIO.read(new File("token pieces//character tokens//dage character token.png"));
+        kalistos_Token = ImageIO.read(new File("token pieces//character tokens//kalistos character token.png"));
+        kaylana_Token = ImageIO.read(new File("token pieces//character tokens//kaylana character token.png"));
+        sirius_Token = ImageIO.read(new File("token pieces//character tokens//sirius character token.png"));
+
         btn_Host.setBounds(500,500,50,50);
         add(btn_Host);
         btn_Join.setBounds(400,400,50,50);
@@ -48,7 +56,14 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         add(btn_RB);
 
     }
-    public void paint(Graphics g){}
+    public void reset(){
+        System.out.println("reset");
+        //character = new Characetr();
+        repaint();
+    }
+    public void paint(Graphics g){
+        
+    }
     public void move(){}
     public void explore(){}
     public void attack(){}
