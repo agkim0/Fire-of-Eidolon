@@ -5,9 +5,9 @@ import java.io.Serializable;
 public class ClientsListener implements Runnable,Serializable{
     private ObjectInputStream is;
     private ObjectOutputStream os;
-    private FoEFrame frame = null;
+    private FOEFrame frame = null;
 
-    public ClientsListener(ObjectInputStream is, ObjectOutputStream os, FoEFrame frame){
+    public ClientsListener(ObjectInputStream is, ObjectOutputStream os, FOEFrame frame){
         this.is = is;
         this.os = os;
         this.frame = frame;
