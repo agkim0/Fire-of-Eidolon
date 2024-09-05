@@ -62,7 +62,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         repaint();
     }
     public void paint(Graphics g){
-        
+
     }
     public void move(){}
     public void explore(){}
