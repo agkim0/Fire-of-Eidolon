@@ -26,7 +26,7 @@ public class ServersListener {
         }
     }
     public void sendCommand(int com, String data, GameData gameData){
-        CommandFromServer cfs = new CommandFromServer(com,data,gd);
+        CommandFromServer cfs = new CommandFromServer(com,data,gameData);
         for(ObjectOutputStream o:outs){
             try{
                 o.writeObject(cfs);
