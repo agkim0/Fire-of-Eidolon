@@ -39,7 +39,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         setResizable(false);
         setAlwaysOnTop(true);
         setVisible(true);
-        logo = ImageIO.read(new File(""));
+        //logo = ImageIO.read(new File(""));
         btn_Host.setBounds(500,500,50,50);
         add(btn_Host);
         btn_Join.setBounds(400,400,50,50);
