@@ -13,9 +13,21 @@ public class Hero {
     private boolean speicalUsed;
     private int spCount;
 
-    public Hero(name String,){
-
+    public Hero(String name, int strengthLevel,int dexLevel,int intelLevel, int strTokenCount,int dexTokenCount,int intelTokenCount,boolean hasFOE, boolean fallen,boolean dead, boolean speicalUsed, int spCount){
+        this.name = name;
+        this.strengthLevel = strengthLevel;
+        this.dexLevel = dexLevel;
+        this.intelLevel = intelLevel;
+        this.strTokenCount = strTokenCount;
+        this.dexTokenCount = dexTokenCount;
+        this.intelTokenCount = intelTokenCount;
+        this.hasFOE = hasFOE;
+        this.fallen = fallen;
+        this.dead = dead;
+        this.speicalUsed = speicalUsed;
+        this.spCount = spCount;
     }
+
 
     public String getName() {
         return name;
