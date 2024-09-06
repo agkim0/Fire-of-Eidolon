@@ -23,6 +23,8 @@ public class Tile {
         this.heroesOn = heroesOn;
         this.skillType = skillType;
         this.name = name;
+        this.inVoid = false;
+        this.onBoard = false;
     }
 
     public Tile(String name, String skillType, boolean token, int cultistNum, ArrayList<Hero> heroesOn, boolean onBoard, boolean inVoid, Card card, boolean topSide, boolean bottomSide, boolean leftSide, boolean rightSide) {
