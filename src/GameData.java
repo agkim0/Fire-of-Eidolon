@@ -80,5 +80,8 @@ public class GameData implements Serializable {
 
 
     //start here
+    public void createAllHero(){
+        
+    }
 
 }
