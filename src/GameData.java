@@ -22,6 +22,7 @@ public class GameData implements Serializable {
     }
 
     public void createAllTiles(){
+        System.out.println("Hi");
 
     }
 
