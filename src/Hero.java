@@ -13,6 +13,10 @@ public class Hero {
     private boolean speicalUsed;
     private int spCount;
 
+    public Hero(name String,){
+
+    }
+
     public String getName() {
         return name;
     }
@@ -113,6 +117,6 @@ public class Hero {
 
     }
     public void specialAbility(){
-        
+
     }
 }
