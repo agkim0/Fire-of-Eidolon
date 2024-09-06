@@ -83,7 +83,14 @@ public class GameData implements Serializable {
 
     //start here
     public void createAllHero(){
-        
+        allHeroes = new ArrayList<>();
+        allHeroes.add(new Hero("Aelfric",1,2,3,0,0,0,false,false,false,false,3,false));
+        allHeroes.add(new Hero("Cecilia",1,3,2,0,0,0,false,false,false,false,3,false));
+        allHeroes.add(new Hero("Dage",2,3,1,0,0,0,false,false,false,false,3,false));
+        allHeroes.add(new Hero("Kalistos",3,1,2,0,0,0,false,false,false,false,3,false));
+        allHeroes.add(new Hero("Kaylana",2,1,3,0,0,0,false,false,false,false,3,false));
+        allHeroes.add(new Hero("Sirus",3,2,1,0,0,0,false,false,false,false,3,false));
+
     }
 
 
