@@ -3,9 +3,9 @@ import java.util.ArrayList;
 public class Tile {
     private String name;
     private String skillType;
-    private boolean token;
-    private int cultistNum;
-    private ArrayList<Hero> heroesOn;
+    private boolean token = true;
+    private int cultistNum = 0;
+    private ArrayList<Hero> heroesOn = new ArrayList<Hero>();
     private boolean onBoard;
     private boolean inVoid;
     private Card card;
@@ -14,17 +14,24 @@ public class Tile {
     private boolean leftSide;
     private boolean rightSide;
 
-    public Tile(boolean rightSide, boolean leftSide, boolean topSide, boolean bottomSide, Card card, ArrayList<Hero> heroesOn, String skillType, String name) {
+    public Tile(String name,String skillType,Card card,boolean topSide,boolean rightSide,boolean bottomSide,boolean leftSide) {
         this.rightSide = rightSide;
         this.leftSide = leftSide;
         this.topSide = topSide;
         this.bottomSide = bottomSide;
         this.card = card;
-        this.heroesOn = heroesOn;
         this.skillType = skillType;
         this.name = name;
-        this.inVoid = false;
-        this.onBoard = false;
+    }
+    public Tile(String name,String skillType,boolean topSide,boolean rightSide,boolean bottomSide,boolean leftSide) {
+        this.rightSide = rightSide;
+        this.leftSide = leftSide;
+        this.topSide = topSide;
+        this.bottomSide = bottomSide;
+        this.card = null;
+        this.heroesOn = new ArrayList<Hero>();
+        this.skillType = skillType;
+        this.name = name;
     }
 
     public Tile(String name, String skillType, boolean token, int cultistNum, ArrayList<Hero> heroesOn, boolean onBoard, boolean inVoid, Card card, boolean topSide, boolean bottomSide, boolean leftSide, boolean rightSide) {
