@@ -7,6 +7,7 @@ public class GameData implements Serializable {
     private ArrayList<Card> fullDeck;
     private ArrayList<Card> currDeck;
     private ArrayList<Tile> tileDeck;
+    private ArrayList<Hero> allHeroes;
     private Hero turn;
     private ArrayList<Hero> orderOfTurns;
     private int threatLevel;
@@ -22,7 +23,7 @@ public class GameData implements Serializable {
     }
 
     public void createAllTiles(){
-        System.out.println("Hi");
+        Tile acidJets
 
     }
 
