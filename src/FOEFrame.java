@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener, Runnable{
     private String text = "";
     private String username;
-    //private Hero character = "";
-    //private GameData gameDate = new GameDate;
+    private Hero you;
+    private static GameData gameDate = new GameData();
     ObjectInputStream os;
     private BufferedImage logo = null;
     private BufferedImage aelfric_Token = null;

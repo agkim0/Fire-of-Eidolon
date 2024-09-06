@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class ServersListener {
     private ObjectInputStream is;
     private ObjectOutputStream os;
-    private static GameData = new GameData();
+    private static GameData gameData = new GameData();
     private static ArrayList<ObjectOutputStream> outs = new ArrayList<>();
     private String username;
     public ServersListener (ObjectInputStream is, ObjectOutputStream os, String username){
