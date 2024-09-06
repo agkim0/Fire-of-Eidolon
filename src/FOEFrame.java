@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener, Runnable{
     private String text = "";
     private String username;
-    //private Character character = "";
+    //private Hero character = "";
     //private GameData gameDate = new GameDate;
     ObjectInputStream os;
     private BufferedImage logo = null;
@@ -58,7 +58,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
     public void reset(){
         System.out.println("reset");
-        //character = new Characetr();
+        //character = new Hero();
         repaint();
     }
     public void paint(Graphics g){
