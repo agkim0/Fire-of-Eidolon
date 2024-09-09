@@ -1,8 +1,12 @@
 import java.util.ArrayList;
 
 public class Tile {
+    public static final int STR = 0;
+    public static final int DEX = 1;
+    public static final int INTEL = 2;
+    public static final int SPECIAL = 3;
     private String name;
-    private String skillType;
+    private int skillType;
     private boolean token = true;
     private int cultistNum = 0;
     private ArrayList<Hero> heroesOn = new ArrayList<Hero>();
@@ -14,7 +18,7 @@ public class Tile {
     private boolean leftSide;
     private boolean rightSide;
 
-    public Tile(String name,String skillType,Card card,boolean topSide,boolean rightSide,boolean bottomSide,boolean leftSide) {
+    public Tile(String name,int skillType,Card card,boolean topSide,boolean rightSide,boolean bottomSide,boolean leftSide) {
         this.rightSide = rightSide;
         this.leftSide = leftSide;
         this.topSide = topSide;
@@ -23,7 +27,7 @@ public class Tile {
         this.skillType = skillType;
         this.name = name;
     }
-    public Tile(String name,String skillType,boolean topSide,boolean rightSide,boolean bottomSide,boolean leftSide) {
+    public Tile(String name,int skillType,boolean topSide,boolean rightSide,boolean bottomSide,boolean leftSide) {
         this.rightSide = rightSide;
         this.leftSide = leftSide;
         this.topSide = topSide;
@@ -34,7 +38,7 @@ public class Tile {
         this.name = name;
     }
 
-    public Tile(String name, String skillType, boolean token, int cultistNum, ArrayList<Hero> heroesOn, boolean onBoard, boolean inVoid, Card card, boolean topSide, boolean bottomSide, boolean leftSide, boolean rightSide) {
+    public Tile(String name, int skillType, boolean token, int cultistNum, ArrayList<Hero> heroesOn, boolean onBoard, boolean inVoid, Card card, boolean topSide, boolean bottomSide, boolean leftSide, boolean rightSide) {
         this.name = name;
         this.skillType = skillType;
         this.token = token;
@@ -57,11 +61,11 @@ public class Tile {
         this.name = name;
     }
 
-    public String getSkillType() {
+    public int getSkillType() {
         return skillType;
     }
 
-    public void setSkillType(String skillType) {
+    public void setSkillType(int skillType) {
         this.skillType = skillType;
     }
 
