@@ -1,10 +1,14 @@
 public class Card {
     private String name;
-    private String skillType;
+    private int skillType;
     private Tile tile;
     private boolean event;
+    public static final int STR = 0;
+    public static final int DEX = 1;
+    public static final int INTEL = 2;
+    public static final int SPECIAL = 3;
 
-    public Card(String name, String skillType, Tile tile, boolean event) {
+    public Card(String name, int skillType, Tile tile, boolean event) {
         this.name = name;
         this.skillType = skillType;
         this.tile = tile;
@@ -19,11 +23,11 @@ public class Card {
         this.name = name;
     }
 
-    public String getSkillType() {
+    public int getSkillType() {
         return skillType;
     }
 
-    public void setSkillType(String skillType) {
+    public void setSkillType(int skillType) {
         this.skillType = skillType;
     }
 

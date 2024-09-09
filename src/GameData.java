@@ -40,7 +40,7 @@ public class GameData implements Serializable {
         Tile ogreBrute = new Tile("Ogre Brute", Tile.STR,false,false,true,true);
         Tile paradoxPuzzle = new Tile("Paradox Puzzle",Tile.INTEL, true,false,true,true);
         Tile pendulumBlades = new Tile("Pendulum Blades",Tile.DEX,true,false,true,false);
-        Tile vagrantPortal = new Tile("Vagrant Portal", Tile.SPECIAL,false,false,true,false);
+        Tile vagrantPortalChamber = new Tile("Vagrant Portal", Tile.SPECIAL,false,false,true,false);
         Tile psychomancer = new Tile("Psychomancer",Tile.INTEL,true,true,true,true);
         Tile secretPassageX = new Tile("Secret Passage X",Tile.SPECIAL,true,true,true,true);
         Tile secretPassageY = new Tile("Secret Passage Y",Tile.SPECIAL,true,true,true,true);
@@ -52,6 +52,90 @@ public class GameData implements Serializable {
         Tile voraxsFocus = new Tile("Vorax's Focus",Tile.DEX,false,false,true,false);
         Tile voraxsHeart = new Tile("Vorax's Heart",Tile.STR,false,false,true,false);
         Tile voraxsKnowledge = new Tile("Vorax's Knowledge",Tile.INTEL,false,false,true,false);
+
+        Card acidJetsCard = new Card("Acid Jets",Card.DEX,acidJets,false );
+        Card arrowTrapCard = new Card("Arrow Trap", Card.DEX,arrowTrap,false);
+        Card intelEventCard = new Card("Intelligence Event", Card.DEX, null, true);
+        Card darkSlimeCard = new Card("Dark Slime", Card.STR, darkSlime, false);
+        Card denOfSnakesCard = new Card("Den of Snakes",Card.DEX,denOfSnakes,false);
+        Card dragonlingCard = new Card("Dragonling",Card.STR,dragonling,false);
+        Card felKnightCard = new Card("Fel Knight", Card.STR,felKnight,false);
+        Card floatingStonesCard = new Card("Floating Stones",Card.DEX,floatingStones,false);
+        Card dexEventCard = new Card("Dexterity Event",Card.DEX,null,true);
+        Card hallOfIllusionsCard = new Card("Hall of Illusions",Card.INTEL,hallOfIllustion,false);
+        Card laughingShadowCard = new Card("Laughing Shadow",Card.INTEL,laughingShadow,false);
+        Card lavaLakeCard = new Card("Lava Lake",Card.DEX,lavaLake,false);
+        Card mimicChestCard = new Card("Mimic Chest",Card.INTEL,mimicChest,false);
+        Card mindeaterCard = new Card("Mindeater",Card.INTEL,mindEater,false);
+        Card minotaurCard = new Card("Minotaur",Card.STR,minotaur,false);
+        Card ogreBruteCard = new Card("Ogre Brute",Card.STR,ogreBrute,false);
+        Card paradoxPuzzleCard = new Card("Paradox Puzzle",Card.INTEL,paradoxPuzzle,false);
+        Card pendulumBladesCard = new Card("Pendulum Blades",Card.DEX,pendulumBlades,false);
+        Card psychomancerCard = new Card("Psychomancer",Card.INTEL,psychomancer,false);
+        Card strEventCard = new Card("Strength Event",Card.STR,null,true);
+        Card skeletalGuardsCard = new Card("Skeletal Guards",Card.STR,skeletalGuards,false);
+        Card sphynxsRiddleCard = new Card("Sphynx's Riddle",Card.INTEL,sphynxsRiddle,false);
+        Card spikedPitCard = new Card("Spiked Pit",Card.DEX,spikedPit,false);
+        Card voraciousPlantCard = new Card("Voracios Plant",Card.STR,voraciousPlant,false);
+
+        acidJets.setCard(acidJetsCard);
+        arrowTrap.setCard(arrowTrapCard);
+        darkSlime.setCard(darkSlimeCard);
+        denOfSnakes.setCard(denOfSnakesCard);
+        dragonling.setCard(dragonlingCard);
+        felKnight.setCard(felKnightCard);
+        floatingStones.setCard(floatingStonesCard);
+        hallOfIllustion.setCard(hallOfIllusionsCard);
+        laughingShadow.setCard(laughingShadowCard);
+        lavaLake.setCard(lavaLakeCard);
+        mimicChest.setCard(mimicChestCard);
+        mindEater.setCard(mindeaterCard);
+        minotaur.setCard(minotaurCard);
+        ogreBrute.setCard(ogreBruteCard);
+        paradoxPuzzle.setCard(paradoxPuzzleCard);
+        pendulumBlades.setCard(pendulumBladesCard);
+        psychomancer.setCard(psychomancerCard);
+        skeletalGuards.setCard(skeletalGuardsCard);
+        sphynxsRiddle.setCard(sphynxsRiddleCard);
+        spikedPit.setCard(spikedPitCard);
+        voraciousPlant.setCard(voraciousPlantCard);
+
+        tileDeck.add(acidJets);
+        tileDeck.add(arrowTrap);
+        tileDeck.add(darkSlime);
+        tileDeck.add(denOfSnakes);
+        tileDeck.add(dragonling);
+        tileDeck.add(felKnight);
+        tileDeck.add(fireOfEidolon);
+        tileDeck.add(floatingStones);
+        tileDeck.add(hallOfIllustion);
+        tileDeck.add(laughingShadow);
+        tileDeck.add(lavaLake);
+        tileDeck.add(mimicChest);
+        tileDeck.add(mindEater);
+        tileDeck.add(minotaur);
+        tileDeck.add(ogreBrute);
+        tileDeck.add(paradoxPuzzle);
+        tileDeck.add(pendulumBlades);
+        tileDeck.add(psychomancer);
+        tileDeck.add(skeletalGuards);
+        tileDeck.add(sphynxsRiddle);
+        tileDeck.add(spikedPit);
+        tileDeck.add(vestibule);
+        tileDeck.add(voraciousPlant);
+        tileDeck.add(voraxsFocus);
+        tileDeck.add(voraxsHeart);
+        tileDeck.add(voraxsKnowledge);
+
+        if(vagrantPortal){
+            tileDeck.add(secretPassageX);
+            tileDeck.add(secretPassageY);
+            tileDeck.add(vagrantPortalChamber);
+        }
+
+
+
+
 
         /*
         Dexterity has been abbreviated to "Dex"
