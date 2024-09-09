@@ -10,7 +10,7 @@ public class ClientMain implements Serializable {
             ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream is = new ObjectInputStream(socket.getInputStream());
 
-            FOEFrame frame = new FOEFrame(os,null);
+            FOEFrame frame = new FOEFrame(os);
             ClientsListener cl = new ClientsListener(is,os,frame);
             Thread t = new Thread(cl);
             t.start();
