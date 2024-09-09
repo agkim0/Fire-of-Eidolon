@@ -8,6 +8,7 @@ public class GameData implements Serializable {
     private ArrayList<Card> currDeck;
     private ArrayList<Tile> tileDeck;
     private ArrayList<Hero> allHeroes;
+    private ArrayList<Hero> heroesPlaying;
     private Hero turn;
     private ArrayList<Hero> orderOfTurns;
     private int threatLevel;
@@ -318,5 +319,17 @@ public class GameData implements Serializable {
     }
     public int cardDrawAmount(){
 
+    }
+
+    public ArrayList<Hero> getHeroesPlaying(){
+        return this.heroesPlaying;
+    }
+
+    public void setHeroesPlaying(ArrayList<Hero> heroesPlaying){
+        this.heroesPlaying = heroesPlaying;
+    }
+
+    public void addHeroesPlaying(Hero hero){
+        heroesPlaying.add(hero);
     }
 }

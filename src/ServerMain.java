@@ -12,7 +12,7 @@ public class ServerMain {
                 ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream());
                 ObjectInputStream is = new ObjectInputStream(socket.getInputStream());
 
-                Thread t = new Thread(new ServersListener(is,os,null));
+                Thread t = new Thread(new ServersListener(is,os));
                 t.start();
             }
         }catch(Exception e){

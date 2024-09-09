@@ -1,21 +1,18 @@
-import java.io.ObjectInput;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutput;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 
-public class ServersListener {
+public class ServersListener implements Runnable, Serializable {
     private ObjectInputStream is;
     private ObjectOutputStream os;
     private static GameData gameData = new GameData();
     private static ArrayList<ObjectOutputStream> outs = new ArrayList<>();
-    private String username;
-    public ServersListener (ObjectInputStream is, ObjectOutputStream os, String username){
+    public ServersListener (ObjectInputStream is, ObjectOutputStream os){
         this.is = is;
         this.os = os;
-        this.username = username;
         outs.add(os);
     }
+
+    @Override
     public void run(){
         while(true){
             try{

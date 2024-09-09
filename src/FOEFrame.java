@@ -15,7 +15,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private String text = "";
     private String username;
     private Hero you;
-    private static GameData gameDate = new GameData();
+    private static GameData gameData = new GameData();
     ObjectInputStream os;
     private BufferedImage logo = null;
 
@@ -147,6 +147,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private JButton btn_Host = new JButton("Host");
     private JButton btn_Join = new JButton("Join");
     private JButton btn_RB = new JButton("");
+    private JTextArea text_numOfPlayersBox = new JTextArea("1");
+    private JTextArea text_numOfPlayersLabel = new JTextArea("Number of Players");
+    private JButton btn_numOfPlayersDecrease = new JButton("<");
+    private JButton btn_numOfPlayersIncrease = new JButton(">");
+    private JButton btn_gameRuleAddedCheckBox = new JButton("");
 
     public FOEFrame(/*GameDate gameDate,*/ ObjectInputStream os, String username) throws IOException {
         super("FOE Game");
@@ -216,6 +221,10 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
     @Override
     public void run() {
+
+    }
+
+    public void host(){
 
     }
 }
