@@ -10,10 +10,11 @@ public class Hero {
     private boolean hasFOE;
     private boolean fallen;
     private boolean dead;
-    private boolean speicalUsed;
-    private int spCount;
+    private boolean specialUsed;
+    private int apCount;
+    private boolean playing;
 
-    public Hero(String name, int strengthLevel,int dexLevel,int intelLevel, int strTokenCount,int dexTokenCount,int intelTokenCount,boolean hasFOE, boolean fallen,boolean dead, boolean speicalUsed, int spCount){
+    public Hero(String name, int strengthLevel,int dexLevel,int intelLevel, int strTokenCount,int dexTokenCount,int intelTokenCount,boolean hasFOE, boolean fallen,boolean dead, boolean specialUsed, int apCount, boolean playing){
         this.name = name;
         this.strengthLevel = strengthLevel;
         this.dexLevel = dexLevel;
@@ -24,8 +25,9 @@ public class Hero {
         this.hasFOE = hasFOE;
         this.fallen = fallen;
         this.dead = dead;
-        this.speicalUsed = speicalUsed;
-        this.spCount = spCount;
+        this.specialUsed = specialUsed;
+        this.apCount = apCount;
+        this.playing = playing;
     }
 
     public String getName() {
@@ -88,18 +90,20 @@ public class Hero {
     public void setDead(boolean dead) {
         this.dead = dead;
     }
-    public boolean isSpeicalUsed() {
-        return speicalUsed;
+    public boolean isSpecialUsed() {
+        return specialUsed;
     }
-    public void setSpeicalUsed(boolean speicalUsed) {
-        this.speicalUsed = speicalUsed;
+    public void setSpecialUsed(boolean specialUsed) {
+        this.specialUsed = specialUsed;
     }
     public int getSpCount() {
-        return spCount;
+        return apCount;
     }
     public void setSpCount(int spCount) {
-        this.spCount = spCount;
+        this.apCount = spCount;
     }
+    public boolean isPlaying(){return playing;}
+    public void setPlaying(boolean playing){this.playing = playing;}
     public void passiveAbility(){
 
     }
