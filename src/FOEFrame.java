@@ -152,9 +152,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private JButton btn_numOfPlayersIncrease = new JButton(">");
     private JButton btn_gameRuleAddedCheckBox = new JButton("");
 
-    public FOEFrame(/*GameDate gameDate,*/ ObjectOutputStream os) throws IOException{
+    public FOEFrame(GameData gameData, ObjectOutputStream os,String username) throws IOException{
         super("FOE Game");
-        //this.gameDate = gameDate;
+        this.gameData = gameData;
         this.os = os;
         addKeyListener(this);
         addWindowFocusListener(this);
