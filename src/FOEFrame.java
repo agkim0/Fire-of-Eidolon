@@ -291,7 +291,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         redVorax_Token = ImageIO.read(new File("token pieces/voraxes/red vorax.png"));
         purpleVorax_Token = ImageIO.read(new File("token pieces/voraxes/purple vorax.png"));
         greenVorax_Token = ImageIO.read(new File("token pieces/voraxes/green vorax.png"));
-        
+
         btn_Host.setBounds(500,500,50,50);
         add(btn_Host);
         btn_Join.setBounds(400,400,50,50);
