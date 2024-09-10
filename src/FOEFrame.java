@@ -237,6 +237,58 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         ct_VoraxsHeart = ImageIO.read(new File("Game images/Chamber Tiles/Vorax_s Heart.png"));
         ct_VoraxsKnowledge = ImageIO.read(new File("Game images/Chamber Tiles/Vorax_s Knowledge.png"));//chamber tiles
 
+        back_Of_RDC = ImageIO.read(new File("Game images/Ritual Deck Cards/Back of card.png"));
+        rdc_AcidJets = ImageIO.read(new File("Game images/Ritual Deck Cards/Acid jets_card.png"));
+        rdc_ArrowTrap = ImageIO.read(new File("Game images/Ritual Deck Cards/Arrow Trap_card.png"));
+        rdc_DarkSlime = ImageIO.read(new File("Game images/Ritual Deck Cards/Dark Slime_card.png"));
+        rdc_DenofSnakes = ImageIO.read(new File("Game images/Ritual Deck Cards/Den of Snakes_card.png"));
+        rdc_Dragonling = ImageIO.read(new File("Game images/Ritual Deck Cards/Dragonling_card.png"));
+        rdc_FelKnight = ImageIO.read(new File("Game images/Ritual Deck Cards/Fel Knight_card.png"));
+        rdc_FloatingStones = ImageIO.read(new File("Game images/Ritual Deck Cards/Floating Stones_card.png"));
+        rdc_HallofIlusions = ImageIO.read(new File("Game images/Ritual Deck Cards/Hall of Ilusions_card.png"));
+        rdc_LaughingShadow = ImageIO.read(new File("Game images/Ritual Deck Cards/Laughing Shadow_card.png"));
+        rdc_LavaLake = ImageIO.read(new File("Game images/Ritual Deck Cards/Laval Lake_card.png"));
+        rdc_MimicChest = ImageIO.read(new File("Game images/Ritual Deck Cards/Mimic Chest_card.png"));
+        rdc_Mindreader = ImageIO.read(new File("Game images/Ritual Deck Cards/Mindreader_card.png"));
+        rdc_Minotaur = ImageIO.read(new File("Game images/Ritual Deck Cards/Minotaur_card.png"));
+        rdc_OgerBrute = ImageIO.read(new File("Game images/Chamber Tiles/Oger Brute_card.png"));
+        rdc_ParodoxPuzzle = ImageIO.read(new File("Game images/Ritual Deck Cards/Paradox puzzle_card.png"));
+        rdc_PengulumBlades = ImageIO.read(new File("Game images/Ritual Deck Cards/Pengulum Blades_card.png"));
+        rdc_Psycomancer = ImageIO.read(new File("Game images/Ritual Deck Cards/Psychomancer_card.png"));
+        rdc_SkeletonGuards = ImageIO.read(new File("Game images/Ritual Deck Cards/Skeleton Guards_card.png"));
+        rdc_SphynxsRiddle = ImageIO.read(new File("Game images/Ritual Deck Cards/Sphynx_s Riddle_card.png"));
+        rdc_SpikedPit = ImageIO.read(new File("Game images/Ritual Deck Cards/Spiked pit_card.png"));
+        rdc_VoraciousPlant = ImageIO.read(new File("Game images/Ritual Deck Cards/Voracious Plant_card.png"));
+        rdc_BlueEvent = ImageIO.read(new File("Game images/Ritual Deck Cards/blue event card.png"));
+        rdc_GreenEvent = ImageIO.read(new File("Game images/Ritual Deck Cards/green event card.png"));
+        rdc_RedEvent = ImageIO.read(new File("Game images/Ritual Deck Cards/red event card.png"));
+
+        rb_1 = ImageIO.read(new File("Rulebook/FireOfEidolon Rulebook-1.png"));
+        rb_2 = ImageIO.read(new File("Rulebook/FireOfEidolon Rulebook-2.png"));
+        rb_3 = ImageIO.read(new File("Rulebook/FireOfEidolon Rulebook-3.png"));
+        rb_4 = ImageIO.read(new File("Rulebook/FireOfEidolon Rulebook-4.png"));
+        rb_5 = ImageIO.read(new File("Rulebook/FireOfEidolon Rulebook-5.png"));
+        rb_6 = ImageIO.read(new File("Rulebook/FireOfEidolon Rulebook-6.png"));
+        rb_7 = ImageIO.read(new File("Rulebook/FireOfEidolon Rulebook-7.png"));
+        rb_8 = ImageIO.read(new File("Rulebook/FireOfEidolon Rulebook-8.png"));
+        rb_9 = ImageIO.read(new File("Rulebook/FireOfEidolon Rulebook-9.png"));
+
+        book_Relic_Back = ImageIO.read(new File("token pieces/relics/book relic back.png"));
+        book_Relic_Front = ImageIO.read(new File("token pieces/relics/book relic.png"));
+        crystal_Relic_Back = ImageIO.read(new File("token pieces/relics/crystal relic back.png"));
+        crystal_Relic_Front = ImageIO.read(new File("token pieces/relics/crystal relic.png"));
+        heart_Relic_Back = ImageIO.read(new File("token pieces/relics/heart relic back.png"));
+        heart_Relic_Front = ImageIO.read(new File("token pieces/relics/heart relic.png"));
+        cultist_Token = ImageIO.read(new File("token pieces/tokens of power-cultist token/cultist token.png"));
+        dex_Token = ImageIO.read(new File("token pieces/tokens of power-cultist token/dexterity token of power.png"));
+        int_Token = ImageIO.read(new File("token pieces/tokens of power-cultist token/intellect token of power.png"));
+        str_Token = ImageIO.read(new File("token pieces/tokens of power-cultist token/strength token of power.png"));
+        fireBall_Token = ImageIO.read(new File("token pieces/tokens of power-cultist token/fireball.png"));
+        tl_Token = ImageIO.read(new File("token pieces/tokens of power-cultist token/threat level.png"));
+        blueVorax_Token = ImageIO.read(new File("token pieces/voraxes/blue vorax.png"));
+        redVorax_Token = ImageIO.read(new File("token pieces/voraxes/red vorax.png"));
+        purpleVorax_Token = ImageIO.read(new File("token pieces/voraxes/purple vorax.png"));
+        greenVorax_Token = ImageIO.read(new File("token pieces/voraxes/green vorax.png"));
 
         btn_Host.setBounds(500,500,50,50);
         add(btn_Host);
