@@ -13,11 +13,9 @@ import java.util.ArrayList;
 
 public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener, Runnable{
     private String text = "";
-    private String username;
     private Hero you;
     private static GameData gameData = new GameData();
     ObjectOutputStream os;
-
     private BufferedImage logo = null;
 
     private BufferedImage aelfric_Token = null;
@@ -154,11 +152,10 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private JButton btn_numOfPlayersIncrease = new JButton(">");
     private JButton btn_gameRuleAddedCheckBox = new JButton("");
 
-    public FOEFrame(GameData gameData, ObjectOutputStream os, String username) throws IOException {
+    public FOEFrame(/*GameDate gameDate,*/ ObjectOutputStream os) throws IOException{
         super("FOE Game");
         //this.gameDate = gameDate;
         this.os = os;
-        this.username = username;
         addKeyListener(this);
         addWindowFocusListener(this);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -192,7 +189,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         sirius_Action_Token = ImageIO.read(new File("character cards/sirius action.png"));
         sirius_Special_Token = ImageIO.read(new File("character cards/sirius special.png"));
         sirius_Character_Card = ImageIO.read(new File("character cards/sirius character card.png"));
-        back_Of_CC = ImageIO.read(new File("character cards/Hero Card Back Side.png"));
+        back_Of_CC = ImageIO.read(new File("character cards/Hero Card Back Side.png"));//token images
 
         difficulty_Levels = ImageIO.read(new File("difficulty cards/difficulty levels.png"));
         df_Beginner = ImageIO.read(new File("difficulty cards/beginner difficulty card.png"));
@@ -207,7 +204,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         scenario_1 = ImageIO.read(new File("difficulty cards/scenario 1.png"));
         scenario_2 = ImageIO.read(new File("difficulty cards/scenario 2.png"));
         scenario_3 = ImageIO.read(new File("difficulty cards/scenario 3.png"));
-        scenario_4 = ImageIO.read(new File("difficulty cards/scenario 4.png"));
+        scenario_4 = ImageIO.read(new File("difficulty cards/scenario 4.png"));//difficulty and secnario images
 
         ct_AcidJets = ImageIO.read(new File("Game images/Chamber Tiles/Acid jets.png"));
         ct_ArrowTrap = ImageIO.read(new File("Game images/Chamber Tiles/Arrow Trap.png"));
@@ -238,7 +235,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         ct_VoraciousPlant = ImageIO.read(new File("Game images/Chamber Tiles/Voracious Plant.png"));
         ct_VoraxsFocus = ImageIO.read(new File("Game images/Chamber Tiles/Vorax_s Focus.png"));
         ct_VoraxsHeart = ImageIO.read(new File("Game images/Chamber Tiles/Vorax_s Heart.png"));
-        ct_VoraxsKnowledge = ImageIO.read(new File("Game images/Chamber Tiles/Vorax_s Knowledge.png"));
+        ct_VoraxsKnowledge = ImageIO.read(new File("Game images/Chamber Tiles/Vorax_s Knowledge.png"));//chamber tiles
 
         back_Of_RDC = ImageIO.read(new File("Game images/Ritual Deck Cards/Back of card.png"));
         rdc_AcidJets = ImageIO.read(new File("Game images/Ritual Deck Cards/Acid jets_card.png"));
@@ -293,13 +290,26 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         purpleVorax_Token = ImageIO.read(new File("token pieces/voraxes/purple vorax.png"));
         greenVorax_Token = ImageIO.read(new File("token pieces/voraxes/green vorax.png"));
 
-        /*btn_Host.setBounds(500,500,50,50);
+        btn_Host.setBounds(500,500,50,50);
         add(btn_Host);
         btn_Join.setBounds(400,400,50,50);
         add(btn_Join);
         btn_RB.setBounds(10,10,25,25);
-        add(btn_RB);*/
+        add(btn_RB);
 
+
+
+    }
+
+    public void removeEverythingFromScreen(){
+        btn_Host.setVisible(false);
+        btn_Join.setVisible(false);
+        btn_RB.setVisible(false);
+        btn_gameRuleAddedCheckBox.setVisible(false);
+        btn_numOfPlayersDecrease.setVisible(false);
+        btn_numOfPlayersIncrease.setVisible(false);
+        text_numOfPlayersBox.setVisible(false);
+        text_numOfPlayersLabel.setVisible(false);
     }
     public void reset(){
         System.out.println("reset");
@@ -342,6 +352,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void run() {
 
     }
+
     public void host(){
 
     }

@@ -4,7 +4,7 @@ public class CommandFromServer implements Serializable {
     private int command;
     private String data="";
     private GameData gameData;
-    public static final int USERNAME_VALID = 1;
+    public static final int LOBBY_CODE_ATTEMPT = 1;
     public static final int LOBBY_CODE_VALID = 2;
     public static final int JOINING_HOST_GAME = 3;
     public static final int CHARACTER_SELECTED = 4;
