@@ -6,8 +6,9 @@ public class ClientsListener implements Runnable,Serializable{
     private ObjectInputStream is;
     private ObjectOutputStream os;
     private FOEFrame frame = null;
+    private String username;
 
-    public ClientsListener(ObjectInputStream is, ObjectOutputStream os, FOEFrame frame){
+    public ClientsListener(ObjectInputStream is, ObjectOutputStream os, FOEFrame frame, String username){
         this.is = is;
         this.os = os;
         this.frame = frame;

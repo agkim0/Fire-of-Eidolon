@@ -16,7 +16,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private String username;
     private Hero you;
     private static GameData gameData = new GameData();
-    ObjectInputStream os;
+    ObjectOutputStream os;
+
     private BufferedImage logo = null;
 
     private BufferedImage aelfric_Token = null;
@@ -153,7 +154,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private JButton btn_numOfPlayersIncrease = new JButton(">");
     private JButton btn_gameRuleAddedCheckBox = new JButton("");
 
-    public FOEFrame(/*GameDate gameDate,*/ ObjectInputStream os) throws IOException {
+    public FOEFrame(GameData gameData, ObjectOutputStream os, String username) throws IOException {
         super("FOE Game");
         //this.gameDate = gameDate;
         this.os = os;
@@ -292,12 +293,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         purpleVorax_Token = ImageIO.read(new File("token pieces/voraxes/purple vorax.png"));
         greenVorax_Token = ImageIO.read(new File("token pieces/voraxes/green vorax.png"));
 
-        btn_Host.setBounds(500,500,50,50);
+        /*btn_Host.setBounds(500,500,50,50);
         add(btn_Host);
         btn_Join.setBounds(400,400,50,50);
         add(btn_Join);
         btn_RB.setBounds(10,10,25,25);
-        add(btn_RB);
+        add(btn_RB);*/
 
     }
     public void reset(){
@@ -341,7 +342,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void run() {
 
     }
-
     public void host(){
 
     }
