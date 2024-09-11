@@ -250,23 +250,23 @@ public class GameData implements Serializable {
         this.msgs = msgs;
     }
 
-    public Tile getThisTile(String tt){
-        //loop though all tiles find which one matches
-    }
-    public Hero getThisHero(String nh){
-
-    }
-    public void restart(){}
-    public void nextTurn(){}
-    public boolean checkLoss(){
-
-    }
-    public boolean checkWin(){
-
-    }
-    public int cardDrawAmount(){
-
-    }
+//    public Tile getThisTile(String tt){
+//        //loop though all tiles find which one matches
+//    }
+//    public Hero getThisHero(String nh){
+//
+//    }
+//    public void restart(){}
+//    public void nextTurn(){}
+//    public boolean checkLoss(){
+//
+//    }
+//    public boolean checkWin(){
+//
+//    }
+//    public int cardDrawAmount(){
+//
+//    }
 
     public ArrayList<Hero> getHeroesPlaying(){
         return this.heroesPlaying;
