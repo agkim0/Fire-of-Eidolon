@@ -143,6 +143,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private BufferedImage purpleVorax_Token = null;
     private BufferedImage redVorax_Token = null;
 
+    private JButton btn_rulebookLEFT = new JButton("<");
+    private JButton btn_rulebookRIGHT = new JButton(">");
+    private JButton btn_rbBack = new JButton("<-");
+    private JTextField tf_pgnl = new JTextField();
+    private JTextField tf_pgnr = new JTextField();
     private JButton btn_Host = new JButton("Host");
     private JButton btn_Join = new JButton("Join");
     private JButton btn_RB = new JButton("");
@@ -289,15 +294,28 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         redVorax_Token = ImageIO.read(new File("token pieces/voraxes/red vorax.png"));
         purpleVorax_Token = ImageIO.read(new File("token pieces/voraxes/purple vorax.png"));
         greenVorax_Token = ImageIO.read(new File("token pieces/voraxes/green vorax.png"));
-
+        btn_rulebookLEFT.setBounds(100,500,75,75);
+        add(btn_rulebookLEFT);
+        btn_rulebookLEFT.setVisible(false);
+        btn_rulebookLEFT.setEnabled(false);
+        btn_rulebookRIGHT.setBounds(900,500,75,75);
+        add(btn_rulebookRIGHT);
+        btn_rulebookRIGHT.setVisible(false);
+        btn_rulebookRIGHT.setEnabled(false);
+        btn_rbBack.setBounds(50,50,75,75);
+        add(btn_rbBack);
         btn_Host.setBounds(500,500,50,50);
         add(btn_Host);
         btn_Join.setBounds(400,400,50,50);
         add(btn_Join);
         btn_RB.setBounds(10,10,25,25);
         add(btn_RB);
-
-
+        /*tf_pgnl.setBounds();
+        btn_rulebookLEFT.addActionListener(e->{
+            System.out.print("rb left");
+            int lpn = 0;
+            if()
+        });*/
 
     }
 
@@ -310,6 +328,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_numOfPlayersIncrease.setVisible(false);
         text_numOfPlayersBox.setVisible(false);
         text_numOfPlayersLabel.setVisible(false);
+        btn_rulebookLEFT.setVisible(false);
+        btn_rulebookLEFT.setVisible(false);
+        btn_rbBack.setVisible(false);
     }
     public void reset(){
         System.out.println("reset");
@@ -319,6 +340,81 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void paint(Graphics g){
 
     }
+    public void drawRuleBook(Graphics g){
+        removeEverythingFromScreen();
+        btn_rbBack.setVisible(true);
+        btn_rbBack.setEnabled(true);
+        btn_rulebookLEFT.setVisible(true);
+        btn_rulebookLEFT.setEnabled(false);
+        btn_rulebookLEFT.setVisible(true);
+        btn_rulebookLEFT.setEnabled(true);
+        g.drawImage(rb_1,150,50,null);
+        g.drawImage(rb_2,500,50,null);
+    }
+    public void flipRB(Graphics g, int lpn, String dir){
+        if(lpn == 1 && dir.equals("right")){
+            btn_rbBack.setVisible(true);
+            btn_rbBack.setEnabled(true);
+            g.drawImage(rb_3,150,50,null);
+            g.drawImage(rb_4,500,50,null);
+            btn_rulebookLEFT.setEnabled(true);
+            btn_rulebookRIGHT.setEnabled(true);
+        }
+        else if(lpn == 3 && dir.equals("right")){
+            btn_rbBack.setVisible(true);
+            btn_rbBack.setEnabled(true);
+            g.drawImage(rb_5,150,50,null);
+            g.drawImage(rb_6,500,50,null);
+            btn_rulebookLEFT.setEnabled(true);
+            btn_rulebookRIGHT.setEnabled(true);
+        }
+        else if(lpn == 3 && dir.equals("left")){
+            btn_rbBack.setVisible(true);
+            btn_rbBack.setEnabled(true);
+            g.drawImage(rb_1,150,50,null);
+            g.drawImage(rb_2,500,50,null);
+            btn_rulebookLEFT.setEnabled(false);
+            btn_rulebookRIGHT.setEnabled(true);
+        }
+        else if(lpn == 5 && dir.equals("right")){
+            btn_rbBack.setVisible(true);
+            btn_rbBack.setEnabled(true);
+            g.drawImage(rb_7,150,50,null);
+            g.drawImage(rb_8,500,50,null);
+            btn_rulebookLEFT.setEnabled(true);
+            btn_rulebookRIGHT.setEnabled(true);
+        }
+        else if(lpn == 5 && dir.equals("left")){
+            btn_rbBack.setVisible(true);
+            btn_rbBack.setEnabled(true);
+            g.drawImage(rb_3,150,50,null);
+            g.drawImage(rb_4,500,50,null);
+            btn_rulebookLEFT.setEnabled(true);
+            btn_rulebookRIGHT.setEnabled(true);
+        }
+        else if(lpn == 7 && dir.equals("right")){
+            g.drawImage(rb_9,150,50,null);
+            btn_rulebookLEFT.setEnabled(true);
+            btn_rulebookRIGHT.setEnabled(false);
+        }
+        else if(lpn == 7 && dir.equals("left")){
+            btn_rbBack.setVisible(true);
+            btn_rbBack.setEnabled(true);
+            g.drawImage(rb_5,150,50,null);
+            g.drawImage(rb_6,500,50,null);
+            btn_rulebookLEFT.setEnabled(true);
+            btn_rulebookRIGHT.setEnabled(true);
+        }
+        else if(lpn == 9 && dir.equals("right")){
+            btn_rbBack.setVisible(true);
+            btn_rbBack.setEnabled(true);
+            g.drawImage(rb_7,150,50,null);
+            g.drawImage(rb_8,500,50,null);
+            btn_rulebookLEFT.setEnabled(true);
+            btn_rulebookRIGHT.setEnabled(true);
+        }
+    }
+
     public void move(){}
     public void explore(){}
     public void attack(){}
