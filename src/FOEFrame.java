@@ -5,7 +5,11 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Collection;
+import javax.swing.*;
+import java.util.ArrayList;
 
 public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener, Runnable{
     private String text = "";
@@ -19,9 +23,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private BufferedImage aelfric_Special_Token = null;
     private BufferedImage aelfric_Character_Card = null;
     private BufferedImage cecelia_Token = null;
-    private BufferedImage cecilia_Action_Token = null;
-    private BufferedImage cecilia_Special_Token = null;
-    private BufferedImage cecilia_Character_Card = null;
+    private BufferedImage cecelia_Action_Token = null;
+    private BufferedImage cecelia_Special_Token = null;
+    private BufferedImage cecelia_Character_Card = null;
     private BufferedImage daga_Token = null;
     private BufferedImage daga_Action_Token = null;
     private BufferedImage daga_Special_Token = null;
@@ -139,17 +143,19 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private BufferedImage purpleVorax_Token = null;
     private BufferedImage redVorax_Token = null;
 
+    private JButton btn_rulebookLEFT = new JButton("<");
+    private JButton btn_rulebookRIGHT = new JButton(">");
+    private JButton btn_rbBack = new JButton("<-");
+    private JTextField tf_pgnl = new JTextField();
+    private JTextField tf_pgnr = new JTextField();
     private JButton btn_Host = new JButton("Host");
     private JButton btn_Join = new JButton("Join");
     private JButton btn_RB = new JButton("");
-    private JTextField txtbox_username = new JTextField("");
-    private JLabel lbl_username = new JLabel("Username: ");
-    private JLabel numOfPlayersBox = new JLabel("1");
-    private JLabel lbl_numOfPlayersLabel = new JLabel("Number of Players");
+    private JTextArea text_numOfPlayersBox = new JTextArea("1");
+    private JTextArea text_numOfPlayersLabel = new JTextArea("Number of Players");
     private JButton btn_numOfPlayersDecrease = new JButton("<");
     private JButton btn_numOfPlayersIncrease = new JButton(">");
     private JButton btn_gameRuleAddedCheckBox = new JButton("");
-
 
     public FOEFrame(GameData gameData, ObjectOutputStream os,String username) throws IOException{
         super("FOE Game");
@@ -169,13 +175,13 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         aelfric_Special_Token = ImageIO.read(new File("character cards/aelfric special.png"));
         aelfric_Character_Card = ImageIO.read(new File("character cards/aelfric character card.png"));
         cecelia_Token = ImageIO.read(new File("token pieces/character tokens/cecelia character token.png"));
-        cecilia_Action_Token = ImageIO.read(new File("character cards/cecilia action.png"));
-        cecilia_Special_Token = ImageIO.read(new File("character cards/cecilia special.png"));
-        cecilia_Character_Card = ImageIO.read(new File("character cards/cecilia character card.png"));
-        daga_Token = ImageIO.read(new File("token pieces/character tokens/dage character token.png"));
-        daga_Action_Token = ImageIO.read(new File("character cards/dage action.png"));
-        daga_Special_Token = ImageIO.read(new File("character cards/dage special.png"));
-        daga_Character_Card = ImageIO.read(new File("character cards/dage character card.png"));
+        cecelia_Action_Token = ImageIO.read(new File("character cards/cecelia action.png"));
+        cecelia_Special_Token = ImageIO.read(new File("character cards/cecelia special.png"));
+        cecelia_Character_Card = ImageIO.read(new File("character cards/cecelia character card.png"));
+        daga_Token = ImageIO.read(new File("token pieces/character tokens/daga character token.png"));
+        daga_Action_Token = ImageIO.read(new File("character cards/daga action.png"));
+        daga_Special_Token = ImageIO.read(new File("character cards/daga special.png"));
+        daga_Character_Card = ImageIO.read(new File("character cards/daga character card.png"));
         kalistos_Token = ImageIO.read(new File("token pieces/character tokens/kalistos character token.png"));
         kalistos_Action_Token = ImageIO.read(new File("character cards/kalistos action.png"));
         kalistos_Special_Token = ImageIO.read(new File("character cards/kalistos special.png"));
@@ -194,12 +200,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         df_Beginner = ImageIO.read(new File("difficulty cards/beginner difficulty card.png"));
         df_Normal = ImageIO.read(new File("difficulty cards/normal difficulty card.png"));
         df_Extreme = ImageIO.read(new File("difficulty cards/extreme.png"));
-        df_Glitch = ImageIO.read(new File("difficulty cards/glitch"));
-        df_Hard = ImageIO.read(new File("difficulty cards/hard"));
-        df_Heroic = ImageIO.read(new File("difficulty cards/heroic"));
-        df_Legendary = ImageIO.read(new File("difficulty cards/legendary"));
-        df_Nightmare = ImageIO.read(new File("difficulty cards/nightmare"));
-        df_VeryHard = ImageIO.read(new File("difficulty cards/very hard"));
+        df_Glitch = ImageIO.read(new File("difficulty cards/glitch.png"));
+        df_Hard = ImageIO.read(new File("difficulty cards/hard.png"));
+        df_Heroic = ImageIO.read(new File("difficulty cards/heroic.png"));
+        df_Legendary = ImageIO.read(new File("difficulty cards/legendary.png"));
+        df_Nightmare = ImageIO.read(new File("difficulty cards/nightmare.png"));
+        df_VeryHard = ImageIO.read(new File("difficulty cards/very hard.png"));
         scenario_1 = ImageIO.read(new File("difficulty cards/scenario 1.png"));
         scenario_2 = ImageIO.read(new File("difficulty cards/scenario 2.png"));
         scenario_3 = ImageIO.read(new File("difficulty cards/scenario 3.png"));
@@ -216,7 +222,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         ct_FloatingStones = ImageIO.read(new File("Game images/Chamber Tiles/Floating Stones.png"));
         ct_HallofIlusions = ImageIO.read(new File("Game images/Chamber Tiles/Hall of Ilusions.png"));
         ct_LaughingShadow = ImageIO.read(new File("Game images/Chamber Tiles/Laughing Shadow.png"));
-        ct_LavaLake = ImageIO.read(new File("Game images/Chamber Tiles/Laval Lake.png"));
+        ct_LavaLake = ImageIO.read(new File("Game images/Chamber Tiles/Lava Lake.png"));
         ct_MimicChest = ImageIO.read(new File("Game images/Chamber Tiles/Mimic Chest.png"));
         ct_Mindreader = ImageIO.read(new File("Game images/Chamber Tiles/Mindreader.png"));
         ct_Minotaur = ImageIO.read(new File("Game images/Chamber Tiles/Minotaur.png"));
@@ -225,7 +231,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         ct_PengulumBlades = ImageIO.read(new File("Game images/Chamber Tiles/Pengulum Blades.png"));
         ct_Portal = ImageIO.read(new File("Game images/Chamber Tiles/Portal.png"));
         ct_Psycomancer = ImageIO.read(new File("Game images/Chamber Tiles/Psychomancer.png"));
-        ct_SPX = ImageIO.read(new File("Game images/Chamber Tiles/Secret Passage X.png.png"));
+        ct_SPX = ImageIO.read(new File("Game images/Chamber Tiles/Secret Passage X.png"));
         ct_SPY = ImageIO.read(new File("Game images/Chamber Tiles/Secret Passage Y.png"));
         ct_SkeletonGuards = ImageIO.read(new File("Game images/Chamber Tiles/Skeleton Guards.png"));
         ct_SphynxsRiddle = ImageIO.read(new File("Game images/Chamber Tiles/Sphynx_s Riddle.png"));
@@ -246,11 +252,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         rdc_FloatingStones = ImageIO.read(new File("Game images/Ritual Deck Cards/Floating Stones_card.png"));
         rdc_HallofIlusions = ImageIO.read(new File("Game images/Ritual Deck Cards/Hall of Ilusions_card.png"));
         rdc_LaughingShadow = ImageIO.read(new File("Game images/Ritual Deck Cards/Laughing Shadow_card.png"));
-        rdc_LavaLake = ImageIO.read(new File("Game images/Ritual Deck Cards/Laval Lake_card.png"));
+        rdc_LavaLake = ImageIO.read(new File("Game images/Ritual Deck Cards/Lava Lake_card.png"));
         rdc_MimicChest = ImageIO.read(new File("Game images/Ritual Deck Cards/Mimic Chest_card.png"));
         rdc_Mindreader = ImageIO.read(new File("Game images/Ritual Deck Cards/Mindreader_card.png"));
         rdc_Minotaur = ImageIO.read(new File("Game images/Ritual Deck Cards/Minotaur_card.png"));
-        rdc_OgerBrute = ImageIO.read(new File("Game images/Chamber Tiles/Oger Brute_card.png"));
+        rdc_OgerBrute = ImageIO.read(new File("Game images/Ritual Deck Cards/Oger Brute_card.png"));
         rdc_ParodoxPuzzle = ImageIO.read(new File("Game images/Ritual Deck Cards/Paradox puzzle_card.png"));
         rdc_PengulumBlades = ImageIO.read(new File("Game images/Ritual Deck Cards/Pengulum Blades_card.png"));
         rdc_Psycomancer = ImageIO.read(new File("Game images/Ritual Deck Cards/Psychomancer_card.png"));
@@ -288,15 +294,28 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         redVorax_Token = ImageIO.read(new File("token pieces/voraxes/red vorax.png"));
         purpleVorax_Token = ImageIO.read(new File("token pieces/voraxes/purple vorax.png"));
         greenVorax_Token = ImageIO.read(new File("token pieces/voraxes/green vorax.png"));
-
+        btn_rulebookLEFT.setBounds(100,500,75,75);
+        add(btn_rulebookLEFT);
+        btn_rulebookLEFT.setVisible(false);
+        btn_rulebookLEFT.setEnabled(false);
+        btn_rulebookRIGHT.setBounds(900,500,75,75);
+        add(btn_rulebookRIGHT);
+        btn_rulebookRIGHT.setVisible(false);
+        btn_rulebookRIGHT.setEnabled(false);
+        btn_rbBack.setBounds(50,50,75,75);
+        add(btn_rbBack);
         btn_Host.setBounds(500,500,50,50);
         add(btn_Host);
         btn_Join.setBounds(400,400,50,50);
         add(btn_Join);
         btn_RB.setBounds(10,10,25,25);
         add(btn_RB);
-
-
+        /*tf_pgnl.setBounds();
+        btn_rulebookLEFT.addActionListener(e->{
+            System.out.print("rb left");
+            int lpn = 0;
+            if()
+        });*/
 
     }
 
@@ -307,8 +326,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_gameRuleAddedCheckBox.setVisible(false);
         btn_numOfPlayersDecrease.setVisible(false);
         btn_numOfPlayersIncrease.setVisible(false);
-        numOfPlayersBox.setVisible(false);
-        lbl_numOfPlayersLabel.setVisible(false);
+        text_numOfPlayersBox.setVisible(false);
+        text_numOfPlayersLabel.setVisible(false);
+        btn_rulebookLEFT.setVisible(false);
+        btn_rulebookLEFT.setVisible(false);
+        btn_rbBack.setVisible(false);
     }
     public void reset(){
         System.out.println("reset");
@@ -318,6 +340,81 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void paint(Graphics g){
 
     }
+    public void drawRuleBook(Graphics g){
+        removeEverythingFromScreen();
+        btn_rbBack.setVisible(true);
+        btn_rbBack.setEnabled(true);
+        btn_rulebookLEFT.setVisible(true);
+        btn_rulebookLEFT.setEnabled(false);
+        btn_rulebookLEFT.setVisible(true);
+        btn_rulebookLEFT.setEnabled(true);
+        g.drawImage(rb_1,150,50,null);
+        g.drawImage(rb_2,500,50,null);
+    }
+    public void flipRB(Graphics g, int lpn, String dir){
+        if(lpn == 1 && dir.equals("right")){
+            btn_rbBack.setVisible(true);
+            btn_rbBack.setEnabled(true);
+            g.drawImage(rb_3,150,50,null);
+            g.drawImage(rb_4,500,50,null);
+            btn_rulebookLEFT.setEnabled(true);
+            btn_rulebookRIGHT.setEnabled(true);
+        }
+        else if(lpn == 3 && dir.equals("right")){
+            btn_rbBack.setVisible(true);
+            btn_rbBack.setEnabled(true);
+            g.drawImage(rb_5,150,50,null);
+            g.drawImage(rb_6,500,50,null);
+            btn_rulebookLEFT.setEnabled(true);
+            btn_rulebookRIGHT.setEnabled(true);
+        }
+        else if(lpn == 3 && dir.equals("left")){
+            btn_rbBack.setVisible(true);
+            btn_rbBack.setEnabled(true);
+            g.drawImage(rb_1,150,50,null);
+            g.drawImage(rb_2,500,50,null);
+            btn_rulebookLEFT.setEnabled(false);
+            btn_rulebookRIGHT.setEnabled(true);
+        }
+        else if(lpn == 5 && dir.equals("right")){
+            btn_rbBack.setVisible(true);
+            btn_rbBack.setEnabled(true);
+            g.drawImage(rb_7,150,50,null);
+            g.drawImage(rb_8,500,50,null);
+            btn_rulebookLEFT.setEnabled(true);
+            btn_rulebookRIGHT.setEnabled(true);
+        }
+        else if(lpn == 5 && dir.equals("left")){
+            btn_rbBack.setVisible(true);
+            btn_rbBack.setEnabled(true);
+            g.drawImage(rb_3,150,50,null);
+            g.drawImage(rb_4,500,50,null);
+            btn_rulebookLEFT.setEnabled(true);
+            btn_rulebookRIGHT.setEnabled(true);
+        }
+        else if(lpn == 7 && dir.equals("right")){
+            g.drawImage(rb_9,150,50,null);
+            btn_rulebookLEFT.setEnabled(true);
+            btn_rulebookRIGHT.setEnabled(false);
+        }
+        else if(lpn == 7 && dir.equals("left")){
+            btn_rbBack.setVisible(true);
+            btn_rbBack.setEnabled(true);
+            g.drawImage(rb_5,150,50,null);
+            g.drawImage(rb_6,500,50,null);
+            btn_rulebookLEFT.setEnabled(true);
+            btn_rulebookRIGHT.setEnabled(true);
+        }
+        else if(lpn == 9 && dir.equals("right")){
+            btn_rbBack.setVisible(true);
+            btn_rbBack.setEnabled(true);
+            g.drawImage(rb_7,150,50,null);
+            g.drawImage(rb_8,500,50,null);
+            btn_rulebookLEFT.setEnabled(true);
+            btn_rulebookRIGHT.setEnabled(true);
+        }
+    }
+
     public void move(){}
     public void explore(){}
     public void attack(){}
