@@ -5,11 +5,7 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.Collection;
-import javax.swing.*;
-import java.util.ArrayList;
 
 public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener, Runnable{
     private String text = "";
@@ -146,11 +142,14 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private JButton btn_Host = new JButton("Host");
     private JButton btn_Join = new JButton("Join");
     private JButton btn_RB = new JButton("");
-    private JTextArea text_numOfPlayersBox = new JTextArea("1");
-    private JTextArea text_numOfPlayersLabel = new JTextArea("Number of Players");
+    private JTextField txtbox_username = new JTextField("");
+    private JLabel lbl_username = new JLabel("Username: ");
+    private JLabel numOfPlayersBox = new JLabel("1");
+    private JLabel lbl_numOfPlayersLabel = new JLabel("Number of Players");
     private JButton btn_numOfPlayersDecrease = new JButton("<");
     private JButton btn_numOfPlayersIncrease = new JButton(">");
     private JButton btn_gameRuleAddedCheckBox = new JButton("");
+
 
     public FOEFrame(GameData gameData, ObjectOutputStream os,String username) throws IOException{
         super("FOE Game");
@@ -308,8 +307,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_gameRuleAddedCheckBox.setVisible(false);
         btn_numOfPlayersDecrease.setVisible(false);
         btn_numOfPlayersIncrease.setVisible(false);
-        text_numOfPlayersBox.setVisible(false);
-        text_numOfPlayersLabel.setVisible(false);
+        numOfPlayersBox.setVisible(false);
+        lbl_numOfPlayersLabel.setVisible(false);
     }
     public void reset(){
         System.out.println("reset");
