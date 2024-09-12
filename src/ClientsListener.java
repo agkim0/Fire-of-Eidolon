@@ -24,4 +24,14 @@ public class ClientsListener implements Runnable,Serializable{
             }
         }
     }
+
+    public void sendCommand(int com, String data, GameData gameData){
+        CommandFromClient cfc = new CommandFromClient(com,data);
+            try{
+                os.writeObject(cfc);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+    }
 }
