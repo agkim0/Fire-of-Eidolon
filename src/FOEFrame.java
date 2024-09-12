@@ -433,7 +433,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         }
     }
     public void drawRuleBook(){
-        currentPage = 1;
+        currentPage = RB;
         removeEverythingFromScreen();
         btn_rbBack.setVisible(true);
         btn_rbBack.setEnabled(true);
