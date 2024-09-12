@@ -18,6 +18,7 @@ public class GameData implements Serializable {
     private boolean invasionOfTheShadowCult;
     private boolean shadesOfVorax;
     private ArrayList<String> msgs;
+    private ArrayList<String> usernames;
 
     public GameData(){
 
@@ -278,5 +279,9 @@ public class GameData implements Serializable {
 
     public void addHeroesPlaying(Hero hero){
         heroesPlaying.add(hero);
+    }
+
+    public ArrayList<String> getUsernames() {
+        return usernames;
     }
 }
