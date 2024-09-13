@@ -1,5 +1,6 @@
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class GameData implements Serializable {
     private Tile[][] grid = new Tile[61][61];
@@ -22,7 +23,15 @@ public class GameData implements Serializable {
     private String lobbyCode;
 
     public GameData(){
-
+        Random rand = new Random();
+        for(int x=0;x<3;x++){
+            char c = (char)(rand.nextInt(26)+'A');
+            lobbyCode+=(c+"");
+        }
+        lobbyCode+="-";
+        for(int x = 0;x<3;x++){
+            lobbyCode+=((rand.nextInt(9))+"");
+        }
     }
 
     public void createAllTilesAndCards(){
@@ -295,5 +304,17 @@ public class GameData implements Serializable {
 
     public ArrayList<String> getUsernames() {
         return usernames;
+    }
+
+    public void setUsernames(ArrayList<String> usernames) {
+        this.usernames = usernames;
+    }
+
+    public String getLobbyCode() {
+        return lobbyCode;
+    }
+
+    public void setLobbyCode(String lobbyCode) {
+        this.lobbyCode = lobbyCode;
     }
 }

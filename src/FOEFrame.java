@@ -18,7 +18,10 @@ import static java.lang.Integer.parseInt;
 public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener, Runnable{
     private String text = "";
     private Hero you;
-    private static GameData gameData = new GameData();
+    String username;
+    private GameData gameData = new GameData();
+    private boolean usernameValid;
+    private boolean lobbycodevalid;
     ObjectOutputStream os;
     private BufferedImage logo = null;
 
@@ -548,7 +551,14 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void wait_A(){}
     public void skill(){}
     public void message(){}
-    public void sendCommand(){}
+    public void sendCommand(int com, String data, GameData gameData){
+        CommandFromClient cfc = new CommandFromClient(com,data,gameData);
+        try{
+            os.writeObject(cfc);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -576,6 +586,62 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
 
     public void host(){
+        //set up screen
 
+
+    }
+
+    public void finishHost(){
+        sendCommand(CommandFromClient.HOSTING,username,gameData);
+        if(!usernameValid){
+            //give message and dont progress screen
+        }
+        else{
+
+        }
+    }
+
+    public void join(){
+
+    }
+    public void enterGame(){
+        sendCommand(CommandFromClient.LOBBY_CODE_ATTEMPT,"Room code,Username",gameData);
+        if(!lobbycodevalid){
+            //make txtbox say its invalid
+        }
+        else if(!usernameValid){
+            //txt says username is taken or smth
+        }
+        else{
+            //go into the characters screen
+        }
+    }
+
+    public boolean getUsernameValid(){
+        return usernameValid;
+    }
+
+    public void setUsernameValid(boolean usernameValid){
+        this.usernameValid = usernameValid;
+    }
+
+    public GameData getGameData() {
+        return gameData;
+    }
+
+    public void setGameData(GameData gameData) {
+        this.gameData = gameData;
+    }
+
+    public boolean isUsernameValid() {
+        return usernameValid;
+    }
+
+    public boolean isLobbycodevalid() {
+        return lobbycodevalid;
+    }
+
+    public void setLobbycodevalid(boolean lobbycodevalid) {
+        this.lobbycodevalid = lobbycodevalid;
     }
 }

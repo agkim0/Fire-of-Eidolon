@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class ServersListener implements Runnable, Serializable {
     private ObjectInputStream is;
     private ObjectOutputStream os;
-    private static GameData gameData = new GameData();
+    private static ArrayList<GameData> gameDatas = new ArrayList<GameData>();
     private static ArrayList<ObjectOutputStream> outs = new ArrayList<>();
     public ServersListener (ObjectInputStream is, ObjectOutputStream os){
         this.is = is;
@@ -19,12 +19,35 @@ public class ServersListener implements Runnable, Serializable {
                 CommandFromClient cfc = (CommandFromClient) is.readObject();
 
                 if(cfc.getCommand()==CommandFromClient.HOSTING){
-                    if(gameData.getUsernames().contains(cfc.getData())){
+                    if(cfc.getGameData().getUsernames().contains(cfc.getData())){
                         sendCommand(CommandFromServer.USERNAME_INVALID,null,null);
                     }
                     else{
                         sendCommand(CommandFromServer.USERNAME_VAlID,null,null);
-                        gameData.getUsernames().add(cfc.getData());
+                        cfc.getGameData().getUsernames().add(cfc.getData());
+                        gameDatas.add(cfc.getGameData());
+                    }
+                }
+                else if(cfc.getCommand()==CommandFromClient.LOBBY_CODE_ATTEMPT){
+                    String[] x = cfc.getData().split(",",1);
+                    String attemptCode = x[0];
+                    String usernameAttempt = x[1];
+                    boolean lobbycodefound = false;
+                    for(GameData gd:gameDatas){
+                        if(gd.getLobbyCode().equals(attemptCode)){
+                            lobbycodefound=true;
+                            if(gd.getUsernames().contains(usernameAttempt)){
+                                sendCommand(CommandFromServer.USERNAME_INVALID,null,null);
+                                break;
+                            }
+                            else{
+                                gd.getUsernames().add(usernameAttempt);
+                                sendCommand(CommandFromServer.LOBBY_CODE_VALID,usernameAttempt,gd);
+                            }
+                        }
+                    }
+                    if(!lobbycodefound){
+                        sendCommand(CommandFromServer.LOBBY_CODE_INVALID,null,null);
                     }
                 }
             }catch(Exception e){

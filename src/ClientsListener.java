@@ -19,6 +19,19 @@ public class ClientsListener implements Runnable,Serializable{
         while(true){
             try{
                 CommandFromServer cfs = (CommandFromServer) is.readObject();
+                if(cfs.getCommand()==CommandFromServer.USERNAME_INVALID){
+                    frame.setUsernameValid(false);
+                }
+                if(cfs.getCommand()==CommandFromServer.USERNAME_VAlID){
+                    frame.setUsernameValid(true);
+                    frame.setGameData(cfs.getGameData());
+                }
+                if(cfs.getCommand()==CommandFromServer.LOBBY_CODE_INVALID){
+                    frame.setLobbycodevalid(false);
+                }
+                if(cfs.getCommand()==CommandFromServer.LOBBY_CODE_VALID){
+                    frame.setGameData(cfs.getGameData());
+                }
             } catch (Exception e){
                 e.printStackTrace();
             }
@@ -26,7 +39,7 @@ public class ClientsListener implements Runnable,Serializable{
     }
 
     public void sendCommand(int com, String data, GameData gameData){
-        CommandFromClient cfc = new CommandFromClient(com,data);
+        CommandFromClient cfc = new CommandFromClient(com,data,gameData);
             try{
                 os.writeObject(cfc);
             }catch (Exception e){
