@@ -372,6 +372,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             else if(before == 9){
                 //nope
             }
+            else{
+                //didnt set before at some point
+            }
         });
         btn_rulebookLEFT.addActionListener(e->{
             System.out.print("rb left");

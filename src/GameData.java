@@ -259,7 +259,18 @@ public class GameData implements Serializable {
 //
 //    }
 //    public void restart(){}
-//    public void nextTurn(){}
+    public void nextTurn(){
+        for(int x=0 ;x<6; x++){
+            if(allHeroes.get(x) == turn){
+                if(x==5){
+                    turn = allHeroes.get(0);
+                }
+                else{
+                    turn = allHeroes.get(x+1);
+                }
+            }
+        }
+    }
 //    public boolean checkLoss(){
 //
 //    }
