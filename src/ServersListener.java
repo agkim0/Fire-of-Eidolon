@@ -36,6 +36,10 @@ public class ServersListener implements Runnable, Serializable {
                     for(GameData gd:gameDatas){
                         if(gd.getLobbyCode().equals(attemptCode)){
                             lobbycodefound=true;
+                            if(gd.getUsernames().size() == gd.getNumOfPlayers()){
+                                sendCommand(CommandFromServer.GAME_IS_FULL,null,null);
+                                break;
+                            }
                             if(gd.getUsernames().contains(usernameAttempt)){
                                 sendCommand(CommandFromServer.USERNAME_INVALID,null,null);
                                 break;

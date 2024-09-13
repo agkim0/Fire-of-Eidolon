@@ -14,6 +14,7 @@ public class CommandFromServer implements Serializable {
     public static final int ENDTURN = 8;
     public static final int USERNAME_VAlID = 9;
     public static final int USERNAME_INVALID = 10;
+    public static final int GAME_IS_FULL = 11;
 
 
 
