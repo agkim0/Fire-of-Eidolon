@@ -32,6 +32,9 @@ public class ClientsListener implements Runnable,Serializable{
                 if(cfs.getCommand()==CommandFromServer.LOBBY_CODE_VALID){
                     frame.setGameData(cfs.getGameData());
                 }
+                if(cfs.getCommand()==CommandFromServer.GAME_IS_FULL){
+                    frame.setGameFull(true);
+                }
             } catch (Exception e){
                 e.printStackTrace();
             }

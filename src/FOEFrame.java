@@ -22,6 +22,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private GameData gameData = new GameData();
     private boolean usernameValid;
     private boolean lobbycodevalid;
+    private boolean gameFull;
     ObjectOutputStream os;
     private BufferedImage logo = null;
 
@@ -609,6 +610,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         if(!lobbycodevalid){
             //make txtbox say its invalid
         }
+        else if(gameFull){
+            //make txt say game is full
+        }
         else if(!usernameValid){
             //txt says username is taken or smth
         }
@@ -643,5 +647,13 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
     public void setLobbycodevalid(boolean lobbycodevalid) {
         this.lobbycodevalid = lobbycodevalid;
+    }
+
+    public boolean isGameFull() {
+        return gameFull;
+    }
+
+    public void setGameFull(boolean gameFull) {
+        this.gameFull = gameFull;
     }
 }

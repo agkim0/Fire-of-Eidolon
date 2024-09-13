@@ -21,6 +21,7 @@ public class GameData implements Serializable {
     private ArrayList<String> msgs;
     private ArrayList<String> usernames;
     private String lobbyCode;
+    private int numOfPlayers;
 
     public GameData(){
         Random rand = new Random();
@@ -316,5 +317,13 @@ public class GameData implements Serializable {
 
     public void setLobbyCode(String lobbyCode) {
         this.lobbyCode = lobbyCode;
+    }
+
+    public int getNumOfPlayers() {
+        return numOfPlayers;
+    }
+
+    public void setNumOfPlayers(int numOfPlayers) {
+        this.numOfPlayers = numOfPlayers;
     }
 }
