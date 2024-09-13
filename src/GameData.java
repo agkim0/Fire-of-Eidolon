@@ -19,6 +19,7 @@ public class GameData implements Serializable {
     private boolean shadesOfVorax;
     private ArrayList<String> msgs;
     private ArrayList<String> usernames;
+    private String lobbyCode;
 
     public GameData(){
 
