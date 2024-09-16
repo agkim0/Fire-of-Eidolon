@@ -10,6 +10,9 @@ import java.text.AttributedCharacterIterator;
 
 
 public class FOEPanel extends JPanel{
+    private GameData gameData;
+    private boolean numOfPlayersLabel = false;
+    private boolean numOfPlayersBox = false;
     private BufferedImage logo = null;
 
     private BufferedImage aelfric_Token = null;
@@ -139,7 +142,7 @@ public class FOEPanel extends JPanel{
     BufferedImage bg;
     public FOEPanel() throws IOException{
         setSize(1500,1000);
-        bg =ImageIO.read(new File("images/eidolon bg.png"));
+        bg =ImageIO.read(new File("Game Images/eidolon bg.png"));
         do{
             aelfric_Token = ImageIO.read(new File("token pieces/character tokens/aelfric character token.png"));
             aelfric_Action_Token = ImageIO.read(new File("character cards/aelfric action.png"));
@@ -269,6 +272,10 @@ public class FOEPanel extends JPanel{
     }
     public void paint(Graphics g){
         g.drawImage(bg,0,0,1500,1000, null);
+        g.setColor(Color.white);
+        g.setFont(new Font("Sans Serif",Font.BOLD,20));
+        g.drawString("Number of Players", 40,100);
+
     }
 
 }
