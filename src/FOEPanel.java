@@ -144,6 +144,7 @@ public class FOEPanel extends JPanel{
         setSize(1500,1000);
         bg =ImageIO.read(new File("Game Images/eidolon bg.png"));
         do{
+            logo = ImageIO.read(new File("Game images/Fire of Eidolon Title.png"));
             aelfric_Token = ImageIO.read(new File("token pieces/character tokens/aelfric character token.png"));
             aelfric_Action_Token = ImageIO.read(new File("character cards/aelfric action.png"));
             aelfric_Special_Token = ImageIO.read(new File("character cards/aelfric special.png"));
