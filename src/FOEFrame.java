@@ -190,7 +190,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         addKeyListener(this);
         addWindowFocusListener(this);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(1000,1000);
+        setSize(1500,1000);
         setResizable(false);
         setAlwaysOnTop(true);
         setVisible(true);
@@ -330,12 +330,13 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_rulebookRIGHT.setEnabled(false);
         btn_rbBack.setBounds(50,50,75,75);
         add(btn_rbBack);
-        btn_Host.setBounds(500,500,50,50);
+        btn_Host.setBounds(900,400,300,75);
         add(btn_Host);
-        btn_Join.setBounds(400,400,50,50);
+        btn_Join.setBounds(900,500,300,75);
         add(btn_Join);
-        btn_RB.setBounds(10,10,25,25);
+        btn_RB.setBounds(10,10,100,100);
         add(btn_RB);
+        btn_Host.setVisible(true);
         tf_pgnl.setBounds(50,900,75,75);
         add(tf_pgnl);
         tf_pgnl.setBounds(900,900,75,75);
@@ -587,7 +588,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
 
     public void host(){
-        //set up screen
+        removeEverythingFromScreen();
+
 
 
     }
