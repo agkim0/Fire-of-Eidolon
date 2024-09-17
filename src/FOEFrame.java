@@ -43,8 +43,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private JButton btn_Host = new JButton("Host");
     private JButton btn_Join = new JButton("Join");
     private JButton btn_RB = new JButton("");
-    private JLabel text_numOfPlayersBox = new JLabel("1");
-    private JLabel text_numOfPlayersLabel = new JLabel("Number of Players",JLabel.CENTER);
+    private JLabel text_numOfPlayersBox = new JLabel("1",JLabel.CENTER);
     private JButton btn_numOfPlayersDecrease = new JButton("<");
     private JButton btn_numOfPlayersIncrease = new JButton(">");
     private JButton btn_gameRuleAddedCheckBox = new JButton("");
@@ -69,6 +68,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         setResizable(false);
         setAlwaysOnTop(true);
         setVisible(true);
+
         btn_rulebookLEFT.setBounds(100,500,75,75);
         add(btn_rulebookLEFT);
         btn_rulebookLEFT.setVisible(false);
@@ -83,10 +83,14 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         add(btn_Join);
         btn_RB.setBounds(10,10,100,100);
         add(btn_RB);
-        text_numOfPlayersLabel.setBounds(40,100,200,100);
-        add(text_numOfPlayersLabel);
+
         text_numOfPlayersBox.setBounds(90,200,100,100);
         add(text_numOfPlayersBox);
+        text_numOfPlayersBox.setFont(new Font("Sans Serif",Font.BOLD,20));
+        btn_numOfPlayersDecrease.setBounds(30,225,50,50);
+        add(btn_numOfPlayersDecrease);
+        btn_numOfPlayersIncrease.setBounds(200,225,50,50);
+        add(btn_numOfPlayersIncrease);
         tf_pgnl.setBounds(50,900,75,75);
         add(tf_pgnl);
         tf_pgnl.setBounds(900,900,75,75);
@@ -147,6 +151,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             int lpn = parseInt(temp);
             flipRB(lpn,"right");
         });
+        btn_numOfPlayersIncrease.addActionListener(e->{numOfPlayersIncrease();});
+        btn_numOfPlayersDecrease.addActionListener(e->{numOfPlayersDecrease();});
 
 
         removeEverythingFromScreen();
@@ -164,7 +170,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_numOfPlayersDecrease.setVisible(false);
         btn_numOfPlayersIncrease.setVisible(false);
         text_numOfPlayersBox.setVisible(false);
-        text_numOfPlayersLabel.setVisible(false);
         btn_rulebookLEFT.setVisible(false);
         btn_rulebookLEFT.setVisible(false);
         btn_rbBack.setVisible(false);
@@ -325,13 +330,28 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
     public void host(){
         removeEverythingFromScreen();
+        foePanel.setHostGameSetUpScreen(true);
+        foePanel.repaint();
         btn_RB.setVisible(true);
         text_numOfPlayersBox.setVisible(true);
         text_numOfPlayersBox.setOpaque(true);
+        btn_numOfPlayersIncrease.setVisible(true);
+        btn_numOfPlayersDecrease.setVisible(true);
 
 
 
 
+    }
+
+    public void numOfPlayersDecrease(){
+        if(!text_numOfPlayersBox.getText().equals("1")){
+            text_numOfPlayersBox.setText((Integer.parseInt(text_numOfPlayersBox.getText())-1)+"");
+        }
+    }
+    public void numOfPlayersIncrease(){
+        if(!text_numOfPlayersBox.getText().equals("6")){
+            text_numOfPlayersBox.setText((Integer.parseInt(text_numOfPlayersBox.getText())+1)+"");
+        }
     }
 
     public void finishHost(){

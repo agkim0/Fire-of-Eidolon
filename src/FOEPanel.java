@@ -11,9 +11,7 @@ import java.text.AttributedCharacterIterator;
 
 public class FOEPanel extends JPanel{
     private GameData gameData;
-    private boolean numOfPlayersLabel = false;
-    private boolean numOfPlayersBox = false;
-    private int numOfPlayers = 1;
+    private boolean hostGameSetUpScreen;//screen that the host enters in order to set game rules
     private BufferedImage logo = null;
 
     private BufferedImage aelfric_Token = null;
@@ -275,8 +273,12 @@ public class FOEPanel extends JPanel{
     public void paint(Graphics g){
         g.drawImage(bg,0,0,1500,1000, null);
         g.setColor(Color.white);
-        g.setFont(new Font("Sans Serif",Font.BOLD,20));
-//        g.drawString("Number of Players", 40,100);
+
+        if(hostGameSetUpScreen){
+            g.setFont(new Font("Sans Serif",Font.BOLD,20));
+            g.drawString("Number of Players", 50,200);
+        }
+
 //        g.drawRect(40,130,100,100);
 //        g.setFont(new Font("Sans Serif",Font.BOLD,50));
 //        g.setColor(Color.black);
@@ -284,4 +286,23 @@ public class FOEPanel extends JPanel{
 
     }
 
+    public void drawCenteredString(Graphics g,String text,int x, int y){
+        //https://stackoverflow.com/questions/27706197/how-can-i-center-graphics-drawstring-in-java
+    }
+
+    public GameData getGameData() {
+        return gameData;
+    }
+
+    public void setGameData(GameData gameData) {
+        this.gameData = gameData;
+    }
+
+    public boolean isHostGameSetUpScreen() {
+        return hostGameSetUpScreen;
+    }
+
+    public void setHostGameSetUpScreen(boolean hostGameSetUpScreen) {
+        this.hostGameSetUpScreen = hostGameSetUpScreen;
+    }
 }
