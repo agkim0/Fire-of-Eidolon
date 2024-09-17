@@ -328,7 +328,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_RB.setVisible(true);
         text_numOfPlayersBox.setVisible(true);
         text_numOfPlayersBox.setOpaque(true);
-        text_numOfPlayersLabel.setVisible(true);
+
 
 
 
