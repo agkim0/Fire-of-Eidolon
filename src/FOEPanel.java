@@ -270,6 +270,7 @@ public class FOEPanel extends JPanel{
     public void paint(Graphics g){
         g.drawImage(bg,0,0,1500,1000, null);
         g.setColor(Color.white);
+        g.drawRect(700,100,350,550);
 
         if(hostGameSetUpScreen){
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
