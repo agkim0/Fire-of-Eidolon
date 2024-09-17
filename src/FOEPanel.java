@@ -6,9 +6,6 @@ import java.awt.image.ImageObserver;
 import java.io.File;
 import java.io.IOException;
 import java.text.AttributedCharacterIterator;
-
-
-
 public class FOEPanel extends JPanel{
     private GameData gameData;
     private boolean hostGameSetUpScreen;//screen that the host enters in order to set game rules
