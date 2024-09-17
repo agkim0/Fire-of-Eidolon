@@ -13,6 +13,7 @@ public class FOEPanel extends JPanel{
     private GameData gameData;
     private boolean numOfPlayersLabel = false;
     private boolean numOfPlayersBox = false;
+    private int numOfPlayers = 1;
     private BufferedImage logo = null;
 
     private BufferedImage aelfric_Token = null;
@@ -275,7 +276,11 @@ public class FOEPanel extends JPanel{
         g.drawImage(bg,0,0,1500,1000, null);
         g.setColor(Color.white);
         g.setFont(new Font("Sans Serif",Font.BOLD,20));
-        g.drawString("Number of Players", 40,100);
+//        g.drawString("Number of Players", 40,100);
+//        g.drawRect(40,130,100,100);
+//        g.setFont(new Font("Sans Serif",Font.BOLD,50));
+//        g.setColor(Color.black);
+//        g.drawString(numOfPlayers+"",90,180);
 
     }
 
