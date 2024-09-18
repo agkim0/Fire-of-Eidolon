@@ -19,7 +19,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private String text = "";
     private Hero you;
     String username;
-    private GameData gameData = new GameData();
+    private GameData gameData;
     private boolean usernameValid;
     private boolean lobbycodevalid;
     private boolean gameFull;
@@ -43,6 +43,13 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private JButton btn_Host = new JButton("Host");
     private JButton btn_Join = new JButton("Join");
     private JButton btn_RB = new JButton("");
+
+    private JButton btn_backToHome = new JButton("Back to Home");
+    private JButton btn_startLobby = new JButton("Start Lobby");
+    private JButton btn_backGameScenario = new JButton("<");
+    private JButton btn_forwardGameScenario = new JButton(">");
+    private JButton btn_lowerDifficulty = new JButton("^");
+    private JButton btn_raiseDifficulty = new JButton("v");
     private JLabel text_numOfPlayersBox = new JLabel("1",JLabel.CENTER);
     private JButton btn_numOfPlayersDecrease = new JButton("<");
     private JButton btn_numOfPlayersIncrease = new JButton(">");
@@ -84,13 +91,26 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_RB.setBounds(10,10,100,100);
         add(btn_RB);
 
-        text_numOfPlayersBox.setBounds(90,200,100,100);
+        btn_startLobby.setBounds(50,550,300,75);
+        add(btn_startLobby);
+        btn_backToHome.setBounds(50,650,300,75);
+        add(btn_backToHome);
+        text_numOfPlayersBox.setBounds(675,250,150,150);
         add(text_numOfPlayersBox);
-        text_numOfPlayersBox.setFont(new Font("Sans Serif",Font.BOLD,20));
-        btn_numOfPlayersDecrease.setBounds(30,225,50,50);
+        btn_numOfPlayersDecrease.setBounds(588,288,75,75);
         add(btn_numOfPlayersDecrease);
-        btn_numOfPlayersIncrease.setBounds(200,225,50,50);
+        btn_numOfPlayersIncrease.setBounds(850,288,75,75);
         add(btn_numOfPlayersIncrease);
+        btn_backGameScenario.setBounds(488,788,75,75);
+        add(btn_backGameScenario);
+        btn_forwardGameScenario.setBounds(1000,788,75,75);
+        add(btn_forwardGameScenario);
+        btn_lowerDifficulty.setBounds(1238,188,75,75);
+        add(btn_lowerDifficulty);
+        btn_raiseDifficulty.setBounds(1238,800,75,75);
+        add(btn_raiseDifficulty);
+
+
         tf_pgnl.setBounds(50,900,75,75);
         add(tf_pgnl);
         tf_pgnl.setBounds(900,900,75,75);
@@ -159,6 +179,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_RB.setVisible(true);
         btn_Join.setVisible(true);
         btn_Host.setVisible(true);
+        text_numOfPlayersBox.setOpaque(true);
+        text_numOfPlayersBox.setVisible(true);
 
     }
 
@@ -170,6 +192,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_numOfPlayersDecrease.setVisible(false);
         btn_numOfPlayersIncrease.setVisible(false);
         text_numOfPlayersBox.setVisible(false);
+        btn_backGameScenario.setVisible(false);
+        btn_forwardGameScenario.setVisible(false);
+        btn_backToHome.setVisible(false);
+        btn_startLobby.setVisible(false);
+        btn_lowerDifficulty.setVisible(false);
+        btn_raiseDifficulty.setVisible(false);
         btn_rulebookLEFT.setVisible(false);
         btn_rulebookLEFT.setVisible(false);
         btn_rbBack.setVisible(false);
@@ -337,6 +365,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         text_numOfPlayersBox.setOpaque(true);
         btn_numOfPlayersIncrease.setVisible(true);
         btn_numOfPlayersDecrease.setVisible(true);
+        btn_raiseDifficulty.setVisible(true);
+        btn_lowerDifficulty.setVisible(true);
+        btn_backToHome.setVisible(true);
+        btn_startLobby.setVisible(true);
+        btn_backGameScenario.setVisible(true);
+        btn_forwardGameScenario.setVisible(true);
 
 
 
@@ -354,14 +388,13 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         }
     }
 
-    public void finishHost(){
+    public void startLobby(){
+        GameData gdAttempt = new GameData(2,true);
         sendCommand(CommandFromClient.HOSTING,username,gameData);
-        if(!usernameValid){
-            //give message and dont progress screen
-        }
-        else{
+        removeEverythingFromScreen();
+        foePanel.setGameData(gdAttempt);
 
-        }
+
     }
 
     public void join(){

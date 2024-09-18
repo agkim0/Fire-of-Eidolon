@@ -19,6 +19,7 @@ public class ServersListener implements Runnable, Serializable {
                 CommandFromClient cfc = (CommandFromClient) is.readObject();
 
                 if(cfc.getCommand()==CommandFromClient.HOSTING){
+                    gameDatas.add(cfc.getGameData());
                     if(cfc.getGameData().getUsernames().contains(cfc.getData())){
                         sendCommand(CommandFromServer.USERNAME_INVALID,null,null);
                     }

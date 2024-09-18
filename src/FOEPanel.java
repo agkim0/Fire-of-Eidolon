@@ -9,6 +9,7 @@ import java.text.AttributedCharacterIterator;
 public class FOEPanel extends JPanel{
     private GameData gameData;
     private boolean hostGameSetUpScreen;//screen that the host enters in order to set game rules
+    private boolean hostRoomCodeScreen;
     private BufferedImage logo = null;
 
     private BufferedImage aelfric_Token = null;
@@ -270,11 +271,16 @@ public class FOEPanel extends JPanel{
     public void paint(Graphics g){
         g.drawImage(bg,0,0,1500,1000, null);
         g.setColor(Color.white);
-        g.drawRect(700,100,350,550);
+//        g.drawRect(700,100,350,550);
 
         if(hostGameSetUpScreen){
+//            g.setFont(new Font("Sans Serif",Font.BOLD,20));
+//            g.drawString("Number of Players", 50,200);
+        }
+        if(hostRoomCodeScreen){
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
-            g.drawString("Number of Players", 50,200);
+            g.drawString("Username:",500,450);
+            g.drawString("Room Code",500,600);
         }
 
 //        g.drawRect(40,130,100,100);

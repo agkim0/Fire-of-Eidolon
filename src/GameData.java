@@ -23,7 +23,7 @@ public class GameData implements Serializable {
     private String lobbyCode;
     private int numOfPlayers;
 
-    public GameData(){
+    public GameData(int numOfPlayers,boolean gameRule){//change game rule to actual game rules!!!
         Random rand = new Random();
         for(int x=0;x<3;x++){
             char c = (char)(rand.nextInt(26)+'A');
