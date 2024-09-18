@@ -55,6 +55,10 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private JButton btn_numOfPlayersIncrease = new JButton(">");
     private JButton btn_gameRuleAddedCheckBox = new JButton("");
 
+    private JTextField tf_joinerUsername = new JTextField();
+    private JTextField tf_joinerRoomCode = new JTextField();
+    private JButton btn_joinerEnterInfo = new JButton("ENTER");
+
     private boolean paintRuleBook = false;
     private boolean flipRB12 = false;
     private boolean flipRB34 = false;
@@ -73,6 +77,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(1500,1000);
         setResizable(false);
+        setLayout(null);
         setAlwaysOnTop(true);
         setVisible(true);
 
@@ -118,7 +123,16 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         foePanel = new FOEPanel();
         foePanel.setBounds(0,0,1500,1000);
         add(foePanel);
+
+        tf_joinerUsername.setBounds(650,430,150,25);
+        add(tf_joinerUsername);
+        tf_joinerRoomCode.setBounds(650,580,150,25);
+        add(tf_joinerRoomCode);
+        btn_joinerEnterInfo.setBounds(500,750,300,75);
+        add(btn_joinerEnterInfo);
+
         btn_Host.addActionListener(e->{host();});
+        btn_Join.addActionListener(e->{join();});
         btn_RB.addActionListener(e->{
             before = currentPage;
             drawRuleBook();
@@ -185,6 +199,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
 
     public void removeEverythingFromScreen(){
+        btn_joinerEnterInfo.setVisible(false);
+        tf_joinerRoomCode.setVisible(false);
+        tf_joinerUsername.setVisible(false);
         btn_Host.setVisible(false);
         btn_Join.setVisible(false);
         btn_RB.setVisible(false);
@@ -219,7 +236,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_rulebookRIGHT.setVisible(true);
         btn_rulebookRIGHT.setEnabled(true);
         foePanel.setHostGameSetUpScreen(false);
-        foePanel.setRuleBookSetUpScreen(true);
+        //foePanel.setRuleBookSetUpScreen(true);
         foePanel.repaint();
         tf_pgnl.setVisible(true);
         tf_pgnr.setVisible(true);
@@ -374,9 +391,16 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_backGameScenario.setVisible(true);
         btn_forwardGameScenario.setVisible(true);
 
-
-
-
+    }
+    public void join(){
+        removeEverythingFromScreen();
+        foePanel.setHostGameSetUpScreen(false);
+        foePanel.setSetUpJoinScreen(true);
+        foePanel.repaint();
+        btn_RB.setVisible(true);
+        tf_joinerRoomCode.setVisible(true);
+        tf_joinerUsername.setVisible(true);
+        btn_joinerEnterInfo.setVisible(true);
     }
 
     public void numOfPlayersDecrease(){
@@ -399,9 +423,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
     }
 
-    public void join(){
-
-    }
     public void enterGame(){
         sendCommand(CommandFromClient.LOBBY_CODE_ATTEMPT,"Room code,Username",gameData);
         if(!lobbycodevalid){
