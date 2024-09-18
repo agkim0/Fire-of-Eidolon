@@ -10,6 +10,16 @@ public class FOEPanel extends JPanel{
     private GameData gameData;
     private boolean hostGameSetUpScreen;//screen that the host enters in order to set game rules
     private boolean hostRoomCodeScreen;
+    private boolean setUpJoinScreen;
+
+    public boolean isSetUpJoinScreen() {
+        return setUpJoinScreen;
+    }
+
+    public void setSetUpJoinScreen(boolean setUpJoinScreen) {
+        this.setUpJoinScreen = setUpJoinScreen;
+    }
+
     private BufferedImage logo = null;
 
     private BufferedImage aelfric_Token = null;
@@ -281,6 +291,11 @@ public class FOEPanel extends JPanel{
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
             g.drawString("Username:",500,450);
             g.drawString("Room Code",500,600);
+        }
+        if(setUpJoinScreen){
+            g.setFont(new Font("Sans Serif",Font.BOLD,20));
+            g.drawString("Username:",500,450);
+            g.drawString("Room Code:",500,600);
         }
 
 //        g.drawRect(40,130,100,100);
