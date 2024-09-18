@@ -55,6 +55,10 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private JButton btn_numOfPlayersIncrease = new JButton(">");
     private JButton btn_gameRuleAddedCheckBox = new JButton("");
 
+    private JTextField textBox_getUsername = new JTextField();
+    private JLabel text_roomCode = new JLabel();
+    private JButton btn_checkUsername = new JButton("o");
+
     private boolean paintRuleBook = false;
     private boolean flipRB12 = false;
     private boolean flipRB34 = false;
@@ -109,6 +113,13 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         add(btn_lowerDifficulty);
         btn_raiseDifficulty.setBounds(1238,800,75,75);
         add(btn_raiseDifficulty);
+
+        text_roomCode.setBounds(700,550,300,100);
+        add(text_roomCode);
+        textBox_getUsername.setBounds(700,400,300,100);
+        add(textBox_getUsername);
+        btn_checkUsername.setBounds(1000,425,50,50);
+        add(btn_checkUsername);
 
 
         tf_pgnl.setBounds(50,900,75,75);
@@ -171,6 +182,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             int lpn = parseInt(temp);
             flipRB(lpn,"right");
         });
+        btn_checkUsername.addActionListener(e->{checkUsername();});
+        btn_startLobby.addActionListener(e->{startLobby();});
         btn_numOfPlayersIncrease.addActionListener(e->{numOfPlayersIncrease();});
         btn_numOfPlayersDecrease.addActionListener(e->{numOfPlayersDecrease();});
 
@@ -198,6 +211,10 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_startLobby.setVisible(false);
         btn_lowerDifficulty.setVisible(false);
         btn_raiseDifficulty.setVisible(false);
+
+        btn_checkUsername.setVisible(false);
+        textBox_getUsername.setVisible(false);
+        text_roomCode.setVisible(false);
         btn_rulebookLEFT.setVisible(false);
         btn_rulebookLEFT.setVisible(false);
         btn_rbBack.setVisible(false);
@@ -219,7 +236,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_rulebookRIGHT.setVisible(true);
         btn_rulebookRIGHT.setEnabled(true);
         foePanel.setHostGameSetUpScreen(false);
-        foePanel.setRuleBookSetUpScreen(true);
+//        foePanel.setRuleBookSetUpScreen(true);
         foePanel.repaint();
         tf_pgnl.setVisible(true);
         tf_pgnr.setVisible(true);
@@ -392,11 +409,32 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
     public void startLobby(){
         GameData gdAttempt = new GameData(2,true);
+        setGameData(new GameData(2,true));
         sendCommand(CommandFromClient.HOSTING,username,gameData);
         removeEverythingFromScreen();
         foePanel.setGameData(gdAttempt);
+        btn_checkUsername.setVisible(true);
+        text_roomCode.setVisible(true);
+        text_roomCode.setOpaque(true);
+        text_roomCode.setText(gameData.getLobbyCode());
+        textBox_getUsername.setVisible(true);
+    }
+
+    public void checkUsername(){
+        sendCommand(CommandFromClient.CHECK_USERNAME, text_numOfPlayersBox.getText(),gameData);
 
 
+    }
+    public void checkUsernameHelper(){
+        System.out.println("usernamehelpter");
+        if(usernameValid){
+            System.out.println("valid");
+            btn_checkUsername.setVisible(false);
+            textBox_getUsername.setEnabled(false);
+        }
+        else{
+            System.out.println("invalid");
+        }
     }
 
     public void join(){

@@ -12,6 +12,7 @@ public class CommandFromClient implements Serializable {
     public static final int ACTION = 6;
     public static final int EXCHANGE = 7;
     public static final int END_TURN = 8;
+    public static final int CHECK_USERNAME = 9;
 
     public CommandFromClient(int command, String data, GameData gd) {
         this.command = command;
