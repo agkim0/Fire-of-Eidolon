@@ -8,7 +8,8 @@ import java.io.IOException;
 import java.text.AttributedCharacterIterator;
 public class FOEPanel extends JPanel{
     private GameData gameData;
-    private boolean hostGameSetUpScreen;//screen that the host enters in order to set game rules
+    private boolean hostGameSetUpScreen;
+    private boolean ruleBookSetUpScreen;//screen that the host enters in order to set game rules
     private BufferedImage logo = null;
 
     private BufferedImage aelfric_Token = null;
@@ -267,11 +268,24 @@ public class FOEPanel extends JPanel{
             greenVorax_Token = ImageIO.read(new File("token pieces/voraxes/green vorax.png"));
         }while(false);
     }
+
+    public boolean isRuleBookSetUpScreen() {
+        return ruleBookSetUpScreen;
+    }
+
+    public void setRuleBookSetUpScreen(boolean ruleBookSetUpScreen) {
+        this.ruleBookSetUpScreen = ruleBookSetUpScreen;
+    }
+
     public void paint(Graphics g){
         g.drawImage(bg,0,0,1500,1000, null);
         g.setColor(Color.white);
         g.drawRect(700,100,350,550);
 
+        if(hostGameSetUpScreen){
+            g.setFont(new Font("Sans Serif",Font.BOLD,20));
+            g.drawString("Number of Players", 50,200);
+        }
         if(hostGameSetUpScreen){
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
             g.drawString("Number of Players", 50,200);

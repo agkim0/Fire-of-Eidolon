@@ -188,11 +188,13 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_rbBack.setEnabled(true);
         btn_rulebookLEFT.setVisible(true);
         btn_rulebookLEFT.setEnabled(false);
-        btn_rulebookLEFT.setVisible(true);
-        btn_rulebookLEFT.setEnabled(true);
-        paintRuleBook = true;
-        repaint();
-        paintRuleBook = false;
+        btn_rulebookRIGHT.setVisible(true);
+        btn_rulebookRIGHT.setEnabled(true);
+        foePanel.setHostGameSetUpScreen(false);
+        foePanel.setRuleBookSetUpScreen(true);
+        foePanel.repaint();
+        tf_pgnl.setVisible(true);
+        tf_pgnr.setVisible(true);
         tf_pgnl.setText("1");
         tf_pgnr.setText("2");
     }
