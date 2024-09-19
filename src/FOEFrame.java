@@ -80,7 +80,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         addKeyListener(this);
         addWindowFocusListener(this);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(1500,1000);
+        setSize(1500,1050);
         setResizable(false);
         setAlwaysOnTop(true);
         setVisible(true);
@@ -110,7 +110,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         add(btn_numOfPlayersDecrease);
         btn_numOfPlayersIncrease.setBounds(850,288,75,75);
         add(btn_numOfPlayersIncrease);
-        btn_backGameScenario.setBounds(488,788,75,75);
+        btn_backGameScenario.setBounds(388,788,75,75);
         add(btn_backGameScenario);
         btn_forwardGameScenario.setBounds(1000,788,75,75);
         add(btn_forwardGameScenario);
@@ -216,8 +216,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_RB.setVisible(true);
         btn_Join.setVisible(true);
         btn_Host.setVisible(true);
-        text_numOfPlayersBox.setOpaque(true);
-        text_numOfPlayersBox.setVisible(true);
 
     }
 
@@ -405,6 +403,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         removeEverythingFromScreen();
         gameData = new GameData();
         foePanel.setHostGameSetUpScreen(true);
+        foePanel.setShowUnstableVoid(true);
+        gameRuleSlidesIndex = 0;
         foePanel.repaint();
         btn_RB.setVisible(true);
         text_numOfPlayersBox.setVisible(true);
@@ -472,29 +472,42 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         else{
             gameRuleSlidesIndex=3;
         }
+        checkbox_GameScenarioSelected.setSelected(false);
         if(gameRuleSlidesIndex == 0){
             foePanel.setShowUnstableVoid(true);
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
             foePanel.setShowShadesOfVorax(false);
+            if(gameData.isUnstableVoid()){
+                checkbox_GameScenarioSelected.setSelected(true);
+            }
         }
         if(gameRuleSlidesIndex == 1){
             foePanel.setShowVagrantPortal(true);
             foePanel.setShowUnstableVoid(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
             foePanel.setShowShadesOfVorax(false);
+            if(gameData.isVagrantPortal()){
+                checkbox_GameScenarioSelected.setSelected(true);
+            }
         }
         if(gameRuleSlidesIndex == 2){
             foePanel.setShowInvasionOfTheShadowCult(true);
             foePanel.setShowUnstableVoid(false);
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowShadesOfVorax(false);
+            if(gameData.isInvasionOfTheShadowCult()){
+                checkbox_GameScenarioSelected.setSelected(true);
+            }
         }
         if(gameRuleSlidesIndex == 3){
             foePanel.setShowShadesOfVorax(true);
             foePanel.setShowUnstableVoid(false);
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
+            if(gameData.isShadesOfVorax()){
+                checkbox_GameScenarioSelected.setSelected(true);
+            }
         }
         repaintPanel();
     }
@@ -534,29 +547,42 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         else{
             gameRuleSlidesIndex=0;
         }
+        checkbox_GameScenarioSelected.setSelected(false);
         if(gameRuleSlidesIndex == 0){
             foePanel.setShowUnstableVoid(true);
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
             foePanel.setShowShadesOfVorax(false);
+            if(gameData.isUnstableVoid()){
+                checkbox_GameScenarioSelected.setSelected(true);
+            }
         }
         if(gameRuleSlidesIndex == 1){
             foePanel.setShowVagrantPortal(true);
             foePanel.setShowUnstableVoid(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
             foePanel.setShowShadesOfVorax(false);
+            if(gameData.isVagrantPortal()){
+                checkbox_GameScenarioSelected.setSelected(true);
+            }
         }
         if(gameRuleSlidesIndex == 2){
             foePanel.setShowInvasionOfTheShadowCult(true);
             foePanel.setShowUnstableVoid(false);
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowShadesOfVorax(false);
+            if(gameData.isInvasionOfTheShadowCult()){
+                checkbox_GameScenarioSelected.setSelected(true);
+            }
         }
         if(gameRuleSlidesIndex == 3){
             foePanel.setShowShadesOfVorax(true);
             foePanel.setShowUnstableVoid(false);
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
+            if(gameData.isShadesOfVorax()){
+                checkbox_GameScenarioSelected.setSelected(true);
+            }
         }
         repaintPanel();
     }

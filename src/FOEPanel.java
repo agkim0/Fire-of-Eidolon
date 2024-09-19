@@ -283,7 +283,7 @@ public class FOEPanel extends JPanel{
         }while(false);
     }
     public void paint(Graphics g){
-        g.drawImage(bg,0,0,1500,1000, null);
+        g.drawImage(bg,0,0,1500,1050, null);
         g.setColor(Color.white);
 //        g.drawRect(700,100,350,550);
 
@@ -301,7 +301,7 @@ public class FOEPanel extends JPanel{
                 g.drawImage(scenario_4,450,650,550,350,null);
             }
             
-            if()
+//            if()
 //            
         }
         if(hostRoomCodeScreen){
