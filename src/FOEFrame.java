@@ -641,6 +641,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
     public void startLobby(){
         gameData.setNumOfPlayers(Integer.parseInt(text_numOfPlayersBox.getText()));
+        foePanel.setHostGameSetUpScreen(false);
+        foePanel.repaint();
         sendCommand(CommandFromClient.HOSTING,username,gameData);
         removeEverythingFromScreen();
         foePanel.setGameData(gameData);
@@ -649,6 +651,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         text_roomCode.setOpaque(true);
         text_roomCode.setText(gameData.getLobbyCode());
         textBox_getUsername.setVisible(true);
+
     }
 
     public void checkUsername(){
@@ -668,7 +671,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
         }
         else{
-            System.out.println("invalid");
+            textBox_getUsername.setText("Name Taken:(");
         }
     }
     public void enterGame(){
