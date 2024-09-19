@@ -288,8 +288,21 @@ public class FOEPanel extends JPanel{
 //        g.drawRect(700,100,350,550);
 
         if(hostGameSetUpScreen){
-//            g.setFont(new Font("Sans Serif",Font.BOLD,20));
-//            g.drawString("Number of Players", 50,200);
+            if(showUnstableVoid){
+                g.drawImage(scenario_1,450,650,550,350,null);
+            }
+            if(showVagrantPortal){
+                g.drawImage(scenario_2,450,650,550,350,null);
+            }
+            if(showInvasionOfTheShadowCult){
+                g.drawImage(scenario_3,450,650,550,350,null);
+            }
+            if(showShadesOfVorax){
+                g.drawImage(scenario_4,450,650,550,350,null);
+            }
+            
+            if()
+//            
         }
         if(hostRoomCodeScreen){
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
@@ -368,4 +381,5 @@ public class FOEPanel extends JPanel{
     public void setHostRoomCodeScreen(boolean hostRoomCodeScreen) {
         this.hostRoomCodeScreen = hostRoomCodeScreen;
     }
+    
 }
