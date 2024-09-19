@@ -12,6 +12,8 @@ public class ServersListener implements Runnable, Serializable {
         outs.add(os);
     }
 
+    GameData data = null;
+
     @Override
     public void run(){
         while(true){
@@ -19,11 +21,15 @@ public class ServersListener implements Runnable, Serializable {
                 CommandFromClient cfc = (CommandFromClient) is.readObject();
 
                 if(cfc.getCommand()==CommandFromClient.HOSTING){
-                    gameDatas.add(cfc.getGameData());
+                    gameDatas.add(new GameData(/*get number of player from sent list*/));
+                    data = cfc.getGameData();
+                    // getname from unique list
+                    //data.addnameto name list
+                    // print something about this data
                 }
                 else if(cfc.getCommand()==CommandFromClient.CHECK_USERNAME){
                     System.out.println("Check username recieved");
-                    System.out.println(cfc.getGameData().getNumOfPlayers());
+                    System.out.println(data.getNumOfPlayers());
                     if(cfc.getGameData().getUsernames().contains(cfc.getData())){
                         System.out.println("sending valid");
                         sendCommand(CommandFromServer.USERNAME_INVALID,null,null);
