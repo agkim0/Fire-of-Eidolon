@@ -206,6 +206,10 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_startLobby.addActionListener(e->{startLobby();});
         btn_numOfPlayersIncrease.addActionListener(e->{numOfPlayersIncrease();});
         btn_numOfPlayersDecrease.addActionListener(e->{numOfPlayersDecrease();});
+        btn_backGameScenario.addActionListener(e->{backGameScenario();});
+        btn_forwardGameScenario.addActionListener(e->{forwardGameScenario();});
+        btn_lowerDifficulty.addActionListener(e->{lowerDifficulty();});
+        btn_raiseDifficulty.addActionListener(e->{raiseDifficulty();});
 
 
         removeEverythingFromScreen();
@@ -231,6 +235,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_startLobby.setVisible(false);
         btn_lowerDifficulty.setVisible(false);
         btn_raiseDifficulty.setVisible(false);
+        checkbox_GameScenarioSelected.setVisible(false);
 
         btn_checkUsername.setVisible(false);
         textBox_getUsername.setVisible(false);
@@ -423,11 +428,13 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         if(!text_numOfPlayersBox.getText().equals("1")){
             text_numOfPlayersBox.setText((Integer.parseInt(text_numOfPlayersBox.getText())-1)+"");
         }
+        gameData.setNumOfPlayers(Integer.parseInt(text_numOfPlayersBox.getText()));
     }
     public void numOfPlayersIncrease(){
         if(!text_numOfPlayersBox.getText().equals("6")){
             text_numOfPlayersBox.setText((Integer.parseInt(text_numOfPlayersBox.getText())+1)+"");
         }
+        gameData.setNumOfPlayers(Integer.parseInt(text_numOfPlayersBox.getText()));
     }
 
     public void backGameScenario(){
@@ -489,6 +496,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
         }
+        repaintPanel();
     }
 
     public void forwardGameScenario(){
@@ -550,24 +558,33 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
         }
+        repaintPanel();
     }
 
     public void lowerDifficulty(){
         if(difficultyLevelIndex>0){
             difficultyLevelIndex--;
-            gameData.setDifficultyLevel(difficultyLevel.get(difficultyLevelIndex));
         }
         else{
             difficultyLevelIndex = difficultyLevel.size()-1;
-            
-
-
         }
+        gameData.setDifficultyLevel(difficultyLevel.get(difficultyLevelIndex));
+        repaintPanel();
+    }
+    
+    public void raiseDifficulty(){
+        if(difficultyLevelIndex<difficultyLevel.size()){
+            difficultyLevelIndex++;
+        }
+        else{
+            difficultyLevelIndex = 0;
+        }
+        gameData.setDifficultyLevel(difficultyLevel.get(difficultyLevelIndex));
+        repaintPanel();
     }
 
     public void startLobby(){
         gameData.setNumOfPlayers(Integer.parseInt(text_numOfPlayersBox.getText()));
-        gameData.setDifficultyLevel();
         sendCommand(CommandFromClient.HOSTING,username,gameData);
         removeEverythingFromScreen();
         foePanel.setGameData(gameData);
@@ -653,5 +670,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
     public void setGameFull(boolean gameFull) {
         this.gameFull = gameFull;
+    }
+    
+    public void repaintPanel(){
+        foePanel.setGameData(gameData);
+        foePanel.repaint();
+        foePanel.repaint();
     }
 }
