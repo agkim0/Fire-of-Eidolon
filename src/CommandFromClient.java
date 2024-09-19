@@ -15,6 +15,7 @@ public class CommandFromClient implements Serializable {
     public static final int CHECK_USERNAME = 9;
 
     public CommandFromClient(int command, String data, GameData gd) {
+        this.gameData = gd;
         this.command = command;
         this.data = data;
     }

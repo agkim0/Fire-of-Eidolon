@@ -11,7 +11,7 @@ public class ClientMain implements Serializable {
             ObjectInputStream is = new ObjectInputStream(socket.getInputStream());
 //            GameData gameData = new GameData(null);
             String username = "";
-            FOEFrame frame = new FOEFrame(null,os,username);
+            FOEFrame frame = new FOEFrame(os);
             ClientsListener cl = new ClientsListener(is,os,frame,username);
             Thread t = new Thread(cl);
             t.start();

@@ -48,12 +48,17 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private JButton btn_startLobby = new JButton("Start Lobby");
     private JButton btn_backGameScenario = new JButton("<");
     private JButton btn_forwardGameScenario = new JButton(">");
+    private JCheckBox checkbox_GameScenarioSelected = new JCheckBox();
     private JButton btn_lowerDifficulty = new JButton("^");
     private JButton btn_raiseDifficulty = new JButton("v");
+    private ArrayList<String> difficultyLevel = new ArrayList<>();
+    private int difficultyLevelIndex = 0;
     private JLabel text_numOfPlayersBox = new JLabel("1",JLabel.CENTER);
     private JButton btn_numOfPlayersDecrease = new JButton("<");
     private JButton btn_numOfPlayersIncrease = new JButton(">");
     private JButton btn_gameRuleAddedCheckBox = new JButton("");
+    private ArrayList<String> gameRuleSlides = new ArrayList<>();
+    private int gameRuleSlidesIndex = 0;
 
     private JTextField textBox_getUsername = new JTextField();
     private JLabel text_roomCode = new JLabel();
@@ -68,7 +73,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private int before;
     private int currentPage;
 
-    public FOEFrame(GameData gameData, ObjectOutputStream os,String username) throws IOException{
+    public FOEFrame(ObjectOutputStream os) throws IOException{
         super("FOE Game");
         this.gameData = gameData;
         this.os = os;
@@ -109,10 +114,25 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         add(btn_backGameScenario);
         btn_forwardGameScenario.setBounds(1000,788,75,75);
         add(btn_forwardGameScenario);
+        checkbox_GameScenarioSelected.setBounds(700,600,50,50);
+        add(checkbox_GameScenarioSelected);
         btn_lowerDifficulty.setBounds(1238,188,75,75);
         add(btn_lowerDifficulty);
         btn_raiseDifficulty.setBounds(1238,800,75,75);
         add(btn_raiseDifficulty);
+        difficultyLevel.add("Beginner");
+        difficultyLevel.add("Normal");
+        difficultyLevel.add("Hard");
+        difficultyLevel.add("Very Hard");
+        difficultyLevel.add("Extreme");
+        difficultyLevel.add("Heroic");
+        difficultyLevel.add("Nightmare");
+        difficultyLevel.add("Legendary");
+        difficultyLevel.add("Glitch");
+        gameRuleSlides.add("Unstable Void");
+        gameRuleSlides.add("Vagrant Portal");
+        gameRuleSlides.add("Invasion of the Shadow Cult");
+        gameRuleSlides.add("Shades of Vorax");
 
         text_roomCode.setBounds(700,550,300,100);
         add(text_roomCode);
@@ -342,6 +362,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void skill(){}
     public void message(){}
     public void sendCommand(int com, String data, GameData gameData){
+        System.out.println("num player in gd"+gameData.getNumOfPlayers());
         CommandFromClient cfc = new CommandFromClient(com,data,gameData);
         try{
             os.writeObject(cfc);
@@ -377,6 +398,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
     public void host(){
         removeEverythingFromScreen();
+        gameData = new GameData();
         foePanel.setHostGameSetUpScreen(true);
         foePanel.repaint();
         btn_RB.setVisible(true);
@@ -390,6 +412,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_startLobby.setVisible(true);
         btn_backGameScenario.setVisible(true);
         btn_forwardGameScenario.setVisible(true);
+        checkbox_GameScenarioSelected.setVisible(true);
 
 
 
@@ -407,12 +430,147 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         }
     }
 
+    public void backGameScenario(){
+        if(checkbox_GameScenarioSelected.isSelected()){
+            if(gameRuleSlidesIndex == 0){
+                gameData.setUnstableVoid(true);
+            }
+            if(gameRuleSlidesIndex == 1){
+                gameData.setVagrantPortal(true);
+            }
+            if(gameRuleSlidesIndex == 2){
+                gameData.setInvasionOfTheShadowCult(true);
+            }
+            if(gameRuleSlidesIndex == 3){
+                gameData.setShadesOfVorax(true);
+            }
+        }
+        else{
+            if(gameRuleSlidesIndex == 0){
+                gameData.setUnstableVoid(false);
+            }
+            if(gameRuleSlidesIndex == 1){
+                gameData.setVagrantPortal(false);
+            }
+            if(gameRuleSlidesIndex == 2){
+                gameData.setInvasionOfTheShadowCult(false);
+            }
+            if(gameRuleSlidesIndex == 3){
+                gameData.setShadesOfVorax(false);
+            }
+        }
+        if(gameRuleSlidesIndex-1>=0){
+            gameRuleSlidesIndex-=1;
+        }
+        else{
+            gameRuleSlidesIndex=3;
+        }
+        if(gameRuleSlidesIndex == 0){
+            foePanel.setShowUnstableVoid(true);
+            foePanel.setShowVagrantPortal(false);
+            foePanel.setShowInvasionOfTheShadowCult(false);
+            foePanel.setShowShadesOfVorax(false);
+        }
+        if(gameRuleSlidesIndex == 1){
+            foePanel.setShowVagrantPortal(true);
+            foePanel.setShowUnstableVoid(false);
+            foePanel.setShowInvasionOfTheShadowCult(false);
+            foePanel.setShowShadesOfVorax(false);
+        }
+        if(gameRuleSlidesIndex == 2){
+            foePanel.setShowInvasionOfTheShadowCult(true);
+            foePanel.setShowUnstableVoid(false);
+            foePanel.setShowVagrantPortal(false);
+            foePanel.setShowShadesOfVorax(false);
+        }
+        if(gameRuleSlidesIndex == 3){
+            foePanel.setShowShadesOfVorax(true);
+            foePanel.setShowUnstableVoid(false);
+            foePanel.setShowVagrantPortal(false);
+            foePanel.setShowInvasionOfTheShadowCult(false);
+        }
+    }
+
+    public void forwardGameScenario(){
+        if(checkbox_GameScenarioSelected.isSelected()){
+            if(gameRuleSlidesIndex == 0){
+                gameData.setUnstableVoid(true);
+            }
+            if(gameRuleSlidesIndex == 1){
+                gameData.setVagrantPortal(true);
+            }
+            if(gameRuleSlidesIndex == 2){
+                gameData.setInvasionOfTheShadowCult(true);
+            }
+            if(gameRuleSlidesIndex == 3){
+                gameData.setShadesOfVorax(true);
+            }
+        }
+        else{
+            if(gameRuleSlidesIndex == 0){
+                gameData.setUnstableVoid(false);
+            }
+            if(gameRuleSlidesIndex == 1){
+                gameData.setVagrantPortal(false);
+            }
+            if(gameRuleSlidesIndex == 2){
+                gameData.setInvasionOfTheShadowCult(false);
+            }
+            if(gameRuleSlidesIndex == 3){
+                gameData.setShadesOfVorax(false);
+            }
+        }
+        if(gameRuleSlidesIndex+1<4){
+            gameRuleSlidesIndex+=1;
+        }
+        else{
+            gameRuleSlidesIndex=0;
+        }
+        if(gameRuleSlidesIndex == 0){
+            foePanel.setShowUnstableVoid(true);
+            foePanel.setShowVagrantPortal(false);
+            foePanel.setShowInvasionOfTheShadowCult(false);
+            foePanel.setShowShadesOfVorax(false);
+        }
+        if(gameRuleSlidesIndex == 1){
+            foePanel.setShowVagrantPortal(true);
+            foePanel.setShowUnstableVoid(false);
+            foePanel.setShowInvasionOfTheShadowCult(false);
+            foePanel.setShowShadesOfVorax(false);
+        }
+        if(gameRuleSlidesIndex == 2){
+            foePanel.setShowInvasionOfTheShadowCult(true);
+            foePanel.setShowUnstableVoid(false);
+            foePanel.setShowVagrantPortal(false);
+            foePanel.setShowShadesOfVorax(false);
+        }
+        if(gameRuleSlidesIndex == 3){
+            foePanel.setShowShadesOfVorax(true);
+            foePanel.setShowUnstableVoid(false);
+            foePanel.setShowVagrantPortal(false);
+            foePanel.setShowInvasionOfTheShadowCult(false);
+        }
+    }
+
+    public void lowerDifficulty(){
+        if(difficultyLevelIndex>0){
+            difficultyLevelIndex--;
+            gameData.setDifficultyLevel(difficultyLevel.get(difficultyLevelIndex));
+        }
+        else{
+            difficultyLevelIndex = difficultyLevel.size()-1;
+            
+
+
+        }
+    }
+
     public void startLobby(){
-        GameData gdAttempt = new GameData(2,true);
-        setGameData(new GameData(2,true));
+        gameData.setNumOfPlayers(Integer.parseInt(text_numOfPlayersBox.getText()));
+        gameData.setDifficultyLevel();
         sendCommand(CommandFromClient.HOSTING,username,gameData);
         removeEverythingFromScreen();
-        foePanel.setGameData(gdAttempt);
+        foePanel.setGameData(gameData);
         btn_checkUsername.setVisible(true);
         text_roomCode.setVisible(true);
         text_roomCode.setOpaque(true);
@@ -421,16 +579,20 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
 
     public void checkUsername(){
+        System.out.println(gameData.getNumOfPlayers());
         sendCommand(CommandFromClient.CHECK_USERNAME, text_numOfPlayersBox.getText(),gameData);
 
 
     }
-    public void checkUsernameHelper(){
+    public void usernameValid(boolean valid){
         System.out.println("usernamehelpter");
-        if(usernameValid){
+        if(valid){
             System.out.println("valid");
             btn_checkUsername.setVisible(false);
             textBox_getUsername.setEnabled(false);
+            if(gameData.getNumOfPlayers()==gameData.getUsernames().size()){
+                //character selection
+            }
         }
         else{
             System.out.println("invalid");
@@ -442,19 +604,20 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
     public void enterGame(){
         sendCommand(CommandFromClient.LOBBY_CODE_ATTEMPT,"Room code,Username",gameData);
-        if(!lobbycodevalid){
-            //make txtbox say its invalid
-        }
-        else if(gameFull){
-            //make txt say game is full
-        }
-        else if(!usernameValid){
-            //txt says username is taken or smth
-        }
-        else{
-            //go into the characters screen
+    }
+
+    public void lobbyCodeValid(boolean valid){
+        if(!valid){
+            //make txtbox say code is invalid
         }
     }
+
+    public void gameFull(boolean full){
+        if(full){
+            //make txt say lobby is full
+        }
+    }
+
 
     public boolean getUsernameValid(){
         return usernameValid;

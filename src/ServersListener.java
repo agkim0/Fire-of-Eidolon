@@ -23,6 +23,7 @@ public class ServersListener implements Runnable, Serializable {
                 }
                 else if(cfc.getCommand()==CommandFromClient.CHECK_USERNAME){
                     System.out.println("Check username recieved");
+                    System.out.println(cfc.getGameData().getNumOfPlayers());
                     if(cfc.getGameData().getUsernames().contains(cfc.getData())){
                         System.out.println("sending valid");
                         sendCommand(CommandFromServer.USERNAME_INVALID,null,null);
@@ -30,7 +31,6 @@ public class ServersListener implements Runnable, Serializable {
                     else{
                         System.out.println("sending valid");
                         sendCommand(CommandFromServer.USERNAME_VAlID,null,null);
-                        cfc.getGameData().getUsernames().add(cfc.getData());
                     }
                 }
                 else if(cfc.getCommand()==CommandFromClient.LOBBY_CODE_ATTEMPT){

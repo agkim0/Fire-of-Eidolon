@@ -9,6 +9,10 @@ import java.text.AttributedCharacterIterator;
 public class FOEPanel extends JPanel{
     private GameData gameData;
     private boolean hostGameSetUpScreen;//screen that the host enters in order to set game rules
+        private boolean showUnstableVoid = false;
+        private boolean showVagrantPortal = false;
+        private boolean showInvasionOfTheShadowCult = false;
+        private boolean showShadesOfVorax = false;
     private boolean hostRoomCodeScreen;
     private boolean setUpJoinScreen;
 
@@ -323,5 +327,45 @@ public class FOEPanel extends JPanel{
 
     public void setHostGameSetUpScreen(boolean hostGameSetUpScreen) {
         this.hostGameSetUpScreen = hostGameSetUpScreen;
+    }
+
+    public boolean isShowUnstableVoid() {
+        return showUnstableVoid;
+    }
+
+    public void setShowUnstableVoid(boolean showUnstableVoid) {
+        this.showUnstableVoid = showUnstableVoid;
+    }
+
+    public boolean isShowVagrantPortal() {
+        return showVagrantPortal;
+    }
+
+    public void setShowVagrantPortal(boolean showVagrantPortal) {
+        this.showVagrantPortal = showVagrantPortal;
+    }
+
+    public boolean isShowInvasionOfTheShadowCult() {
+        return showInvasionOfTheShadowCult;
+    }
+
+    public void setShowInvasionOfTheShadowCult(boolean showInvasionOfTheShadowCult) {
+        this.showInvasionOfTheShadowCult = showInvasionOfTheShadowCult;
+    }
+
+    public boolean isShowShadesOfVorax() {
+        return showShadesOfVorax;
+    }
+
+    public void setShowShadesOfVorax(boolean showShadesOfVorax) {
+        this.showShadesOfVorax = showShadesOfVorax;
+    }
+
+    public boolean isHostRoomCodeScreen() {
+        return hostRoomCodeScreen;
+    }
+
+    public void setHostRoomCodeScreen(boolean hostRoomCodeScreen) {
+        this.hostRoomCodeScreen = hostRoomCodeScreen;
     }
 }

@@ -2,28 +2,28 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class GameData implements Serializable {
+public class GameData implements Serializable{
     private Tile[][] grid = new Tile[61][61];
     private boolean allTilesOpen;
     private ArrayList<Card> fullDeck;
     private ArrayList<Card> currDeck;
     private ArrayList<Tile> tileDeck;
     private ArrayList<Hero> allHeroes;
-    private ArrayList<Hero> heroesPlaying;
+    private ArrayList<Hero> heroesPlaying = new ArrayList<Hero>();
     private Hero turn;
     private ArrayList<Hero> orderOfTurns;
     private int threatLevel;
     private String difficultyLevel;
-    private boolean unstableVoid;
-    private boolean vagrantPortal;
-    private boolean invasionOfTheShadowCult;
-    private boolean shadesOfVorax;
+    private boolean unstableVoid=false;
+    private boolean vagrantPortal=false;
+    private boolean invasionOfTheShadowCult=false;
+    private boolean shadesOfVorax=false;
     private ArrayList<String> msgs;
-    private ArrayList<String> usernames;
-    private String lobbyCode;
+    private ArrayList<String> usernames = new ArrayList<String>();
+    private String lobbyCode = "";
     private int numOfPlayers;
 
-    public GameData(int numOfPlayers,boolean gameRule){//change game rule to actual game rules!!!
+    public GameData(){//change game rule to actual game rules!!!
         Random rand = new Random();
         for(int x=0;x<3;x++){
             char c = (char)(rand.nextInt(26)+'A');
