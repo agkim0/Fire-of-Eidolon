@@ -64,6 +64,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private JLabel text_roomCode = new JLabel();
     private JButton btn_checkUsername = new JButton("o");
 
+    private JTextField tf_joinerUsername = new JTextField();
+    private JTextField tf_joinerRoomCode = new JTextField();
+    private JButton btn_joinerUsername = new JButton("Enter Username");
+    private JButton btn_joinerRoomCode = new JButton("Enter Room Code");
+
     private boolean paintRuleBook = false;
     private boolean flipRB12 = false;
     private boolean flipRB34 = false;
@@ -141,6 +146,16 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_checkUsername.setBounds(1000,425,50,50);
         add(btn_checkUsername);
 
+        tf_joinerUsername.setBounds(650,430,150,25);
+        add(tf_joinerUsername);
+        tf_joinerRoomCode.setBounds(650,580,150,25);
+        add(tf_joinerRoomCode);
+        btn_joinerUsername.setBounds(850,430,150,25);
+        add(btn_joinerUsername);
+        btn_joinerRoomCode.setBounds(850,580,150,25);
+        add(btn_joinerRoomCode);
+
+
 
         tf_pgnl.setBounds(50,900,75,75);
         add(tf_pgnl);
@@ -150,6 +165,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         foePanel.setBounds(0,0,1500,1000);
         add(foePanel);
         btn_Host.addActionListener(e->{host();});
+        btn_Join.addActionListener(e->{join();});
         btn_RB.addActionListener(e->{
             before = currentPage;
             drawRuleBook();
@@ -220,6 +236,10 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
 
     public void removeEverythingFromScreen(){
+        tf_joinerRoomCode.setVisible(false);
+        tf_joinerUsername.setVisible(false);
+        btn_joinerRoomCode.setVisible(false);
+        btn_joinerUsername.setVisible(false);
         btn_Host.setVisible(false);
         btn_Join.setVisible(false);
         btn_RB.setVisible(false);
@@ -399,6 +419,16 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
     }
 
+    public void join(){
+        removeEverythingFromScreen();
+        foePanel.setSetUpJoinScreen(true);
+        foePanel.repaint();
+        btn_backToHome.setVisible(true);
+        tf_joinerRoomCode.setVisible(true);
+        tf_joinerUsername.setVisible(true);
+        btn_joinerRoomCode.setVisible(true);
+        btn_joinerUsername.setVisible(true);
+    }
     public void host(){
         removeEverythingFromScreen();
         gameData = new GameData();
@@ -640,10 +670,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         else{
             System.out.println("invalid");
         }
-    }
-
-    public void join(){
-
     }
     public void enterGame(){
         sendCommand(CommandFromClient.LOBBY_CODE_ATTEMPT,"Room code,Username",gameData);
