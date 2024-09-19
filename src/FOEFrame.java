@@ -67,7 +67,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private JTextField tf_joinerUsername = new JTextField();
     private JTextField tf_joinerRoomCode = new JTextField();
     private JButton btn_joinerUsername = new JButton("Enter Username");
-    private JButton btn_joinerRoomCode = new JButton("Enter Room Code");
+    private JButton btn_joinerRoomCode = new JButton("Enter");
 
     private boolean paintRuleBook = false;
     private boolean flipRB12 = false;
@@ -150,9 +150,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         add(tf_joinerUsername);
         tf_joinerRoomCode.setBounds(650,580,150,25);
         add(tf_joinerRoomCode);
-        btn_joinerUsername.setBounds(850,430,150,25);
-        add(btn_joinerUsername);
-        btn_joinerRoomCode.setBounds(850,580,150,25);
+        btn_joinerRoomCode.setBounds(650,650,150,50);
         add(btn_joinerRoomCode);
 
 
@@ -217,6 +215,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             String temp = tf_pgnl.getText();
             int lpn = parseInt(temp);
             flipRB(lpn,"right");
+        });
+        btn_joinerRoomCode.addActionListener(e->{
+            String testUsername = tf_joinerUsername.getText();
+            String testRoomCode = tf_joinerRoomCode.getText();
+            sendCommand(CommandFromClient.LOBBY_CODE_ATTEMPT,testRoomCode+","+testUsername,null);
+
         });
         btn_checkUsername.addActionListener(e->{checkUsername();});
         btn_startLobby.addActionListener(e->{startLobby();});
