@@ -64,6 +64,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private JLabel text_roomCode = new JLabel();
     private JButton btn_checkUsername = new JButton("o");
 
+    private JTextField tf_joinerUsername = new JTextField();
+    private JTextField tf_joinerRoomCode = new JTextField();
+    private JButton btn_joinerUsername = new JButton("Enter Username");
+    private JButton btn_joinerRoomCode = new JButton("Enter");
+
     private boolean paintRuleBook = false;
     private boolean flipRB12 = false;
     private boolean flipRB34 = false;
@@ -80,7 +85,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         addKeyListener(this);
         addWindowFocusListener(this);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(1500,1000);
+        setSize(1500,1050);
         setResizable(false);
         setAlwaysOnTop(true);
         setVisible(true);
@@ -110,7 +115,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         add(btn_numOfPlayersDecrease);
         btn_numOfPlayersIncrease.setBounds(850,288,75,75);
         add(btn_numOfPlayersIncrease);
-        btn_backGameScenario.setBounds(488,788,75,75);
+        btn_backGameScenario.setBounds(388,788,75,75);
         add(btn_backGameScenario);
         btn_forwardGameScenario.setBounds(1000,788,75,75);
         add(btn_forwardGameScenario);
@@ -141,6 +146,14 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_checkUsername.setBounds(1000,425,50,50);
         add(btn_checkUsername);
 
+        tf_joinerUsername.setBounds(650,430,150,25);
+        add(tf_joinerUsername);
+        tf_joinerRoomCode.setBounds(650,580,150,25);
+        add(tf_joinerRoomCode);
+        btn_joinerRoomCode.setBounds(650,650,150,50);
+        add(btn_joinerRoomCode);
+
+
 
         tf_pgnl.setBounds(50,900,75,75);
         add(tf_pgnl);
@@ -150,6 +163,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         foePanel.setBounds(0,0,1500,1000);
         add(foePanel);
         btn_Host.addActionListener(e->{host();});
+        btn_Join.addActionListener(e->{join();});
         btn_RB.addActionListener(e->{
             before = currentPage;
             drawRuleBook();
@@ -202,6 +216,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             int lpn = parseInt(temp);
             flipRB(lpn,"right");
         });
+        btn_joinerRoomCode.addActionListener(e->{
+            String testUsername = tf_joinerUsername.getText();
+            String testRoomCode = tf_joinerRoomCode.getText();
+            sendCommand(CommandFromClient.LOBBY_CODE_ATTEMPT,testRoomCode+","+testUsername,null);
+
+        });
         btn_checkUsername.addActionListener(e->{checkUsername();});
         btn_startLobby.addActionListener(e->{startLobby();});
         btn_numOfPlayersIncrease.addActionListener(e->{numOfPlayersIncrease();});
@@ -216,12 +236,14 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_RB.setVisible(true);
         btn_Join.setVisible(true);
         btn_Host.setVisible(true);
-        text_numOfPlayersBox.setOpaque(true);
-        text_numOfPlayersBox.setVisible(true);
 
     }
 
     public void removeEverythingFromScreen(){
+        tf_joinerRoomCode.setVisible(false);
+        tf_joinerUsername.setVisible(false);
+        btn_joinerRoomCode.setVisible(false);
+        btn_joinerUsername.setVisible(false);
         btn_Host.setVisible(false);
         btn_Join.setVisible(false);
         btn_RB.setVisible(false);
@@ -401,10 +423,22 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
     }
 
+    public void join(){
+        removeEverythingFromScreen();
+        foePanel.setSetUpJoinScreen(true);
+        foePanel.repaint();
+        btn_backToHome.setVisible(true);
+        tf_joinerRoomCode.setVisible(true);
+        tf_joinerUsername.setVisible(true);
+        btn_joinerRoomCode.setVisible(true);
+        btn_joinerUsername.setVisible(true);
+    }
     public void host(){
         removeEverythingFromScreen();
         gameData = new GameData();
         foePanel.setHostGameSetUpScreen(true);
+        foePanel.setShowUnstableVoid(true);
+        gameRuleSlidesIndex = 0;
         foePanel.repaint();
         btn_RB.setVisible(true);
         text_numOfPlayersBox.setVisible(true);
@@ -472,29 +506,42 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         else{
             gameRuleSlidesIndex=3;
         }
+        checkbox_GameScenarioSelected.setSelected(false);
         if(gameRuleSlidesIndex == 0){
             foePanel.setShowUnstableVoid(true);
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
             foePanel.setShowShadesOfVorax(false);
+            if(gameData.isUnstableVoid()){
+                checkbox_GameScenarioSelected.setSelected(true);
+            }
         }
         if(gameRuleSlidesIndex == 1){
             foePanel.setShowVagrantPortal(true);
             foePanel.setShowUnstableVoid(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
             foePanel.setShowShadesOfVorax(false);
+            if(gameData.isVagrantPortal()){
+                checkbox_GameScenarioSelected.setSelected(true);
+            }
         }
         if(gameRuleSlidesIndex == 2){
             foePanel.setShowInvasionOfTheShadowCult(true);
             foePanel.setShowUnstableVoid(false);
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowShadesOfVorax(false);
+            if(gameData.isInvasionOfTheShadowCult()){
+                checkbox_GameScenarioSelected.setSelected(true);
+            }
         }
         if(gameRuleSlidesIndex == 3){
             foePanel.setShowShadesOfVorax(true);
             foePanel.setShowUnstableVoid(false);
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
+            if(gameData.isShadesOfVorax()){
+                checkbox_GameScenarioSelected.setSelected(true);
+            }
         }
         repaintPanel();
     }
@@ -534,29 +581,42 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         else{
             gameRuleSlidesIndex=0;
         }
+        checkbox_GameScenarioSelected.setSelected(false);
         if(gameRuleSlidesIndex == 0){
             foePanel.setShowUnstableVoid(true);
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
             foePanel.setShowShadesOfVorax(false);
+            if(gameData.isUnstableVoid()){
+                checkbox_GameScenarioSelected.setSelected(true);
+            }
         }
         if(gameRuleSlidesIndex == 1){
             foePanel.setShowVagrantPortal(true);
             foePanel.setShowUnstableVoid(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
             foePanel.setShowShadesOfVorax(false);
+            if(gameData.isVagrantPortal()){
+                checkbox_GameScenarioSelected.setSelected(true);
+            }
         }
         if(gameRuleSlidesIndex == 2){
             foePanel.setShowInvasionOfTheShadowCult(true);
             foePanel.setShowUnstableVoid(false);
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowShadesOfVorax(false);
+            if(gameData.isInvasionOfTheShadowCult()){
+                checkbox_GameScenarioSelected.setSelected(true);
+            }
         }
         if(gameRuleSlidesIndex == 3){
             foePanel.setShowShadesOfVorax(true);
             foePanel.setShowUnstableVoid(false);
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
+            if(gameData.isShadesOfVorax()){
+                checkbox_GameScenarioSelected.setSelected(true);
+            }
         }
         repaintPanel();
     }
@@ -585,6 +645,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
     public void startLobby(){
         gameData.setNumOfPlayers(Integer.parseInt(text_numOfPlayersBox.getText()));
+        foePanel.setHostGameSetUpScreen(false);
+        foePanel.repaint();
         sendCommand(CommandFromClient.HOSTING,username,gameData);
         removeEverythingFromScreen();
         foePanel.setGameData(gameData);
@@ -593,6 +655,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         text_roomCode.setOpaque(true);
         text_roomCode.setText(gameData.getLobbyCode());
         textBox_getUsername.setVisible(true);
+
     }
 
     public void checkUsername(){
@@ -612,12 +675,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
         }
         else{
-            System.out.println("invalid");
+            textBox_getUsername.setText("Name Taken:(");
         }
-    }
-
-    public void join(){
-
     }
     public void enterGame(){
         sendCommand(CommandFromClient.LOBBY_CODE_ATTEMPT,"Room code,Username",gameData);
