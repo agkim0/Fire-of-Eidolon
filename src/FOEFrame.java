@@ -24,14 +24,14 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private boolean lobbycodevalid;
     private boolean gameFull;
     ObjectOutputStream os;
-    public static final int TP = 0;
-    public static final int RB = 1;
-    public static final int SUG = 2;
-    public static final int LOBBY = 3;
-    public static final int ROOM = 4;
-    public static final int SUC = 5;
-    public static final int GAME = 6;
-    public static final int CC = 7;
+    public static final int TP = 0;//title page
+    public static final int RB = 1;//rulebook
+    public static final int SUG = 2;//set up game
+    public static final int HLS = 3;//host lobby screen
+    public static final int JOIN = 4;//join
+    public static final int SUC = 5;//set up characters
+    public static final int GAME = 6;//the game
+    public static final int CC = 7;//character card
     public static final int WIN = 8;
     public static final int LOSE = 9;
     private FOEPanel foePanel;
@@ -156,9 +156,24 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         foePanel = new FOEPanel();
         foePanel.setBounds(0,0,1500,1000);
         add(foePanel);
-        btn_Host.addActionListener(e->{host();});
+        btn_Host.addActionListener(e->{
+            before = currentPage;
+            currentPage = SUG;
+            host();
+        });
+        btn_Join.addActionListener(e->{
+            before = currentPage;
+            currentPage = JOIN;
+            join();
+        });
+        btn_startLobby.addActionListener(e->{
+            before = currentPage;
+            currentPage = HLS;
+            startLobby();
+        });
         btn_RB.addActionListener(e->{
             before = currentPage;
+            currentPage = RB;
             drawRuleBook();
         });
         btn_rbBack.addActionListener(e -> {
@@ -210,21 +225,23 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             flipRB(lpn,"right");
         });
         btn_checkUsername.addActionListener(e->{checkUsername();});
-        btn_startLobby.addActionListener(e->{startLobby();});
+
         btn_numOfPlayersIncrease.addActionListener(e->{numOfPlayersIncrease();});
         btn_numOfPlayersDecrease.addActionListener(e->{numOfPlayersDecrease();});
         btn_backGameScenario.addActionListener(e->{backGameScenario();});
         btn_forwardGameScenario.addActionListener(e->{forwardGameScenario();});
         btn_lowerDifficulty.addActionListener(e->{lowerDifficulty();});
         btn_raiseDifficulty.addActionListener(e->{raiseDifficulty();});
-        btn_Join.addActionListener(e->{join();});
         btn_checkRoomCode.addActionListener(e->{checkRoomCode();});
 
 
-        removeEverythingFromScreen();
+        /*removeEverythingFromScreen();
         btn_RB.setVisible(true);
         btn_Join.setVisible(true);
-        btn_Host.setVisible(true);
+        btn_Host.setVisible(true);*/
+        paintTP();
+        currentPage = TP;
+        before = -1;
 
     }
 
