@@ -425,7 +425,13 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_backGameScenario.setVisible(true);
         btn_forwardGameScenario.setVisible(true);
         checkbox_GameScenarioSelected.setVisible(true);
-        
+
+        foePanel.setShowUnstableVoid(true);
+        gameRuleSlidesIndex = 0;
+        gameData.setUnstableVoid(false);
+        gameData.setVagrantPortal(false);
+        gameData.setInvasionOfTheShadowCult(false);
+        gameData.setShadesOfVorax(false);
         gameData.setDifficultyLevel("Beginner");
         repaintPanel();
 
@@ -487,25 +493,50 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
             foePanel.setShowShadesOfVorax(false);
+            if(gameData.isUnstableVoid()){
+                checkbox_GameScenarioSelected.setSelected(true);
+            }
+            else{
+                checkbox_GameScenarioSelected.setSelected(false);
+            }
         }
         if(gameRuleSlidesIndex == 1){
             foePanel.setShowVagrantPortal(true);
             foePanel.setShowUnstableVoid(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
             foePanel.setShowShadesOfVorax(false);
+            if(gameData.isVagrantPortal()){
+                checkbox_GameScenarioSelected.setSelected(true);
+            }
+            else{
+                checkbox_GameScenarioSelected.setSelected(false);
+            }
         }
         if(gameRuleSlidesIndex == 2){
             foePanel.setShowInvasionOfTheShadowCult(true);
             foePanel.setShowUnstableVoid(false);
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowShadesOfVorax(false);
+            if(gameData.isInvasionOfTheShadowCult()){
+                checkbox_GameScenarioSelected.setSelected(true);
+            }
+            else{
+                checkbox_GameScenarioSelected.setSelected(false);
+            }
         }
         if(gameRuleSlidesIndex == 3){
             foePanel.setShowShadesOfVorax(true);
             foePanel.setShowUnstableVoid(false);
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
+            if(gameData.isShadesOfVorax()){
+                checkbox_GameScenarioSelected.setSelected(true);
+            }
+            else{
+                checkbox_GameScenarioSelected.setSelected(false);
+            }
         }
+
         repaintPanel();
     }
 
@@ -549,25 +580,50 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
             foePanel.setShowShadesOfVorax(false);
+            if(gameData.isUnstableVoid()){
+                checkbox_GameScenarioSelected.setSelected(true);
+            }
+            else{
+                checkbox_GameScenarioSelected.setSelected(false);
+            }
         }
         if(gameRuleSlidesIndex == 1){
             foePanel.setShowVagrantPortal(true);
             foePanel.setShowUnstableVoid(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
             foePanel.setShowShadesOfVorax(false);
+            if(gameData.isVagrantPortal()){
+                checkbox_GameScenarioSelected.setSelected(true);
+            }
+            else{
+                checkbox_GameScenarioSelected.setSelected(false);
+            }
         }
         if(gameRuleSlidesIndex == 2){
             foePanel.setShowInvasionOfTheShadowCult(true);
             foePanel.setShowUnstableVoid(false);
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowShadesOfVorax(false);
+            if(gameData.isInvasionOfTheShadowCult()){
+                checkbox_GameScenarioSelected.setSelected(true);
+            }
+            else{
+                checkbox_GameScenarioSelected.setSelected(false);
+            }
         }
         if(gameRuleSlidesIndex == 3){
             foePanel.setShowShadesOfVorax(true);
             foePanel.setShowUnstableVoid(false);
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
+            if(gameData.isShadesOfVorax()){
+                checkbox_GameScenarioSelected.setSelected(true);
+            }
+            else{
+                checkbox_GameScenarioSelected.setSelected(false);
+            }
         }
+
         repaintPanel();
     }
 
