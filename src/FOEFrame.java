@@ -75,7 +75,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
     public FOEFrame(ObjectOutputStream os) throws IOException{
         super("FOE Game");
-        this.gameData = gameData;
+        this.gameData = new GameData();;
         this.os = os;
         addKeyListener(this);
         addWindowFocusListener(this);
@@ -405,7 +405,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         removeEverythingFromScreen();
         gameData = new GameData();
         foePanel.setHostGameSetUpScreen(true);
-        foePanel.repaint();
         btn_RB.setVisible(true);
         text_numOfPlayersBox.setVisible(true);
         text_numOfPlayersBox.setOpaque(true);
@@ -418,6 +417,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_backGameScenario.setVisible(true);
         btn_forwardGameScenario.setVisible(true);
         checkbox_GameScenarioSelected.setVisible(true);
+        
+        gameData.setDifficultyLevel("Beginner");
+        repaintPanel();
 
 
 
@@ -673,8 +675,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
     
     public void repaintPanel(){
-        foePanel.setGameData(gameData);
-        foePanel.repaint();
+        System.out.println(gameData.getDifficultyLevel());
+        foePanel.setGameData(this.gameData);
         foePanel.repaint();
     }
 }
