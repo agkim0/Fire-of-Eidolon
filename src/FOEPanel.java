@@ -15,6 +15,9 @@ public class FOEPanel extends JPanel{
         private boolean showShadesOfVorax = false;
     private boolean hostRoomCodeScreen;
     private boolean setUpJoinScreen;
+    private boolean drawTitlePage;
+
+
 
     public boolean isSetUpJoinScreen() {
         return setUpJoinScreen;
@@ -343,6 +346,9 @@ public class FOEPanel extends JPanel{
             g.drawString("Username:",500,450);
             g.drawString("Room Code:",500,600);
         }
+        if(drawTitlePage){
+            //idk
+        }
 
 //        g.drawRect(40,130,100,100);
 //        g.setFont(new Font("Sans Serif",Font.BOLD,50));
@@ -357,6 +363,13 @@ public class FOEPanel extends JPanel{
 
     public GameData getGameData() {
         return gameData;
+    }
+    public boolean isDrawTitlePage() {
+        return drawTitlePage;
+    }
+
+    public void setDrawTitlePage(boolean drawTitlePage) {
+        this.drawTitlePage = drawTitlePage;
     }
 
     public void setGameData(GameData gd) {

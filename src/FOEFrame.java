@@ -698,4 +698,20 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         foePanel.setGameData(this.gameData);
         foePanel.repaint();
     }
+
+    public void paintTP(){
+        removeEverythingFromScreen();
+        btn_Join.setVisible(true);
+        btn_Host.setVisible(true);
+        btn_RB.setVisible(true);
+        foePanel.setDrawTitlePage(true);
+        foePanel.repaint();
+        foePanel.setDrawTitlePage(false);
+    }
+    public void goBack(){
+        if(before == TP){
+            paintTP();
+        }
+        //else if (before == )
+    }
 }
