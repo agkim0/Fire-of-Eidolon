@@ -22,8 +22,8 @@ public class ServersListener implements Runnable, Serializable {
                     gameDatas.add(cfc.getGameData());
                 }
                 else if(cfc.getCommand()==CommandFromClient.CHECK_USERNAME){
-                    System.out.println("Check username recieved");
-                    System.out.println(cfc.getGameData().getNumOfPlayers());
+//                    System.out.println("Check username recieved");
+//                    System.out.println(cfc.getGameData().getNumOfPlayers());
                     if(cfc.getGameData().getUsernames().contains(cfc.getData())){
                         System.out.println("sending valid");
                         sendCommand(CommandFromServer.USERNAME_INVALID,null,null);
@@ -35,6 +35,7 @@ public class ServersListener implements Runnable, Serializable {
                 }
                 else if(cfc.getCommand()==CommandFromClient.LOBBY_CODE_ATTEMPT){
                     String[] x = cfc.getData().split(",",1);
+                    System.out.println("length: "+x.length);
                     String attemptCode = x[0];
                     String usernameAttempt = x[1];
                     boolean lobbycodefound = false;

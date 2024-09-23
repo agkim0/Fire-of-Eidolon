@@ -317,6 +317,9 @@ public class FOEPanel extends JPanel{
             if(gameData.getDifficultyLevel().equals("Extreme")){
                 g.drawImage(df_Extreme,1100,250,350,550,null);
             }
+            if(gameData.getDifficultyLevel().equals("Heroic")){
+                g.drawImage(df_Heroic,1100,250,350,550,null);
+            }
             if(gameData.getDifficultyLevel().equals("Nightmare")){
                 g.drawImage(df_Nightmare,1100,250,350,550,null);
             }
