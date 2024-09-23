@@ -1,6 +1,5 @@
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Random;
 
 public class GameData implements Serializable{
@@ -15,16 +14,6 @@ public class GameData implements Serializable{
     private ArrayList<Hero> orderOfTurns;
     private int threatLevel;
     private String difficultyLevel;
-    private ArrayList<Integer> beginnerDifficulty = new ArrayList<>();
-    private ArrayList<Integer> normalDifficulty = new ArrayList<>();
-    private ArrayList<Integer> hardDifficulty = new ArrayList<>();
-    private ArrayList<Integer> veryHardDifficulty = new ArrayList<>();
-    private ArrayList<Integer> extremeDifficulty = new ArrayList<>();
-    private ArrayList<Integer> heroicDifficulty = new ArrayList<>();
-    private ArrayList<Integer> nightmareDifficulty = new ArrayList<>();
-    private ArrayList<Integer> legendaryDifficulty = new ArrayList<>();
-    private ArrayList<Integer> glitchDifficulty = new ArrayList<>();
-
     private boolean unstableVoid=false;
     private boolean vagrantPortal=false;
     private boolean invasionOfTheShadowCult=false;
@@ -44,10 +33,6 @@ public class GameData implements Serializable{
         for(int x = 0;x<3;x++){
             lobbyCode+=((rand.nextInt(9))+"");
         }
-//        createAllTilesAndCards();
-//        createAllHero();
-//        Collections.shuffle(tileDeck);
-
     }
 
     public void createAllTilesAndCards(){
@@ -171,25 +156,6 @@ public class GameData implements Serializable{
         Inteligece has been abbreviated to "Intel"
          */
 
-    }
-    public void createDifficultyLevels(){
-        beginnerDifficulty.add(1);
-        beginnerDifficulty.add(1);
-        beginnerDifficulty.add(2);
-        beginnerDifficulty.add(2);
-        beginnerDifficulty.add(2);
-        beginnerDifficulty.add(3);
-        beginnerDifficulty.add(3);
-        beginnerDifficulty.add(3);
-        beginnerDifficulty.add(4);
-
-//        normalDifficulty.add();
-    }
-    public void reshuffleDeck(){
-        for(int x = 0;x<fullDeck.size();x++){
-            currDeck.add(fullDeck.get(x));
-        }
-        Collections.shuffle(currDeck);
     }
 
 

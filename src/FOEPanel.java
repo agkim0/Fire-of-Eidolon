@@ -153,6 +153,7 @@ public class FOEPanel extends JPanel{
     BufferedImage bg;
     public FOEPanel() throws IOException{
         setSize(1500,1000);
+        this.gameData = new GameData();
         bg =ImageIO.read(new File("Game Images/eidolon bg.png"));
         do{
             logo = ImageIO.read(new File("Game images/Fire of Eidolon Title.png"));
@@ -281,6 +282,7 @@ public class FOEPanel extends JPanel{
             purpleVorax_Token = ImageIO.read(new File("token pieces/voraxes/purple vorax.png"));
             greenVorax_Token = ImageIO.read(new File("token pieces/voraxes/green vorax.png"));
         }while(false);
+        
     }
     public void paint(Graphics g){
         g.drawImage(bg,0,0,1500,1000, null);
@@ -300,8 +302,32 @@ public class FOEPanel extends JPanel{
             if(showShadesOfVorax){
                 g.drawImage(scenario_4,450,650,550,350,null);
             }
+            if(gameData.getDifficultyLevel().equals("Beginner")){
+                g.drawImage(df_Beginner,1100,250,350,550,null);
+            }
+            if(gameData.getDifficultyLevel().equals("Normal")){
+                g.drawImage(df_Normal,1100,250,350,550,null);
+            }
+            if(gameData.getDifficultyLevel().equals("Hard")){
+                g.drawImage(df_Hard,1100,250,350,550,null);
+            }
+            if(gameData.getDifficultyLevel().equals("Very Hard")){
+                g.drawImage(df_VeryHard,1100,250,350,550,null);
+            }
+            if(gameData.getDifficultyLevel().equals("Extreme")){
+                g.drawImage(df_Extreme,1100,250,350,550,null);
+            }
+            if(gameData.getDifficultyLevel().equals("Nightmare")){
+                g.drawImage(df_Nightmare,1100,250,350,550,null);
+            }
+            if(gameData.getDifficultyLevel().equals("Legendary")){
+                g.drawImage(df_Legendary,1100,250,350,550,null);
+            }
+            if(gameData.getDifficultyLevel().equals("Glitch")){
+                g.drawImage(df_Glitch,1100,250,350,550,null);
+            }
             
-            //if()
+//            if()
 //            
         }
         if(hostRoomCodeScreen){
@@ -330,8 +356,9 @@ public class FOEPanel extends JPanel{
         return gameData;
     }
 
-    public void setGameData(GameData gameData) {
-        this.gameData = gameData;
+    public void setGameData(GameData gd) {
+        System.out.println("game data recieved: "+gd.getDifficultyLevel());
+        this.gameData = gd;
     }
 
     public boolean isHostGameSetUpScreen() {
