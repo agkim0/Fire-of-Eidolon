@@ -184,8 +184,8 @@ public class FOEPanel extends JPanel{
             back_Of_CC = ImageIO.read(new File("character cards/Hero Card Back Side.png"));//token images
 
             difficulty_Levels = ImageIO.read(new File("difficulty cards/difficulty levels.png"));
-            df_Beginner = ImageIO.read(new File("difficulty cards/beginner difficulty card.png"));
-            df_Normal = ImageIO.read(new File("difficulty cards/normal difficulty card.png"));
+            df_Beginner = ImageIO.read(new File("difficulty cards/beginner difficulty card (Fixed).png"));
+            df_Normal = ImageIO.read(new File("difficulty cards/normal difficulty card(Fixed).png"));
             df_Extreme = ImageIO.read(new File("difficulty cards/extreme.png"));
             df_Glitch = ImageIO.read(new File("difficulty cards/glitch.png"));
             df_Hard = ImageIO.read(new File("difficulty cards/hard.png"));
