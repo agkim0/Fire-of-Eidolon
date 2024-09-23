@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="e89b7d73-be17-4db6-9220-7e96ff4c25d2" name="Changes" comment="" />
-=======
     <list default="true" id="e89b7d73-be17-4db6-9220-7e96ff4c25d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FOEFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FOEFrame.java" afterDir="false" />
     </list>
->>>>>>> 712a1530fedcd512c005c9808d13b3f5ce6ff280
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,8 +50,8 @@
       <recent name="C:\Users\K1207600\Desktop\GitHub\Fire\Fire-of-Eidolon\UML Diagrams" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ServerMain">
-    <configuration name="ClientMain" type="Application" factoryName="Application" activateToolWindowBeforeRun="false" singleton="false" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.ClientMain">
+    <configuration name="ClientMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ClientMain" />
       <module name="Fire-of-Eidolon2" />
       <method v="2">
@@ -68,14 +65,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Application.ClientMain" />
-      <item itemvalue="Application.ServerMain" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ServerMain" />
         <item itemvalue="Application.ClientMain" />
+        <item itemvalue="Application.ServerMain" />
       </list>
     </recent_temporary>
   </component>

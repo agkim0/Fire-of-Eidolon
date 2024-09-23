@@ -301,7 +301,7 @@ public class FOEPanel extends JPanel{
                 g.drawImage(scenario_4,450,650,550,350,null);
             }
             
-            //if()
+            if()
 //            
         }
         if(hostRoomCodeScreen){
