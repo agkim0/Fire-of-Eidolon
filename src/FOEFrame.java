@@ -137,9 +137,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         gameRuleSlides.add("Invasion of the Shadow Cult");
         gameRuleSlides.add("Shades of Vorax");
 
-        text_roomCode.setBounds(700,550,300,100);
+        text_roomCode.setBounds(700,425,300,50);
         add(text_roomCode);
-        textBox_getUsername.setBounds(700,400,300,100);
+        textBox_getUsername.setBounds(700,50,300,50);
         add(textBox_getUsername);
         btn_checkUsername.setBounds(1000,425,50,50);
         add(btn_checkUsername);
@@ -431,6 +431,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         gameData = new GameData();
         foePanel.setHostGameSetUpScreen(true);
         btn_RB.setVisible(true);
+        textBox_getUsername.setVisible(true);
         text_numOfPlayersBox.setVisible(true);
         text_numOfPlayersBox.setOpaque(true);
         btn_numOfPlayersIncrease.setVisible(true);
@@ -667,7 +668,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
 
     public void startLobby(){
+
         gameData.setNumOfPlayers(Integer.parseInt(text_numOfPlayersBox.getText()));
+        username = textBox_getUsername.getText();
         sendCommand(CommandFromClient.HOSTING,username,gameData);
         removeEverythingFromScreen();
         foePanel.setGameData(gameData);
@@ -675,7 +678,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         text_roomCode.setVisible(true);
         text_roomCode.setOpaque(true);
         text_roomCode.setText(gameData.getLobbyCode());
-        textBox_getUsername.setVisible(true);
+        //textBox_getUsername.setVisible(true);
     }
 
     public void checkUsername(){
