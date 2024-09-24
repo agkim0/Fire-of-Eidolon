@@ -332,14 +332,15 @@ public class FOEPanel extends JPanel{
             if(gameData.getDifficultyLevel().equals("Glitch")){
                 g.drawImage(df_Glitch,1100,250,350,550,null);
             }
-            
+            g.setFont(new Font("Sans Serif",Font.BOLD,20));
+            g.drawString("Username:",450,70);
 //            if()
 //            
         }
         if(hostRoomCodeScreen){
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
-            g.drawString("Username:",500,450);
-            g.drawString("Room Code",500,600);
+            //g.drawString("Username:",500,450);
+            g.drawString("Room Code",500,450);
         }
         if(setUpJoinScreen){
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
