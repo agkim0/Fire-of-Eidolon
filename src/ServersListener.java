@@ -2,13 +2,16 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class ServersListener implements Runnable, Serializable {
+    private boolean acceptedName;
     private ObjectInputStream is;
     private ObjectOutputStream os;
-    private static ArrayList<GameData> gameDatas = new ArrayList<GameData>();
+    private static ArrayList<Room> rooms = new ArrayList<Room>();
     private static ArrayList<ObjectOutputStream> outs = new ArrayList<>();
-    public ServersListener (ObjectInputStream is, ObjectOutputStream os){
+    private Room room;
+    public ServersListener (ObjectInputStream is, ObjectOutputStream os, Room room){
         this.is = is;
         this.os = os;
+        this.room = room;
         outs.add(os);
     }
 
@@ -18,10 +21,8 @@ public class ServersListener implements Runnable, Serializable {
             try{
                 CommandFromClient cfc = (CommandFromClient) is.readObject();
 
-                if(cfc.getCommand()==CommandFromClient.HOSTING){
-                    gameDatas.add(cfc.getGameData());
-                }
-                else if(cfc.getCommand()==CommandFromClient.CHECK_USERNAME){
+
+                if(cfc.getCommand()==CommandFromClient.CHECK_USERNAME){
 //                    System.out.println("Check username recieved");
 //                    System.out.println(cfc.getGameData().getNumOfPlayers());
                     if(cfc.getGameData().getUsernames().contains(cfc.getData())){
@@ -39,20 +40,24 @@ public class ServersListener implements Runnable, Serializable {
                     String attemptCode = x[0];
                     String usernameAttempt = x[1];
                     boolean lobbycodefound = false;
-                    for(GameData gd:gameDatas){
-                        if(gd.getLobbyCode().equals(attemptCode)){
+                    for(Room r:rooms){
+                        if(r.getRoomCode().equals(attemptCode)){
                             lobbycodefound=true;
-                            if(gd.getUsernames().size() == gd.getNumOfPlayers()){
+                            if(r.getUsers().size() == r.getGameData().getNumOfPlayers()){
                                 sendCommand(CommandFromServer.GAME_IS_FULL,null,null);
                                 break;
                             }
-                            if(gd.getUsernames().contains(usernameAttempt)){
+                            if(r.getUsers().contains(usernameAttempt)){
                                 sendCommand(CommandFromServer.USERNAME_INVALID,null,null);
                                 break;
                             }
                             else{
-                                gd.getUsernames().add(usernameAttempt);
-                                sendCommand(CommandFromServer.LOBBY_CODE_VALID,usernameAttempt,gd);
+                                acceptedName = true;
+                                r.getUsers().add(usernameAttempt);
+                                r.getGameData().getUsernames().add(usernameAttempt);
+                                sendCommand(CommandFromServer.LOBBY_CODE_VALID,usernameAttempt,r.getGameData());
+                                r.getOuts().add(os);
+                                sendCommandtoAllUsers(CommandFromServer.NEW_USER_JOINED,null,r.getGameData());
                             }
                         }
                     }
@@ -66,9 +71,19 @@ public class ServersListener implements Runnable, Serializable {
             }
         }
     }
+
     public void sendCommand(int com, String data, GameData gameData){
         CommandFromServer cfs = new CommandFromServer(com,data,gameData);
-        for(ObjectOutputStream o:outs){
+        try{
+            os.writeObject(cfs);
+            os.reset();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public void sendCommandtoAllUsers(int com, String data, GameData gameData){
+        CommandFromServer cfs = new CommandFromServer(com,data,gameData);
+        for(ObjectOutputStream o: room.getOuts()){
             try{
                 o.writeObject(cfs);
                 o.reset();
@@ -76,5 +91,13 @@ public class ServersListener implements Runnable, Serializable {
                 e.printStackTrace();
             }
         }
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
     }
 }

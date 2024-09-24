@@ -36,6 +36,10 @@ public class ClientsListener implements Runnable,Serializable{
                 if(cfs.getCommand()==CommandFromServer.GAME_IS_FULL){
                     frame.gameFull(true);
                 }
+                if(cfs.getCommand()==CommandFromServer.NEW_USER_JOINED){
+                    //make screen say that new user joined in chat
+                    frame.setGameData(cfs.getGameData());
+                }
             } catch (Exception e){
                 e.printStackTrace();
             }
