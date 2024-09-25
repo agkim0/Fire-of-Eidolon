@@ -60,6 +60,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private ArrayList<String> gameRuleSlides = new ArrayList<>();
     private int gameRuleSlidesIndex = 0;
 
+    private JButton btn_backCC = new JButton("<");
+    private JButton btn_forwardCC = new JButton(">");
+    private JCheckBox checkbox_CCSelected = new JCheckBox();
+    private ArrayList<String> characterCards = new ArrayList<>();
+    private int ccLevelIndex = 0;
+
     private JTextField textBox_getUsername = new JTextField();
     private JLabel text_roomCode = new JLabel();
     private JButton btn_checkUsername = new JButton("o");
@@ -107,11 +113,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         add(btn_startLobby);
         btn_backToHome.setBounds(50,650,300,75);
         add(btn_backToHome);
-        text_numOfPlayersBox.setBounds(675,250,150,150);
+        text_numOfPlayersBox.setBounds(825,250,150,150);
         add(text_numOfPlayersBox);
-        btn_numOfPlayersDecrease.setBounds(588,288,75,75);
+        btn_numOfPlayersDecrease.setBounds(738,288,75,75);
         add(btn_numOfPlayersDecrease);
-        btn_numOfPlayersIncrease.setBounds(850,288,75,75);
+        btn_numOfPlayersIncrease.setBounds(1000,288,75,75);
         add(btn_numOfPlayersIncrease);
         btn_backGameScenario.setBounds(488,788,75,75);
         add(btn_backGameScenario);
@@ -136,6 +142,16 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         gameRuleSlides.add("Vagrant Portal");
         gameRuleSlides.add("Invasion of the Shadow Cult");
         gameRuleSlides.add("Shades of Vorax");
+        btn_backCC.setBounds(10,288,75,75);
+        add(btn_backCC);
+        btn_forwardCC.setBounds(610,288,75,75);
+        add(btn_forwardCC);
+        characterCards.add("aelfric");
+        characterCards.add("cecelia");
+        characterCards.add("daga");
+        characterCards.add("kalistos");
+        characterCards.add("kaylana");
+        characterCards.add("sirius");
 
         text_roomCode.setBounds(700,425,300,50);
         add(text_roomCode);
@@ -143,7 +159,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         add(textBox_getUsername);
         btn_checkUsername.setBounds(1000,425,50,50);
         add(btn_checkUsername);
-        textBox_getRoomCode.setBounds(700,550,300,100);
+        textBox_getRoomCode.setBounds(700,550,300,50);
         add(textBox_getRoomCode);
         btn_checkRoomCode.setBounds(1200,575,200,50);
         add(btn_checkRoomCode);
@@ -443,6 +459,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_backGameScenario.setVisible(true);
         btn_forwardGameScenario.setVisible(true);
         checkbox_GameScenarioSelected.setVisible(true);
+        btn_forwardCC.setVisible(true);
+        btn_backCC.setVisible(true);
 
         foePanel.setShowUnstableVoid(true);
         gameRuleSlidesIndex = 0;
@@ -706,6 +724,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void join(){
         removeEverythingFromScreen();
         foePanel.setSetUpJoinScreen(true);
+        textBox_getUsername.setBounds(700,450,300,50);
         textBox_getUsername.setVisible(true);
         textBox_getRoomCode.setVisible(true);
         btn_checkRoomCode.setVisible(true);
