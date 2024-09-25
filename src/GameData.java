@@ -9,6 +9,7 @@ public class GameData implements Serializable{
     private ArrayList<Card> currDeck;
     private ArrayList<Tile> tileDeck;
     private ArrayList<Hero> allHeroes;
+    private Hero curHero;
     private ArrayList<Hero> heroesPlaying = new ArrayList<Hero>();
     private Hero turn;
     private ArrayList<Hero> orderOfTurns;
@@ -23,7 +24,17 @@ public class GameData implements Serializable{
     private String lobbyCode = "";
     private int numOfPlayers;
 
+    public Hero getCurHero() {
+        return curHero;
+    }
+
+    public void setCurHero(Hero curHero) {
+        this.curHero = curHero;
+    }
+
     public GameData(){//change game rule to actual game rules!!!
+        createAllHero();
+        curHero = allHeroes.get(0);
         Random rand = new Random();
         for(int x=0;x<3;x++){
             char c = (char)(rand.nextInt(26)+'A');
@@ -164,10 +175,10 @@ public class GameData implements Serializable{
         allHeroes = new ArrayList<>();
         allHeroes.add(new Hero("Aelfric",1,2,3,0,0,0,false,false,false,false,3,false));
         allHeroes.add(new Hero("Cecilia",1,3,2,0,0,0,false,false,false,false,3,false));
-        allHeroes.add(new Hero("Dage",2,3,1,0,0,0,false,false,false,false,3,false));
+        allHeroes.add(new Hero("Daga",2,3,1,0,0,0,false,false,false,false,3,false));
         allHeroes.add(new Hero("Kalistos",3,1,2,0,0,0,false,false,false,false,3,false));
         allHeroes.add(new Hero("Kaylana",2,1,3,0,0,0,false,false,false,false,3,false));
-        allHeroes.add(new Hero("Sirus",3,2,1,0,0,0,false,false,false,false,3,false));
+        allHeroes.add(new Hero("Sirius",3,2,1,0,0,0,false,false,false,false,3,false));
 
     }
 

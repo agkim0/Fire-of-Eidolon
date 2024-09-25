@@ -119,13 +119,13 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         add(btn_numOfPlayersDecrease);
         btn_numOfPlayersIncrease.setBounds(1000,288,75,75);
         add(btn_numOfPlayersIncrease);
-        btn_backGameScenario.setBounds(488,788,75,75);
+        btn_backGameScenario.setBounds(350,788,75,75);
         add(btn_backGameScenario);
         btn_forwardGameScenario.setBounds(1000,788,75,75);
         add(btn_forwardGameScenario);
         checkbox_GameScenarioSelected.setBounds(700,600,50,50);
         add(checkbox_GameScenarioSelected);
-        btn_lowerDifficulty.setBounds(1238,188,75,75);
+        btn_lowerDifficulty.setBounds(1233,170,75,75);
         add(btn_lowerDifficulty);
         btn_raiseDifficulty.setBounds(1238,800,75,75);
         add(btn_raiseDifficulty);
@@ -144,14 +144,14 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         gameRuleSlides.add("Shades of Vorax");
         btn_backCC.setBounds(10,288,75,75);
         add(btn_backCC);
-        btn_forwardCC.setBounds(610,288,75,75);
+        btn_forwardCC.setBounds(635,288,75,75);
         add(btn_forwardCC);
-        characterCards.add("aelfric");
-        characterCards.add("cecelia");
-        characterCards.add("daga");
-        characterCards.add("kalistos");
-        characterCards.add("kaylana");
-        characterCards.add("sirius");
+        characterCards.add("Aelfric");
+        characterCards.add("Cecilia");
+        characterCards.add("Daga");
+        characterCards.add("Kalistos");
+        characterCards.add("Kaylana");
+        characterCards.add("Sirius");
 
         text_roomCode.setBounds(700,425,300,50);
         add(text_roomCode);
@@ -246,6 +246,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_lowerDifficulty.addActionListener(e->{lowerDifficulty();});
         btn_raiseDifficulty.addActionListener(e->{raiseDifficulty();});
         btn_checkRoomCode.addActionListener(e->{checkRoomCode();});
+        btn_backCC.addActionListener(e->{backCharacterCards();});
+        btn_forwardCC.addActionListener(e->{forwardCharacterCards();});
 
 
         /*removeEverythingFromScreen();
@@ -259,6 +261,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
 
     public void removeEverythingFromScreen(){
+        btn_forwardCC.setVisible(false);
+        btn_backCC.setVisible(false);
         btn_Host.setVisible(false);
         btn_Join.setVisible(false);
         btn_RB.setVisible(false);
@@ -487,6 +491,57 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         gameData.setNumOfPlayers(Integer.parseInt(text_numOfPlayersBox.getText()));
     }
 
+    public void backCharacterCards(){
+        if(ccLevelIndex>0){
+            ccLevelIndex--;
+            //System.out.println("dec cc");
+        }
+        else {
+            ccLevelIndex = characterCards.size()-1;
+            //System.out.println("cc = start");
+        }
+        for(int x=0; x<gameData.getAllHeroes().size(); x++){
+            if(gameData.getAllHeroes().get(x).getName().equals(characterCards.get(ccLevelIndex))){
+                //System.out.println(gameData.getAllHeroes().get(x).getName()+" = "+characterCards.get(ccLevelIndex));
+                you = gameData.getAllHeroes().get(ccLevelIndex);
+                //System.out.println(you.getName());
+                gameData.setCurHero(you);
+                //System.out.println(gameData.getCurHero().getName());
+                repaintPanel();
+            }
+        }
+    }
+    public Hero getYou() {
+        return you;
+    }
+    public void setYou(Hero you) {
+        this.you = you;
+    }
+    public void forwardCharacterCards(){
+        if(ccLevelIndex<characterCards.size()-1){
+            ccLevelIndex++;
+            //System.out.println(ccLevelIndex+"<"+characterCards.size()+"cc++");
+        }
+        else{
+            ccLevelIndex = 0;
+            //System.out.println("cc last");
+        }
+        System.out.println("ok");
+        for(int x=0; x<gameData.getAllHeroes().size(); x++){
+            if(gameData.getAllHeroes().get(x).getName().equals(characterCards.get(ccLevelIndex))){
+                //System.out.println(gameData.getAllHeroes().get(x).getName()+" = "+characterCards.get(ccLevelIndex));
+                you = gameData.getAllHeroes().get(ccLevelIndex);
+                //System.out.println(you.getName());
+                gameData.setCurHero(you);
+                //System.out.println(gameData.getCurHero().getName());
+                repaintPanel();
+            }
+            else {
+                //System.out.println(gameData.getAllHeroes().get(x).getName()+" != "+characterCards.get(ccLevelIndex));
+            }
+        }
+    }
+
     public void backGameScenario(){
         if(checkbox_GameScenarioSelected.isSelected()){
             if(gameRuleSlidesIndex == 0){
@@ -686,6 +741,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void startLobby(){
 
         gameData.setNumOfPlayers(Integer.parseInt(text_numOfPlayersBox.getText()));
+        gameData.addHeroesPlaying(gameData.getCurHero());
         username = textBox_getUsername.getText();
         sendCommand(CommandFromClient.HOSTING,username,gameData);
         removeEverythingFromScreen();
