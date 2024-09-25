@@ -20,18 +20,18 @@ public class ClientsListener implements Runnable,Serializable{
             try{
                 CommandFromServer cfs = (CommandFromServer) is.readObject();
                 if(cfs.getCommand()==CommandFromServer.USERNAME_INVALID){
+                    System.out.println("USERNAME_INVALID");
                     frame.usernameValid(false);
                 }
-                if(cfs.getCommand()==CommandFromServer.USERNAME_VAlID){
-                    frame.usernameValid(true);
-                    frame.setGameData(cfs.getGameData());
-                }
                 if(cfs.getCommand()==CommandFromServer.LOBBY_CODE_INVALID){
+                    System.out.println("LOBBY_CODE_INVALID");
                     frame.lobbyCodeValid(false);
                 }
-                if(cfs.getCommand()==CommandFromServer.LOBBY_CODE_VALID){
+                if(cfs.getCommand()==CommandFromServer.LOBBY_CODE_AND_USERNAME_VALID){
+                    System.out.println("LOBBY_CODE_AND_USERNAME_VALID");
                     frame.setGameData(cfs.getGameData());
-                    frame.checkUsername();
+                    frame.usernameValid(true);
+                    frame.lobbyCodeValid(true);
                 }
                 if(cfs.getCommand()==CommandFromServer.GAME_IS_FULL){
                     frame.gameFull(true);

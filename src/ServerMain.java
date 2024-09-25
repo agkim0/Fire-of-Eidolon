@@ -15,8 +15,10 @@ public class ServerMain {
 
                 CommandFromClient cfc = (CommandFromClient) is.readObject();
                 if(cfc.getCommand()==CommandFromClient.HOSTING){
+                    System.out.println("host connected in");
                     Room r = new Room(cfc.getGameData());
                     r.getUsers().add(cfc.getData());
+                    r.getGameData().getUsernames().add(cfc.getData());
 
                     ServersListener sl = new ServersListener(is,os,r);
                     Thread t = new Thread(sl);
@@ -24,6 +26,7 @@ public class ServerMain {
 
                 }
                 else{
+                    System.out.println("non host");
                     ServersListener sl = new ServersListener(is,os,null);
                     Thread t = new Thread(sl);
                     t.start();

@@ -68,7 +68,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
     private JTextField textBox_getUsername = new JTextField();
     private JLabel text_roomCode = new JLabel();
-    private JButton btn_checkUsername = new JButton("o");
+
     private JTextField textBox_getRoomCode = new JTextField();
     private JButton btn_checkRoomCode = new JButton("o");
 
@@ -157,8 +157,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         add(text_roomCode);
         textBox_getUsername.setBounds(700,50,300,50);
         add(textBox_getUsername);
-        btn_checkUsername.setBounds(1000,425,50,50);
-        add(btn_checkUsername);
         textBox_getRoomCode.setBounds(700,550,300,50);
         add(textBox_getRoomCode);
         btn_checkRoomCode.setBounds(1200,575,200,50);
@@ -240,7 +238,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             int lpn = parseInt(temp);
             flipRB(lpn,"right");
         });
-        btn_checkUsername.addActionListener(e->{checkUsername();});
 
         btn_numOfPlayersIncrease.addActionListener(e->{numOfPlayersIncrease();});
         btn_numOfPlayersDecrease.addActionListener(e->{numOfPlayersDecrease();});
@@ -277,7 +274,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_raiseDifficulty.setVisible(false);
         checkbox_GameScenarioSelected.setVisible(false);
 
-        btn_checkUsername.setVisible(false);
         textBox_getUsername.setVisible(false);
         text_roomCode.setVisible(false);
         textBox_getRoomCode.setVisible(false);
@@ -411,7 +407,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void sendCommand(int com, String data, GameData gameData){
         CommandFromClient cfc = new CommandFromClient(com,data,gameData);
         try{
+            System.out.println("writing"+cfc);
             os.writeObject(cfc);
+            System.out.println("wrote"+cfc);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -692,24 +690,20 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         sendCommand(CommandFromClient.HOSTING,username,gameData);
         removeEverythingFromScreen();
         foePanel.setGameData(gameData);
-        btn_checkUsername.setVisible(true);
+        foePanel.setHostGameSetUpScreen(false);
+        foePanel.setHostRoomCodeScreen(true);
+        repaintPanel();
         text_roomCode.setVisible(true);
         text_roomCode.setOpaque(true);
         text_roomCode.setText(gameData.getLobbyCode());
         //textBox_getUsername.setVisible(true);
     }
 
-    public void checkUsername(){
-        System.out.println(gameData.getNumOfPlayers());
-        sendCommand(CommandFromClient.CHECK_USERNAME, text_numOfPlayersBox.getText(),gameData);
-
-
-    }
     public void usernameValid(boolean valid){
-        System.out.println("usernamehelpter");
+        System.out.println("usernamehelpter: "+text_numOfPlayersBox.getText());
         if(valid){
+            username = textBox_getUsername.getText();
             System.out.println("valid");
-            btn_checkUsername.setVisible(false);
             btn_checkRoomCode.setVisible(false);
             textBox_getUsername.setEnabled(false);
             if(gameData.getNumOfPlayers()==gameData.getUsernames().size()){
@@ -733,7 +727,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
     }
     public void checkRoomCode(){
-        System.out.println(textBox_getRoomCode.getText()+","+textBox_getUsername);
+        System.out.println(textBox_getRoomCode.getText()+","+textBox_getUsername.getText());
+        sendCommand(CommandFromClient.LOBBY_CODE_ATTEMPT,textBox_getRoomCode.getText()+","+textBox_getUsername,gameData);
         sendCommand(CommandFromClient.LOBBY_CODE_ATTEMPT,textBox_getRoomCode.getText()+","+textBox_getUsername,gameData);
     }
     public void enterGame(){

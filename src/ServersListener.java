@@ -12,50 +12,63 @@ public class ServersListener implements Runnable, Serializable {
         this.is = is;
         this.os = os;
         this.room = room;
+        if(room!=null){
+            rooms.add(room);
+        }
         outs.add(os);
     }
 
     @Override
     public void run(){
         while(true){
+            System.out.println("new server thread going.");
             try{
                 CommandFromClient cfc = (CommandFromClient) is.readObject();
+                System.out.println("I just read "+cfc);
 
-
-                if(cfc.getCommand()==CommandFromClient.CHECK_USERNAME){
-//                    System.out.println("Check username recieved");
-//                    System.out.println(cfc.getGameData().getNumOfPlayers());
-                    if(cfc.getGameData().getUsernames().contains(cfc.getData())){
-                        System.out.println("sending valid");
-                        sendCommand(CommandFromServer.USERNAME_INVALID,null,null);
-                    }
-                    else{
-                        System.out.println("sending valid");
-                        sendCommand(CommandFromServer.USERNAME_VAlID,null,null);
-                    }
-                }
-                else if(cfc.getCommand()==CommandFromClient.LOBBY_CODE_ATTEMPT){
-                    String[] x = cfc.getData().split(",",1);
+//                if(cfc.getCommand()==CommandFromClient.CHECK_USERNAME){
+////                    System.out.println("Check username recieved");
+////                    System.out.println(cfc.getGameData().getNumOfPlayers());
+//                    if(cfc.getGameData().getUsernames().contains(cfc.getData())){
+//                        System.out.println("sending valid");
+//                        sendCommand(CommandFromServer.USERNAME_INVALID,null,null);
+//                    }
+//                    else{
+//                        System.out.println("sending valid");
+//                        sendCommand(CommandFromServer.USERNAME_VAlID,null,null);
+//                    }
+//                }
+                if(cfc.getCommand()==CommandFromClient.LOBBY_CODE_ATTEMPT){
+                    System.out.println("LOBBY_CODE_ATTEMPT");
+                    String[] x = cfc.getData().split(",",2);
                     System.out.println("length: "+x.length);
                     String attemptCode = x[0];
+                    System.out.println(attemptCode);
                     String usernameAttempt = x[1];
                     boolean lobbycodefound = false;
                     for(Room r:rooms){
-                        if(r.getRoomCode().equals(attemptCode)){
+                        System.out.println("curr: "+r.getGameData().getLobbyCode()+"            attemptCode: "+attemptCode);
+                        if(r.getGameData().getLobbyCode().equals(attemptCode)){
                             lobbycodefound=true;
+                            System.out.println(usernameAttempt+" found room");
                             if(r.getUsers().size() == r.getGameData().getNumOfPlayers()){
                                 sendCommand(CommandFromServer.GAME_IS_FULL,null,null);
                                 break;
                             }
+                            System.out.println(r.getUsers());
                             if(r.getUsers().contains(usernameAttempt)){
+                                System.out.println(usernameAttempt+" invalid username");
                                 sendCommand(CommandFromServer.USERNAME_INVALID,null,null);
                                 break;
                             }
                             else{
+                                room = r;
+                                System.out.println(usernameAttempt+" valid");
                                 acceptedName = true;
                                 r.getUsers().add(usernameAttempt);
                                 r.getGameData().getUsernames().add(usernameAttempt);
-                                sendCommand(CommandFromServer.LOBBY_CODE_VALID,usernameAttempt,r.getGameData());
+                                System.out.println("Users: "+r.getGameData().getUsernames());
+                                sendCommand(CommandFromServer.LOBBY_CODE_AND_USERNAME_VALID,usernameAttempt,r.getGameData());
                                 r.getOuts().add(os);
                                 sendCommandtoAllUsers(CommandFromServer.NEW_USER_JOINED,null,r.getGameData());
                             }
