@@ -1,5 +1,6 @@
+import java.io.Serializable;
 import java.util.ArrayList;
-public class Hero {
+public class Hero implements Serializable {
     private String name = "";
     private int strengthLevel;
     private int dexLevel;
