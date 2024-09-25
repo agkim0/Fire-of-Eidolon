@@ -294,16 +294,16 @@ public class FOEPanel extends JPanel{
 
         if(hostGameSetUpScreen){
             if(showUnstableVoid){
-                g.drawImage(scenario_1,450,650,550,350,null);
+                g.drawImage(scenario_1,440,650,550,350,null);
             }
             if(showVagrantPortal){
-                g.drawImage(scenario_2,450,650,550,350,null);
+                g.drawImage(scenario_2,440,650,550,350,null);
             }
             if(showInvasionOfTheShadowCult){
-                g.drawImage(scenario_3,450,650,550,350,null);
+                g.drawImage(scenario_3,440,650,550,350,null);
             }
             if(showShadesOfVorax){
-                g.drawImage(scenario_4,450,650,550,350,null);
+                g.drawImage(scenario_4,440,650,550,350,null);
             }
             if(gameData.getDifficultyLevel().equals("Beginner")){
                 g.drawImage(df_Beginner,1100,250,350,550,null);
@@ -331,6 +331,28 @@ public class FOEPanel extends JPanel{
             }
             if(gameData.getDifficultyLevel().equals("Glitch")){
                 g.drawImage(df_Glitch,1100,250,350,550,null);
+            }
+            if(gameData.getCurHero().getName().equals("Aelfric")){
+                System.out.println("ael");
+                g.drawImage(aelfric_Character_Card,90,190,550,350,null);
+            }
+            else if(gameData.getCurHero().getName().equals("Cecilia")){
+                g.drawImage(cecelia_Character_Card,90,190,550,350,null);
+            }
+            else if(gameData.getCurHero().getName().equals("Daga")){
+                g.drawImage(daga_Character_Card,90,190,550,350,null);
+            }
+            else if(gameData.getCurHero().getName().equals("Kalistos")){
+                g.drawImage(kalistos_Character_Card,90,190,550,350,null);
+            }
+            else if(gameData.getCurHero().getName().equals("Kaylana")){
+                g.drawImage(kaylana_Character_Card,90,190,550,350,null);
+            }
+            else if(gameData.getCurHero().getName().equals("Sirius")){
+                g.drawImage(sirius_Character_Card,90,190,550,350,null);
+            }
+            else {
+                System.out.println("bruuuuuuhhhh");
             }
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
             g.drawString("Username:",450,70);
