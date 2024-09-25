@@ -160,27 +160,27 @@ public class FOEPanel extends JPanel{
         bg =ImageIO.read(new File("Game Images/eidolon bg.png"));
         do{
             logo = ImageIO.read(new File("Game images/Fire of Eidolon Title.png"));
-            aelfric_Token = ImageIO.read(new File("token pieces/character tokens/aelfric character token.png"));
+            aelfric_Token = ImageIO.read(new File("token pieces/character tokens/aelfric character token(Fix).png"));
             aelfric_Action_Token = ImageIO.read(new File("character cards/aelfric action.png"));
             aelfric_Special_Token = ImageIO.read(new File("character cards/aelfric special.png"));
             aelfric_Character_Card = ImageIO.read(new File("character cards/aelfric character card.png"));
-            cecelia_Token = ImageIO.read(new File("token pieces/character tokens/cecelia character token.png"));
+            cecelia_Token = ImageIO.read(new File("token pieces/character tokens/cecelia character token(Fix).png"));
             cecelia_Action_Token = ImageIO.read(new File("character cards/cecelia action.png"));
             cecelia_Special_Token = ImageIO.read(new File("character cards/cecelia special.png"));
             cecelia_Character_Card = ImageIO.read(new File("character cards/cecelia character card.png"));
-            daga_Token = ImageIO.read(new File("token pieces/character tokens/daga character token.png"));
+            daga_Token = ImageIO.read(new File("token pieces/character tokens/daga character token(Fix).png"));
             daga_Action_Token = ImageIO.read(new File("character cards/daga action.png"));
             daga_Special_Token = ImageIO.read(new File("character cards/daga special.png"));
             daga_Character_Card = ImageIO.read(new File("character cards/daga character card.png"));
-            kalistos_Token = ImageIO.read(new File("token pieces/character tokens/kalistos character token.png"));
+            kalistos_Token = ImageIO.read(new File("token pieces/character tokens/kalistos character token(Fix).png"));
             kalistos_Action_Token = ImageIO.read(new File("character cards/kalistos action.png"));
             kalistos_Special_Token = ImageIO.read(new File("character cards/kalistos special.png"));
             kalistos_Character_Card = ImageIO.read(new File("character cards/kalistos character card.png"));
-            kaylana_Token = ImageIO.read(new File("token pieces/character tokens/kaylana character token.png"));
+            kaylana_Token = ImageIO.read(new File("token pieces/character tokens/kaylana character token(Fix).png"));
             kaylana_Action_Token = ImageIO.read(new File("character cards/kaylana action.png"));
             kaylana_Special_Token = ImageIO.read(new File("character cards/kaylana special.png"));
             kaylana_Character_Card = ImageIO.read(new File("character cards/kaylana character card.png"));
-            sirius_Token = ImageIO.read(new File("token pieces/character tokens/sirius character token.png"));
+            sirius_Token = ImageIO.read(new File("token pieces/character tokens/sirius character token(Fix).png"));
             sirius_Action_Token = ImageIO.read(new File("character cards/sirius action.png"));
             sirius_Special_Token = ImageIO.read(new File("character cards/sirius special.png"));
             sirius_Character_Card = ImageIO.read(new File("character cards/sirius character card.png"));
@@ -362,7 +362,8 @@ public class FOEPanel extends JPanel{
         if(hostRoomCodeScreen){
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
             //g.drawString("Username:",500,450);
-            g.drawString("Room Code",500,450);
+            g.drawString("Room Code",1000,50);
+            g.drawImage(kaylana_Token,100,100,100,100,null);
         }
         if(setUpJoinScreen){
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
