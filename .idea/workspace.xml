@@ -7,8 +7,6 @@
     <list default="true" id="e89b7d73-be17-4db6-9220-7e96ff4c25d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FOEFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FOEFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FOEPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FOEPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

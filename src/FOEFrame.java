@@ -739,7 +739,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
 
     public void startLobby(){
-
         gameData.setNumOfPlayers(Integer.parseInt(text_numOfPlayersBox.getText()));
         gameData.addHeroesPlaying(gameData.getCurHero());
         username = textBox_getUsername.getText();
