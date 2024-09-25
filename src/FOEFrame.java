@@ -784,8 +784,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
     public void checkRoomCode(){
         System.out.println(textBox_getRoomCode.getText()+","+textBox_getUsername.getText());
-        sendCommand(CommandFromClient.LOBBY_CODE_ATTEMPT,textBox_getRoomCode.getText()+","+textBox_getUsername,gameData);
-        sendCommand(CommandFromClient.LOBBY_CODE_ATTEMPT,textBox_getRoomCode.getText()+","+textBox_getUsername,gameData);
+        sendCommand(CommandFromClient.LOBBY_CODE_ATTEMPT,textBox_getRoomCode.getText()+","+textBox_getUsername.getText(),gameData);
+        sendCommand(CommandFromClient.LOBBY_CODE_ATTEMPT,textBox_getRoomCode.getText()+","+textBox_getUsername.getText(),gameData);
     }
     public void enterGame(){
         sendCommand(CommandFromClient.LOBBY_CODE_ATTEMPT,"Room code,Username",gameData);
