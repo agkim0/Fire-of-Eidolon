@@ -30,12 +30,12 @@ public class ClientsListener implements Runnable,Serializable{
                 if(cfs.getCommand()==CommandFromServer.LOBBY_CODE_AND_USERNAME_VALID){
                     System.out.println("LOBBY_CODE_AND_USERNAME_VALID");
                     frame.setGameData(cfs.getGameData());
-                    frame.usernameValid(true);
-                    frame.lobbyCodeValid(true);
+                    frame.both(true);
                 }
                 if(cfs.getCommand()==CommandFromServer.GAME_IS_FULL){
                     frame.gameFull(true);
                 }
+
                 if(cfs.getCommand()==CommandFromServer.NEW_USER_JOINED){
                     //make screen say that new user joined in chat
                     frame.setGameData(cfs.getGameData());

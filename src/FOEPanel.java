@@ -379,9 +379,8 @@ public class FOEPanel extends JPanel{
         }
         if(hostRoomCodeScreen){
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
-            //g.drawString("Username:",500,450);
+            //g.drawString("Username:",700,300);
             g.drawString("Room Code",500,450);
-            //g.drawImage(kaylana_Token,100,100,100,100,null);
         }
         if(setUpJoinScreen){
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
@@ -389,12 +388,27 @@ public class FOEPanel extends JPanel{
             g.drawString("Room Code:",500,600);
         }
         if(characterselectscreen){
-            /*g.drawImage(kaylana_Token,100,100,100,100,null);
-            g.drawImage(kaylana_Token,100,100,100,100,null);
-            g.drawImage(kaylana_Token,100,100,100,100,null);
-            g.drawImage(kaylana_Token,100,100,100,100,null);
-            g.drawImage(kaylana_Token,100,100,100,100,null);
-            g.drawImage(kaylana_Token,100,100,100,100,null);*/
+            g.setFont(new Font("Sans Serif",Font.BOLD,50));
+            g.drawString("Choose Your Hero:",700,300);
+            if(curHero == AELFRIC){
+                g.drawImage(aelfric_Character_Card,700,350,550,350,null);
+            }
+            else if(curHero == CECELIA){
+                g.drawImage(cecelia_Character_Card,700,350,550,350,null);
+            }
+            else if(curHero == DAGA){
+                g.drawImage(daga_Character_Card,700,350,550,350,null);
+            }
+            else if(curHero == KALISTOS){
+                g.drawImage(kalistos_Character_Card,700,350,550,350,null);
+            }
+            else if(curHero == KAYLANA){
+                g.drawImage(kaylana_Character_Card,700,350,550,350,null);
+            }
+            else if(curHero == SIRIUS){
+                g.drawImage(sirius_Character_Card,700,350,550,350,null);
+            }
+
         }
 
         if(drawTitlePage){

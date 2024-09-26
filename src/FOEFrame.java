@@ -834,6 +834,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
 
     public void charactersetUpScreen(){
+        removeEverythingFromScreen();
         btn_RB.setVisible(true);
         btn_selectCharacter.setVisible(true);
         if(you!=null){
@@ -860,13 +861,17 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         else{
             foePanel.setCurHero(0);
         }
-        //foePanel.
-        btn_aelfric.setVisible(false);
-        btn_cecilia.setVisible(false);
-        btn_kalistos.setVisible(false);
-        btn_kaylana.setVisible(false);
-        btn_sirius.setVisible(false);
-        btn_daga.setVisible(false);
+        foePanel.setCharacterselectscreen(true);
+        foePanel.setSetUpJoinScreen(false);
+        foePanel.setHostGameSetUpScreen(false);
+        foePanel.setHostGameSetUpScreen(false);
+        foePanel.repaint();
+        btn_aelfric.setVisible(true);
+        btn_cecilia.setVisible(true);
+        btn_kalistos.setVisible(true);
+        btn_kaylana.setVisible(true);
+        btn_sirius.setVisible(true);
+        btn_daga.setVisible(true);
     }
 
     public void usernameValid(boolean valid){
@@ -910,7 +915,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             textBox_getRoomCode.setText("Lobby Not Found");
         }
     }
-
+    public void both(boolean valid){
+        if(valid){
+            charactersetUpScreen();
+        }
+    }
     public void gameFull(boolean full){
         if(full){
             textBox_getRoomCode.setText("Lobby Full");
