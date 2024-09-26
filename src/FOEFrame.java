@@ -748,9 +748,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         foePanel.setHostGameSetUpScreen(false);
         foePanel.setHostRoomCodeScreen(true);
         repaintPanel();
+        text_roomCode.setBounds(1150,25,300,30);
         text_roomCode.setVisible(true);
         text_roomCode.setOpaque(true);
         text_roomCode.setText(gameData.getLobbyCode());
+        btn_RB.setVisible(true);
+
         //textBox_getUsername.setVisible(true);
     }
 
