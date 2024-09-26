@@ -40,6 +40,13 @@ public class ClientsListener implements Runnable,Serializable{
                     //make screen say that new user joined in chat
                     frame.setGameData(cfs.getGameData());
                 }
+                if(cfs.getCommand()==CommandFromServer.CHARACTER_SELECTION_STARTING){
+                    //method for character selection screen
+                    frame.setGameData(cfs.getGameData());
+                }
+                if(cfs.getCommand()==CommandFromServer.CHARACTER_SELECTED){
+                    frame.setGameData(cfs.getGameData());
+                }
             } catch (Exception e){
                 e.printStackTrace();
             }

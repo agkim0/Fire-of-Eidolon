@@ -78,6 +78,13 @@ public class ServersListener implements Runnable, Serializable {
                         sendCommand(CommandFromServer.LOBBY_CODE_INVALID,null,null);
                     }
                 }
+                else if(cfc.getCommand()==CommandFromClient.LOBBY_FULL){
+                    sendCommandtoAllUsers(CommandFromServer.CHARACTER_SELECTION_STARTING,null,cfc.getGameData());
+                }
+                else if(cfc.getCommand()==CommandFromClient.HERO_SELECTED){
+                    sendCommandtoAllUsers(CommandFromServer.CHARACTER_SELECTED,cfc.getData(),cfc.getGameData());
+                    room.setGameData(cfc.getGameData());
+                }
 
             }catch(Exception e){
                 e.printStackTrace();

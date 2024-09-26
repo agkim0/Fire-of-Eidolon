@@ -257,6 +257,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         paintTP();
         currentPage = TP;
         before = -1;
+        chatBox();
 
     }
 
@@ -765,7 +766,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             btn_checkRoomCode.setVisible(false);
             textBox_getUsername.setEnabled(false);
             if(gameData.getNumOfPlayers()==gameData.getUsernames().size()){
-                //character selection
+                sendCommand(CommandFromClient.LOBBY_FULL,null,gameData);
             }
         }
         else{
@@ -861,5 +862,28 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             paintTP();
         }
         //else if (before == )
+    }
+
+
+
+
+
+    private JTextField msgBox = new JTextField();
+    private JList msgList = new JList(new ArrayList<String>().toArray());
+    private JScrollPane msgScroll = new JScrollPane(msgList,ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+    private JButton btn_sendMsg = new JButton("send");
+
+    public void chatBox(){
+        msgBox.setBounds(1200,900,200,50);
+        add(msgBox);
+        btn_sendMsg.setBounds(1400,900,50,50);
+        add(btn_sendMsg);
+        ArrayList<String> msgTest = new ArrayList<>();
+        msgTest.add("testing chat");
+        this.gameData = new GameData();
+        gameData.setMsgs(msgTest);
+        msgList.setListData(gameData.getMsgs().toArray());
+        msgScroll.setBounds(1200,600,250,250);
+        add(msgScroll);
     }
 }
