@@ -16,13 +16,31 @@ public class FOEPanel extends JPanel{
     private boolean hostRoomCodeScreen;
     private boolean setUpJoinScreen;
     private boolean drawTitlePage;
+    private boolean characterselectscreen;
 
+    public boolean isCharacterselectscreen() {
+        return characterselectscreen;
+    }
+    public void setCharacterselectscreen(boolean characterselectscreen) {
+        this.characterselectscreen = characterselectscreen;
+    }
+    public final int AELFRIC = 0;
+    public final int CECELIA = 1;
+    public final int DAGA = 2;
+    public final int KALISTOS = 3;
+    public final int KAYLANA = 4;
+    public final int SIRIUS = 5;
+    private int curHero;
 
-
+    public int getCurHero() {
+        return curHero;
+    }
+    public void setCurHero(int curHero) {
+        this.curHero = curHero;
+    }
     public boolean isSetUpJoinScreen() {
         return setUpJoinScreen;
     }
-
     public void setSetUpJoinScreen(boolean setUpJoinScreen) {
         this.setUpJoinScreen = setUpJoinScreen;
     }
@@ -362,14 +380,23 @@ public class FOEPanel extends JPanel{
         if(hostRoomCodeScreen){
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
             //g.drawString("Username:",500,450);
-            g.drawString("Room Code",1000,50);
-            g.drawImage(kaylana_Token,100,100,100,100,null);
+            g.drawString("Room Code",500,450);
+            //g.drawImage(kaylana_Token,100,100,100,100,null);
         }
         if(setUpJoinScreen){
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
             g.drawString("Username:",500,450);
             g.drawString("Room Code:",500,600);
         }
+        if(characterselectscreen){
+            /*g.drawImage(kaylana_Token,100,100,100,100,null);
+            g.drawImage(kaylana_Token,100,100,100,100,null);
+            g.drawImage(kaylana_Token,100,100,100,100,null);
+            g.drawImage(kaylana_Token,100,100,100,100,null);
+            g.drawImage(kaylana_Token,100,100,100,100,null);
+            g.drawImage(kaylana_Token,100,100,100,100,null);*/
+        }
+
         if(drawTitlePage){
             //idk
         }

@@ -72,6 +72,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private JTextField textBox_getRoomCode = new JTextField();
     private JButton btn_checkRoomCode = new JButton("o");
 
+    private JButton btn_selectCharacter = new JButton("Select");
+
     private boolean paintRuleBook = false;
     private boolean flipRB12 = false;
     private boolean flipRB34 = false;
@@ -80,6 +82,21 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private boolean flipRB9 = false;
     private int before;
     private int currentPage;
+
+    private BufferedImage aelfric_Token = null;
+    private BufferedImage cecelia_Token = null;
+    private BufferedImage daga_Token = null;
+    private BufferedImage kalistos_Token = null;
+    private BufferedImage kaylana_Token = null;
+    private BufferedImage sirius_Token = null;
+
+    private JButton btn_aelfric;
+    private JButton btn_cecilia;
+    private JButton btn_daga;
+    private JButton btn_kalistos;
+    private JButton btn_kaylana;
+    private JButton btn_sirius;
+
 
     public FOEFrame(ObjectOutputStream os) throws IOException{
         super("FOE Game");
@@ -93,6 +110,55 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         setAlwaysOnTop(true);
         setVisible(true);
         setLayout(null);
+
+        aelfric_Token = ImageIO.read(new File("token pieces/character tokens/aelfric character token(Fix).png"));
+        cecelia_Token = ImageIO.read(new File("token pieces/character tokens/cecelia character token(Fix).png"));
+        daga_Token = ImageIO.read(new File("token pieces/character tokens/daga character token(Fix).png"));
+        kalistos_Token = ImageIO.read(new File("token pieces/character tokens/kalistos character token(Fix).png"));
+        kaylana_Token = ImageIO.read(new File("token pieces/character tokens/kaylana character token(Fix).png"));
+        sirius_Token = ImageIO.read(new File("token pieces/character tokens/sirius character token(Fix).png"));
+
+        btn_aelfric = new JButton(new ImageIcon(aelfric_Token));
+        btn_aelfric.setBorderPainted(false);
+        btn_aelfric.setFocusPainted(false);
+        btn_aelfric.setContentAreaFilled(false);
+        btn_aelfric.setBounds(100,100,100,100);
+        add(btn_aelfric);
+
+        btn_cecilia = new JButton(new ImageIcon(cecelia_Token));
+        btn_cecilia.setBorderPainted(false);
+        btn_cecilia.setFocusPainted(false);
+        btn_cecilia.setContentAreaFilled(false);
+        btn_cecilia.setBounds(100,200,100,100);
+        add(btn_cecilia);
+
+        btn_daga = new JButton(new ImageIcon(daga_Token));
+        btn_daga.setBorderPainted(false);
+        btn_daga.setFocusPainted(false);
+        btn_daga.setContentAreaFilled(false);
+        btn_daga.setBounds(100,300,100,100);
+        add(btn_daga);
+
+        btn_kalistos = new JButton(new ImageIcon(kalistos_Token));
+        btn_kalistos.setBorderPainted(false);
+        btn_kalistos.setFocusPainted(false);
+        btn_kalistos.setContentAreaFilled(false);
+        btn_kalistos.setBounds(100,400,100,100);
+        add(btn_kalistos);
+
+        btn_kaylana = new JButton(new ImageIcon(kaylana_Token));
+        btn_kaylana.setBorderPainted(false);
+        btn_kaylana.setFocusPainted(false);
+        btn_kaylana.setContentAreaFilled(false);
+        btn_kaylana.setBounds(100,500,100,100);
+        add(btn_kaylana);
+
+        btn_sirius = new JButton(new ImageIcon(sirius_Token));
+        btn_sirius.setBorderPainted(false);
+        btn_sirius.setFocusPainted(false);
+        btn_sirius.setContentAreaFilled(false);
+        btn_sirius.setBounds(100,600,100,100);
+        add(btn_sirius);
 
         btn_rulebookLEFT.setBounds(100,500,75,75);
         add(btn_rulebookLEFT);
@@ -162,6 +228,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_checkRoomCode.setBounds(1200,575,200,50);
         add(btn_checkRoomCode);
 
+        btn_selectCharacter.setBounds(700,1300,150,75);
+        add(btn_selectCharacter);
 
         tf_pgnl.setBounds(50,900,75,75);
         add(tf_pgnl);
@@ -261,6 +329,13 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
 
     public void removeEverythingFromScreen(){
+        btn_aelfric.setVisible(false);
+        btn_cecilia.setVisible(false);
+        btn_kalistos.setVisible(false);
+        btn_kaylana.setVisible(false);
+        btn_sirius.setVisible(false);
+        btn_daga.setVisible(false);
+        btn_selectCharacter.setVisible(false);
         btn_forwardCC.setVisible(false);
         btn_backCC.setVisible(false);
         btn_Host.setVisible(false);
@@ -748,13 +823,49 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         foePanel.setHostGameSetUpScreen(false);
         foePanel.setHostRoomCodeScreen(true);
         repaintPanel();
-        text_roomCode.setBounds(1150,25,300,30);
+        //text_roomCode.setBounds(1150,25,300,30);
         text_roomCode.setVisible(true);
         text_roomCode.setOpaque(true);
         text_roomCode.setText(gameData.getLobbyCode());
         btn_RB.setVisible(true);
 
         //textBox_getUsername.setVisible(true);
+    }
+
+    public void charactersetUpScreen(){
+        btn_RB.setVisible(true);
+        btn_selectCharacter.setVisible(true);
+        if(you!=null){
+            if(you.getName().equals("Aelfric")){
+                foePanel.setCurHero(0);
+            }
+            else if(you.getName().equals("Cecilia")){
+                foePanel.setCurHero(1);
+            }
+            else if(you.getName().equals("Daga")){
+                foePanel.setCurHero(2);
+            }
+            else if(you.getName().equals("Kalistos")){
+                foePanel.setCurHero(3);
+            }
+            else if(you.getName().equals("Kaylana")){
+                foePanel.setCurHero(4);
+            }
+            else if(you.getName().equals("Sirius")){
+                foePanel.setCurHero(5);
+            }
+
+        }
+        else{
+            foePanel.setCurHero(0);
+        }
+        //foePanel.
+        btn_aelfric.setVisible(false);
+        btn_cecilia.setVisible(false);
+        btn_kalistos.setVisible(false);
+        btn_kaylana.setVisible(false);
+        btn_sirius.setVisible(false);
+        btn_daga.setVisible(false);
     }
 
     public void usernameValid(boolean valid){
