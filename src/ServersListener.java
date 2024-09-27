@@ -13,7 +13,10 @@ public class ServersListener implements Runnable, Serializable {
         this.os = os;
         this.room = room;
         if(room!=null){
+            System.out.println(room.getUsers().toString());
+            System.out.println("Adding room");
             rooms.add(room);
+            room.getOuts().add(os);
         }
         outs.add(os);
     }
@@ -65,12 +68,14 @@ public class ServersListener implements Runnable, Serializable {
                                 room = r;
                                 System.out.println(usernameAttempt+" valid");
                                 acceptedName = true;
-                                r.getUsers().add(usernameAttempt);
-                                r.getGameData().getUsernames().add(usernameAttempt);
-                                System.out.println("Users: "+r.getGameData().getUsernames());
-                                sendCommand(CommandFromServer.LOBBY_CODE_AND_USERNAME_VALID,usernameAttempt,r.getGameData());
-                                r.getOuts().add(os);
-                                sendCommandtoAllUsers(CommandFromServer.NEW_USER_JOINED,null,r.getGameData());
+                                room.getUsers().add(usernameAttempt);
+                                room.getGameData().getUsernames().add(usernameAttempt);
+                                System.out.println("Users: "+room.getUsers());
+                                sendCommand(CommandFromServer.LOBBY_CODE_AND_USERNAME_VALID,usernameAttempt,room.getGameData());
+                                room.getOuts().add(os);
+                                System.out.println("Outs.size(): "+room.getOuts().size()+"       users.size(): "+room.getUsers().size());
+                                sendCommandtoAllUsers(CommandFromServer.NEW_USER_JOINED,null,room.getGameData());
+                                break;
                             }
                         }
                     }
