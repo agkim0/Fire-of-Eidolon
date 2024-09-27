@@ -30,7 +30,8 @@ public class ClientsListener implements Runnable,Serializable{
                 if(cfs.getCommand()==CommandFromServer.LOBBY_CODE_AND_USERNAME_VALID){
                     System.out.println("LOBBY_CODE_AND_USERNAME_VALID");
                     frame.setGameData(cfs.getGameData());
-                    frame.both(true);
+                    frame.usernameValid(true);
+//                    frame.both(true);
                 }
                 if(cfs.getCommand()==CommandFromServer.GAME_IS_FULL){
                     frame.gameFull(true);
@@ -43,6 +44,7 @@ public class ClientsListener implements Runnable,Serializable{
                 if(cfs.getCommand()==CommandFromServer.CHARACTER_SELECTION_STARTING){
                     //method for character selection screen
                     frame.setGameData(cfs.getGameData());
+                    frame.charactersetUpScreen();
                 }
                 if(cfs.getCommand()==CommandFromServer.CHARACTER_SELECTED){
                     frame.setGameData(cfs.getGameData());
