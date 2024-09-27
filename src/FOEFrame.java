@@ -243,6 +243,38 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_selectCharacter.addActionListener(e->{
             btn_selectCharacter.setEnabled(false);
             System.out.println(foePanel.getCurHero());
+            String name = "";
+            if(foePanel.getCurHero() == 0){
+                name = "Aelfric";
+            }
+            else if(foePanel.getCurHero() == 1){
+                name = "Cecilia";
+            }
+            else if(foePanel.getCurHero() == 2){
+                name = "Daga";
+            }
+            else if(foePanel.getCurHero() == 3){
+                name = "Kalistos";
+            }
+            else if(foePanel.getCurHero() == 4){
+                name = "Kaylana";
+            }
+            else if(foePanel.getCurHero() == 5){
+                name = "Sirius";
+            }
+            for(int x=0; x<gameData.getAllHeroes().size(); x++){
+                if(gameData.getAllHeroes().get(x).equals(name)){
+                    gameData.addHeroesPlaying(gameData.getAllHeroes().get(x));
+                    break;
+                }
+            }
+            enabled[foePanel.getCurHero()] = false;
+            btn_aelfric.setEnabled(false);
+            btn_cecilia.setEnabled(false);
+            btn_daga.setEnabled(false);
+            btn_kalistos.setEnabled(false);
+            btn_kaylana.setEnabled(false);
+            btn_sirius.setEnabled(false);
         });
         btn_aelfric.addActionListener(e->{
             checkselectedcc();
