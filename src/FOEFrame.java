@@ -852,20 +852,29 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         repaintPanel();
     }
     public void startLobby(){
-        gameData.setNumOfPlayers(Integer.parseInt(text_numOfPlayersBox.getText()));
-        //gameData.addHeroesPlaying(gameData.getCurHero());
-        username = textBox_getUsername.getText();
-        sendCommand(CommandFromClient.HOSTING,username,gameData);
-        removeEverythingFromScreen();
-        foePanel.setGameData(gameData);
-        foePanel.setHostGameSetUpScreen(false);
-        foePanel.setHostRoomCodeScreen(true);
-        repaintPanel();
-        //text_roomCode.setBounds(1150,25,300,30);
-        text_roomCode.setVisible(true);
-        text_roomCode.setOpaque(true);
-        text_roomCode.setText(gameData.getLobbyCode());
-        btn_RB.setVisible(true);
+        if(!textBox_getUsername.getText().equals("")){
+            gameData.setNumOfPlayers(Integer.parseInt(text_numOfPlayersBox.getText()));
+            //gameData.addHeroesPlaying(gameData.getCurHero());
+            username = textBox_getUsername.getText();
+            sendCommand(CommandFromClient.HOSTING,username,gameData);
+            removeEverythingFromScreen();
+            foePanel.setGameData(gameData);
+            foePanel.setHostGameSetUpScreen(false);
+            foePanel.setHostRoomCodeScreen(true);
+            repaintPanel();
+            //text_roomCode.setBounds(1150,25,300,30);
+            text_roomCode.setVisible(true);
+            text_roomCode.setOpaque(true);
+            text_roomCode.setText(gameData.getLobbyCode());
+            btn_RB.setVisible(true);
+        }
+        else{
+            textBox_getUsername.setText("Please Enter Username");
+        }
+        if(gameData.getNumOfPlayers()==gameData.getUsernames().size()){
+            sendCommand(CommandFromClient.LOBBY_FULL,null,gameData);
+        }
+
 
         //textBox_getUsername.setVisible(true);
     }
@@ -946,9 +955,21 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
     }
     public void checkRoomCode(){
-        System.out.println(textBox_getRoomCode.getText()+","+textBox_getUsername.getText());
-        sendCommand(CommandFromClient.LOBBY_CODE_ATTEMPT,textBox_getRoomCode.getText()+","+textBox_getUsername.getText(),gameData);
-        sendCommand(CommandFromClient.LOBBY_CODE_ATTEMPT,textBox_getRoomCode.getText()+","+textBox_getUsername.getText(),gameData);
+        boolean tf = true;
+        if(textBox_getRoomCode.getText().equals("")){
+            textBox_getRoomCode.setText("Please Enter Room Code");
+            tf=false;
+        }
+        if(textBox_getUsername.getText().equals("")){
+            textBox_getUsername.setText("Please Enter Username");
+            tf=false;
+        }
+        if(tf){
+            System.out.println(textBox_getRoomCode.getText()+","+textBox_getUsername.getText());
+            sendCommand(CommandFromClient.JOINING_HOST_GAME,textBox_getRoomCode.getText()+","+textBox_getUsername.getText(),gameData);
+            sendCommand(CommandFromClient.LOBBY_CODE_ATTEMPT,textBox_getRoomCode.getText()+","+textBox_getUsername.getText(),gameData);
+        }
+
     }
     public void enterGame(){
         sendCommand(CommandFromClient.LOBBY_CODE_ATTEMPT,"Room code,Username",gameData);
