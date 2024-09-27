@@ -25,7 +25,7 @@ public class ServerMain {
                     t.start();
 
                 }
-                else{
+                else if(cfc.getCommand()==CommandFromClient.JOINING_HOST_GAME){
                     System.out.println("non host");
                     ServersListener sl = new ServersListener(is,os,null);
                     Thread t = new Thread(sl);
