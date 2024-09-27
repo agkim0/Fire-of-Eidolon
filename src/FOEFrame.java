@@ -241,6 +241,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         add(foePanel);
         btn_aelfric.addActionListener(e->{
             System.out.println("selected aelfric");
+            foePanel.setCurHero(0);
+            foePanel.setCharacterselectscreen(true);
+            foePanel.setSetUpJoinScreen(false);
+            foePanel.setHostGameSetUpScreen(false);
+            foePanel.setHostGameSetUpScreen(false);
+            foePanel.repaint();
         });
         btn_cecilia.addActionListener(e->{
             System.out.println("selected cecilia");
@@ -339,6 +345,41 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         before = -1;
         chatBox();
     }
+    public void checkselectedcc(){
+        for(int x=0; x<gameData.getHeroesPlaying().size(); x++){
+            if(gameData.getHeroesPlaying().get(x).getName().equals("Aelfric")){
+                btn_aelfric.setEnabled(false);
+                enabled[0] = false;
+            }
+            else if(gameData.getHeroesPlaying().get(x).getName().equals("Cecilia")){
+                btn_cecilia.setEnabled(false);
+                enabled[1] = false;
+            }
+            else if(gameData.getHeroesPlaying().get(x).getName().equals("Daga")){
+                btn_daga.setEnabled(false);
+                enabled[2] = false;
+            }
+            else if(gameData.getHeroesPlaying().get(x).getName().equals("Kalistos")){
+                btn_kalistos.setEnabled(false);
+                enabled[3] = false;
+            }
+            else if(gameData.getHeroesPlaying().get(x).getName().equals("Kaylana")){
+                btn_kaylana.setEnabled(false);
+                enabled[4] = false;
+            }
+            else if(gameData.getHeroesPlaying().get(x).getName().equals("Sirius")){
+                btn_sirius.setEnabled(false);
+                enabled[5] = false;
+            }
+        }
+        for(int y=0; y<enabled.length; y++){
+            if(enabled[y] == true){
+                foePanel.setCurHero(y);
+                break;
+            }
+        }
+    }
+
     public void removeEverythingFromScreen(){
         btn_aelfric.setVisible(false);
         btn_cecilia.setVisible(false);
@@ -835,25 +876,35 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         for(int x=0; x<gameData.getHeroesPlaying().size(); x++){
             if(gameData.getHeroesPlaying().get(x).getName().equals("Aelfric")){
                 btn_aelfric.setEnabled(false);
+                enabled[0] = false;
             }
             else if(gameData.getHeroesPlaying().get(x).getName().equals("Cecilia")){
                 btn_cecilia.setEnabled(false);
+                enabled[1] = false;
             }
             else if(gameData.getHeroesPlaying().get(x).getName().equals("Daga")){
                 btn_daga.setEnabled(false);
+                enabled[2] = false;
             }
             else if(gameData.getHeroesPlaying().get(x).getName().equals("Kalistos")){
                 btn_kalistos.setEnabled(false);
+                enabled[3] = false;
             }
             else if(gameData.getHeroesPlaying().get(x).getName().equals("Kaylana")){
                 btn_kaylana.setEnabled(false);
+                enabled[4] = false;
             }
             else if(gameData.getHeroesPlaying().get(x).getName().equals("Sirius")){
                 btn_sirius.setEnabled(false);
+                enabled[5] = false;
             }
-
         }
-        foePanel.setCurHero(0);
+        for(int y=0; y<enabled.length; y++){
+            if(enabled[y] == true){
+                foePanel.setCurHero(y);
+                break;
+            }
+        }
         foePanel.setCharacterselectscreen(true);
         foePanel.setSetUpJoinScreen(false);
         foePanel.setHostGameSetUpScreen(false);
