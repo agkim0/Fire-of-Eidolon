@@ -97,6 +97,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private JButton btn_kaylana;
     private JButton btn_sirius;
 
+    private boolean[] enabled = {true,true,true,true,true,true};
 
     public FOEFrame(ObjectOutputStream os) throws IOException{
         super("FOE Game");
@@ -238,6 +239,24 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         foePanel = new FOEPanel();
         foePanel.setBounds(0,0,1500,1000);
         add(foePanel);
+        btn_aelfric.addActionListener(e->{
+            System.out.println("selected aelfric");
+        });
+        btn_cecilia.addActionListener(e->{
+            System.out.println("selected cecilia");
+        });
+        btn_daga.addActionListener(e->{
+            System.out.println("selected daga");
+        });
+        btn_kalistos.addActionListener(e->{
+            System.out.println("selected kalistos");
+        });
+        btn_kaylana.addActionListener(e->{
+            System.out.println("selected kaylana");
+        });
+        btn_sirius.addActionListener(e->{
+            System.out.println("selected sirius");
+        });
         btn_Host.addActionListener(e->{
             before = currentPage;
             currentPage = SUG;
@@ -306,7 +325,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             int lpn = parseInt(temp);
             flipRB(lpn,"right");
         });
-
         btn_numOfPlayersIncrease.addActionListener(e->{numOfPlayersIncrease();});
         btn_numOfPlayersDecrease.addActionListener(e->{numOfPlayersDecrease();});
         btn_backGameScenario.addActionListener(e->{backGameScenario();});
@@ -316,19 +334,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_checkRoomCode.addActionListener(e->{checkRoomCode();});
         btn_backCC.addActionListener(e->{backCharacterCards();});
         btn_forwardCC.addActionListener(e->{forwardCharacterCards();});
-
-
-        /*removeEverythingFromScreen();
-        btn_RB.setVisible(true);
-        btn_Join.setVisible(true);
-        btn_Host.setVisible(true);*/
         paintTP();
         currentPage = TP;
         before = -1;
         chatBox();
-
     }
-
     public void removeEverythingFromScreen(){
         btn_aelfric.setVisible(false);
         btn_cecilia.setVisible(false);
@@ -476,7 +486,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             tf_pgnr.setText("8");
         }
     }
-
     public void move(){}
     public void explore(){}
     public void attack(){}
@@ -494,7 +503,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             e.printStackTrace();
         }
     }
-
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -519,7 +527,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void run() {
 
     }
-
     public void host(){
         removeEverythingFromScreen();
         gameData = new GameData();
@@ -537,8 +544,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_backGameScenario.setVisible(true);
         btn_forwardGameScenario.setVisible(true);
         checkbox_GameScenarioSelected.setVisible(true);
-        btn_forwardCC.setVisible(true);
-        btn_backCC.setVisible(true);
+        //btn_forwardCC.setVisible(true);
+        //btn_backCC.setVisible(true);
 
         foePanel.setShowUnstableVoid(true);
         gameRuleSlidesIndex = 0;
@@ -548,12 +555,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         gameData.setShadesOfVorax(false);
         gameData.setDifficultyLevel("Beginner");
         repaintPanel();
-
-
-
-
     }
-
     public void numOfPlayersDecrease(){
         if(!text_numOfPlayersBox.getText().equals("1")){
             text_numOfPlayersBox.setText((Integer.parseInt(text_numOfPlayersBox.getText())-1)+"");
@@ -566,7 +568,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         }
         gameData.setNumOfPlayers(Integer.parseInt(text_numOfPlayersBox.getText()));
     }
-
     public void backCharacterCards(){
         if(ccLevelIndex>0){
             ccLevelIndex--;
@@ -617,7 +618,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
         }
     }
-
     public void backGameScenario(){
         if(checkbox_GameScenarioSelected.isSelected()){
             if(gameRuleSlidesIndex == 0){
@@ -704,7 +704,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
         repaintPanel();
     }
-
     public void forwardGameScenario(){
         if(checkbox_GameScenarioSelected.isSelected()){
             if(gameRuleSlidesIndex == 0){
@@ -791,7 +790,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
         repaintPanel();
     }
-
     public void lowerDifficulty(){
         if(difficultyLevelIndex>0){
             difficultyLevelIndex--;
@@ -802,7 +800,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         gameData.setDifficultyLevel(difficultyLevel.get(difficultyLevelIndex));
         repaintPanel();
     }
-    
     public void raiseDifficulty(){
         if(difficultyLevelIndex<difficultyLevel.size()){
             difficultyLevelIndex++;
@@ -813,10 +810,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         gameData.setDifficultyLevel(difficultyLevel.get(difficultyLevelIndex));
         repaintPanel();
     }
-
     public void startLobby(){
         gameData.setNumOfPlayers(Integer.parseInt(text_numOfPlayersBox.getText()));
-        gameData.addHeroesPlaying(gameData.getCurHero());
+        //gameData.addHeroesPlaying(gameData.getCurHero());
         username = textBox_getUsername.getText();
         sendCommand(CommandFromClient.HOSTING,username,gameData);
         removeEverythingFromScreen();
@@ -832,35 +828,32 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
         //textBox_getUsername.setVisible(true);
     }
-
     public void charactersetUpScreen(){
         removeEverythingFromScreen();
         btn_RB.setVisible(true);
         btn_selectCharacter.setVisible(true);
-        if(you!=null){
-            if(you.getName().equals("Aelfric")){
-                foePanel.setCurHero(0);
+        for(int x=0; x<gameData.getHeroesPlaying().size(); x++){
+            if(gameData.getHeroesPlaying().get(x).getName().equals("Aelfric")){
+                btn_aelfric.setEnabled(false);
             }
-            else if(you.getName().equals("Cecilia")){
-                foePanel.setCurHero(1);
+            else if(gameData.getHeroesPlaying().get(x).getName().equals("Cecilia")){
+                btn_cecilia.setEnabled(false);
             }
-            else if(you.getName().equals("Daga")){
-                foePanel.setCurHero(2);
+            else if(gameData.getHeroesPlaying().get(x).getName().equals("Daga")){
+                btn_daga.setEnabled(false);
             }
-            else if(you.getName().equals("Kalistos")){
-                foePanel.setCurHero(3);
+            else if(gameData.getHeroesPlaying().get(x).getName().equals("Kalistos")){
+                btn_kalistos.setEnabled(false);
             }
-            else if(you.getName().equals("Kaylana")){
-                foePanel.setCurHero(4);
+            else if(gameData.getHeroesPlaying().get(x).getName().equals("Kaylana")){
+                btn_kaylana.setEnabled(false);
             }
-            else if(you.getName().equals("Sirius")){
-                foePanel.setCurHero(5);
+            else if(gameData.getHeroesPlaying().get(x).getName().equals("Sirius")){
+                btn_sirius.setEnabled(false);
             }
 
         }
-        else{
-            foePanel.setCurHero(0);
-        }
+        foePanel.setCurHero(0);
         foePanel.setCharacterselectscreen(true);
         foePanel.setSetUpJoinScreen(false);
         foePanel.setHostGameSetUpScreen(false);

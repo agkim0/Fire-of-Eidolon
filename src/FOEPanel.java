@@ -350,7 +350,7 @@ public class FOEPanel extends JPanel{
             if(gameData.getDifficultyLevel().equals("Glitch")){
                 g.drawImage(df_Glitch,1100,250,350,550,null);
             }
-            if(gameData.getCurHero().getName().equals("Aelfric")){
+            /*if(gameData.getCurHero().getName().equals("Aelfric")){
                 System.out.println("ael");
                 g.drawImage(aelfric_Character_Card,90,190,550,350,null);
             }
@@ -371,7 +371,7 @@ public class FOEPanel extends JPanel{
             }
             else {
                 System.out.println("bruuuuuuhhhh");
-            }
+            }*/
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
             g.drawString("Username:",450,70);
 //            if()
