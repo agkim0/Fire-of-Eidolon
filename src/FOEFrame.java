@@ -269,7 +269,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             foePanel.setHostGameSetUpScreen(false);
             foePanel.setHostGameSetUpScreen(false);
             foePanel.repaint();
-            currSelectedHero = "Cecilia";
+            currSelectedHero = "Cecelia";
             if(!gameData.getAelfricPlayer().equals("")){
                 btn_selectCharacter.setText("taken");
                 btn_selectCharacter.setEnabled(false);
@@ -437,7 +437,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         chatBox();
     }
     public void selectHero(){
-        sendCommand(CommandFromClient.HERO_SELECTED,currSelectedHero,gameData);
+        sendCommand(CommandFromClient.HERO_SELECTED,currSelectedHero+","+username,gameData);
     }
     public void heroSelected(boolean selected){
         if(selected){
