@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 public class ServersListener implements Runnable, Serializable {
     private boolean acceptedName;
+    private String username;
     private ObjectInputStream is;
     private ObjectOutputStream os;
     private static ArrayList<Room> rooms = new ArrayList<Room>();
@@ -67,6 +68,7 @@ public class ServersListener implements Runnable, Serializable {
                             else{
                                 room = r;
                                 System.out.println(usernameAttempt+" valid");
+                                username=usernameAttempt;
                                 acceptedName = true;
                                 room.getUsers().add(usernameAttempt);
                                 room.getGameData().getUsernames().add(usernameAttempt);
@@ -87,8 +89,49 @@ public class ServersListener implements Runnable, Serializable {
                     sendCommandtoAllUsers(CommandFromServer.CHARACTER_SELECTION_STARTING,null,cfc.getGameData());
                 }
                 else if(cfc.getCommand()==CommandFromClient.HERO_SELECTED){
-                    sendCommandtoAllUsers(CommandFromServer.CHARACTER_SELECTED,cfc.getData(),cfc.getGameData());
-                    room.setGameData(cfc.getGameData());
+                    boolean taken=true;
+                    if(cfc.getData().equals("Aelfric")){
+                        if(room.getGameData().getAelfricPlayer().equals("")){
+                            taken = false;
+                            room.getGameData().setAelfricPlayer(username);
+                        }
+                    }
+                    else if(cfc.getData().equals("Cecelia")){
+                        if(room.getGameData().getCeceliaPlayer().equals("")){
+                            taken = false;
+                            room.getGameData().setCeceliaPlayer(username);
+                        }
+                    }
+                    else if(cfc.getData().equals("Daga")){
+                        if(room.getGameData().getDagaPlayer().equals("")){
+                            taken = false;
+                            room.getGameData().setDagaPlayer(username);
+                        }
+                    }
+                    else if(cfc.getData().equals("Kalistos")){
+                        if(room.getGameData().getKalistosPlayer().equals("")){
+                            taken = false;
+                            room.getGameData().setKalistosPlayer(username);
+                        }
+                    }
+                    else if(cfc.getData().equals("Kaylana")){
+                        if(room.getGameData().getKaylanaPlayer().equals("")){
+                            taken = false;
+                            room.getGameData().setKaylanaPlayer(username);
+                        }
+                    }
+                    else if(cfc.getData().equals("Sirius")){
+                        if(room.getGameData().getSiriusPlayer().equals("")){
+                            taken = false;
+                            room.getGameData().setSiriusPlayer(username);
+                        }
+                    }
+                    if(taken){
+                        sendCommand(CommandFromServer.CHARACTER_TAKEN,"Character Taken",null);
+                    }
+                    else{
+                        sendCommandtoAllUsers(CommandFromServer.CHARACTER_SELECTED,username+" has selected "+cfc.getData(),room.getGameData());
+                    }
                 }
 
             }catch(Exception e){

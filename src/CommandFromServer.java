@@ -17,6 +17,8 @@ public class CommandFromServer implements Serializable {
     public static final int GAME_IS_FULL = 11;
     public static final int NEW_USER_JOINED = 12;
     public static final int CHARACTER_SELECTION_STARTING = 13;
+    public static final int CHARACTER_TAKEN=14;
+    public static final int CHARACTER_UNTAKEN=15;
 
 
 

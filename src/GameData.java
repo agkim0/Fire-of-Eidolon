@@ -23,6 +23,12 @@ public class GameData implements Serializable{
     private ArrayList<String> usernames = new ArrayList<String>();
     private String lobbyCode = "";
     private int numOfPlayers;
+    private String aelfricPlayer = "";
+    private String ceceliaPlayer = "";
+    private String dagaPlayer = "";
+    private String kalistosPlayer = "";
+    private String kaylanaPlayer = "";
+    private String siriusPlayer = "";
 
     public Hero getCurHero() {
         return curHero;
@@ -273,7 +279,55 @@ public class GameData implements Serializable{
         this.msgs = msgs;
     }
 
-//    public Tile getThisTile(String tt){
+    public String getAelfricPlayer() {
+        return aelfricPlayer;
+    }
+
+    public void setAelfricPlayer(String aelfricPlayer) {
+        this.aelfricPlayer = aelfricPlayer;
+    }
+
+    public String getCeceliaPlayer() {
+        return ceceliaPlayer;
+    }
+
+    public void setCeceliaPlayer(String ceceliaPlayer) {
+        this.ceceliaPlayer = ceceliaPlayer;
+    }
+
+    public String getDagaPlayer() {
+        return dagaPlayer;
+    }
+
+    public void setDagaPlayer(String dagaPlayer) {
+        this.dagaPlayer = dagaPlayer;
+    }
+
+    public String getKalistosPlayer() {
+        return kalistosPlayer;
+    }
+
+    public void setKalistosPlayer(String kalistosPlayer) {
+        this.kalistosPlayer = kalistosPlayer;
+    }
+
+    public String getKaylanaPlayer() {
+        return kaylanaPlayer;
+    }
+
+    public void setKaylanaPlayer(String kaylanaPlayer) {
+        this.kaylanaPlayer = kaylanaPlayer;
+    }
+
+    public String getSiriusPlayer() {
+        return siriusPlayer;
+    }
+
+    public void setSiriusPlayer(String siriusPlayer) {
+        this.siriusPlayer = siriusPlayer;
+    }
+
+    //    public Tile getThisTile(String tt){
 //        //loop though all tiles find which one matches
 //    }
 //    public Hero getThisHero(String nh){
