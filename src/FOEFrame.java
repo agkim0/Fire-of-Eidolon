@@ -1063,9 +1063,10 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         }
         foePanel.setSetUpJoinScreen(false);
         foePanel.setDrawTitlePage(false);
-        foePanel.setCharacterselectscreen(true);
         foePanel.setHostGameSetUpScreen(false);
         foePanel.setSetUpJoinScreen(false);
+        foePanel.setHostRoomCodeScreen(false);
+        foePanel.setCharacterselectscreen(true);
         foePanel.repaint();
         btn_aelfric.setVisible(true);
         btn_cecilia.setVisible(true);
