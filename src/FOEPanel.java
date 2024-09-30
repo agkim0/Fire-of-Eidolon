@@ -310,7 +310,7 @@ public class FOEPanel extends JPanel{
         g.setColor(Color.white);
 
         if(hostGameSetUpScreen){
-            System.out.println("drawgamesetup");
+            //System.out.println("drawgamesetup");
             if(showUnstableVoid){
                 g.drawImage(scenario_1,440,650,550,350,null);
             }
@@ -379,21 +379,21 @@ public class FOEPanel extends JPanel{
 //            
         }
         if(hostRoomCodeScreen){
-            System.out.println("drawhostroomcode");
+            //System.out.println("drawhostroomcode");
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
             //g.drawString("Username:",700,300);
             g.drawString("Room Code",500,450);
             g.drawImage(logo,500,-10,600,500,null);
         }
         if(setUpJoinScreen){
-            System.out.println("drawjoinscreen");
+            //System.out.println("drawjoinscreen");
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
             g.drawString("Username:",500,450);
             g.drawString("Room Code:",500,600);
             g.drawImage(logo,500,-10,600,500,null);
         }
         if(characterselectscreen){
-            System.out.println("drawcharacterselectscreen");
+            //System.out.println("drawcharacterselectscreen");
             g.setFont(new Font("Sans Serif",Font.BOLD,50));
             g.drawString("Choose Your Hero:",700,300);
             if(curHero == AELFRIC){
@@ -417,8 +417,14 @@ public class FOEPanel extends JPanel{
 
         }
         if(drawTitlePage){
-            System.out.println("drawTitlePage");
-            g.drawImage(logo,50,250,600,500,null);
+            //System.out.println("drawTitlePage");
+            g.drawImage(logo,50,150,700,600,null);
+            g.drawImage(aelfric_Token,100,810,125,125,null);
+            g.drawImage(cecelia_Token,250,810,125,125,null);
+            g.drawImage(daga_Token,400,810,125,125,null);
+            g.drawImage(kalistos_Token,550,810,125,125,null);
+            g.drawImage(kaylana_Token,700,810,125,125,null);
+            g.drawImage(sirius_Token,850,810,125,125,null);
         }
     }
 

@@ -567,8 +567,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_rulebookLEFT.setEnabled(false);
         btn_rulebookRIGHT.setVisible(true);
         btn_rulebookRIGHT.setEnabled(true);
+        foePanel.setSetUpJoinScreen(false);
+        foePanel.setDrawTitlePage(false);
+        foePanel.setCharacterselectscreen(false);
         foePanel.setHostGameSetUpScreen(false);
-//        foePanel.setRuleBookSetUpScreen(true);
+        foePanel.setSetUpJoinScreen(false);
+        //foePanel.
         foePanel.repaint();
         tf_pgnl.setVisible(true);
         tf_pgnr.setVisible(true);
@@ -1063,9 +1067,10 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         }
         foePanel.setSetUpJoinScreen(false);
         foePanel.setDrawTitlePage(false);
-        foePanel.setCharacterselectscreen(true);
         foePanel.setHostGameSetUpScreen(false);
         foePanel.setSetUpJoinScreen(false);
+        foePanel.setHostRoomCodeScreen(false);
+        foePanel.setCharacterselectscreen(true);
         foePanel.repaint();
         btn_aelfric.setVisible(true);
         btn_cecilia.setVisible(true);
