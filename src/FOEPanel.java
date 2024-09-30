@@ -308,9 +308,9 @@ public class FOEPanel extends JPanel{
     public void paint(Graphics g){
         g.drawImage(bg,0,0,1500,1000, null);
         g.setColor(Color.white);
-//        g.drawRect(700,100,350,550);
 
         if(hostGameSetUpScreen){
+            System.out.println("drawgamesetup");
             if(showUnstableVoid){
                 g.drawImage(scenario_1,440,650,550,350,null);
             }
@@ -350,6 +350,7 @@ public class FOEPanel extends JPanel{
             if(gameData.getDifficultyLevel().equals("Glitch")){
                 g.drawImage(df_Glitch,1100,250,350,550,null);
             }
+            g.drawImage(logo,50,50,600,500,null);
             /*if(gameData.getCurHero().getName().equals("Aelfric")){
                 System.out.println("ael");
                 g.drawImage(aelfric_Character_Card,90,190,550,350,null);
@@ -378,16 +379,21 @@ public class FOEPanel extends JPanel{
 //            
         }
         if(hostRoomCodeScreen){
+            System.out.println("drawhostroomcode");
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
             //g.drawString("Username:",700,300);
             g.drawString("Room Code",500,450);
+            g.drawImage(logo,500,-10,600,500,null);
         }
         if(setUpJoinScreen){
+            System.out.println("drawjoinscreen");
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
             g.drawString("Username:",500,450);
             g.drawString("Room Code:",500,600);
+            g.drawImage(logo,500,-10,600,500,null);
         }
         if(characterselectscreen){
+            System.out.println("drawcharacterselectscreen");
             g.setFont(new Font("Sans Serif",Font.BOLD,50));
             g.drawString("Choose Your Hero:",700,300);
             if(curHero == AELFRIC){
@@ -410,16 +416,10 @@ public class FOEPanel extends JPanel{
             }
 
         }
-
         if(drawTitlePage){
-            //idk
+            System.out.println("drawTitlePage");
+            g.drawImage(logo,50,250,600,500,null);
         }
-
-//        g.drawRect(40,130,100,100);
-//        g.setFont(new Font("Sans Serif",Font.BOLD,50));
-//        g.setColor(Color.black);
-//        g.drawString(numOfPlayers+"",90,180);
-
     }
 
     public void drawCenteredString(Graphics g,String text,int x, int y){

@@ -331,6 +331,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             foePanel.setHostGameSetUpScreen(false);
             foePanel.repaint();
         });
+        btn_backToHome.addActionListener(e->{
+            paintTP();
+        });
         btn_Host.addActionListener(e->{
             before = currentPage;
             currentPage = SUG;
@@ -639,8 +642,13 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void host(){
         removeEverythingFromScreen();
         gameData = new GameData();
+        foePanel.setSetUpJoinScreen(false);
+        foePanel.setDrawTitlePage(false);
         foePanel.setHostGameSetUpScreen(true);
+        foePanel.setSetUpJoinScreen(false);
+        foePanel.setCharacterselectscreen(false);
         btn_RB.setVisible(true);
+        textBox_getUsername.setBounds(700,50,300,50);
         textBox_getUsername.setVisible(true);
         text_numOfPlayersBox.setVisible(true);
         text_numOfPlayersBox.setOpaque(true);
@@ -648,6 +656,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_numOfPlayersDecrease.setVisible(true);
         btn_raiseDifficulty.setVisible(true);
         btn_lowerDifficulty.setVisible(true);
+        btn_backToHome.setBounds(50,650,300,75);
         btn_backToHome.setVisible(true);
         btn_startLobby.setVisible(true);
         btn_backGameScenario.setVisible(true);
@@ -922,12 +931,15 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void startLobby(){
         if(!textBox_getUsername.getText().equals("")){
             gameData.setNumOfPlayers(Integer.parseInt(text_numOfPlayersBox.getText()));
-            //gameData.addHeroesPlaying(gameData.getCurHero());
             username = textBox_getUsername.getText();
             sendCommand(CommandFromClient.HOSTING,username,gameData);
             removeEverythingFromScreen();
             foePanel.setGameData(gameData);
+            foePanel.setSetUpJoinScreen(false);
+            foePanel.setDrawTitlePage(false);
+            foePanel.setCharacterselectscreen(false);
             foePanel.setHostGameSetUpScreen(false);
+            foePanel.setSetUpJoinScreen(false);
             foePanel.setHostRoomCodeScreen(true);
             repaintPanel();
             //text_roomCode.setBounds(1150,25,300,30);
@@ -982,10 +994,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
                 break;
             }
         }
-        foePanel.setCharacterselectscreen(true);
         foePanel.setSetUpJoinScreen(false);
+        foePanel.setDrawTitlePage(false);
+        foePanel.setCharacterselectscreen(true);
         foePanel.setHostGameSetUpScreen(false);
-        foePanel.setHostGameSetUpScreen(false);
+        foePanel.setSetUpJoinScreen(false);
         foePanel.repaint();
         btn_aelfric.setVisible(true);
         btn_cecilia.setVisible(true);
@@ -994,7 +1007,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_sirius.setVisible(true);
         btn_daga.setVisible(true);
     }
-
     public void usernameValid(boolean valid){
         System.out.println("usernamehelpter: "+text_numOfPlayersBox.getText());
         if(valid){
@@ -1010,16 +1022,20 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             textBox_getUsername.setText("Username Taken");
         }
     }
-
     public void join(){
         removeEverythingFromScreen();
+        foePanel.setDrawTitlePage(false);
+        foePanel.setCharacterselectscreen(false);
+        foePanel.setHostGameSetUpScreen(false);
+        foePanel.setSetUpJoinScreen(false);
         foePanel.setSetUpJoinScreen(true);
+        repaintPanel();
         textBox_getUsername.setBounds(700,450,300,50);
         textBox_getUsername.setVisible(true);
         textBox_getRoomCode.setVisible(true);
         btn_checkRoomCode.setVisible(true);
-
-        repaintPanel();
+        btn_backToHome.setBounds(50,500,300,75);
+        btn_backToHome.setVisible(true);
 
     }
     public void checkRoomCode(){
@@ -1106,9 +1122,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_Join.setVisible(true);
         btn_Host.setVisible(true);
         btn_RB.setVisible(true);
+        foePanel.setSetUpJoinScreen(false);
         foePanel.setDrawTitlePage(true);
+        foePanel.setCharacterselectscreen(false);
+        foePanel.setHostGameSetUpScreen(false);
+        foePanel.setSetUpJoinScreen(false);
         foePanel.repaint();
-        foePanel.setDrawTitlePage(false);
     }
     public void goBack(){
         if(before == TP){
