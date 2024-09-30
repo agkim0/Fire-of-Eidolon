@@ -418,7 +418,13 @@ public class FOEPanel extends JPanel{
         }
         if(drawTitlePage){
             //System.out.println("drawTitlePage");
-            g.drawImage(logo,50,250,600,500,null);
+            g.drawImage(logo,50,150,700,600,null);
+            g.drawImage(aelfric_Token,100,810,125,125,null);
+            g.drawImage(cecelia_Token,250,810,125,125,null);
+            g.drawImage(daga_Token,400,810,125,125,null);
+            g.drawImage(kalistos_Token,550,810,125,125,null);
+            g.drawImage(kaylana_Token,700,810,125,125,null);
+            g.drawImage(sirius_Token,850,810,125,125,null);
         }
     }
 
