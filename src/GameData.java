@@ -29,6 +29,12 @@ public class GameData implements Serializable{
     private String kalistosPlayer = "";
     private String kaylanaPlayer = "";
     private String siriusPlayer = "";
+    public static final Hero AELFRIC = new Hero("Aelfric",1,2,3,0,0,0,false,false,false,false,3,false);
+    public static final Hero CECELIA = new Hero("Cecilia",1,3,2,0,0,0,false,false,false,false,3,false);
+    public static final Hero DAGA = new Hero("Daga",2,3,1,0,0,0,false,false,false,false,3,false);
+    public static final Hero KALISTOS = new Hero("Kalistos",3,1,2,0,0,0,false,false,false,false,3,false);
+    public static final Hero KAYLANA = new Hero("Kaylana",2,1,3,0,0,0,false,false,false,false,3,false);
+    public static final Hero SIRIUS = new Hero("Sirius",3,2,1,0,0,0,false,false,false,false,3,false);
 
     public Hero getCurHero() {
         return curHero;
@@ -179,13 +185,12 @@ public class GameData implements Serializable{
     //start here
     public void createAllHero(){
         allHeroes = new ArrayList<>();
-        allHeroes.add(new Hero("Aelfric",1,2,3,0,0,0,false,false,false,false,3,false));
-        allHeroes.add(new Hero("Cecilia",1,3,2,0,0,0,false,false,false,false,3,false));
-        allHeroes.add(new Hero("Daga",2,3,1,0,0,0,false,false,false,false,3,false));
-        allHeroes.add(new Hero("Kalistos",3,1,2,0,0,0,false,false,false,false,3,false));
-        allHeroes.add(new Hero("Kaylana",2,1,3,0,0,0,false,false,false,false,3,false));
-        allHeroes.add(new Hero("Sirius",3,2,1,0,0,0,false,false,false,false,3,false));
-
+        allHeroes.add(AELFRIC);
+        allHeroes.add(CECELIA);
+        allHeroes.add(DAGA);
+        allHeroes.add(KALISTOS);
+        allHeroes.add(KAYLANA);
+        allHeroes.add(SIRIUS);
     }
 
     public Tile[][] getGrid() {

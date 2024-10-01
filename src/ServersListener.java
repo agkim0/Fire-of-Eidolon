@@ -89,44 +89,50 @@ public class ServersListener implements Runnable, Serializable {
                 else if(cfc.getCommand()==CommandFromClient.HERO_SELECTED){
                     String x[] = cfc.getData().split(",",2);
                     String user = x[1];
-                    String wantedCharacter=x[0]
+                    String wantedCharacter=x[0];
                     System.out.println("Wanted Character: "+cfc.getData());
                     boolean taken=true;
                     if(wantedCharacter.equals("Aelfric")){
                         if(room.getGameData().getAelfricPlayer().equals("")){
                             taken = false;
-                            room.getGameData().setAelfricPlayer();
+                            room.getGameData().setAelfricPlayer(user);
+                            room.getGameData().getHeroesPlaying().add(GameData.AELFRIC);
                         }
                     }
                     else if(wantedCharacter.equals("Cecelia")){
                         if(room.getGameData().getCeceliaPlayer().equals("")){
                             taken = false;
-                            System.out.println("Player taking C: "+this.username);
-                            room.getGameData().setCeceliaPlayer(username);
+                            System.out.println("Player taking C: "+user);
+                            room.getGameData().setCeceliaPlayer(user);
+                            room.getGameData().getHeroesPlaying().add(GameData.CECELIA);
                         }
                     }
                     else if(wantedCharacter.equals("Daga")){
                         if(room.getGameData().getDagaPlayer().equals("")){
                             taken = false;
-                            room.getGameData().setDagaPlayer(username);
+                            room.getGameData().setDagaPlayer(user);
+                            room.getGameData().getHeroesPlaying().add(GameData.DAGA);
                         }
                     }
                     else if(wantedCharacter.equals("Kalistos")){
                         if(room.getGameData().getKalistosPlayer().equals("")){
                             taken = false;
-                            room.getGameData().setKalistosPlayer(username);
+                            room.getGameData().setKalistosPlayer(user);
+                            room.getGameData().getHeroesPlaying().add(GameData.KALISTOS);
                         }
                     }
                     else if(wantedCharacter.equals("Kaylana")){
                         if(room.getGameData().getKaylanaPlayer().equals("")){
                             taken = false;
-                            room.getGameData().setKaylanaPlayer(username);
+                            room.getGameData().setKaylanaPlayer(user);
+                            room.getGameData().getHeroesPlaying().add(GameData.KAYLANA);
                         }
                     }
                     else if(cfc.getData().equals("Sirius")){
                         if(room.getGameData().getSiriusPlayer().equals("")){
                             taken = false;
-                            room.getGameData().setSiriusPlayer(username);
+                            room.getGameData().setSiriusPlayer(user);
+                            room.getGameData().getHeroesPlaying().add(GameData.SIRIUS);
                         }
                     }
                     if(taken){
@@ -136,7 +142,10 @@ public class ServersListener implements Runnable, Serializable {
                     else{
                         System.out.println("Character Untaken");
                         sendCommand(CommandFromServer.CHARACTER_UNTAKEN,null,room.getGameData());
-                        sendCommandtoAllUsers(CommandFromServer.CHARACTER_SELECTED,username+" has selected "+cfc.getData(),room.getGameData());
+                        sendCommandtoAllUsers(CommandFromServer.CHARACTER_SELECTED,user+" has selected "+cfc.getData(),room.getGameData());
+                        if(room.getGameData().getNumOfPlayers()==room.getGameData().getHeroesPlaying().size()){
+
+                        }
                     }
                 }
 

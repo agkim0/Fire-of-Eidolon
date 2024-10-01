@@ -270,7 +270,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             foePanel.setHostGameSetUpScreen(false);
             foePanel.repaint();
             currSelectedHero = "Cecelia";
-            if(!gameData.getAelfricPlayer().equals("")){
+            if(!gameData.getCeceliaPlayer().equals("")){
                 btn_selectCharacter.setText("taken");
                 btn_selectCharacter.setEnabled(false);
             }
@@ -288,7 +288,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             foePanel.setHostGameSetUpScreen(false);
             foePanel.repaint();
             currSelectedHero = "Daga";
-            if(!gameData.getAelfricPlayer().equals("")){
+            if(!gameData.getDagaPlayer().equals("")){
                 btn_selectCharacter.setText("taken");
                 btn_selectCharacter.setEnabled(false);
             }
@@ -306,7 +306,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             foePanel.setHostGameSetUpScreen(false);
             foePanel.repaint();
             currSelectedHero = "Kalistos";
-            if(!gameData.getAelfricPlayer().equals("")){
+            if(!gameData.getKalistosPlayer().equals("")){
                 btn_selectCharacter.setText("taken");
                 btn_selectCharacter.setEnabled(false);
             }
@@ -324,7 +324,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             foePanel.setHostGameSetUpScreen(false);
             foePanel.repaint();
             currSelectedHero = "Kaylana";
-            if(!gameData.getAelfricPlayer().equals("")){
+            if(!gameData.getKaylanaPlayer().equals("")){
                 btn_selectCharacter.setText("taken");
                 btn_selectCharacter.setEnabled(false);
             }
@@ -342,7 +342,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             foePanel.setHostGameSetUpScreen(false);
             foePanel.repaint();
             currSelectedHero = "Sirius";
-            if(!gameData.getAelfricPlayer().equals("")){
+            if(!gameData.getSiriusPlayer().equals("")){
                 btn_selectCharacter.setText("taken");
                 btn_selectCharacter.setEnabled(false);
             }
