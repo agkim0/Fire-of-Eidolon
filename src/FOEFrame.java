@@ -100,6 +100,71 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
     private boolean[] enabled = {true,true,true,true,true,true};
 
+    private JButton btn_cc;
+    private TextField tf_action;
+    private JButton btn_aelfaction;
+    private JButton btn_aelfspec;
+    private JButton btn_ceciaction;
+    private JButton btn_cecispec;
+    private JButton btn_dagaaction;
+    private JButton btn_dagaspec;
+    private JButton btn_kaliaction;
+    private JButton btn_kalispec;
+    private JButton btn_kaylaaction;
+    private JButton btn_kaylaspec;
+    private JButton btn_siriaction;
+    private JButton btn_sirispec;
+    //private JButton btn_tileback;
+    //private JButton btn_rdback;
+    private JButton btn_screenUp = new JButton();
+    private JButton btn_screenDown = new JButton();
+    private JButton btn_screenRight = new JButton();
+    private JButton btn_screenLeft = new JButton();
+    private JButton btn_rot90 = new JButton("90");
+    private JButton btn_rot180 = new JButton("180");
+    private JButton btn_rot270 = new JButton("270");
+    private JButton btn_rot360 = new JButton("360");
+    private JButton btn_00;
+    private JButton btn_10;
+    private JButton btn_20;
+    private JButton btn_30;
+    private JButton btn_40;
+    private JButton btn_01;
+    private JButton btn_11;
+    private JButton btn_21;
+    private JButton btn_31;
+    private JButton btn_41;
+    private JButton btn_02;
+    private JButton btn_12;
+    private JButton btn_22;
+    private JButton btn_32;
+    private JButton btn_42;
+    private JButton btn_03;
+    private JButton btn_13;
+    private JButton btn_23;
+    private JButton btn_33;
+    private JButton btn_43;
+    private JButton btn_04;
+    private JButton btn_14;
+    private JButton btn_24;
+    private JButton btn_34;
+    private JButton btn_44;
+
+    private BufferedImage aelfric_Action_Token = null;
+    private BufferedImage aelfric_Special_Token = null;
+    private BufferedImage cecelia_Action_Token = null;
+    private BufferedImage cecelia_Special_Token = null;
+    private BufferedImage daga_Action_Token = null;
+    private BufferedImage daga_Special_Token = null;
+    private BufferedImage kalistos_Action_Token = null;
+    private BufferedImage kalistos_Special_Token = null;
+    private BufferedImage kaylana_Action_Token = null;
+    private BufferedImage kaylana_Special_Token = null;
+    private BufferedImage sirius_Action_Token = null;
+    private BufferedImage sirius_Special_Token = null;
+
+    private BufferedImage back_Of_CT = null;
+    private BufferedImage back_Of_RDC = null;
 
     public FOEFrame(ObjectOutputStream os) throws IOException{
         super("FOE Game");
@@ -113,6 +178,19 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         setAlwaysOnTop(true);
         setVisible(true);
         setLayout(null);
+
+        aelfric_Action_Token = ImageIO.read(new File("character cards/aelfric action.png"));
+        aelfric_Special_Token = ImageIO.read(new File("character cards/aelfric special.png"));
+        cecelia_Action_Token = ImageIO.read(new File("character cards/cecelia action.png"));
+        cecelia_Special_Token = ImageIO.read(new File("character cards/cecelia special.png"));
+        daga_Action_Token = ImageIO.read(new File("character cards/daga action.png"));
+        daga_Special_Token = ImageIO.read(new File("character cards/daga special.png"));
+        kalistos_Action_Token = ImageIO.read(new File("character cards/kalistos action.png"));
+        kalistos_Special_Token = ImageIO.read(new File("character cards/kalistos special.png"));
+        kaylana_Action_Token = ImageIO.read(new File("character cards/kaylana action.png"));
+        kaylana_Special_Token = ImageIO.read(new File("character cards/kaylana special.png"));
+        sirius_Action_Token = ImageIO.read(new File("character cards/sirius action.png"));
+        sirius_Special_Token = ImageIO.read(new File("character cards/sirius special.png"));
 
         aelfric_Token = ImageIO.read(new File("token pieces/character tokens/aelfric character token(Fix).png"));
         cecelia_Token = ImageIO.read(new File("token pieces/character tokens/cecelia character token(Fix).png"));
