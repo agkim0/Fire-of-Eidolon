@@ -19,7 +19,7 @@ public class GameData implements Serializable{
     private boolean vagrantPortal=false;
     private boolean invasionOfTheShadowCult=false;
     private boolean shadesOfVorax=false;
-    private ArrayList<String> msgs;
+    private ArrayList<String> msgs = new ArrayList<>();
     private ArrayList<String> usernames = new ArrayList<String>();
     private String lobbyCode = "";
     private int numOfPlayers;
