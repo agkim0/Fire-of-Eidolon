@@ -17,7 +17,14 @@ public class FOEPanel extends JPanel{
     private boolean setUpJoinScreen;
     private boolean drawTitlePage;
     private boolean characterselectscreen;
+    private boolean gamescreen;
 
+    public boolean isGamescreen() {
+        return gamescreen;
+    }
+    public void setGamescreen(boolean gamescreen) {
+        this.gamescreen = gamescreen;
+    }
     public boolean isCharacterselectscreen() {
         return characterselectscreen;
     }

@@ -124,7 +124,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private JButton btn_rot180 = new JButton("180");
     private JButton btn_rot270 = new JButton("270");
     private JButton btn_rot360 = new JButton("360");
-    private JButton btn_00;
+    /*private JButton btn_00;
     private JButton btn_10;
     private JButton btn_20;
     private JButton btn_30;
@@ -148,7 +148,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private JButton btn_14;
     private JButton btn_24;
     private JButton btn_34;
-    private JButton btn_44;
+    private JButton btn_44;*/
 
     private BufferedImage aelfric_Action_Token = null;
     private BufferedImage aelfric_Special_Token = null;
@@ -179,6 +179,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         setVisible(true);
         setLayout(null);
 
+        btn_cc.setBounds(200,50,100,100);
+        add(btn_cc);
+        tf_action.setBounds(50,200,200,400);
+        add(tf_action);
+
         aelfric_Action_Token = ImageIO.read(new File("character cards/aelfric action.png"));
         aelfric_Special_Token = ImageIO.read(new File("character cards/aelfric special.png"));
         cecelia_Action_Token = ImageIO.read(new File("character cards/cecelia action.png"));
@@ -191,6 +196,96 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         kaylana_Special_Token = ImageIO.read(new File("character cards/kaylana special.png"));
         sirius_Action_Token = ImageIO.read(new File("character cards/sirius action.png"));
         sirius_Special_Token = ImageIO.read(new File("character cards/sirius special.png"));
+
+        btn_aelfaction = new JButton(new ImageIcon(aelfric_Action_Token));
+        btn_aelfaction.setBorderPainted(false);
+        btn_aelfaction.setFocusPainted(false);
+        btn_aelfaction.setContentAreaFilled(false);
+        btn_aelfaction.setBounds(900,750,125,125);
+        add(btn_aelfaction);
+        btn_aelfspec = new JButton(new ImageIcon(aelfric_Special_Token));
+        btn_aelfspec.setBorderPainted(false);
+        btn_aelfspec.setFocusPainted(false);
+        btn_aelfspec.setContentAreaFilled(false);
+        btn_aelfspec.setBounds(900,925,125,125);
+        add(btn_aelfspec);
+        btn_ceciaction = new JButton(new ImageIcon(cecelia_Action_Token));
+        btn_ceciaction.setBorderPainted(false);
+        btn_ceciaction.setFocusPainted(false);
+        btn_ceciaction.setContentAreaFilled(false);
+        btn_ceciaction.setBounds(900,750,125,125);
+        add(btn_ceciaction);
+        btn_cecispec = new JButton(new ImageIcon(cecelia_Special_Token));
+        btn_cecispec.setBorderPainted(false);
+        btn_cecispec.setFocusPainted(false);
+        btn_cecispec.setContentAreaFilled(false);
+        btn_cecispec.setBounds(900,925,125,125);
+        add(btn_cecispec);
+        btn_kaliaction = new JButton(new ImageIcon(kalistos_Action_Token));
+        btn_kaliaction.setBorderPainted(false);
+        btn_kaliaction.setFocusPainted(false);
+        btn_kaliaction.setContentAreaFilled(false);
+        btn_kaliaction.setBounds(900,750,125,125);
+        add(btn_kaliaction);
+        btn_kalispec = new JButton(new ImageIcon(kalistos_Special_Token));
+        btn_kalispec.setBorderPainted(false);
+        btn_kalispec.setFocusPainted(false);
+        btn_kalispec.setContentAreaFilled(false);
+        btn_kalispec.setBounds(900,925,125,125);
+        add(btn_kalispec);
+        btn_kaylaaction = new JButton(new ImageIcon(kaylana_Action_Token));
+        btn_kaylaaction.setBorderPainted(false);
+        btn_kaylaaction.setFocusPainted(false);
+        btn_kaylaaction.setContentAreaFilled(false);
+        btn_kaylaaction.setBounds(900,750,125,125);
+        add(btn_kaylaaction);
+        btn_kaylaspec = new JButton(new ImageIcon(kaylana_Special_Token));
+        btn_kaylaspec.setBorderPainted(false);
+        btn_kaylaspec.setFocusPainted(false);
+        btn_kaylaspec.setContentAreaFilled(false);
+        btn_kaylaspec.setBounds(900,925,125,125);
+        add(btn_kaylaspec);
+        btn_dagaaction = new JButton(new ImageIcon(daga_Action_Token));
+        btn_dagaaction.setBorderPainted(false);
+        btn_dagaaction.setFocusPainted(false);
+        btn_dagaaction.setContentAreaFilled(false);
+        btn_dagaaction.setBounds(900,750,125,125);
+        add(btn_dagaaction);
+        btn_dagaspec = new JButton(new ImageIcon(daga_Special_Token));
+        btn_dagaspec.setBorderPainted(false);
+        btn_dagaspec.setFocusPainted(false);
+        btn_dagaspec.setContentAreaFilled(false);
+        btn_dagaspec.setBounds(900,925,125,125);
+        add(btn_dagaspec);
+        btn_siriaction = new JButton(new ImageIcon(sirius_Action_Token));
+        btn_siriaction.setBorderPainted(false);
+        btn_siriaction.setFocusPainted(false);
+        btn_siriaction.setContentAreaFilled(false);
+        btn_siriaction.setBounds(900,750,125,125);
+        add(btn_siriaction);
+        btn_sirispec = new JButton(new ImageIcon(sirius_Special_Token));
+        btn_sirispec.setBorderPainted(false);
+        btn_sirispec.setFocusPainted(false);
+        btn_sirispec.setContentAreaFilled(false);
+        btn_sirispec.setBounds(900,925,125,125);
+        add(btn_sirispec);
+
+        btn_screenUp.setBounds(600,25,100,50);
+        add(btn_screenUp);
+        btn_screenDown.setBounds(600,725,100,50);
+        add(btn_screenDown);
+        btn_screenRight.setBounds(275,350,100,50);
+        add(btn_screenRight);
+        btn_screenLeft.setBounds(975,350,100,50);
+        add(btn_screenLeft);
+        btn_rot90.setBounds(50,650,100,50);
+        add(btn_rot90);
+        btn_rot180.setBounds(175,650,100,50);
+        add(btn_rot180);
+        btn_rot270.setBounds(50,725,100,50);
+        add(btn_rot270);
+        btn_rot360.setBounds(175,725,100,50);
+        add(btn_rot360);
 
         aelfric_Token = ImageIO.read(new File("token pieces/character tokens/aelfric character token(Fix).png"));
         cecelia_Token = ImageIO.read(new File("token pieces/character tokens/cecelia character token(Fix).png"));
@@ -606,13 +701,77 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
         }*/
     }
-
     public void makeGameScreen(){
         removeEverythingFromScreen();
+        btn_RB.setVisible(true);
+        btn_cc.setVisible(true);
+        btn_rot90.setVisible(true);
+        btn_rot180.setVisible(true);
+        btn_rot270.setVisible(true);
+        btn_rot360.setVisible(true);
+        tf_action.setVisible(true);
+        btn_screenUp.setVisible(true);
+        btn_screenDown.setVisible(true);
+        btn_screenRight.setVisible(true);
+        btn_screenLeft.setVisible(true);
+        if(you.getName().equals("Aelfric")){
+            btn_aelfaction.setVisible(true);
+            btn_aelfspec.setVisible(true);
+        }
+        else if(you.getName().equals("Cecilia")){
+            btn_ceciaction.setVisible(true);
+            btn_cecispec.setVisible(true);
+        }
+        else if(you.getName().equals("Daga")){
+            btn_dagaaction.setVisible(true);
+            btn_dagaspec.setVisible(true);
+        }
+        else if(you.getName().equals("Kalistos")){
+            btn_kaliaction.setVisible(true);
+            btn_kalispec.setVisible(true);
+        }
+        else if(you.getName().equals("Kaylana")){
+            btn_kaylaaction.setVisible(true);
+            btn_kaylaspec.setVisible(true);
+        }
+        else if(you.getName().equals("Sirius")){
+            btn_siriaction.setVisible(true);
+            btn_sirispec.setVisible(true);
+        }
+        foePanel.setHostGameSetUpScreen(false);
+        foePanel.setHostRoomCodeScreen(false);
+        foePanel.setSetUpJoinScreen(false);
+        foePanel.setCharacterselectscreen(false);
+        foePanel.setDrawTitlePage(false);
+        foePanel.setSetUpJoinScreen(false);
+        //foePanel.set
 
     }
 
     public void removeEverythingFromScreen(){
+        btn_cc.setVisible(false);
+        btn_rot90.setVisible(false);
+        btn_rot180.setVisible(false);
+        btn_rot270.setVisible(false);
+        btn_rot360.setVisible(false);
+        btn_screenUp.setVisible(false);
+        btn_screenDown.setVisible(false);
+        btn_screenRight.setVisible(false);
+        btn_screenLeft.setVisible(false);
+        tf_action.setVisible(false);
+        btn_aelfaction.setVisible(false);
+        btn_aelfspec.setVisible(false);
+        btn_ceciaction.setVisible(false);
+        btn_cecispec.setVisible(false);
+        btn_dagaaction.setVisible(false);
+        btn_dagaspec.setVisible(false);
+        btn_kaliaction.setVisible(false);
+        btn_kaylaspec.setVisible(false);
+        btn_kaylaaction.setVisible(false);
+        btn_kaylaspec.setVisible(false);
+        btn_siriaction.setVisible(false);
+        btn_sirispec.setVisible(false);
+
         btn_aelfric.setVisible(false);
         btn_cecilia.setVisible(false);
         btn_kalistos.setVisible(false);
