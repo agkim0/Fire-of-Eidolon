@@ -145,7 +145,7 @@ public class ServersListener implements Runnable, Serializable {
                         sendCommand(CommandFromServer.CHARACTER_UNTAKEN,null,room.getGameData());
                         sendCommandtoAllUsers(CommandFromServer.CHARACTER_SELECTED,user+" has selected "+cfc.getData(),room.getGameData());
                         if(room.getGameData().getNumOfPlayers()==room.getGameData().getHeroesPlaying().size()){
-
+                            sendCommandtoAllUsers(CommandFromServer.START_GAME,null,room.getGameData());
                         }
                     }
                 }
