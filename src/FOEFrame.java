@@ -16,12 +16,12 @@ import java.util.ArrayList;
 import static java.lang.Integer.parseInt;
 
 public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener, Runnable{
-    private String text = "";
+
     private Hero you;
     String username;
     private GameData gameData;
-    private boolean usernameValid;
-    private boolean lobbycodevalid;
+
+
     private boolean gameFull;
     ObjectOutputStream os;
     public static final int TP = 0;//title page
@@ -1260,14 +1260,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
 
 
-    public boolean getUsernameValid(){
-        return usernameValid;
-    }
-
-    public void setUsernameValid(boolean usernameValid){
-        this.usernameValid = usernameValid;
-    }
-
     public GameData getGameData() {
         return gameData;
     }
@@ -1276,25 +1268,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         this.gameData = gameData;
     }
 
-    public boolean isUsernameValid() {
-        return usernameValid;
-    }
-
-    public boolean isLobbycodevalid() {
-        return lobbycodevalid;
-    }
-
-    public void setLobbycodevalid(boolean lobbycodevalid) {
-        this.lobbycodevalid = lobbycodevalid;
-    }
-
-    public boolean isGameFull() {
-        return gameFull;
-    }
-
-    public void setGameFull(boolean gameFull) {
-        this.gameFull = gameFull;
-    }
     
     public void repaintPanel(){
         foePanel.setGameData(this.gameData);
