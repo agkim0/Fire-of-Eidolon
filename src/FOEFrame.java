@@ -607,6 +607,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         }*/
     }
 
+    public void makeGameScreen(){
+        removeEverythingFromScreen();
+
+    }
+
     public void removeEverythingFromScreen(){
         btn_aelfric.setVisible(false);
         btn_cecilia.setVisible(false);
