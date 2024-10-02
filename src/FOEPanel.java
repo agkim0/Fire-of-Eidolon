@@ -433,6 +433,13 @@ public class FOEPanel extends JPanel{
             g.drawImage(kaylana_Token,700,810,125,125,null);
             g.drawImage(sirius_Token,850,810,125,125,null);
         }
+        if(gamescreen){
+            g.setFont(new Font("Sans Serif",Font.BOLD,20));
+            //g.drawString("Username:",500,450);
+            g.drawImage(dex_Token,350,850,150,150,null);
+            g.drawImage(str_Token,525,850,150,150,null);
+            g.drawImage(int_Token,725,850,150,150,null);
+        }
     }
 
     public void drawCenteredString(Graphics g,String text,int x, int y){
