@@ -74,6 +74,7 @@ public class ServersListener implements Runnable, Serializable {
                                 sendCommand(CommandFromServer.LOBBY_CODE_AND_USERNAME_VALID,usernameAttempt,room.getGameData());
                                 room.getOuts().add(os);
 //                                System.out.println("Outs.size(): "+room.getOuts().size()+"       users.size(): "+room.getUsers().size());
+                                serverMessage(usernameAttempt+ " has joined the game!");
                                 sendCommandtoAllUsers(CommandFromServer.NEW_USER_JOINED,null,room.getGameData());
                                 break;
                             }
@@ -148,6 +149,10 @@ public class ServersListener implements Runnable, Serializable {
                         }
                     }
                 }
+                else if(cfc.getCommand()==CommandFromClient.MSG){
+                    room.getGameData().getMsgs().add(cfc.getData());
+                    sendCommandtoAllUsers(CommandFromServer.MESSAGE,cfc.getData(),room.getGameData());
+                }
 
             }catch(Exception e){
                 e.printStackTrace();
@@ -174,6 +179,10 @@ public class ServersListener implements Runnable, Serializable {
                 e.printStackTrace();
             }
         }
+    }
+    public void serverMessage(String msg){
+        room.getGameData().getMsgs().add("Server: "+msg);
+        sendCommandtoAllUsers(CommandFromServer.MESSAGE,"Server: "+msg,room.getGameData());
     }
 
     public Room getRoom() {

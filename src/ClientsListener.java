@@ -57,6 +57,10 @@ public class ClientsListener implements Runnable,Serializable{
                 if(cfs.getCommand()==CommandFromServer.CHARACTER_SELECTED){
                     frame.setGameData(cfs.getGameData());
                 }
+                if(cfs.getCommand()==CommandFromServer.MESSAGE){
+                    frame.setGameData(cfs.getGameData());
+                    frame.recieveMsg();
+                }
             } catch (Exception e){
                 e.printStackTrace();
             }

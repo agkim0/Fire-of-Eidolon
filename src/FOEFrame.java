@@ -312,6 +312,17 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_selectCharacter.setBounds(750,750,300,75);
         add(btn_selectCharacter);
 
+        msgBox.setBounds(1200,900,200,50);
+        add(msgBox);
+        btn_sendMsg.setBounds(1400,900,50,50);
+        add(btn_sendMsg);
+        ArrayList<String> msgTest = new ArrayList<>();
+        this.gameData = new GameData();
+        gameData.setMsgs(msgTest);
+        msgList.setListData(gameData.getMsgs().toArray());
+        msgScroll.setBounds(1200,600,250,250);
+        add(msgScroll);
+
         tf_pgnl.setBounds(50,900,75,75);
         add(tf_pgnl);
         tf_pgnl.setBounds(900,900,75,75);
@@ -509,10 +520,10 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_checkRoomCode.addActionListener(e->{checkRoomCode();});
         btn_backCC.addActionListener(e->{backCharacterCards();});
         btn_forwardCC.addActionListener(e->{forwardCharacterCards();});
+        btn_sendMsg.addActionListener(e->{sendMsg();});
         paintTP();
         currentPage = TP;
         before = -1;
-        chatBox();
     }
     public void selectHero(){
         sendCommand(CommandFromClient.HERO_SELECTED,currSelectedHero+","+username,gameData);
@@ -630,6 +641,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_rbBack.setVisible(false);
         tf_pgnl.setVisible(false);
         tf_pgnr.setVisible(false);
+
+        msgBox.setVisible(false);
+        btn_sendMsg.setVisible(false);
+        msgScroll.setVisible(false);
+        msgList.setVisible(false);
     }
     public void reset(){
         System.out.println("reset");
@@ -1096,11 +1112,15 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             text_roomCode.setOpaque(true);
             text_roomCode.setText(gameData.getLobbyCode());
             btn_RB.setVisible(true);
+            msgBox.setVisible(true);
+            btn_sendMsg.setVisible(true);
+            msgList.setVisible(true);
+            msgScroll.setVisible(true);
         }
         else{
             textBox_getUsername.setText("Please Enter Username");
         }
-        if(gameData.getNumOfPlayers()==gameData.getUsernames().size()){
+        if(gameData.getNumOfPlayers()==1){
             sendCommand(CommandFromClient.LOBBY_FULL,null,gameData);
         }
 
@@ -1150,12 +1170,19 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         foePanel.setHostRoomCodeScreen(false);
         foePanel.setCharacterselectscreen(true);
         foePanel.repaint();
+        currSelectedHero="Aelfric";
         btn_aelfric.setVisible(true);
         btn_cecilia.setVisible(true);
         btn_kalistos.setVisible(true);
         btn_kaylana.setVisible(true);
         btn_sirius.setVisible(true);
         btn_daga.setVisible(true);
+        btn_RB.setVisible(true);
+        msgBox.setVisible(true);
+        btn_sendMsg.setVisible(true);
+        msgList.setVisible(true);
+        msgScroll.setVisible(true);
+        msgList.setListData(gameData.getMsgs().toArray());
     }
     public void usernameValid(boolean valid){
         System.out.println("usernamehelpter: "+text_numOfPlayersBox.getText());
@@ -1164,6 +1191,13 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             System.out.println("valid");
             btn_checkRoomCode.setVisible(false);
             textBox_getUsername.setEnabled(false);
+            text_roomCode.setEnabled(false);
+            btn_RB.setVisible(true);
+            msgBox.setVisible(true);
+            btn_sendMsg.setVisible(true);
+            msgList.setVisible(true);
+            msgScroll.setVisible(true);
+            msgList.setListData(gameData.getMsgs().toArray());
             if(gameData.getNumOfPlayers()==gameData.getUsernames().size()){
                 sendCommand(CommandFromClient.LOBBY_FULL,null,gameData);
             }
@@ -1307,5 +1341,16 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         msgList.setListData(gameData.getMsgs().toArray());
         msgScroll.setBounds(1200,600,250,250);
         add(msgScroll);
+        btn_sendMsg.addActionListener(e->{sendMsg();});
+    }
+
+    public void sendMsg(){
+        String msg = msgBox.getText();
+        msgBox.setText("");
+        sendCommand(CommandFromClient.MSG,username+": "+msg,gameData);
+    }
+
+    public void recieveMsg(){
+        msgList.setListData(gameData.getMsgs().toArray());
     }
 }

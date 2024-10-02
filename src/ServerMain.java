@@ -21,6 +21,7 @@ public class ServerMain {
                     r.getGameData().getUsernames().add(cfc.getData());
 
                     ServersListener sl = new ServersListener(is,os,r);
+                    sl.serverMessage(cfc.getData()+" has started the lobby!");
                     Thread t = new Thread(sl);
                     t.start();
 
