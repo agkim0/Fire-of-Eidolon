@@ -434,11 +434,51 @@ public class FOEPanel extends JPanel{
             g.drawImage(sirius_Token,850,810,125,125,null);
         }
         if(gamescreen){
-            g.setFont(new Font("Sans Serif",Font.BOLD,20));
-            //g.drawString("Username:",500,450);
-            g.drawImage(dex_Token,350,850,150,150,null);
-            g.drawImage(str_Token,525,850,150,150,null);
-            g.drawImage(int_Token,725,850,150,150,null);
+            g.setFont(new Font("Sans Serif",Font.BOLD,100));
+            for(int x=0; x<gameData.getHeroesPlaying().size(); x++){
+                if(gameData.getHeroesPlaying().get(x).getName().equals("Aelfric") && curHero == 0){
+                    g.drawImage(aelfric_Token,50,800,100,100,null);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getDexLevel()),150,900);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getStrengthLevel()),350,900);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelLevel()),550,900);
+                }
+                else if(gameData.getHeroesPlaying().get(x).getName().equals("Cecilia") && curHero == 1){
+                    g.drawImage(cecelia_Token,50,800,100,100,null);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getDexLevel()),150,900);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getStrengthLevel()),350,900);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelLevel()),550,900);
+                }
+                else if(gameData.getHeroesPlaying().get(x).getName().equals("Daga") && curHero == 2){
+                    g.drawImage(daga_Token,50,800,100,100,null);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getDexLevel()),150,900);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getStrengthLevel()),350,900);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelLevel()),550,900);
+                }
+                else if(gameData.getHeroesPlaying().get(x).getName().equals("Kalistos") && curHero == 3){
+                    g.drawImage(kalistos_Token,50,800,100,100,null);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getDexLevel()),150,900);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getStrengthLevel()),350,900);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelLevel()),550,900);
+                }
+                else if(gameData.getHeroesPlaying().get(x).getName().equals("Kaylana") && curHero == 4){
+                    g.drawImage(kaylana_Token,50,800,100,100,null);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getDexLevel()),150,900);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getStrengthLevel()),350,900);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelLevel()),550,900);
+                }
+                else if(gameData.getHeroesPlaying().get(x).getName().equals("Sirius") && curHero == 5){
+                    g.drawImage(sirius_Token,50,800,100,100,null);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getDexLevel()),150,900);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getStrengthLevel()),350,900);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelLevel()),550,900);
+                }
+            }
+            g.drawImage(dex_Token,225,825,125,125,null);
+            g.drawImage(str_Token,425,825,125,125,null);
+            g.drawImage(int_Token,635,825,125,125,null);
+            if(gameData.getDifficultyLevel().equals("Beginner")){
+                g.drawImage(df_Beginner,1400,10,100,500,null);
+            }
         }
     }
 

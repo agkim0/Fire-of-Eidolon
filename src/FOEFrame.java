@@ -100,8 +100,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
     private boolean[] enabled = {true,true,true,true,true,true};
 
-    private JButton btn_cc;
-    private TextField tf_action;
+    private JButton btn_cc = new JButton("-O-");
+    private TextField tf_action = new TextField();
     private JButton btn_aelfaction;
     private JButton btn_aelfspec;
     private JButton btn_ceciaction;
@@ -114,8 +114,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private JButton btn_kaylaspec;
     private JButton btn_siriaction;
     private JButton btn_sirispec;
-    //private JButton btn_tileback;
-    //private JButton btn_rdback;
     private JButton btn_screenUp = new JButton();
     private JButton btn_screenDown = new JButton();
     private JButton btn_screenRight = new JButton();
@@ -124,32 +122,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private JButton btn_rot180 = new JButton("180");
     private JButton btn_rot270 = new JButton("270");
     private JButton btn_rot360 = new JButton("360");
-    /*private JButton btn_00;
-    private JButton btn_10;
-    private JButton btn_20;
-    private JButton btn_30;
-    private JButton btn_40;
-    private JButton btn_01;
-    private JButton btn_11;
-    private JButton btn_21;
-    private JButton btn_31;
-    private JButton btn_41;
-    private JButton btn_02;
-    private JButton btn_12;
-    private JButton btn_22;
-    private JButton btn_32;
-    private JButton btn_42;
-    private JButton btn_03;
-    private JButton btn_13;
-    private JButton btn_23;
-    private JButton btn_33;
-    private JButton btn_43;
-    private JButton btn_04;
-    private JButton btn_14;
-    private JButton btn_24;
-    private JButton btn_34;
-    private JButton btn_44;*/
-
     private BufferedImage aelfric_Action_Token = null;
     private BufferedImage aelfric_Special_Token = null;
     private BufferedImage cecelia_Action_Token = null;
@@ -163,13 +135,17 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private BufferedImage sirius_Action_Token = null;
     private BufferedImage sirius_Special_Token = null;
 
-    private BufferedImage back_Of_CT = null;
-    private BufferedImage back_Of_RDC = null;
-
+    public static final Hero AELFRIC = new Hero("Aelfric",1,2,3,0,0,0,false,false,false,false,3,false);
+    public static final Hero CECELIA = new Hero("Cecilia",1,3,2,0,0,0,false,false,false,false,3,false);
+    public static final Hero DAGA = new Hero("Daga",2,3,1,0,0,0,false,false,false,false,3,false);
+    public static final Hero KALISTOS = new Hero("Kalistos",3,1,2,0,0,0,false,false,false,false,3,false);
+    public static final Hero KAYLANA = new Hero("Kaylana",2,1,3,0,0,0,false,false,false,false,3,false);
+    public static final Hero SIRIUS = new Hero("Sirius",3,2,1,0,0,0,false,false,false,false,3,false);
     public FOEFrame(ObjectOutputStream os) throws IOException{
         super("FOE Game");
         this.gameData = new GameData();;
         this.os = os;
+        you=AELFRIC;
         addKeyListener(this);
         addWindowFocusListener(this);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -179,7 +155,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         setVisible(true);
         setLayout(null);
 
-        btn_cc.setBounds(200,50,100,100);
+        btn_cc.setBounds(150,10,100,100);
         add(btn_cc);
         tf_action.setBounds(50,200,200,400);
         add(tf_action);
@@ -207,7 +183,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_aelfspec.setBorderPainted(false);
         btn_aelfspec.setFocusPainted(false);
         btn_aelfspec.setContentAreaFilled(false);
-        btn_aelfspec.setBounds(900,925,125,125);
+        btn_aelfspec.setBounds(900,850,125,125);
         add(btn_aelfspec);
         btn_ceciaction = new JButton(new ImageIcon(cecelia_Action_Token));
         btn_ceciaction.setBorderPainted(false);
@@ -219,7 +195,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_cecispec.setBorderPainted(false);
         btn_cecispec.setFocusPainted(false);
         btn_cecispec.setContentAreaFilled(false);
-        btn_cecispec.setBounds(900,925,125,125);
+        btn_cecispec.setBounds(900,850,125,125);
         add(btn_cecispec);
         btn_kaliaction = new JButton(new ImageIcon(kalistos_Action_Token));
         btn_kaliaction.setBorderPainted(false);
@@ -231,7 +207,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_kalispec.setBorderPainted(false);
         btn_kalispec.setFocusPainted(false);
         btn_kalispec.setContentAreaFilled(false);
-        btn_kalispec.setBounds(900,925,125,125);
+        btn_kalispec.setBounds(900,850,125,125);
         add(btn_kalispec);
         btn_kaylaaction = new JButton(new ImageIcon(kaylana_Action_Token));
         btn_kaylaaction.setBorderPainted(false);
@@ -243,7 +219,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_kaylaspec.setBorderPainted(false);
         btn_kaylaspec.setFocusPainted(false);
         btn_kaylaspec.setContentAreaFilled(false);
-        btn_kaylaspec.setBounds(900,925,125,125);
+        btn_kaylaspec.setBounds(900,850,125,125);
         add(btn_kaylaspec);
         btn_dagaaction = new JButton(new ImageIcon(daga_Action_Token));
         btn_dagaaction.setBorderPainted(false);
@@ -255,7 +231,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_dagaspec.setBorderPainted(false);
         btn_dagaspec.setFocusPainted(false);
         btn_dagaspec.setContentAreaFilled(false);
-        btn_dagaspec.setBounds(900,925,125,125);
+        btn_dagaspec.setBounds(900,850,125,125);
         add(btn_dagaspec);
         btn_siriaction = new JButton(new ImageIcon(sirius_Action_Token));
         btn_siriaction.setBorderPainted(false);
@@ -267,7 +243,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_sirispec.setBorderPainted(false);
         btn_sirispec.setFocusPainted(false);
         btn_sirispec.setContentAreaFilled(false);
-        btn_sirispec.setBounds(900,925,125,125);
+        btn_sirispec.setBounds(900,850,125,125);
         add(btn_sirispec);
 
         btn_screenUp.setBounds(600,25,100,50);
@@ -428,6 +404,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_selectCharacter.addActionListener(e->{selectHero();});
         btn_aelfric.addActionListener(e->{
             checkselectedcc();
+            you = AELFRIC;
             System.out.println("selected aelfric");
             foePanel.setCurHero(0);
             foePanel.setCharacterselectscreen(true);
@@ -446,6 +423,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
         });
         btn_cecilia.addActionListener(e->{
+            you = CECELIA;
             System.out.println("selected cecilia");
             foePanel.setCurHero(1);
             foePanel.setCharacterselectscreen(true);
@@ -464,6 +442,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
         });
         btn_daga.addActionListener(e->{
+            you = DAGA;
             System.out.println("selected daga");
             foePanel.setCurHero(2);
             foePanel.setCharacterselectscreen(true);
@@ -482,6 +461,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
         });
         btn_kalistos.addActionListener(e->{
+            you = KALISTOS;
             System.out.println("selected kalistos");
             foePanel.setCurHero(3);
             foePanel.setCharacterselectscreen(true);
@@ -500,6 +480,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
         });
         btn_kaylana.addActionListener(e->{
+            you = KAYLANA;
             System.out.println("selected kaylana");
             foePanel.setCurHero(4);
             foePanel.setCharacterselectscreen(true);
@@ -518,6 +499,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
         });
         btn_sirius.addActionListener(e->{
+            you = SIRIUS;
             System.out.println("selected sirius");
             foePanel.setCurHero(5);
             foePanel.setCharacterselectscreen(true);
@@ -621,6 +603,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         before = -1;
     }
     public void selectHero(){
+
         sendCommand(CommandFromClient.HERO_SELECTED,currSelectedHero+","+username,gameData);
     }
     public void heroSelected(boolean selected){
@@ -714,29 +697,40 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_screenDown.setVisible(true);
         btn_screenRight.setVisible(true);
         btn_screenLeft.setVisible(true);
+        msgBox.setVisible(true);
+        btn_sendMsg.setVisible(true);
+        msgList.setVisible(true);
+        msgScroll.setVisible(true);
+        msgList.setListData(gameData.getMsgs().toArray());
         if(you.getName().equals("Aelfric")){
             btn_aelfaction.setVisible(true);
             btn_aelfspec.setVisible(true);
+            foePanel.setCurHero(0);
         }
         else if(you.getName().equals("Cecilia")){
             btn_ceciaction.setVisible(true);
             btn_cecispec.setVisible(true);
+            foePanel.setCurHero(1);
         }
         else if(you.getName().equals("Daga")){
             btn_dagaaction.setVisible(true);
             btn_dagaspec.setVisible(true);
+            foePanel.setCurHero(2);
         }
         else if(you.getName().equals("Kalistos")){
             btn_kaliaction.setVisible(true);
             btn_kalispec.setVisible(true);
+            foePanel.setCurHero(3);
         }
         else if(you.getName().equals("Kaylana")){
             btn_kaylaaction.setVisible(true);
             btn_kaylaspec.setVisible(true);
+            foePanel.setCurHero(4);
         }
         else if(you.getName().equals("Sirius")){
             btn_siriaction.setVisible(true);
             btn_sirispec.setVisible(true);
+            foePanel.setCurHero(5);
         }
         foePanel.setHostGameSetUpScreen(false);
         foePanel.setHostRoomCodeScreen(false);
@@ -744,10 +738,10 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         foePanel.setCharacterselectscreen(false);
         foePanel.setDrawTitlePage(false);
         foePanel.setSetUpJoinScreen(false);
-        //foePanel.set
+        foePanel.setGamescreen(true);
+        repaintPanel();
 
     }
-
     public void removeEverythingFromScreen(){
         btn_cc.setVisible(false);
         btn_rot90.setVisible(false);
@@ -766,7 +760,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_dagaaction.setVisible(false);
         btn_dagaspec.setVisible(false);
         btn_kaliaction.setVisible(false);
-        btn_kaylaspec.setVisible(false);
+        btn_kalispec.setVisible(false);
         btn_kaylaaction.setVisible(false);
         btn_kaylaspec.setVisible(false);
         btn_siriaction.setVisible(false);
@@ -1406,7 +1400,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void enterGame(){
         sendCommand(CommandFromClient.LOBBY_CODE_ATTEMPT,"Room code,Username",gameData);
     }
-
     public void lobbyCodeValid(boolean valid){
         if(!valid){
             textBox_getRoomCode.setText("Lobby Not Found");
