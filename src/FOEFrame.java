@@ -135,6 +135,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private BufferedImage sirius_Action_Token = null;
     private BufferedImage sirius_Special_Token = null;
 
+    private JButton btn_backfromcc = new JButton("Back");
+
     public static final Hero AELFRIC = new Hero("Aelfric",1,2,3,0,0,0,false,false,false,false,3,false);
     public static final Hero CECELIA = new Hero("Cecilia",1,3,2,0,0,0,false,false,false,false,3,false);
     public static final Hero DAGA = new Hero("Daga",2,3,1,0,0,0,false,false,false,false,3,false);
@@ -157,8 +159,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
         btn_cc.setBounds(150,10,100,100);
         add(btn_cc);
-        //tf_action.setBounds(50,200,200,400);
-        //add(tf_action);
+        btn_backfromcc.setBounds(25,25,100,50);
+        add(btn_backfromcc);
 
         aelfric_Action_Token = ImageIO.read(new File("character cards/aelfric action.png"));
         aelfric_Special_Token = ImageIO.read(new File("character cards/aelfric special.png"));
@@ -172,7 +174,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         kaylana_Special_Token = ImageIO.read(new File("character cards/kaylana special.png"));
         sirius_Action_Token = ImageIO.read(new File("character cards/sirius action.png"));
         sirius_Special_Token = ImageIO.read(new File("character cards/sirius special.png"));
-
         btn_aelfaction = new JButton(new ImageIcon(aelfric_Action_Token));
         btn_aelfaction.setBorderPainted(false);
         btn_aelfaction.setFocusPainted(false);
@@ -601,6 +602,22 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         paintTP();
         currentPage = TP;
         before = -1;
+        btn_cc.addActionListener(e->{
+            removeEverythingFromScreen();
+            btn_backfromcc.setVisible(true);
+            foePanel.setSetUpJoinScreen(false);
+            foePanel.setDrawTitlePage(false);
+            foePanel.setHostGameSetUpScreen(false);
+            foePanel.setSetUpJoinScreen(false);
+            foePanel.setHostRoomCodeScreen(false);
+            foePanel.setCharacterselectscreen(false);
+            foePanel.setGamescreen(false);
+            foePanel.setCcscreen(true);
+            foePanel.repaint();
+        });
+        btn_backfromcc.addActionListener(e->{
+            makeGameScreen();
+        });
     }
     public void selectHero(){
 
@@ -738,11 +755,13 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         foePanel.setCharacterselectscreen(false);
         foePanel.setDrawTitlePage(false);
         foePanel.setSetUpJoinScreen(false);
+        foePanel.setCcscreen(false);
         foePanel.setGamescreen(true);
         repaintPanel();
 
     }
     public void removeEverythingFromScreen(){
+        btn_backfromcc.setVisible(false);
         btn_cc.setVisible(false);
         btn_rot90.setVisible(false);
         btn_rot180.setVisible(false);
