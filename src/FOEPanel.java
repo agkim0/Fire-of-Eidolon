@@ -95,6 +95,18 @@ public class FOEPanel extends JPanel{
     private BufferedImage scenario_3 = null;
     private BufferedImage scenario_4 = null;
 
+    private BufferedImage df_BeginnerLevelBar = null;
+    private BufferedImage df_NormalLevelBar = null;
+    private BufferedImage df_ExtremeLevelBar = null;
+    private BufferedImage df_GlitchLevelBar = null;
+    private BufferedImage df_HardLevelBar = null;
+    private BufferedImage df_HeroicLevelBar = null;
+    private BufferedImage df_LegendaryLevelBar = null;
+    private BufferedImage df_NightmareLevelBar = null;
+    private BufferedImage df_VeryHardLevelBar = null;
+
+
+
     private BufferedImage back_Of_CT = null;
     private BufferedImage ct_AcidJets = null;
     private BufferedImage ct_ArrowTrap = null;
@@ -225,6 +237,16 @@ public class FOEPanel extends JPanel{
             scenario_2 = ImageIO.read(new File("difficulty cards/scenario 2.png"));
             scenario_3 = ImageIO.read(new File("difficulty cards/scenario 3.png"));
             scenario_4 = ImageIO.read(new File("difficulty cards/scenario 4.png"));//difficulty and secnario images
+
+            df_BeginnerLevelBar = ImageIO.read(new File("difficulty cards/beginner difficulty level bar.png"));
+            df_NormalLevelBar = ImageIO.read(new File("difficulty cards/normal difficulty level bar.png"));
+            df_ExtremeLevelBar = ImageIO.read(new File("difficulty cards/extreme difficulty level bar.png"));
+            df_GlitchLevelBar = ImageIO.read(new File("difficulty cards/glitch difficulty level bar.png"));
+            df_HardLevelBar = ImageIO.read(new File("difficulty cards/hard difficulty level bar.png"));
+            df_HeroicLevelBar = ImageIO.read(new File("difficulty cards/heroic difficulty level bar.png"));
+            df_LegendaryLevelBar = ImageIO.read(new File("difficulty cards/legendary difficulty level bar.png"));
+            df_NightmareLevelBar = ImageIO.read(new File("difficulty cards/nightmare difficulty level bar.png"));
+            df_VeryHardLevelBar = ImageIO.read(new File("difficulty cards/very hard difficulty level bar.png"));
 
             ct_AcidJets = ImageIO.read(new File("Game images/Chamber Tiles/Acid jets.png"));
             ct_ArrowTrap = ImageIO.read(new File("Game images/Chamber Tiles/Arrow Trap.png"));
@@ -477,7 +499,31 @@ public class FOEPanel extends JPanel{
             g.drawImage(str_Token,425,825,125,125,null);
             g.drawImage(int_Token,635,825,125,125,null);
             if(gameData.getDifficultyLevel().equals("Beginner")){
-                g.drawImage(df_Beginner,1400,10,100,500,null);
+                g.drawImage(df_BeginnerLevelBar,1400,10,100,500,null);
+            }
+            else if (gameData.getDifficultyLevel().equals("Normal")) {
+                g.drawImage(df_NormalLevelBar,1400,10,100,500,null);
+            }
+            else if (gameData.getDifficultyLevel().equals("Hard")) {
+                g.drawImage(df_HardLevelBar,1400,10,100,500,null);
+            }
+            else if (gameData.getDifficultyLevel().equals("Very Hard")) {
+                g.drawImage(df_VeryHardLevelBar,1400,10,100,500,null);
+            }
+            else if (gameData.getDifficultyLevel().equals("Extreme")) {
+                g.drawImage(df_ExtremeLevelBar,1400,10,100,500,null);
+            }
+            else if (gameData.getDifficultyLevel().equals("Heroic")) {
+                g.drawImage(df_HeroicLevelBar,1400,10,100,500,null);
+            }
+            else if (gameData.getDifficultyLevel().equals("Nightmare")) {
+                g.drawImage(df_NightmareLevelBar,1400,10,100,500,null);
+            }
+            else if (gameData.getDifficultyLevel().equals("Legendary")) {
+                g.drawImage(df_LegendaryLevelBar,1400,10,100,500,null);
+            }
+            else if (gameData.getDifficultyLevel().equals("Glitch")) {
+                g.drawImage(df_GlitchLevelBar,1400,10,100,500,null);
             }
         }
     }

@@ -6,7 +6,8 @@ import java.net.Socket;
 public class ClientMain implements Serializable {
     public static void main (String[] args){
         try{
-            Socket socket = new Socket("127.0.0.1",8000);
+            Socket socket = new Socket("10.195.75.145",8000);
+            //10.195.75.145 audrey's school computer
             ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream is = new ObjectInputStream(socket.getInputStream());
 //            GameData gameData = new GameData(null);
