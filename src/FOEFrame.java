@@ -101,7 +101,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private boolean[] enabled = {true,true,true,true,true,true};
 
     private JButton btn_cc = new JButton("-O-");
-    private TextField tf_action = new TextField();
+    //private TextField tf_action = new TextField();
     private JButton btn_aelfaction;
     private JButton btn_aelfspec;
     private JButton btn_ceciaction;
@@ -157,8 +157,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
         btn_cc.setBounds(150,10,100,100);
         add(btn_cc);
-        tf_action.setBounds(50,200,200,400);
-        add(tf_action);
+        //tf_action.setBounds(50,200,200,400);
+        //add(tf_action);
 
         aelfric_Action_Token = ImageIO.read(new File("character cards/aelfric action.png"));
         aelfric_Special_Token = ImageIO.read(new File("character cards/aelfric special.png"));
@@ -246,21 +246,21 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_sirispec.setBounds(900,850,125,125);
         add(btn_sirispec);
 
-        btn_screenUp.setBounds(600,25,100,50);
+        btn_screenUp.setBounds(650,25,100,50);
         add(btn_screenUp);
-        btn_screenDown.setBounds(600,725,100,50);
+        btn_screenDown.setBounds(650,725,100,50);
         add(btn_screenDown);
-        btn_screenRight.setBounds(275,350,100,50);
+        btn_screenRight.setBounds(1075,350,100,50);
         add(btn_screenRight);
-        btn_screenLeft.setBounds(975,350,100,50);
+        btn_screenLeft.setBounds(275,350,100,50);
         add(btn_screenLeft);
-        btn_rot90.setBounds(50,650,100,50);
+        btn_rot90.setBounds(25,375,100,50);
         add(btn_rot90);
-        btn_rot180.setBounds(175,650,100,50);
+        btn_rot180.setBounds(150,375,100,50);
         add(btn_rot180);
-        btn_rot270.setBounds(50,725,100,50);
+        btn_rot270.setBounds(25,450,100,50);
         add(btn_rot270);
-        btn_rot360.setBounds(175,725,100,50);
+        btn_rot360.setBounds(150,450,100,50);
         add(btn_rot360);
 
         aelfric_Token = ImageIO.read(new File("token pieces/character tokens/aelfric character token(Fix).png"));
@@ -692,7 +692,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_rot180.setVisible(true);
         btn_rot270.setVisible(true);
         btn_rot360.setVisible(true);
-        tf_action.setVisible(true);
+        //tf_action.setVisible(true);
         btn_screenUp.setVisible(true);
         btn_screenDown.setVisible(true);
         btn_screenRight.setVisible(true);
@@ -752,7 +752,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_screenDown.setVisible(false);
         btn_screenRight.setVisible(false);
         btn_screenLeft.setVisible(false);
-        tf_action.setVisible(false);
+        //tf_action.setVisible(false);
         btn_aelfaction.setVisible(false);
         btn_aelfspec.setVisible(false);
         btn_ceciaction.setVisible(false);
