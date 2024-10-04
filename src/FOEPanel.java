@@ -546,6 +546,7 @@ public class FOEPanel extends JPanel{
             g.drawImage(ct_Vestibule,650,350,100,100,null);
         }
         if(ccscreen){
+            g.drawString("You:", );
                 if(curHero == 0) {
                     g.drawImage(aelfric_Character_Card,700,350,550,350,null);
                 }
@@ -566,7 +567,7 @@ public class FOEPanel extends JPanel{
                     g.drawImage(sirius_Character_Card,700,350,550,350,null);
                 }
 
-            
+
         }
     }
 
