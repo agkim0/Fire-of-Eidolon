@@ -604,6 +604,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         before = -1;
         btn_cc.addActionListener(e->{
             removeEverythingFromScreen();
+
             btn_backfromcc.setVisible(true);
             foePanel.setSetUpJoinScreen(false);
             foePanel.setDrawTitlePage(false);
