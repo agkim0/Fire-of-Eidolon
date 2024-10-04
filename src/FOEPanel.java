@@ -43,7 +43,14 @@ public class FOEPanel extends JPanel{
     public final int KAYLANA = 4;
     public final int SIRIUS = 5;
     private int curHero;
+    private int ind = 0;
 
+    public int getInd() {
+        return ind;
+    }
+    public void setInd(int ind) {
+        this.ind = ind;
+    }
     public int getCurHero() {
         return curHero;
     }
@@ -542,39 +549,33 @@ public class FOEPanel extends JPanel{
         }
         if(ccscreen){
             g.setFont(new Font("Sans Serif",Font.BOLD,75));
-            g.drawString("You:", 675,150);
             g.drawImage(dex_Token,600,600,100,100,null);
             g.drawImage(str_Token,775,600,100,100,null);
             g.drawImage(int_Token,950,600,100,100,null);
-//            g.setFont(new Font("Sans Serif",Font.BOLD,75));
-//            for(int w=0; w<gameData.getHeroesPlaying().size(); w++){
-//                if(gameData.getHeroesPlaying().get(w).getName().equals(cur)){
-//                    if(gameData.getHeroesPlaying().get(w).getName().equals("Aelfric")) {
-//                        g.drawString(gameData.getAelfricPlayer(),675,150);
-//                        g.drawImage(aelfric_Character_Card,500,200,550,350,null);
-//                    }
-//                    else if(gameData.getHeroesPlaying().get(w).getName().equals("Cecilia")) {
-//                        g.drawString(gameData.getCeceliaPlayer(),675,150);
-//                        g.drawImage(cecelia_Character_Card,500,200,550,350,null);
-//                    }
-//                    else if(gameData.getHeroesPlaying().get(w).getName().equals("Daga")) {
-//                        g.drawString(gameData.getDagaPlayer(),675,150);
-//                        g.drawImage(daga_Character_Card,500,200,550,350,null);
-//                    }
-//                    else if(gameData.getHeroesPlaying().get(w).getName().equals("Kalistos")) {
-//                        g.drawString(gameData.getKalistosPlayer(),675,150);
-//                        g.drawImage(kalistos_Character_Card,500,200,550,350,null);
-//                    }
-//                    else if(gameData.getHeroesPlaying().get(w).getName().equals("Kaylana")) {
-//                        g.drawString(gameData.getKaylanaPlayer(),675,150);
-//                        g.drawImage(kaylana_Character_Card,500,200,550,350,null);
-//                    }
-//                    else if(gameData.getHeroesPlaying().get(w).getName().equals("Sirius")) {
-//                        g.drawString(gameData.getSiriusPlayer(),675,150);
-//                        g.drawImage(sirius_Character_Card,500,200,550,350,null);
-//                    }
-//                }
-//            }
+            if(gameData.getHeroesPlaying().get(ind).getName().equals("Aelfric")) {
+                g.drawString(gameData.getAelfricPlayer(),675,150);
+                g.drawImage(aelfric_Character_Card,500,200,550,350,null);
+            }
+            else if(gameData.getHeroesPlaying().get(ind).getName().equals("Cecilia")) {
+                g.drawString(gameData.getCeceliaPlayer(),675,150);
+                g.drawImage(cecelia_Character_Card,500,200,550,350,null);
+            }
+            else if(gameData.getHeroesPlaying().get(ind).getName().equals("Daga")) {
+                g.drawString(gameData.getDagaPlayer(),675,150);
+                g.drawImage(daga_Character_Card,500,200,550,350,null);
+            }
+            else if(gameData.getHeroesPlaying().get(ind).getName().equals("Kalistos")) {
+                g.drawString(gameData.getKalistosPlayer(),675,150);
+                g.drawImage(kalistos_Character_Card,500,200,550,350,null);
+            }
+            else if(gameData.getHeroesPlaying().get(ind).getName().equals("Kaylana")) {
+                g.drawString(gameData.getKaylanaPlayer(),675,150);
+                g.drawImage(kaylana_Character_Card,500,200,550,350,null);
+            }
+            else if(gameData.getHeroesPlaying().get(ind).getName().equals("Sirius")) {
+                g.drawString(gameData.getSiriusPlayer(),675,150);
+                g.drawImage(sirius_Character_Card,500,200,550,350,null);
+            }
         }
     }
 

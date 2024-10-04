@@ -151,7 +151,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private BufferedImage sirius_Action_Token = null;
     private BufferedImage sirius_Special_Token = null;
 
+    //Character info screen
+    private JButton btn_backcc = new JButton("<");
+    private JButton btn_frontcc = new JButton(">");
     private JButton btn_backfromcc = new JButton("Back");
+    private int ind = 0;
 
 
     public FOEFrame(ObjectOutputStream os) throws IOException{
@@ -172,6 +176,10 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         add(btn_cc);
         btn_backfromcc.setBounds(25,25,100,50);
         add(btn_backfromcc);
+        btn_backcc.setBounds(425,275,50,50);
+        add(btn_backcc);
+        btn_frontcc.setBounds(1075,275,50,50);
+        add(btn_frontcc);
 
         //host set up screen
         btn_startLobby.setBounds(50,550,300,75);
@@ -503,26 +511,17 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         paintTP();
         currentPage = TP;
         before = -1;
-        btn_cc.addActionListener(e->{
-            removeEverythingFromScreen();
-
-            btn_backfromcc.setVisible(true);
-            foePanel.setSetUpJoinScreen(false);
-            foePanel.setDrawTitlePage(false);
-            foePanel.setHostGameSetUpScreen(false);
-            foePanel.setSetUpJoinScreen(false);
-            foePanel.setHostRoomCodeScreen(false);
-            foePanel.setCharacterselectscreen(false);
-            foePanel.setGamescreen(false);
-            foePanel.setCcscreen(true);
-            foePanel.repaint();
-        });
+        btn_cc.addActionListener(e->{chCa();});
+        btn_backcc.addActionListener(e->{bcc();});
+        btn_backcc.addActionListener(e->{fcc();});
         btn_backfromcc.addActionListener(e->{
             makeGameScreen();
         });
     }
 
     public void removeEverythingFromScreen(){
+        btn_frontcc.setVisible(false);
+        btn_backcc.setVisible(false);
         btn_backfromcc.setVisible(false);
         btn_cc.setVisible(false);
         btn_rot90.setVisible(false);
@@ -1312,6 +1311,60 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             tf_pgnl.setText("7");
             tf_pgnr.setText("8");
         }
+    }
+
+    //character card methods
+    public void chCa(){
+        removeEverythingFromScreen();
+        ind = 0;
+        btn_backcc.setVisible(true);
+        btn_frontcc.setVisible(true);
+        btn_backfromcc.setVisible(true);
+        foePanel.setSetUpJoinScreen(false);
+        foePanel.setDrawTitlePage(false);
+        foePanel.setHostGameSetUpScreen(false);
+        foePanel.setSetUpJoinScreen(false);
+        foePanel.setHostRoomCodeScreen(false);
+        foePanel.setCharacterselectscreen(false);
+        foePanel.setGamescreen(false);
+        foePanel.setCcscreen(true);
+        foePanel.repaint();
+    }
+    public void bcc(){
+        if(ind==0){
+            ind=gameData.getHeroesPlaying().size()-1;
+        }
+        else{
+            ind=-1;
+        }
+        foePanel.setSetUpJoinScreen(false);
+        foePanel.setDrawTitlePage(false);
+        foePanel.setHostGameSetUpScreen(false);
+        foePanel.setSetUpJoinScreen(false);
+        foePanel.setHostRoomCodeScreen(false);
+        foePanel.setCharacterselectscreen(false);
+        foePanel.setGamescreen(false);
+        foePanel.setInd(ind);
+        foePanel.setCcscreen(true);
+        foePanel.repaint();
+    }
+    public void fcc(){
+        if(ind>=gameData.getHeroesPlaying().size()-1){
+            ind=0;
+        }
+        else{
+            ind=+1;
+        }
+        foePanel.setSetUpJoinScreen(false);
+        foePanel.setDrawTitlePage(false);
+        foePanel.setHostGameSetUpScreen(false);
+        foePanel.setSetUpJoinScreen(false);
+        foePanel.setHostRoomCodeScreen(false);
+        foePanel.setCharacterselectscreen(false);
+        foePanel.setGamescreen(false);
+        foePanel.setInd(ind);
+        foePanel.setCcscreen(true);
+        foePanel.repaint();
     }
 
     //main game screen

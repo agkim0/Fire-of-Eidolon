@@ -7,6 +7,7 @@
     <list default="true" id="e89b7d73-be17-4db6-9220-7e96ff4c25d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FOEFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FOEFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FOEPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FOEPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +51,7 @@
       <recent name="C:\Users\K1207600\Desktop\GitHub\Fire\Fire-of-Eidolon\UML Diagrams" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ServerMain">
+  <component name="RunManager" selected="Application.ClientMain">
     <configuration name="ClientMain" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ClientMain" />
       <module name="Fire-of-Eidolon2" />
@@ -71,8 +72,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ServerMain" />
         <item itemvalue="Application.ClientMain" />
+        <item itemvalue="Application.ServerMain" />
       </list>
     </recent_temporary>
   </component>
