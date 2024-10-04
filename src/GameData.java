@@ -15,14 +15,18 @@ public class GameData implements Serializable{
     private ArrayList<Hero> orderOfTurns;
     private int threatLevel;
     private String difficultyLevel;
+    private int numOfPlayers;
+
     private boolean unstableVoid=false;
     private boolean vagrantPortal=false;
     private boolean invasionOfTheShadowCult=false;
     private boolean shadesOfVorax=false;
+
     private ArrayList<String> msgs = new ArrayList<>();
     private ArrayList<String> usernames = new ArrayList<String>();
     private String lobbyCode = "";
-    private int numOfPlayers;
+
+
     private String aelfricPlayer = "";
     private String ceceliaPlayer = "";
     private String dagaPlayer = "";
@@ -36,18 +40,12 @@ public class GameData implements Serializable{
     public static final Hero KAYLANA = new Hero("Kaylana",2,1,3,0,0,0,false,false,false,false,3,false);
     public static final Hero SIRIUS = new Hero("Sirius",3,2,1,0,0,0,false,false,false,false,3,false);
 
-    public Hero getCurHero() {
-        return curHero;
-    }
-
-    public void setCurHero(Hero curHero) {
-        this.curHero = curHero;
-    }
-
     public GameData(){//change game rule to actual game rules!!!
         createAllHero();
         curHero = allHeroes.get(0);
         Random rand = new Random();
+
+        //lobby code generation
         for(int x=0;x<3;x++){
             char c = (char)(rand.nextInt(26)+'A');
             lobbyCode+=(c+"");
@@ -180,8 +178,6 @@ public class GameData implements Serializable{
          */
 
     }
-
-    //start here
     public void createAllHero(){
         allHeroes = new ArrayList<>();
         allHeroes.add(AELFRIC);
@@ -191,6 +187,35 @@ public class GameData implements Serializable{
         allHeroes.add(KAYLANA);
         allHeroes.add(SIRIUS);
     }
+    public void nextTurn(){
+        for(int x=0 ;x<6; x++){
+            if(allHeroes.get(x) == turn){
+                if(x==5){
+                    turn = allHeroes.get(0);
+                }
+                else{
+                    turn = allHeroes.get(x+1);
+                }
+            }
+        }
+    }
+    //    public Tile getThisTile(String tt){
+//        //loop though all tiles find which one matches
+//    }
+//    public Hero getThisHero(String nh){
+//
+//    }
+//    public void restart(){}
+
+//    public boolean checkLoss(){
+//
+//    }
+//    public boolean checkWin(){
+//
+//    }
+//    public int cardDrawAmount(){
+//
+//    }
 
     public Tile[][] getGrid() {
         return grid;
@@ -240,6 +265,12 @@ public class GameData implements Serializable{
     public void setOrderOfTurns(ArrayList<Hero> orderOfTurns) {
         this.orderOfTurns = orderOfTurns;
     }
+    public Hero getCurHero() {
+        return curHero;
+    }
+    public void setCurHero(Hero curHero) {
+        this.curHero = curHero;
+    }
     public int getThreatLevel() {
         return threatLevel;
     }
@@ -282,117 +313,69 @@ public class GameData implements Serializable{
     public void setMsgs(ArrayList<String> msgs) {
         this.msgs = msgs;
     }
-
     public String getAelfricPlayer() {
         return aelfricPlayer;
     }
-
     public void setAelfricPlayer(String aelfricPlayer) {
         this.aelfricPlayer = aelfricPlayer;
     }
-
     public String getCeceliaPlayer() {
         return ceceliaPlayer;
     }
-
     public void setCeceliaPlayer(String ceceliaPlayer) {
         this.ceceliaPlayer = ceceliaPlayer;
     }
-
     public String getDagaPlayer() {
         return dagaPlayer;
     }
-
     public void setDagaPlayer(String dagaPlayer) {
         this.dagaPlayer = dagaPlayer;
     }
-
     public String getKalistosPlayer() {
         return kalistosPlayer;
     }
-
     public void setKalistosPlayer(String kalistosPlayer) {
         this.kalistosPlayer = kalistosPlayer;
     }
-
     public String getKaylanaPlayer() {
         return kaylanaPlayer;
     }
-
     public void setKaylanaPlayer(String kaylanaPlayer) {
         this.kaylanaPlayer = kaylanaPlayer;
     }
-
     public String getSiriusPlayer() {
         return siriusPlayer;
     }
-
     public void setSiriusPlayer(String siriusPlayer) {
         this.siriusPlayer = siriusPlayer;
     }
-
-    //    public Tile getThisTile(String tt){
-//        //loop though all tiles find which one matches
-//    }
-//    public Hero getThisHero(String nh){
-//
-//    }
-//    public void restart(){}
-    public void nextTurn(){
-        for(int x=0 ;x<6; x++){
-            if(allHeroes.get(x) == turn){
-                if(x==5){
-                    turn = allHeroes.get(0);
-                }
-                else{
-                    turn = allHeroes.get(x+1);
-                }
-            }
-        }
-    }
-//    public boolean checkLoss(){
-//
-//    }
-//    public boolean checkWin(){
-//
-//    }
-//    public int cardDrawAmount(){
-//
-//    }
-
     public ArrayList<Hero> getHeroesPlaying(){
         return this.heroesPlaying;
     }
-
     public void setHeroesPlaying(ArrayList<Hero> heroesPlaying){
         this.heroesPlaying = heroesPlaying;
     }
-
     public void addHeroesPlaying(Hero hero){
         heroesPlaying.add(hero);
     }
-
     public ArrayList<String> getUsernames() {
         return usernames;
     }
-
     public void setUsernames(ArrayList<String> usernames) {
         this.usernames = usernames;
     }
-
     public String getLobbyCode() {
         return lobbyCode;
     }
-
     public void setLobbyCode(String lobbyCode) {
         this.lobbyCode = lobbyCode;
     }
-
     public int getNumOfPlayers() {
         return numOfPlayers;
     }
-
     public void setNumOfPlayers(int numOfPlayers) {
         this.numOfPlayers = numOfPlayers;
     }
+
+
 }
