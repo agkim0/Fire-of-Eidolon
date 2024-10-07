@@ -512,8 +512,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         currentPage = TP;
         before = -1;
         btn_cc.addActionListener(e->{chCa();});
-        btn_backcc.addActionListener(e->{bcc();});
-        btn_backcc.addActionListener(e->{fcc();});
+        btn_backcc.addActionListener(e->{
+            System.out.println("Start bcc");
+            bcc();});
+        btn_frontcc.addActionListener(e->{
+            System.out.println("Start fcc");
+            fcc();});
         btn_backfromcc.addActionListener(e->{
             makeGameScreen();
         });
@@ -1328,15 +1332,20 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         foePanel.setCharacterselectscreen(false);
         foePanel.setGamescreen(false);
         foePanel.setCcscreen(true);
+        foePanel.setInd(ind);
         foePanel.repaint();
+        System.out.println("Index: "+ind);
     }
     public void bcc(){
+        System.out.println("Index Bef: "+ind);
         if(ind==0){
             ind=gameData.getHeroesPlaying().size()-1;
         }
         else{
-            ind=-1;
+            System.out.println("Index Bef: "+ind);
+            ind-=1;
         }
+        System.out.println("Index aft: "+ind);
         foePanel.setSetUpJoinScreen(false);
         foePanel.setDrawTitlePage(false);
         foePanel.setHostGameSetUpScreen(false);
@@ -1349,12 +1358,14 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         foePanel.repaint();
     }
     public void fcc(){
+        System.out.println("Index bef: "+ind);
         if(ind>=gameData.getHeroesPlaying().size()-1){
             ind=0;
         }
         else{
-            ind=+1;
+            ind+=1;
         }
+        System.out.println("Index aft: "+ind);
         foePanel.setSetUpJoinScreen(false);
         foePanel.setDrawTitlePage(false);
         foePanel.setHostGameSetUpScreen(false);
@@ -1365,6 +1376,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         foePanel.setInd(ind);
         foePanel.setCcscreen(true);
         foePanel.repaint();
+        System.out.println("Index: "+ind);
     }
 
     //main game screen

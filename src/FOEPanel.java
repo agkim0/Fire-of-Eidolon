@@ -452,87 +452,69 @@ public class FOEPanel extends JPanel{
                     g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getDexTokenCount()),150,900);
                     g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getStrTokenCount()),350,900);
                     g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelTokenCount()),550,900);
-//                    g.drawString("0",150,900);
-//                    g.drawString("0",350,900);
-//                    g.drawString("0",550,900);
                 }
                 else if(gameData.getHeroesPlaying().get(x).getName().equals("Cecilia") && curHero == 1){
                     g.drawImage(cecelia_Token,50,800,100,100,null);
                     g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getDexTokenCount()),150,900);
                     g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getStrTokenCount()),350,900);
                     g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelTokenCount()),550,900);
-//                    g.drawString("0",150,900);
-//                    g.drawString("0",350,900);
-//                    g.drawString("0",550,900);
                 }
                 else if(gameData.getHeroesPlaying().get(x).getName().equals("Daga") && curHero == 2){
                     g.drawImage(daga_Token,50,800,100,100,null);
                     g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getDexTokenCount()),150,900);
                     g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getStrTokenCount()),350,900);
                     g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelTokenCount()),550,900);
-//                    g.drawString("0",150,900);
-//                    g.drawString("0",350,900);
-//                    g.drawString("0",550,900);
                 }
                 else if(gameData.getHeroesPlaying().get(x).getName().equals("Kalistos") && curHero == 3){
                     g.drawImage(kalistos_Token,50,800,100,100,null);
                     g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getDexTokenCount()),150,900);
                     g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getStrTokenCount()),350,900);
                     g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelTokenCount()),550,900);
-//                    g.drawString("0",150,900);
-//                    g.drawString("0",350,900);
-//                    g.drawString("0",550,900);
                 }
                 else if(gameData.getHeroesPlaying().get(x).getName().equals("Kaylana") && curHero == 4){
                     g.drawImage(kaylana_Token,50,800,100,100,null);
                     g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getDexTokenCount()),150,900);
                     g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getStrTokenCount()),350,900);
                     g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelTokenCount()),550,900);
-//                    g.drawString("0",150,900);
-//                    g.drawString("0",350,900);
-//                    g.drawString("0",550,900);
                 }
                 else if(gameData.getHeroesPlaying().get(x).getName().equals("Sirius") && curHero == 5){
                     g.drawImage(sirius_Token,50,800,100,100,null);
                     g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getDexTokenCount()),150,900);
                     g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getStrTokenCount()),350,900);
                     g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelTokenCount()),550,900);
-//                    g.drawString("0",150,900);
-//                    g.drawString("0",350,900);
-//                    g.drawString("0",550,900);
                 }
             }
             g.drawImage(dex_Token,225,825,125,125,null);
             g.drawImage(str_Token,425,825,125,125,null);
             g.drawImage(int_Token,635,825,125,125,null);
             if(gameData.getDifficultyLevel().equals("Beginner")){
-                g.drawImage(df_BeginnerLevelBar,1400,10,100,500,null);
+                g.drawImage(df_BeginnerLevelBar,1300,10,100,500,null);
             }
             else if (gameData.getDifficultyLevel().equals("Normal")) {
-                g.drawImage(df_NormalLevelBar,1400,10,100,500,null);
+                g.drawImage(df_NormalLevelBar,1300,10,100,500,null);
             }
             else if (gameData.getDifficultyLevel().equals("Hard")) {
-                g.drawImage(df_HardLevelBar,1400,10,100,500,null);
+                g.drawImage(df_HardLevelBar,1300,10,100,500,null);
             }
             else if (gameData.getDifficultyLevel().equals("Very Hard")) {
-                g.drawImage(df_VeryHardLevelBar,1400,10,100,500,null);
+                g.drawImage(df_VeryHardLevelBar,1300,10,100,500,null);
             }
             else if (gameData.getDifficultyLevel().equals("Extreme")) {
-                g.drawImage(df_ExtremeLevelBar,1400,10,100,500,null);
+                g.drawImage(df_ExtremeLevelBar,1300,10,100,500,null);
             }
             else if (gameData.getDifficultyLevel().equals("Heroic")) {
-                g.drawImage(df_HeroicLevelBar,1400,10,100,500,null);
+                g.drawImage(df_HeroicLevelBar,1300,10,100,500,null);
             }
             else if (gameData.getDifficultyLevel().equals("Nightmare")) {
-                g.drawImage(df_NightmareLevelBar,1400,10,100,500,null);
+                g.drawImage(df_NightmareLevelBar,1300,10,100,500,null);
             }
             else if (gameData.getDifficultyLevel().equals("Legendary")) {
-                g.drawImage(df_LegendaryLevelBar,1400,10,100,500,null);
+                g.drawImage(df_LegendaryLevelBar,1300,10,100,500,null);
             }
             else if (gameData.getDifficultyLevel().equals("Glitch")) {
-                g.drawImage(df_GlitchLevelBar,1400,10,100,500,null);
+                g.drawImage(df_GlitchLevelBar,1300,10,100,500,null);
             }
-            g.drawImage(tl_Token,1375,450,125,75,null);
+            g.drawImage(tl_Token,1220,449,175,75,null);
             g.drawImage(back_Of_CT,25,525,150,150,null);
             g.drawImage(back_Of_RDC, 185,525,165,300,null);
             g.drawRect(25,150,200,200);
@@ -549,9 +531,13 @@ public class FOEPanel extends JPanel{
         }
         if(ccscreen){
             g.setFont(new Font("Sans Serif",Font.BOLD,75));
-            g.drawImage(dex_Token,600,600,100,100,null);
-            g.drawImage(str_Token,775,600,100,100,null);
-            g.drawImage(int_Token,950,600,100,100,null);
+            g.drawString(Integer.toString(gameData.getHeroesPlaying().get(ind).getDexTokenCount()),545,650);
+            g.drawImage(dex_Token,600,590,100,100,null);
+            g.drawString(Integer.toString(gameData.getHeroesPlaying().get(ind).getStrTokenCount()),720,650);
+            g.drawImage(str_Token,775,590,100,100,null);
+            g.drawString(Integer.toString(gameData.getHeroesPlaying().get(ind).getIntelTokenCount()),895,650);
+            g.drawImage(int_Token,950,590,100,100,null);
+            g.setFont(new Font("Sans Serif",Font.BOLD,35));
             if(gameData.getHeroesPlaying().get(ind).getName().equals("Aelfric")) {
                 g.drawString(gameData.getAelfricPlayer(),675,150);
                 g.drawImage(aelfric_Character_Card,500,200,550,350,null);
