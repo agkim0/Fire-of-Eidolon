@@ -1,5 +1,6 @@
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class GameData implements Serializable{
@@ -8,11 +9,13 @@ public class GameData implements Serializable{
     private ArrayList<Card> fullDeck;
     private ArrayList<Card> currDeck;
     private ArrayList<Tile> tileDeck;
+    private ArrayList<Tile> fullTileDeck;
     private ArrayList<Hero> allHeroes;
     private Hero curHero;
     private ArrayList<Hero> heroesPlaying = new ArrayList<Hero>();
     private Hero turn;
     private ArrayList<Hero> orderOfTurns;
+    private int orderOfTurnIndex=0;
     private int threatLevel;
     private String difficultyLevel;
     private int numOfPlayers;
@@ -54,6 +57,63 @@ public class GameData implements Serializable{
         for(int x = 0;x<3;x++){
             lobbyCode+=((rand.nextInt(9))+"");
         }
+    }
+
+    public void startGame(){
+        //create turn order of players
+        for(int x = 0;x<heroesPlaying.size();x++){
+            orderOfTurns.add(heroesPlaying.get(x));
+        }
+        Collections.shuffle(orderOfTurns);
+        turn = orderOfTurns.get(orderOfTurnIndex);
+
+        createAllTilesAndCards();
+        for(int x = 0;x<tileDeck.size();x++){
+            fullTileDeck.add(tileDeck.get(x));
+        }
+        grid[31][31] = getThistile("Vestibule");
+        tileDeck.remove(getThistile("Vestibule"));
+        Collections.shuffle(tileDeck);
+        Collections.shuffle(currDeck);
+
+
+
+    }
+
+    public void move(String dir){
+        int crow = 0;
+        int ccol = 0;
+        for (int r=0;r<grid.length;r++){
+            for (int c = 0;c<grid[0].length;c++){
+                if(grid[r][c]==null&&grid[r][c].getHeroesOn().contains(turn)){
+                    crow = r;
+                    ccol = c;
+                    break;
+                }
+            }
+        }
+        if(dir.equalsIgnoreCase("Up")&&grid[crow][ccol].isTopSide()){
+            crow-=1;
+        }
+        if(dir.equalsIgnoreCase("Down")&&grid[crow][ccol].isBottomSide()){
+            crow+=1;
+        }
+        if(dir.equalsIgnoreCase("Left")&&grid[crow][ccol].isLeftSide()){
+            ccol-=1;
+        }
+        if(dir.equalsIgnoreCase("Right")&&grid[crow][ccol].isRightSide()){
+            ccol+=1;
+        }
+        if(grid[crow][ccol]==null){//need to draw a tile
+            //draw tile
+        }
+        else{
+            //finish turn
+        }
+    }
+
+    public void placeTile(Tile tile,int r,int c){
+        
     }
 
     public void createAllTilesAndCards(){
@@ -198,6 +258,14 @@ public class GameData implements Serializable{
                 }
             }
         }
+    }
+    public Tile getThistile(String tileName){
+        for(int x = 0;x<fullTileDeck.size();x++){
+            if(fullTileDeck.get(x).getName().equals(tileName)){
+                return fullTileDeck.get(x);
+            }
+        }
+        return null;
     }
     //    public Tile getThisTile(String tt){
 //        //loop though all tiles find which one matches
