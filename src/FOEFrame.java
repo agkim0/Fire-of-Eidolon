@@ -118,6 +118,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     //private TextField tf_action = new TextField();
 
     //actual game screen
+    private ArrayList allA = new ArrayList<String>();
+    private JList actions = new JList(allA.toArray());
     private JButton btn_aelfaction;
     private JButton btn_aelfspec;
     private JButton btn_ceciaction;
@@ -316,6 +318,16 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         add(foePanel);
 
         //game screen
+        allA.add("move");
+        allA.add("explore");
+        allA.add("exchange");
+        allA.add("attack");
+        allA.add("wait");
+        allA.add("challenge");
+        allA.add("skill");
+        actions.setListData(allA.toArray());
+        actions.setBounds(24,188,200,200);
+        add(actions);
         aelfric_Action_Token = ImageIO.read(new File("character cards/aelfric action.png"));
         aelfric_Special_Token = ImageIO.read(new File("character cards/aelfric special.png"));
         cecelia_Action_Token = ImageIO.read(new File("character cards/cecelia action.png"));
@@ -524,6 +536,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
 
     public void removeEverythingFromScreen(){
+        actions.setVisible(false);
         btn_frontcc.setVisible(false);
         btn_backcc.setVisible(false);
         btn_backfromcc.setVisible(false);
@@ -1382,6 +1395,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     //main game screen
     public void makeGameScreen(){
         removeEverythingFromScreen();
+        actions.setVisible(true);
         btn_RB.setVisible(true);
         btn_cc.setVisible(true);
         btn_rot90.setVisible(true);
