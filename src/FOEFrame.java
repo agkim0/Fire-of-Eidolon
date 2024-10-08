@@ -235,7 +235,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         add(btn_checkRoomCode);
 
         //character selection
-        btn_selectCharacter.setBounds(750,750,300,75);
+        btn_selectCharacter.setBounds(575,650,300,75);
         add(btn_selectCharacter);
         aelfric_Token = ImageIO.read(new File("token pieces/character tokens/aelfric character token(Fix).png"));
         cecelia_Token = ImageIO.read(new File("token pieces/character tokens/cecelia character token(Fix).png"));

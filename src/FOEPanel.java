@@ -410,26 +410,25 @@ public class FOEPanel extends JPanel{
         if(characterselectscreen){
             //System.out.println("drawcharacterselectscreen");
             g.setFont(new Font("Sans Serif",Font.BOLD,50));
-            g.drawString("Choose Your Hero:",700,300);
+            g.drawString("Choose Your Hero:",500,200);
             if(curHero == AELFRIC){
-                g.drawImage(aelfric_Character_Card,700,350,550,350,null);
+                g.drawImage(aelfric_Character_Card,500,250,550,350,null);
             }
             else if(curHero == CECELIA){
-                g.drawImage(cecelia_Character_Card,700,350,550,350,null);
+                g.drawImage(cecelia_Character_Card,500,250,550,350,null);
             }
             else if(curHero == DAGA){
-                g.drawImage(daga_Character_Card,700,350,550,350,null);
+                g.drawImage(daga_Character_Card,500,250,550,350,null);
             }
             else if(curHero == KALISTOS){
-                g.drawImage(kalistos_Character_Card,700,350,550,350,null);
+                g.drawImage(kalistos_Character_Card,500,250,550,350,null);
             }
             else if(curHero == KAYLANA){
-                g.drawImage(kaylana_Character_Card,700,350,550,350,null);
+                g.drawImage(kaylana_Character_Card,500,250,550,350,null);
             }
             else if(curHero == SIRIUS){
-                g.drawImage(sirius_Character_Card,700,350,550,350,null);
+                g.drawImage(sirius_Character_Card,500,250,550,350,null);
             }
-
         }
         if(drawTitlePage){
             //System.out.println("drawTitlePage");
