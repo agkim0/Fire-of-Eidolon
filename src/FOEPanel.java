@@ -332,9 +332,9 @@ public class FOEPanel extends JPanel{
             heart_Relic_Back = ImageIO.read(new File("token pieces/relics/heart relic back.png"));
             heart_Relic_Front = ImageIO.read(new File("token pieces/relics/heart relic.png"));
             cultist_Token = ImageIO.read(new File("token pieces/tokens of power-cultist token/cultist token.png"));
-            dex_Token = ImageIO.read(new File("token pieces/tokens of power-cultist token/dexterity token of power.png"));
-            int_Token = ImageIO.read(new File("token pieces/tokens of power-cultist token/intellect token of power.png"));
-            str_Token = ImageIO.read(new File("token pieces/tokens of power-cultist token/strength token of power.png"));
+            dex_Token = ImageIO.read(new File("token pieces/tokens of power-cultist token/dexterity token of power (fix).png"));
+            int_Token = ImageIO.read(new File("token pieces/tokens of power-cultist token/intellect token of power (fix).png"));
+            str_Token = ImageIO.read(new File("token pieces/tokens of power-cultist token/strength token of power (fix).png"));
             fireBall_Token = ImageIO.read(new File("token pieces/tokens of power-cultist token/fireball.png"));
             tl_Token = ImageIO.read(new File("token pieces/tokens of power-cultist token/threat level.png"));
             blueVorax_Token = ImageIO.read(new File("token pieces/voraxes/blue vorax.png"));
@@ -495,9 +495,9 @@ public class FOEPanel extends JPanel{
                     g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelTokenCount()),550,900);
                 }
             }
-            g.drawImage(dex_Token,225,825,125,125,null);
-            g.drawImage(str_Token,425,825,125,125,null);
-            g.drawImage(int_Token,635,825,125,125,null);
+            g.drawImage(dex_Token,225,805,125,125,null);
+            g.drawImage(str_Token,425,805,125,125,null);
+            g.drawImage(int_Token,635,805,125,125,null);
             if(gameData.getDifficultyLevel().equals("Beginner")){
                 g.drawImage(df_BeginnerLevelBar,1300,10,100,500,null);
             }
