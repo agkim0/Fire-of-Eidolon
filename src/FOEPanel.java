@@ -443,7 +443,7 @@ public class FOEPanel extends JPanel{
         if(gamescreen){
             g.setFont(new Font("Sans Serif",Font.BOLD,100));
             if(gameData.getHeroesPlaying().size()==1){
-                System.out.println("one");
+                //System.out.println("one");
             }
             for(int x=0; x<gameData.getHeroesPlaying().size(); x++){
                 if(gameData.getHeroesPlaying().get(x).getName().equals("Aelfric") && curHero == 0){
@@ -525,7 +525,7 @@ public class FOEPanel extends JPanel{
             else if (gameData.getDifficultyLevel().equals("Glitch")) {
                 g.drawImage(df_GlitchLevelBar,1300,10,100,500,null);
             }
-            System.out.println(gameData.getThreatLevel());
+            //System.out.println(gameData.getThreatLevel());
             g.drawImage(tl_Token,1220,449-(47*(gameData.getThreatLevel())),175,75,null);
             //g.drawImage(tl_Token,1220,449,175,75,null);
             g.drawImage(back_Of_CT,25,425,150,150,null);

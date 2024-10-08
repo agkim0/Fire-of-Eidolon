@@ -503,13 +503,13 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
         });
         btn_rulebookLEFT.addActionListener(e->{
-            System.out.print("rb left");
+            //System.out.print("rb left");
             String temp = tf_pgnl.getText();
             int lpn = parseInt(temp);
             flipRB(lpn,"left");
         });
         btn_rulebookRIGHT.addActionListener(e->{
-            System.out.print("rb right");
+            //System.out.print("rb right");
             String temp = tf_pgnl.getText();
             int lpn = parseInt(temp);
             flipRB(lpn,"right");
@@ -528,10 +528,10 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         before = -1;
         btn_cc.addActionListener(e->{chCa();});
         btn_backcc.addActionListener(e->{
-            System.out.println("Start bcc");
+            //System.out.println("Start bcc");
             bcc();});
         btn_frontcc.addActionListener(e->{
-            System.out.println("Start fcc");
+            //System.out.println("Start fcc");
             fcc();});
         btn_backfromcc.addActionListener(e->{
             makeGameScreen();
@@ -843,7 +843,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         repaintPanel();
     }
     public void raiseDifficulty(){
-        if(difficultyLevelIndex+1<difficultyLevel.size()){
+        if(difficultyLevelIndex<difficultyLevel.size()){
             difficultyLevelIndex++;
         }
         else{
@@ -1101,7 +1101,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
     public void kaylanaSelect(){
         you = KAYLANA;
-        System.out.println("selected kaylana");
+        //System.out.println("selected kaylana");
         foePanel.setCurHero(4);
         foePanel.setCharacterselectscreen(true);
         foePanel.setSetUpJoinScreen(false);
@@ -1220,7 +1220,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         }*/
     }
 
-
+    public void paint(Graphics g)
+    {
+        super.paint(g);
+        //btn_numOfPlayersDecrease.paint(g);
+    }
 
     //rulebook methods
     public void drawRuleBook(){
