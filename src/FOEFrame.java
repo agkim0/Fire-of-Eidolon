@@ -843,7 +843,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         repaintPanel();
     }
     public void raiseDifficulty(){
-        if(difficultyLevelIndex<difficultyLevel.size()){
+        if(difficultyLevelIndex+1<difficultyLevel.size()){
             difficultyLevelIndex++;
         }
         else{
@@ -1220,11 +1220,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         }*/
     }
 
-    public void paint(Graphics g)
-    {
-        super.paint(g);
-        btn_numOfPlayersDecrease.paint(g);
-    }
+
 
     //rulebook methods
     public void drawRuleBook(){
