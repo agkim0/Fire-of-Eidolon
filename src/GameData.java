@@ -92,16 +92,16 @@ public class GameData implements Serializable{
                 }
             }
         }
-        if(dir.equalsIgnoreCase("Up")&&grid[crow][ccol].isTopSide()){
+        if(dir.equalsIgnoreCase("Up")&&grid[crow][ccol].isTopSide()&&grid[crow-1][ccol]==null){
             crow-=1;
         }
-        if(dir.equalsIgnoreCase("Down")&&grid[crow][ccol].isBottomSide()){
+        if(dir.equalsIgnoreCase("Down")&&grid[crow][ccol].isBottomSide()&&grid[crow+1][ccol]==null){
             crow+=1;
         }
-        if(dir.equalsIgnoreCase("Left")&&grid[crow][ccol].isLeftSide()){
+        if(dir.equalsIgnoreCase("Left")&&grid[crow][ccol].isLeftSide()&&grid[crow][ccol-1]==null){
             ccol-=1;
         }
-        if(dir.equalsIgnoreCase("Right")&&grid[crow][ccol].isRightSide()){
+        if(dir.equalsIgnoreCase("Right")&&grid[crow][ccol].isRightSide()&&grid[crow][ccol+1]==null){
             ccol+=1;
         }
         if(grid[crow][ccol]==null){//need to draw a tile
@@ -113,6 +113,11 @@ public class GameData implements Serializable{
     }
 
     public void placeTile(Tile tile,int r,int c){
+        if(tileDeck.contains(tile)){
+            grid[r][c]=tile;
+            tileDeck.remove(tile);
+        }
+
 
     }
 

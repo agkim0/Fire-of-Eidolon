@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.rmi.server.ExportException;
 import java.text.AttributedCharacterIterator;
 import java.util.Collection;
 import javax.swing.*;
@@ -162,6 +163,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         super("FOE Game");
         this.gameData = new GameData();;
         this.os = os;
+        Thread t = new Thread(this);
+        t.start();
         you=AELFRIC;
         addKeyListener(this);
         addWindowFocusListener(this);
@@ -1204,6 +1207,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         }*/
     }
 
+    public void paint(Graphics g)
+    {
+        super.paint(g);
+        btn_numOfPlayersDecrease.paint(g);
+    }
+
     //rulebook methods
     public void drawRuleBook(){
         currentPage = RB;
@@ -1513,6 +1522,20 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
     @Override
     public void run() {
+        while(true)
+        {
+            try
+            {
+                Thread.sleep(15);
+                repaint();
+            }
+
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+
 
     }
 }
