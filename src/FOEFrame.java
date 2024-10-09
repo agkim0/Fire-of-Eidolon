@@ -55,7 +55,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private JLabel text_numOfPlayersBox = new JLabel("1",JLabel.CENTER);
     private JButton btn_numOfPlayersDecrease = new JButton("<");
     private JButton btn_numOfPlayersIncrease = new JButton(">");
-    private JButton btn_gameRuleAddedCheckBox = new JButton("");
     private ArrayList<String> gameRuleSlides = new ArrayList<>();
     private int gameRuleSlidesIndex = 0;
 
@@ -444,7 +443,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_kaylana.addActionListener(e->{kaylanaSelect();});
         btn_sirius.addActionListener(e->{siriusSelect();});
         btn_backToHome.addActionListener(e->{
-            paintTP();
+            backToHome();
         });
         btn_Host.addActionListener(e->{
             before = currentPage;
@@ -523,9 +522,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_checkRoomCode.addActionListener(e->{checkRoomCode();});
 
         btn_sendMsg.addActionListener(e->{sendMsg();});
-        paintTP();
-        currentPage = TP;
-        before = -1;
         btn_cc.addActionListener(e->{chCa();});
         btn_backcc.addActionListener(e->{
             //System.out.println("Start bcc");
@@ -536,6 +532,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_backfromcc.addActionListener(e->{
             makeGameScreen();
         });
+
+        backToHome();
+        currentPage = TP;
+        before = -1;
+
     }
 
     public void removeEverythingFromScreen(){
@@ -576,7 +577,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_Host.setVisible(false);
         btn_Join.setVisible(false);
         btn_RB.setVisible(false);
-        btn_gameRuleAddedCheckBox.setVisible(false);
         btn_numOfPlayersDecrease.setVisible(false);
         btn_numOfPlayersIncrease.setVisible(false);
         text_numOfPlayersBox.setVisible(false);
@@ -843,7 +843,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         repaintPanel();
     }
     public void raiseDifficulty(){
-        if(difficultyLevelIndex<difficultyLevel.size()){
+        if(difficultyLevelIndex+1<difficultyLevel.size()){
             difficultyLevelIndex++;
         }
         else{
@@ -858,7 +858,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             username = textBox_getUsername.getText();
             sendCommand(CommandFromClient.HOSTING,username,gameData);
             removeEverythingFromScreen();
-            foePanel.setGameData(gameData);
             foePanel.setSetUpJoinScreen(false);
             foePanel.setDrawTitlePage(false);
             foePanel.setCharacterselectscreen(false);
@@ -1220,11 +1219,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         }*/
     }
 
-    public void paint(Graphics g)
-    {
-        super.paint(g);
-        //btn_numOfPlayersDecrease.paint(g);
-    }
 
     //rulebook methods
     public void drawRuleBook(){
@@ -1490,11 +1484,74 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
 
     //misc
+    public void paint(Graphics g){
+        paintComponents(g);
+    }
+    public void paintComponents(Graphics g){
+//        g.setColor(Color.BLACK);
+//        g.fillRect(0,0,getWidth(),getHeight());
+//        g.drawImage(img,50,50, 800,800,null);
+        btn_Host.repaint();
+        btn_Join.repaint();
+        btn_RB.repaint();
+        btn_backToHome.repaint();
+        btn_startLobby.repaint();
+        btn_backGameScenario.repaint();
+        btn_forwardGameScenario.repaint();
+        btn_lowerDifficulty.repaint();
+        btn_raiseDifficulty.repaint();
+        text_numOfPlayersBox.repaint();
+        btn_numOfPlayersDecrease.repaint();
+        btn_numOfPlayersIncrease.repaint();
+        checkbox_GameScenarioSelected.repaint();
+        textBox_getUsername.repaint();
+        text_roomCode.repaint();
+        textBox_getRoomCode.repaint();
+        btn_checkRoomCode.repaint();
+        msgBox.repaint();
+        msgList.repaint();
+        msgScroll.repaint();
+        btn_sendMsg.repaint();
+        btn_selectCharacter.repaint();
+        btn_aelfric.repaint();
+        btn_cecilia.repaint();
+        btn_daga.repaint();
+        btn_kalistos.repaint();
+        btn_kaylana.repaint();
+        btn_sirius.repaint();
+        btn_rulebookLEFT.repaint();
+        btn_rulebookRIGHT.repaint();
+        btn_rbBack.repaint();
+        tf_pgnl.repaint();
+        tf_pgnr.repaint();
+        btn_cc.repaint();
+        actions.repaint();
+        btn_aelfaction.repaint();
+        btn_aelfspec.repaint();
+        btn_ceciaction.repaint();
+        btn_cecispec.repaint();
+        btn_dagaaction.repaint();
+        btn_dagaspec.repaint();
+        btn_kaliaction.repaint();
+        btn_kalispec.repaint();
+        btn_kaylaaction.repaint();
+        btn_kaylaspec.repaint();
+        btn_siriaction.repaint();
+        btn_sirispec.repaint();
+        btn_screenUp.repaint();
+        btn_screenDown.repaint();
+        btn_screenRight.repaint();
+        btn_screenLeft.repaint();
+        btn_rot90.repaint();
+        btn_backcc.repaint();
+        btn_frontcc.repaint();
+        btn_backfromcc.repaint();
+    }
     public void repaintPanel(){
         foePanel.setGameData(this.gameData);
         foePanel.repaint();
     }
-    public void paintTP(){
+    public void backToHome(){
         removeEverythingFromScreen();
         btn_Join.setVisible(true);
         btn_Host.setVisible(true);
@@ -1505,12 +1562,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         foePanel.setHostGameSetUpScreen(false);
         foePanel.setSetUpJoinScreen(false);
         foePanel.repaint();
-    }
-    public void goBack(){
-        if(before == TP){
-            paintTP();
-        }
-        //else if (before == )
     }
 
 
@@ -1540,7 +1591,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         {
             try
             {
-                Thread.sleep(15);
+                Thread.sleep(30);
                 repaint();
             }
 
