@@ -19,6 +19,24 @@ public class FOEPanel extends JPanel{
     private boolean characterselectscreen;
     private boolean gamescreen;
     private boolean ccscreen;
+    private boolean drawrulebook;
+    private String rbNum;
+
+    public String getRbNum() {
+        return rbNum;
+    }
+
+    public void setRbNum(String rbNum) {
+        this.rbNum = rbNum;
+    }
+
+    public boolean isDrawrulebook() {
+        return drawrulebook;
+    }
+
+    public void setDrawrulebook(boolean drawrulebook) {
+        this.drawrulebook = drawrulebook;
+    }
 
     public void setCcscreen(boolean ccscreen) {
         this.ccscreen = ccscreen;
@@ -406,6 +424,28 @@ public class FOEPanel extends JPanel{
             g.drawString("Username:",500,450);
             g.drawString("Room Code:",500,600);
             g.drawImage(logo,500,-10,600,500,null);
+        }
+        if(drawrulebook){
+            //System.out.println("here");
+            if(rbNum.equals("1")){
+                g.drawImage(rb_1,100,50,600,900,null);
+                g.drawImage(rb_2,750,50,600,900,null);
+            }
+            else if (rbNum.equals("3")){
+                g.drawImage(rb_3,100,50,600,900,null);
+                g.drawImage(rb_4,750,50,600,900,null);
+            }
+            else if (rbNum.equals("5")){
+                g.drawImage(rb_5,100,50,600,900,null);
+                g.drawImage(rb_6,750,50,600,900,null);
+            }
+            else if (rbNum.equals("7")){
+                g.drawImage(rb_7,100,50,600,900,null);
+                g.drawImage(rb_8,750,50,600,900,null);
+            }
+            else if (rbNum.equals("9")){
+                g.drawImage(rb_9,100,50,600,900,null);
+            }
         }
         if(characterselectscreen){
             //System.out.println("drawcharacterselectscreen");
