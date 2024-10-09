@@ -99,7 +99,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     //Rulebook
     private JButton btn_rulebookLEFT = new JButton("<");
     private JButton btn_rulebookRIGHT = new JButton(">");
-    private JButton btn_rbBack = new JButton("<-");
+    private JButton btn_rbBack = new JButton("Back");
     private JTextField tf_pgnl = new JTextField();
     private JTextField tf_pgnr = new JTextField();
     private boolean paintRuleBook = false;
@@ -110,8 +110,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private boolean flipRB9 = false;
     private int before;
     private int currentPage;
-
-
 
     private boolean[] enabled = {true,true,true,true,true,true};
 
@@ -153,6 +151,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private BufferedImage kaylana_Special_Token = null;
     private BufferedImage sirius_Action_Token = null;
     private BufferedImage sirius_Special_Token = null;
+    private BufferedImage buffer;
 
     //Character info screen
     private JButton btn_backcc = new JButton("<");
@@ -165,13 +164,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         super("FOE Game");
         this.gameData = new GameData();;
         this.os = os;
-        Thread t = new Thread(this);
-        t.start();
         you=AELFRIC;
         addKeyListener(this);
         addWindowFocusListener(this);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(1500,1000);
+        buffer = new BufferedImage(1500,100,BufferedImage.TYPE_4BYTE_ABGR);
         setResizable(false);
         setAlwaysOnTop(true);
         setVisible(true);
@@ -296,17 +294,15 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         add(msgScroll);
 
         //rulebook
-        tf_pgnl.setBounds(50,900,75,75);
+        tf_pgnl.setBounds(10,850,75,75);
         add(tf_pgnl);
-        tf_pgnl.setBounds(900,900,75,75);
+        tf_pgnr.setBounds(1360,850,75,75);
         add(tf_pgnr);
-        btn_rulebookLEFT.setBounds(100,500,75,75);
+        btn_rulebookLEFT.setBounds(10,500,75,75);
         add(btn_rulebookLEFT);
-        btn_rulebookLEFT.setVisible(false);
-        btn_rulebookRIGHT.setBounds(900,500,75,75);
+        btn_rulebookRIGHT.setBounds(1375,500,75,75);
         add(btn_rulebookRIGHT);
-        btn_rulebookRIGHT.setVisible(false);
-        btn_rbBack.setBounds(50,50,75,75);
+        btn_rbBack.setBounds(10,10,75,75);
         add(btn_rbBack);
         btn_Host.setBounds(900,400,300,75);
         add(btn_Host);
@@ -424,7 +420,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         add(btn_screenRight);
         btn_screenLeft.setBounds(275,350,100,50);
         add(btn_screenLeft);
-        btn_rot90.setBounds(25,375,100,50);
+        btn_rot90.setBounds(25,360,100,50);
         add(btn_rot90);
 //        btn_rot180.setBounds(150,375,100,50);
 //        add(btn_rot180);
@@ -457,8 +453,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             join();
         });
         btn_startLobby.addActionListener(e->{
-            before = currentPage;
-            currentPage = HLS;
             startLobby();
         });
         btn_RB.addActionListener(e->{
@@ -467,52 +461,13 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             drawRuleBook();
         });
         btn_rbBack.addActionListener(e -> {
-            if(before == 0)
-            {
-                //paint title page;
-            }
-            else if(before == 1){
-                //nope
-            }
-            else if(before == 2){
-                //paint set up game
-            }
-            else if(before == 3){
-                //paint lobby code page
-            }
-            else if(before == 4){
-                //paint room code page
-            }
-            else if(before == 5){
-                //paint set up character
-            }
-            else if(before == 6){
-                //paint game
-            }
-            else if(before == 7){
-                //nope
-            }
-            else if(before == 8){
-                //nope
-            }
-            else if(before == 9){
-                //nope
-            }
-            else{
-                //didnt set before at some point
-            }
+            rbReturn();
         });
         btn_rulebookLEFT.addActionListener(e->{
-            //System.out.print("rb left");
-            String temp = tf_pgnl.getText();
-            int lpn = parseInt(temp);
-            flipRB(lpn,"left");
+            rbleft();
         });
         btn_rulebookRIGHT.addActionListener(e->{
-            //System.out.print("rb right");
-            String temp = tf_pgnl.getText();
-            int lpn = parseInt(temp);
-            flipRB(lpn,"right");
+            rbright();
         });
         btn_numOfPlayersIncrease.addActionListener(e->{numOfPlayersIncrease();});
         btn_numOfPlayersDecrease.addActionListener(e->{numOfPlayersDecrease();});
@@ -536,9 +491,14 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_backfromcc.addActionListener(e->{
             makeGameScreen();
         });
+
+        Thread t = new Thread(this);
+        t.start();
     }
 
     public void removeEverythingFromScreen(){
+        btn_rulebookLEFT.setVisible(false);
+        btn_rulebookRIGHT.setVisible(false);
         actions.setVisible(false);
         btn_frontcc.setVisible(false);
         btn_backcc.setVisible(false);
@@ -623,6 +583,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         foePanel.setHostGameSetUpScreen(true);
         foePanel.setSetUpJoinScreen(false);
         foePanel.setCharacterselectscreen(false);
+        foePanel.setDrawrulebook(false);
         btn_RB.setVisible(true);
         textBox_getUsername.setBounds(700,50,300,50);
         textBox_getUsername.setVisible(true);
@@ -853,6 +814,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         repaintPanel();
     }
     public void startLobby(){
+        before = currentPage;
+        currentPage = HLS;
         if(!textBox_getUsername.getText().equals("")){
             gameData.setNumOfPlayers(Integer.parseInt(text_numOfPlayersBox.getText()));
             username = textBox_getUsername.getText();
@@ -870,7 +833,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             text_roomCode.setVisible(true);
             text_roomCode.setOpaque(true);
             text_roomCode.setText(gameData.getLobbyCode());
-            btn_RB.setVisible(true);
             msgBox.setVisible(true);
             btn_sendMsg.setVisible(true);
             msgList.setVisible(true);
@@ -890,6 +852,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     //join methods
     public void join(){
         removeEverythingFromScreen();
+        foePanel.setDrawrulebook(false);
         foePanel.setDrawTitlePage(false);
         foePanel.setCharacterselectscreen(false);
         foePanel.setHostGameSetUpScreen(false);
@@ -966,6 +929,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
     //character selection methods
     public void charactersetUpScreen(){
+        before = currentPage;
+        currentPage = SUC;
         removeEverythingFromScreen();
         btn_RB.setVisible(true);
         btn_selectCharacter.setVisible(true);
@@ -1001,6 +966,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
                 break;
             }
         }
+        foePanel.setDrawrulebook(false);
         foePanel.setSetUpJoinScreen(false);
         foePanel.setDrawTitlePage(false);
         foePanel.setHostGameSetUpScreen(false);
@@ -1220,16 +1186,27 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         }*/
     }
 
-    public void paint(Graphics g)
-    {
-        super.paint(g);
-        //btn_numOfPlayersDecrease.paint(g);
-    }
+//    public void paint(Graphics g)
+//    {
+//        Graphics bg = buffer.getGraphics();
+//        super.paint(bg);
+//        BufferedImage temp =buffer = new BufferedImage(actions.getWidth(),actions.getHeight(),BufferedImage.TYPE_4BYTE_ABGR);
+//        actions.paint(temp.getGraphics());
+//        //System.out.println("x"+actions.getX());
+//        bg.drawImage(temp,actions.getX(),actions.getY(),null);
+//        g.drawImage(buffer,24,188,null);
+//    }
 
     //rulebook methods
     public void drawRuleBook(){
         currentPage = RB;
         removeEverythingFromScreen();
+        tf_pgnl.setVisible(true);
+        tf_pgnr.setVisible(true);
+        tf_pgnl.setText("1");
+        tf_pgnr.setText("2");
+        tf_pgnr.setEnabled(false);
+        tf_pgnl.setEnabled(false);
         btn_rbBack.setVisible(true);
         btn_rbBack.setEnabled(true);
         btn_rulebookLEFT.setVisible(true);
@@ -1241,20 +1218,43 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         foePanel.setCharacterselectscreen(false);
         foePanel.setHostGameSetUpScreen(false);
         foePanel.setSetUpJoinScreen(false);
-        //foePanel.
+        foePanel.setGamescreen(false);
+        foePanel.setRbNum(tf_pgnl.getText());
+        foePanel.setDrawrulebook(true);
         foePanel.repaint();
-        tf_pgnl.setVisible(true);
-        tf_pgnr.setVisible(true);
-        tf_pgnl.setText("1");
-        tf_pgnr.setText("2");
+    }
+    public void rbleft(){
+        //System.out.print("rb left");
+        String temp = tf_pgnl.getText();
+        int lpn = parseInt(temp);
+        flipRB(lpn,"left");
+        foePanel.setSetUpJoinScreen(false);
+        foePanel.setDrawTitlePage(false);
+        foePanel.setCharacterselectscreen(false);
+        foePanel.setHostGameSetUpScreen(false);
+        foePanel.setSetUpJoinScreen(false);
+        foePanel.setRbNum(tf_pgnl.getText());
+        foePanel.setDrawrulebook(true);
+        foePanel.repaint();
+    }
+    public void rbright(){
+        //System.out.print("rb right");
+        String temp = tf_pgnl.getText();
+        int lpn = parseInt(temp);
+        flipRB(lpn,"right");
+        foePanel.setSetUpJoinScreen(false);
+        foePanel.setDrawTitlePage(false);
+        foePanel.setCharacterselectscreen(false);
+        foePanel.setHostGameSetUpScreen(false);
+        foePanel.setSetUpJoinScreen(false);
+        foePanel.setRbNum(tf_pgnl.getText());
+        foePanel.setDrawrulebook(true);
+        foePanel.repaint();
     }
     public void flipRB(int lpn, String dir){
         if(lpn == 1 && dir.equals("right")){
             btn_rbBack.setVisible(true);
             btn_rbBack.setEnabled(true);
-            flipRB34 = true;
-            repaint();
-            flipRB34 = false;
             btn_rulebookLEFT.setEnabled(true);
             btn_rulebookRIGHT.setEnabled(true);
             tf_pgnl.setText("3");
@@ -1263,9 +1263,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         else if(lpn == 3 && dir.equals("right")){
             btn_rbBack.setVisible(true);
             btn_rbBack.setEnabled(true);
-            flipRB56 = true;
-            repaint();
-            flipRB56 = false;
             btn_rulebookLEFT.setEnabled(true);
             btn_rulebookRIGHT.setEnabled(true);
             tf_pgnl.setText("5");
@@ -1274,9 +1271,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         else if(lpn == 3 && dir.equals("left")){
             btn_rbBack.setVisible(true);
             btn_rbBack.setEnabled(true);
-            flipRB12 = true;
-            repaint();
-            flipRB12 = false;
             btn_rulebookLEFT.setEnabled(false);
             btn_rulebookRIGHT.setEnabled(true);
             tf_pgnl.setText("1");
@@ -1285,9 +1279,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         else if(lpn == 5 && dir.equals("right")){
             btn_rbBack.setVisible(true);
             btn_rbBack.setEnabled(true);
-            flipRB78 = true;
-            repaint();
-            flipRB78 = false;
             btn_rulebookLEFT.setEnabled(true);
             btn_rulebookRIGHT.setEnabled(true);
             tf_pgnl.setText("7");
@@ -1296,9 +1287,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         else if(lpn == 5 && dir.equals("left")){
             btn_rbBack.setVisible(true);
             btn_rbBack.setEnabled(true);
-            flipRB34 = true;
-            repaint();
-            flipRB34 = false;
             btn_rulebookLEFT.setEnabled(true);
             btn_rulebookRIGHT.setEnabled(true);
             tf_pgnl.setText("3");
@@ -1307,9 +1295,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         else if(lpn == 7 && dir.equals("right")){
             btn_rbBack.setVisible(true);
             btn_rbBack.setEnabled(true);
-            flipRB9 = true;
-            repaint();
-            flipRB9 = false;
             btn_rulebookLEFT.setEnabled(true);
             btn_rulebookRIGHT.setEnabled(false);
             tf_pgnl.setText("9");
@@ -1318,26 +1303,39 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         else if(lpn == 7 && dir.equals("left")){
             btn_rbBack.setVisible(true);
             btn_rbBack.setEnabled(true);
-            flipRB56 = true;
-            repaint();
-            flipRB56 = false;
             btn_rulebookLEFT.setEnabled(true);
             btn_rulebookRIGHT.setEnabled(true);
             tf_pgnl.setText("5");
             tf_pgnr.setText("6");
         }
-        else if(lpn == 9 && dir.equals("right")){
+        else if(lpn == 9 && dir.equals("left")){
             btn_rbBack.setVisible(true);
             btn_rbBack.setEnabled(true);
-            flipRB78 = true;
-            repaint();
-            flipRB78 = false;
             btn_rulebookLEFT.setEnabled(true);
             btn_rulebookRIGHT.setEnabled(true);
             tf_pgnl.setText("7");
             tf_pgnr.setText("8");
         }
     }
+    public void rbReturn(){
+        if(before == TP)
+        {
+            paintTP();
+        }
+        else if(before == SUG){
+            host();
+        }
+        else if(before == JOIN){
+            join();
+        }
+        else if(before == SUC){
+            charactersetUpScreen();
+        }
+        else if(before == GAME){
+            makeGameScreen();
+        }
+    }
+
 
     //character card methods
     public void chCa(){
@@ -1403,15 +1401,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
     //main game screen
     public void makeGameScreen(){
+        before = currentPage;
+        currentPage = GAME;
         removeEverythingFromScreen();
-        actions.setVisible(true);
         btn_RB.setVisible(true);
         btn_cc.setVisible(true);
         btn_rot90.setVisible(true);
-//        btn_rot180.setVisible(true);
-//        btn_rot270.setVisible(true);
-//        btn_rot360.setVisible(true);
-        //tf_action.setVisible(true);
         btn_screenUp.setVisible(true);
         btn_screenDown.setVisible(true);
         btn_screenRight.setVisible(true);
@@ -1421,6 +1416,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         msgList.setVisible(true);
         msgScroll.setVisible(true);
         msgList.setListData(gameData.getMsgs().toArray());
+        actions.setVisible(true);
+        actions.setListData(allA.toArray());
         if(you.getName().equals("Aelfric")){
             btn_aelfaction.setVisible(true);
             btn_aelfspec.setVisible(true);
@@ -1452,6 +1449,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             foePanel.setCurHero(5);
         }
         foePanel.setHostGameSetUpScreen(false);
+        foePanel.setDrawrulebook(false);
         foePanel.setHostRoomCodeScreen(false);
         foePanel.setSetUpJoinScreen(false);
         foePanel.setCharacterselectscreen(false);
@@ -1503,6 +1501,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         foePanel.setDrawTitlePage(true);
         foePanel.setCharacterselectscreen(false);
         foePanel.setHostGameSetUpScreen(false);
+        foePanel.setDrawrulebook(false);
         foePanel.setSetUpJoinScreen(false);
         foePanel.repaint();
     }
