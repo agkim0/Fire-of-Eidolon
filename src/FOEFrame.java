@@ -82,12 +82,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private BufferedImage kalistos_Token = null;
     private BufferedImage kaylana_Token = null;
     private BufferedImage sirius_Token = null;
-    private JButton btn_aelfric;
-    private JButton btn_cecilia;
-    private JButton btn_daga;
-    private JButton btn_kalistos;
-    private JButton btn_kaylana;
-    private JButton btn_sirius;
+    private JButton btn_aelfric = new JButton();
+    private JButton btn_cecilia = new JButton();
+    private JButton btn_daga = new JButton();
+    private JButton btn_kalistos = new JButton();
+    private JButton btn_kaylana = new JButton();
+    private JButton btn_sirius = new JButton();
     private String currSelectedHero;
     public static final Hero AELFRIC = new Hero("Aelfric",1,2,3,0,0,0,false,false,false,false,3,false);
     public static final Hero CECELIA = new Hero("Cecilia",1,3,2,0,0,0,false,false,false,false,3,false);
@@ -119,18 +119,18 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     //actual game screen
     private ArrayList allA = new ArrayList<String>();
     private JList actions = new JList(allA.toArray());
-    private JButton btn_aelfaction;
-    private JButton btn_aelfspec;
-    private JButton btn_ceciaction;
-    private JButton btn_cecispec;
-    private JButton btn_dagaaction;
-    private JButton btn_dagaspec;
-    private JButton btn_kaliaction;
-    private JButton btn_kalispec;
-    private JButton btn_kaylaaction;
-    private JButton btn_kaylaspec;
-    private JButton btn_siriaction;
-    private JButton btn_sirispec;
+    private JButton btn_aelfaction = new JButton();
+    private JButton btn_aelfspec = new JButton();
+    private JButton btn_ceciaction = new JButton();
+    private JButton btn_cecispec = new JButton();
+    private JButton btn_dagaaction = new JButton();
+    private JButton btn_dagaspec = new JButton();
+    private JButton btn_kaliaction = new JButton();
+    private JButton btn_kalispec = new JButton();
+    private JButton btn_kaylaaction = new JButton();
+    private JButton btn_kaylaspec = new JButton();
+    private JButton btn_siriaction = new JButton();
+    private JButton btn_sirispec = new JButton();
     private JButton btn_screenUp = new JButton();
     private JButton btn_screenDown = new JButton();
     private JButton btn_screenRight = new JButton();
@@ -440,7 +440,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_kaylana.addActionListener(e->{kaylanaSelect();});
         btn_sirius.addActionListener(e->{siriusSelect();});
         btn_backToHome.addActionListener(e->{
-            paintTP();
+            backToHome();
         });
         btn_Host.addActionListener(e->{
             before = currentPage;
@@ -478,7 +478,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_checkRoomCode.addActionListener(e->{checkRoomCode();});
 
         btn_sendMsg.addActionListener(e->{sendMsg();});
-        paintTP();
+        backToHome();
         currentPage = TP;
         before = -1;
         btn_cc.addActionListener(e->{chCa();});
@@ -1320,7 +1320,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void rbReturn(){
         if(before == TP)
         {
-            paintTP();
+            backToHome();
         }
         else if(before == SUG){
             host();
@@ -1488,11 +1488,75 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
 
     //misc
+    //misc
+    public void paint(Graphics g){
+        paintComponents(g);
+    }
+    public void paintComponents(Graphics g){
+//        g.setColor(Color.BLACK);
+//        g.fillRect(0,0,getWidth(),getHeight());
+//        g.drawImage(img,50,50, 800,800,null);
+        btn_Host.repaint();
+        btn_Join.repaint();
+        btn_RB.repaint();
+        btn_backToHome.repaint();
+        btn_startLobby.repaint();
+        btn_backGameScenario.repaint();
+        btn_forwardGameScenario.repaint();
+        btn_lowerDifficulty.repaint();
+        btn_raiseDifficulty.repaint();
+        text_numOfPlayersBox.repaint();
+        btn_numOfPlayersDecrease.repaint();
+        btn_numOfPlayersIncrease.repaint();
+        checkbox_GameScenarioSelected.repaint();
+        textBox_getUsername.repaint();
+        text_roomCode.repaint();
+        textBox_getRoomCode.repaint();
+        btn_checkRoomCode.repaint();
+        msgBox.repaint();
+        msgList.repaint();
+        msgScroll.repaint();
+        btn_sendMsg.repaint();
+        btn_selectCharacter.repaint();
+        btn_aelfric.repaint();
+        btn_cecilia.repaint();
+        btn_daga.repaint();
+        btn_kalistos.repaint();
+        btn_kaylana.repaint();
+        btn_sirius.repaint();
+        btn_rulebookLEFT.repaint();
+        btn_rulebookRIGHT.repaint();
+        btn_rbBack.repaint();
+        tf_pgnl.repaint();
+        tf_pgnr.repaint();
+        btn_cc.repaint();
+        actions.repaint();
+        btn_aelfaction.repaint();
+        btn_aelfspec.repaint();
+        btn_ceciaction.repaint();
+        btn_cecispec.repaint();
+        btn_dagaaction.repaint();
+        btn_dagaspec.repaint();
+        btn_kaliaction.repaint();
+        btn_kalispec.repaint();
+        btn_kaylaaction.repaint();
+        btn_kaylaspec.repaint();
+        btn_siriaction.repaint();
+        btn_sirispec.repaint();
+        btn_screenUp.repaint();
+        btn_screenDown.repaint();
+        btn_screenRight.repaint();
+        btn_screenLeft.repaint();
+        btn_rot90.repaint();
+        btn_backcc.repaint();
+        btn_frontcc.repaint();
+        btn_backfromcc.repaint();
+    }
     public void repaintPanel(){
         foePanel.setGameData(this.gameData);
         foePanel.repaint();
     }
-    public void paintTP(){
+    public void backToHome(){
         removeEverythingFromScreen();
         btn_Join.setVisible(true);
         btn_Host.setVisible(true);
@@ -1501,15 +1565,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         foePanel.setDrawTitlePage(true);
         foePanel.setCharacterselectscreen(false);
         foePanel.setHostGameSetUpScreen(false);
-        foePanel.setDrawrulebook(false);
         foePanel.setSetUpJoinScreen(false);
         foePanel.repaint();
-    }
-    public void goBack(){
-        if(before == TP){
-            paintTP();
-        }
-        //else if (before == )
     }
 
 
