@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class ServerMain {
     public static void main (String[] args){
         try{
-            ServerSocket serverSocket = new ServerSocket(8000);
+            ServerSocket serverSocket = new ServerSocket(8001);
             while(true){
                 Socket socket = serverSocket.accept();
                 ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream());

@@ -136,10 +136,10 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private JButton btn_kaylaspec = new JButton();
     private JButton btn_siriaction = new JButton();
     private JButton btn_sirispec = new JButton();
-    private JButton btn_screenUp = new JButton();
-    private JButton btn_screenDown = new JButton();
-    private JButton btn_screenRight = new JButton();
-    private JButton btn_screenLeft = new JButton();
+    private JButton btn_screenUp = new JButton("^");
+    private JButton btn_screenDown = new JButton("|");
+    private JButton btn_screenRight = new JButton(">");
+    private JButton btn_screenLeft = new JButton("<");
     private JButton btn_rot90 = new JButton("90");
     private BufferedImage aelfric_Action_Token = null;
     private BufferedImage aelfric_Special_Token = null;
