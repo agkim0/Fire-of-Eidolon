@@ -574,6 +574,8 @@ public class FOEPanel extends JPanel{
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
             g.drawString("Actions:", 55,175);
             g.drawImage(ct_Vestibule,650,350,100,100,null);
+            g.setColor(Color.white);
+            g.drawRect(450,150,500,500);
         }
         if(ccscreen){
             g.setFont(new Font("Sans Serif",Font.BOLD,75));
