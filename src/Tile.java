@@ -149,7 +149,7 @@ public class Tile {
         this.rightSide = rightSide;
     }
 
-    public void rotateLeft(){
+    public void rotateCounterClockwise(){
         boolean newTop = false;
         boolean newBot = false;
         boolean newLeft = false;
@@ -172,7 +172,7 @@ public class Tile {
         bottomSide = newBot;
         rightSide = newRight;
     }
-    public void rotateRight(){
+    public void rotateClockwise(){
         boolean newTop = false;
         boolean newBot = false;
         boolean newLeft = false;
@@ -194,5 +194,11 @@ public class Tile {
         leftSide = newLeft;
         bottomSide = newBot;
         rightSide = newRight;
+        if(degRot==270){
+            degRot=0;
+        }
+        else{
+            degRot+=90;
+        }
     }
 }

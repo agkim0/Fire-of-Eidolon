@@ -79,7 +79,6 @@ public class GameData implements Serializable{
 
 
     }
-
     public void move(String dir){
         int crow = 0;
         int ccol = 0;
