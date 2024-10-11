@@ -142,7 +142,7 @@ public class GameData implements Serializable{
         Tile minotaur = new Tile("Minotaur",Tile.STR,true,true,true,true);
         Tile ogreBrute = new Tile("Ogre Brute", Tile.STR,false,false,true,true);
         Tile paradoxPuzzle = new Tile("Paradox Puzzle",Tile.INTEL, true,false,true,true);
-        Tile pendulumBlades = new Tile("Pendulum Blades",Tile.DEX,true,false,true,false);
+        Tile pendulumBlades = new Tile("Pengulum Blades",Tile.DEX,true,false,true,false);
         Tile vagrantPortalChamber = new Tile("Vagrant Portal", Tile.SPECIAL,false,false,true,false);
         Tile psychomancer = new Tile("Psychomancer",Tile.INTEL,true,true,true,true);
         Tile secretPassageX = new Tile("Secret Passage X",Tile.SPECIAL,true,true,true,true);

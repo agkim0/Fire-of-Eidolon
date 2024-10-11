@@ -17,8 +17,16 @@ public class Tile {
     private boolean bottomSide;
     private boolean leftSide;
     private boolean rightSide;
+    private int degRot = 0;
 
-    public Tile(String name,int skillType,Card card,boolean topSide,boolean rightSide,boolean bottomSide,boolean leftSide) {
+    public int getDegRot() {
+        return degRot;
+    }
+    public void setDegRot(int degRot) {
+        this.degRot = degRot;
+    }
+
+    public Tile(String name, int skillType, Card card, boolean topSide, boolean rightSide, boolean bottomSide, boolean leftSide) {
         this.rightSide = rightSide;
         this.leftSide = leftSide;
         this.topSide = topSide;

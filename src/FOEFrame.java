@@ -510,14 +510,10 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_backfromcc.setVisible(false);
         btn_cc.setVisible(false);
         btn_rot90.setVisible(false);
-//        btn_rot180.setVisible(false);
-//        btn_rot270.setVisible(false);
-//        btn_rot360.setVisible(false);
         btn_screenUp.setVisible(false);
         btn_screenDown.setVisible(false);
         btn_screenRight.setVisible(false);
         btn_screenLeft.setVisible(false);
-        //tf_action.setVisible(false);
         btn_aelfaction.setVisible(false);
         btn_aelfspec.setVisible(false);
         btn_ceciaction.setVisible(false);

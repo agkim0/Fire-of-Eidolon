@@ -1,6 +1,7 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 import java.io.File;
@@ -21,27 +22,36 @@ public class FOEPanel extends JPanel{
     private boolean ccscreen;
     private boolean drawrulebook;
     private String rbNum;
+    private boolean showingTileOnTop;
+    private Tile[][] board = new Tile[5][5];
 
+    public boolean isShowingTileOnTop() {
+        return showingTileOnTop;
+    }
+    public void setShowingTileOnTop(boolean showingTileOnTop) {
+        this.showingTileOnTop = showingTileOnTop;
+    }
+    public Tile[][] getBoard() {
+        return board;
+    }
+    public void setBoard(Tile[][] board) {
+        this.board = board;
+    }
     public String getRbNum() {
         return rbNum;
     }
-
     public void setRbNum(String rbNum) {
         this.rbNum = rbNum;
     }
-
     public boolean isDrawrulebook() {
         return drawrulebook;
     }
-
     public void setDrawrulebook(boolean drawrulebook) {
         this.drawrulebook = drawrulebook;
     }
-
     public void setCcscreen(boolean ccscreen) {
         this.ccscreen = ccscreen;
     }
-
     public boolean isGamescreen() {
         return gamescreen;
     }
@@ -62,6 +72,7 @@ public class FOEPanel extends JPanel{
     public final int SIRIUS = 5;
     private int curHero;
     private int ind = 0;
+    private BufferedImage rotated;
 
     public int getInd() {
         return ind;
@@ -574,7 +585,146 @@ public class FOEPanel extends JPanel{
             g.drawRect(355,60,820,820);
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
             g.drawString("Actions:", 55,175);
-            //g.drawImage(ct_Vestibule,650,350,100,100,null);
+            int addX=0;
+            int addY=0;
+            for(int x=0; x<board.length; x++){
+                for(int y=0; y<board[0].length; y++){
+                    if(board[x][y].getName().equals("Acid Jets")){
+                        if(board[x][y].getDegRot()==0){
+                            g.drawImage(ct_AcidJets,355+addX, 60+addY, 164,164,null);
+                        }
+                        else if(board[x][y].getDegRot()==90){
+                            //Bro idk how to rotate
+//                            int newWL = (int)Math.floor(164*Math.abs(Math.cos(90)) + 164*Math.abs(Math.sin(90)));
+//                            rotated = new BufferedImage(newWL,newWL,ct_AcidJets.TYPE_INT_ARGB);
+//                            g.drawImage(rotated,)
+                        }
+                        else if(board[x][y].getDegRot()==180){
+
+                        }
+                        else if(board[x][y].getDegRot()==270){
+
+                        }
+                    }
+                    else if(board[x][y].getName().equals("Arrow Trap")){
+                        if(board[x][y].getDegRot()==0){
+                            g.drawImage(ct_ArrowTrap,355+addX, 60+addY, 164,164,null);
+                        }
+                        else if(board[x][y].getDegRot()==90){
+
+                        }
+                        else if(board[x][y].getDegRot()==180){
+
+                        }
+                        else if(board[x][y].getDegRot()==270){
+
+                        }
+                    }
+                    else if(board[x][y].getName().equals("Dark Slime")){
+                        if(board[x][y].getDegRot()==0){
+                            g.drawImage(ct_DarkSlime,355+addX, 60+addY, 164,164,null);
+                        }
+                        else if(board[x][y].getDegRot()==90){
+
+                        }
+                        else if(board[x][y].getDegRot()==180){
+
+                        }
+                        else if(board[x][y].getDegRot()==270){
+
+                        }
+                    }
+                    else if(board[x][y].getName().equals("Den of Snakes")){
+                        if(board[x][y].getDegRot()==0){
+                            g.drawImage(ct_DenofSnakes,355+addX, 60+addY, 164,164,null);
+                        }
+                        else if(board[x][y].getDegRot()==90){
+
+                        }
+                        else if(board[x][y].getDegRot()==180){
+
+                        }
+                        else if(board[x][y].getDegRot()==270){
+
+                        }
+                    }
+                    else if(board[x][y].getName().equals("Dragonling")){
+
+                    }
+                    else if(board[x][y].getName().equals("Fel Knight")){
+
+                    }
+                    else if(board[x][y].getName().equals("Fire of Eidolon")){
+
+                    }
+                    else if(board[x][y].getName().equals("Floating Stones")){
+
+                    }
+                    else if(board[x][y].getName().equals("Hall of Illusion")){
+
+                    }
+                    else if(board[x][y].getName().equals("Laughing Shadow")){
+
+                    }
+                    else if(board[x][y].getName().equals("Lava Lake")){
+
+                    }
+                    else if(board[x][y].getName().equals("Mimic Chest")){
+
+                    }
+                    else if(board[x][y].getName().equals("Mind Eater")){
+
+                    }
+                    else if(board[x][y].getName().equals("Minotaur")){
+
+                    }
+                    else if(board[x][y].getName().equals("Ogre Brute")){
+
+                    }
+                    else if(board[x][y].getName().equals("Paradox Puzzle")){
+
+                    }
+                    else if(board[x][y].getName().equals("Pengulum Blades")){
+
+                    }
+                    else if(board[x][y].getName().equals("Vagrant Portal")){
+
+                    }
+                    else if(board[x][y].getName().equals("Psychomancer")){
+
+                    }
+                    else if(board[x][y].getName().equals("Secret Passage X")){
+
+                    }
+                    else if(board[x][y].getName().equals("Secret Passage Y")){
+
+                    }
+                    else if(board[x][y].getName().equals("Skeletal Guards")){
+
+                    }
+                    else if(board[x][y].getName().equals("Sphynx's Riddle")){
+
+                    }
+                    else if(board[x][y].getName().equals("Spiked Pit")){
+
+                    }
+                    else if(board[x][y].getName().equals("Vestibule")){
+
+                    }
+                    else if(board[x][y].getName().equals("Voracious Plant")){
+
+                    }
+                    else if(board[x][y].getName().equals("Vorax's Focus")){
+
+                    }
+                    else if(board[x][y].getName().equals("Vorax's Heart")){
+
+                    }
+                    else if(board[x][y].getName().equals("Vorax's Knowledge")){
+
+                    }
+                }
+            }
         }
         if(ccscreen){
             g.setFont(new Font("Sans Serif",Font.BOLD,75));
