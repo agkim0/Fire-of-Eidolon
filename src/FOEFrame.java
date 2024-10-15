@@ -3,15 +3,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
 import java.io.File;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.rmi.server.ExportException;
-import java.text.AttributedCharacterIterator;
-import java.util.Collection;
-import javax.swing.*;
 import java.util.ArrayList;
 
 import static java.lang.Integer.parseInt;
@@ -20,11 +14,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
     //player and game info
     private Hero you;
-    private int xPos;
-    private int yPos;
+    private int r;
+    private int c;
     private Tile[][] board = new Tile[5][5];
-    private int xShift;
-    private int yShift;
+    private int colShift;
+    private int rowShift;
     String username;
     private GameData gameData;
     private FOEPanel foePanel;
@@ -425,8 +419,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_rot90.setBounds(25,360,100,50);
         add(btn_rot90);
 
-        xShift=29;
-        yShift=29;
+        colShift =29;
+        rowShift =29;
 //        btn_rot180.setBounds(150,375,100,50);
 //        add(btn_rot180);
 //        btn_rot270.setBounds(25,450,100,50);
@@ -1482,12 +1476,57 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void setBoard(){
         for(int r = 0;r< board.length;r++){
             for(int c =0;c<board[0].length;c++){
-                board[r][c] = gameData.getGrid()[r+yShift][c+xShift];
+                board[r][c] = gameData.getGrid()[r+ rowShift][c+ colShift];
             }
+        }
+        foePanel.setBoard(board);
+        repaintPanel();
+    }
+    public void screenUp(){
+        if(rowShift -1+5<61&& rowShift -1>=0){
+            rowShift--;
+            setBoard();
+        }
+    }
+    public void screenDown(){
+        if(rowShift +1+5<61&& rowShift +1>=0){
+            rowShift++;
+            setBoard();
+        }
+    }
+    public void screenLeft(){
+        if(colShift -1+5<61&& colShift -1>=0){
+            colShift--;
+            setBoard();
+        }
+    }
+    public void screenRight(){
+        if(colShift +1+5<61&& colShift +1>=0){
+            colShift++;
+            setBoard();
         }
     }
     public void move(){
-
+        //highlight possible moves
+    }
+    public void moveUp(){
+        if (r -1>0){
+            if(gameData.getGrid()[r-1][c]==null){
+                foePanel.setShowingTileOnTop(true);
+                repaintPanel();
+            }
+            else{
+                gameData.getGrid()[r][c].getHeroesOn().remove(you);
+                r--;
+                gameData.getGrid()[r][c].getHeroesOn().add(you);
+            }
+        }
+    }
+    public void placeTileUp(){
+        if(gameData.getTileDeck().get(0).isBottomSide()){
+            gameData.getGrid()[r--][c]=gameData.getTileDeck().get(0);
+            gameData.getTileDeck().remove(0);
+        }
     }
     public void explore(){}
     public void attack(){}
@@ -1499,6 +1538,10 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         System.out.println("reset");
         //character = new Hero();
         repaint();
+    }
+    public void rot90(){
+        gameData.getTileDeck().get(0).rotateClockwise();
+        repaintPanel();
     }
 
     //getters and setters

@@ -107,7 +107,6 @@ public class GameData implements Serializable{
         Collections.shuffle(tileDeck);
         Collections.shuffle(currDeck);
     }
-
     public void move(String dir){
         int crow = 0;
         int ccol = 0;
