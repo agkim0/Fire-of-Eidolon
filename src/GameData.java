@@ -6,15 +6,15 @@ import java.util.Random;
 public class GameData implements Serializable{
     private Tile[][] grid = new Tile[61][61];
     private boolean allTilesOpen;
-    private ArrayList<Card> fullDeck;
-    private ArrayList<Card> currDeck;
-    private ArrayList<Tile> tileDeck;
-    private ArrayList<Tile> fullTileDeck;
-    private ArrayList<Hero> allHeroes;
+    private ArrayList<Card> fullDeck = new ArrayList<>();
+    private ArrayList<Card> currDeck = new ArrayList<>();
+    private ArrayList<Tile> tileDeck = new ArrayList<>();
+    private ArrayList<Tile> fullTileDeck = new ArrayList<>();
+    private ArrayList<Hero> allHeroes = new ArrayList<>();
     private Hero curHero;
     private ArrayList<Hero> heroesPlaying = new ArrayList<Hero>();
     private Hero turn;
-    private ArrayList<Hero> orderOfTurns;
+    private ArrayList<Hero> orderOfTurns = new ArrayList<>();
     private int orderOfTurnIndex=0;
     private int threatLevel;
     private String difficultyLevel;
@@ -47,7 +47,6 @@ public class GameData implements Serializable{
         createAllHero();
         curHero = allHeroes.get(0);
         Random rand = new Random();
-
         //lobby code generation
         for(int x=0;x<3;x++){
             char c = (char)(rand.nextInt(26)+'A');
@@ -71,13 +70,42 @@ public class GameData implements Serializable{
         for(int x = 0;x<tileDeck.size();x++){
             fullTileDeck.add(tileDeck.get(x));
         }
+        for(int x=0; x< grid.length;x++){
+            for(int y=0; y<grid[0].length; y++){
+                grid[x][y]=getThistile("nuul");
+                grid[x][y].setOnBoard(false);
+            }
+        }
         grid[31][31] = getThistile("Vestibule");
+        grid[29][29].setOnBoard(true);
+        grid[29][30].setOnBoard(true);
+        grid[29][31].setOnBoard(true);
+        grid[29][32].setOnBoard(true);
+        grid[29][33].setOnBoard(true);
+        grid[30][29].setOnBoard(true);
+        grid[30][30].setOnBoard(true);
+        grid[30][31].setOnBoard(true);
+        grid[30][32].setOnBoard(true);
+        grid[30][33].setOnBoard(true);
+        grid[31][29].setOnBoard(true);
+        grid[31][30].setOnBoard(true);
+        grid[31][31].setOnBoard(true);
+        grid[31][32].setOnBoard(true);
+        grid[31][33].setOnBoard(true);
+        grid[32][29].setOnBoard(true);
+        grid[32][30].setOnBoard(true);
+        grid[32][31].setOnBoard(true);
+        grid[32][32].setOnBoard(true);
+        grid[32][33].setOnBoard(true);
+        grid[33][29].setOnBoard(true);
+        grid[33][30].setOnBoard(true);
+        grid[33][31].setOnBoard(true);
+        grid[33][32].setOnBoard(true);
+        grid[33][33].setOnBoard(true);
+        System.out.println("Vestibule set");
         tileDeck.remove(getThistile("Vestibule"));
         Collections.shuffle(tileDeck);
         Collections.shuffle(currDeck);
-
-
-
     }
 
     public void move(String dir){
@@ -155,6 +183,7 @@ public class GameData implements Serializable{
         Tile voraxsFocus = new Tile("Vorax's Focus",Tile.DEX,false,false,true,false);
         Tile voraxsHeart = new Tile("Vorax's Heart",Tile.STR,false,false,true,false);
         Tile voraxsKnowledge = new Tile("Vorax's Knowledge",Tile.INTEL,false,false,true,false);
+        Tile nuul = new Tile("nuul",Tile.SPECIAL,false,false,false,false);
 
         Card acidJetsCard = new Card("Acid Jets",Card.DEX,acidJets,false );
         Card arrowTrapCard = new Card("Arrow Trap", Card.DEX,arrowTrap,false);
@@ -229,16 +258,13 @@ public class GameData implements Serializable{
         tileDeck.add(voraxsFocus);
         tileDeck.add(voraxsHeart);
         tileDeck.add(voraxsKnowledge);
+        tileDeck.add(nuul);
 
         if(vagrantPortal){
             tileDeck.add(secretPassageX);
             tileDeck.add(secretPassageY);
             tileDeck.add(vagrantPortalChamber);
         }
-
-
-
-
 
         /*
         Dexterity has been abbreviated to "Dex"
@@ -273,26 +299,13 @@ public class GameData implements Serializable{
             if(fullTileDeck.get(x).getName().equals(tileName)){
                 return fullTileDeck.get(x);
             }
+            else{
+                //System.out.println(fullTileDeck.get(x).getName()+"!="+tileName);
+            }
         }
+        System.out.println("fail");
         return null;
     }
-    //    public Tile getThisTile(String tt){
-//        //loop though all tiles find which one matches
-//    }
-//    public Hero getThisHero(String nh){
-//
-//    }
-//    public void restart(){}
-
-//    public boolean checkLoss(){
-//
-//    }
-//    public boolean checkWin(){
-//
-//    }
-//    public int cardDrawAmount(){
-//
-//    }
 
     public Tile[][] getGrid() {
         return grid;
