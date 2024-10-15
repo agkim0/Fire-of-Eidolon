@@ -1008,7 +1008,6 @@ public class FOEPanel extends JPanel{
                     }
                 }
             }
-            System.out.println("Done");
         }
         if(ccscreen){
             g.setFont(new Font("Sans Serif",Font.BOLD,75));
