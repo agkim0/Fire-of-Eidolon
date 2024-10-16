@@ -1450,23 +1450,25 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             btn_sirispec.setVisible(true);
             foePanel.setCurHero(5);
         }
-        Tile[][] temp = new Tile[5][5];
-        int xx=0;
-        int yy=0;
-        for(int x=0; x<gameData.getGrid().length; x++){
-            for(int y=0; y<gameData.getGrid()[0].length; y++){
-                if(gameData.getGrid()[x][y].isOnBoard()){
-                    System.out.println(gameData.getGrid()[x][y].isOnBoard());
-                    System.out.println(xx+", "+yy);
-                    System.out.println(x+", "+y);
-                    temp[xx][yy]=gameData.getGrid()[x][y];
-                    xx+=1;
-                }
-            }
-            yy+=1;
-            xx=0;
-        }
-        foePanel.setBoard(temp);
+//        Tile[][] temp = new Tile[5][5];
+//        int xx=0;
+//        int yy=0;
+//        for(int x=0; x<gameData.getGrid().length; x++){
+//            for(int y=0; y<gameData.getGrid()[0].length; y++){
+//                if(gameData.getGrid()[x][y].isOnBoard()){
+//                    System.out.println(gameData.getGrid()[x][y].isOnBoard());
+//                    System.out.println(xx+", "+yy);
+//                    System.out.println(x+", "+y);
+//                    temp[xx][yy]=gameData.getGrid()[x][y];
+//                    xx+=1;
+//                }
+//            }
+//            yy+=1;
+//            xx=0;
+//        }
+//        foePanel.setBoard(temp);
+        setBoard();
+        foePanel.setBoard(board);
         foePanel.setHostGameSetUpScreen(false);
         foePanel.setDrawrulebook(false);
         foePanel.setHostRoomCodeScreen(false);
@@ -1754,9 +1756,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
                 int boardRow = (e.getY()-60)/164;
                 int gridCol = boardCol+colShift;
                 int gridRow = boardRow+rowShift;
-                if(((gridCol==c-1||gridCol==c+1)&&gridRow==r)||((gridRow==r-1||gridRow==r+1)&&gridCol==c)){
-                    
+                if(gameData.getGrid()[gridRow][gridCol]==null){//moving into
+                    if(((gridCol==c-1||gridCol==c+1)&&gridRow==r)||((gridRow==r-1||gridRow==r+1)&&gridCol==c)){
+
+                    }
                 }
+
             }
 
 
