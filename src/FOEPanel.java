@@ -588,12 +588,11 @@ public class FOEPanel extends JPanel{
             int addX=0;
             int addY=0;
             if(board[3][3]!=null){
-                System.out.println("yay");
+                //System.out.println("yay");
             }
             for(int x=0; x<board.length; x++){
                 for(int y=0; y<board[0].length; y++){
                     if(board[x][y]!=null){
-                        System.out.println("Not null");
                         if(board[x][y].getName().equals("Acid Jets")){
                             if(board[x][y].getDegRot()==0){
                                 g.drawImage(ct_AcidJets,355+addX, 60+addY, 164,164,null);
@@ -934,10 +933,10 @@ public class FOEPanel extends JPanel{
                             }
                         }
                         else if(board[x][y].getName().equals("Vestibule")){
-                            System.out.println("Vestibule");
+                            //System.out.println("Vestibule");
                             if(board[x][y].getDegRot()==0){
                                 g.drawImage(ct_Vestibule,355+addX, 60+addY, 164,164,null);
-                                System.out.println("Drawn");
+                                //System.out.println("Drawn");
                             }
                             else if(board[x][y].getDegRot()==90){
 
