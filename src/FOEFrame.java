@@ -1540,6 +1540,10 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             repaintPanel();
         }
     }
+    public void placeTileDown(){
+    }
+    public void placeTileLeft(){}
+    public void placeTileRight(){}
     public void explore(){}
     public void attack(){}
     public void challenge(){}
@@ -1756,9 +1760,20 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
                 int boardRow = (e.getY()-60)/164;
                 int gridCol = boardCol+colShift;
                 int gridRow = boardRow+rowShift;
-                if(gameData.getGrid()[gridRow][gridCol]==null){//moving into
+                if(gameData.getGrid()[gridRow][gridCol]==null){//moving into new chamber
                     if(((gridCol==c-1||gridCol==c+1)&&gridRow==r)||((gridRow==r-1||gridRow==r+1)&&gridCol==c)){
+                        if(gridRow==r-1){
+                            placeTileUp();
+                        }
+                        else if(gridRow==r+1){
 
+                        }
+                        else if(gridCol==c-1){
+
+                        }
+                        else if(gridCol==c+1){
+
+                        }
                     }
                 }
 
