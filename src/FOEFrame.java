@@ -1468,7 +1468,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 //        }
 //        foePanel.setBoard(temp);
         setBoard();
-        foePanel.setBoard(board);
         foePanel.setHostGameSetUpScreen(false);
         foePanel.setDrawrulebook(false);
         foePanel.setHostRoomCodeScreen(false);
