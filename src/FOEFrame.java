@@ -1517,6 +1517,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
     public void moveUp(){
         if (r -1>0){
+            if(r-2<rowShift){
+                screenUp();
+            }
             if(gameData.getGrid()[r-1][c]==null){
                 foePanel.setShowingTileOnTop(true);
                 repaintPanel();
@@ -1529,9 +1532,10 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         }
     }
     public void placeTileUp(){
-        if(gameData.getTileDeck().get(0).isBottomSide()){
+        if(gameData.getTileDeck().get(0).isBottomSide()&&gameData.getGrid()[r][c].isTopSide()){
             gameData.getGrid()[r--][c]=gameData.getTileDeck().get(0);
             gameData.getTileDeck().remove(0);
+            repaintPanel();
         }
     }
     public void explore(){}
@@ -1680,15 +1684,18 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
                 }
             }
             else if(e.getKeyChar()=='w'){
-                if(r-1>=0){
+                if (r -1>0){
                     if(r-2<rowShift){
                         screenUp();
                     }
                     if(gameData.getGrid()[r-1][c]==null){
-                        //need to place tile
+                        foePanel.setShowingTileOnTop(true);
+                        repaintPanel();
                     }
-                    else if(gameData.getGrid()[r][c].isTopSide()&&gameData.getGrid()[r-1][c].isBottomSide()){
+                    else{
+                        gameData.getGrid()[r][c].getHeroesOn().remove(you);
                         r--;
+                        gameData.getGrid()[r][c].getHeroesOn().add(you);
                     }
                 }
             }
@@ -1747,7 +1754,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
                 int boardRow = (e.getY()-60)/164;
                 int gridCol = boardCol+colShift;
                 int gridRow = boardRow+rowShift;
+                if(((gridCol==c-1||gridCol==c+1)&&gridRow==r)||((gridRow==r-1||gridRow==r+1)&&gridCol==c)){
+                    
+                }
             }
+
+
                 //g.drawRect(355,60,820,820);
         }
     }
