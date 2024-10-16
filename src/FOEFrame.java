@@ -419,8 +419,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_rot90.setBounds(25,360,100,50);
         add(btn_rot90);
 
-        colShift =29;
-        rowShift =29;
 //        btn_rot180.setBounds(150,375,100,50);
 //        add(btn_rot180);
 //        btn_rot270.setBounds(25,450,100,50);
@@ -475,11 +473,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_lowerDifficulty.addActionListener(e->{lowerDifficulty();});
         btn_raiseDifficulty.addActionListener(e->{raiseDifficulty();});
         btn_checkRoomCode.addActionListener(e->{checkRoomCode();});
-
         btn_sendMsg.addActionListener(e->{sendMsg();});
-        backToHome();
-        currentPage = TP;
-        before = -1;
         btn_cc.addActionListener(e->{chCa();});
         btn_backcc.addActionListener(e->{
             //System.out.println("Start bcc");
@@ -490,6 +484,16 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_backfromcc.addActionListener(e->{
             makeGameScreen();
         });
+        btn_screenUp.addActionListener(e->{screenUp();});
+        btn_screenDown.addActionListener(e->{screenDown();});
+        btn_screenLeft.addActionListener(e->{screenLeft();});
+        btn_screenRight.addActionListener(e->{screenRight();});
+
+        backToHome();
+        currentPage = TP;
+        before = -1;
+        colShift =29;
+        rowShift =29;
 
         Thread t = new Thread(this);
         t.start();
@@ -557,16 +561,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_sendMsg.setVisible(false);
         msgScroll.setVisible(false);
         msgList.setVisible(false);
-    }
-    public void sendCommand(int com, String data, GameData gameData){
-        CommandFromClient cfc = new CommandFromClient(com,data,gameData);
-        try{
-            System.out.println("writing"+cfc);
-            os.writeObject(cfc);
-            System.out.println("wrote"+cfc);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
     }
 
     //host methods
@@ -842,6 +836,18 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
 
         //textBox_getUsername.setVisible(true);
+    }
+    public void backToHome(){
+        removeEverythingFromScreen();
+        btn_Join.setVisible(true);
+        btn_Host.setVisible(true);
+        btn_RB.setVisible(true);
+        foePanel.setSetUpJoinScreen(false);
+        foePanel.setDrawTitlePage(true);
+        foePanel.setCharacterselectscreen(false);
+        foePanel.setHostGameSetUpScreen(false);
+        foePanel.setSetUpJoinScreen(false);
+        repaintPanel();
     }
 
     //join methods
@@ -1628,17 +1634,15 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         foePanel.repaint();
 //        repaint();
     }
-    public void backToHome(){
-        removeEverythingFromScreen();
-        btn_Join.setVisible(true);
-        btn_Host.setVisible(true);
-        btn_RB.setVisible(true);
-        foePanel.setSetUpJoinScreen(false);
-        foePanel.setDrawTitlePage(true);
-        foePanel.setCharacterselectscreen(false);
-        foePanel.setHostGameSetUpScreen(false);
-        foePanel.setSetUpJoinScreen(false);
-        repaintPanel();
+    public void sendCommand(int com, String data, GameData gameData){
+        CommandFromClient cfc = new CommandFromClient(com,data,gameData);
+        try{
+            System.out.println("writing"+cfc);
+            os.writeObject(cfc);
+            System.out.println("wrote"+cfc);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 
@@ -1648,6 +1652,60 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
     @Override
     public void keyPressed(KeyEvent e) {
+        if(gameData.getTurn().equals(you)){
+            if(e.getKeyChar()=='a'){
+                if(c-1>=0){
+                    if(c-2<colShift){
+                        screenUp();
+                    }
+                    if(gameData.getGrid()[r][c-1]==null){
+                        //need to place tile
+                    }
+                    else if(gameData.getGrid()[r][c].isLeftSide()&&gameData.getGrid()[r][c-1].isRightSide()){
+                        c--;
+                    }
+                }
+            }
+            else if(e.getKeyChar()=='d'){
+                if(c+1<61){
+                    if(c+1>colShift+5){
+                        screenDown();
+                    }
+                    if(gameData.getGrid()[r][c+1]==null){
+                        //need to place tile
+                    }
+                    else if(gameData.getGrid()[r][c].isRightSide()&&gameData.getGrid()[r][c+1].isLeftSide()){
+                        c++;
+                    }
+                }
+            }
+            else if(e.getKeyChar()=='w'){
+                if(r-1>=0){
+                    if(r-2<rowShift){
+                        screenUp();
+                    }
+                    if(gameData.getGrid()[r-1][c]==null){
+                        //need to place tile
+                    }
+                    else if(gameData.getGrid()[r][c].isTopSide()&&gameData.getGrid()[r-1][c].isBottomSide()){
+                        r--;
+                    }
+                }
+            }
+            else if(e.getKeyChar()=='s'){
+                if(r+1<61){
+                    if(r+1>rowShift+5){
+                        screenDown();
+                    }
+                    if(gameData.getGrid()[r+1][c]==null){
+                        //need to place tile
+                    }
+                    else if(gameData.getGrid()[r][c].isBottomSide()&&gameData.getGrid()[r+1][c].isTopSide()){
+                        r++;
+                    }
+                }
+            }
+        }
 
     }
     @Override
@@ -1683,9 +1741,15 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
     @Override
     public void mouseClicked(MouseEvent e) {
-//        if(gameData.getTurn().equals(you)){
-//            if()
-//        }
+        if(gameData.getTurn().equals(you)){
+            if(e.getX()>355&&e.getX()<1175&&e.getY()>60&&e.getY()<880){
+                int boardCol = (e.getX()-355)/164;
+                int boardRow = (e.getY()-60)/164;
+                int gridCol = boardCol+colShift;
+                int gridRow = boardRow+rowShift;
+            }
+                //g.drawRect(355,60,820,820);
+        }
     }
 
     @Override
