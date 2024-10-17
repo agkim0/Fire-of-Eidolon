@@ -1487,6 +1487,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
         }
         foePanel.setBoard(board);
+        printBoard();
         repaintPanel();
     }
     public void screenUp(){
@@ -1652,6 +1653,23 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+    public void printBoard(){
+        System.out.println();
+        for(int r = 0;r<board.length;r++){
+            System.out.print("[");
+            for(int c = 0;c<board[0].length;c++){
+                if(board[r][c]==null){
+                    System.out.print("B, ");
+                }
+                else{
+                    System.out.print(board[r][c].getName().charAt(0)+", ");
+                }
+            }
+            System.out.println("]");
+        }
+
+
     }
 
 

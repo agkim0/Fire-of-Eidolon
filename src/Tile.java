@@ -209,4 +209,7 @@ public class Tile {
             degRot+=90;
         }
     }
+    public String toString(){
+        return name.charAt(0)+"";
+    }
 }

@@ -585,422 +585,421 @@ public class FOEPanel extends JPanel{
             g.drawRect(355,60,820,820);
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
             g.drawString("Actions:", 55,175);
-            int addX=0;
-            int addY=0;
+            
             if(board[3][3]!=null){
                 //System.out.println("yay");
             }
-            for(int x=0; x<board.length; x++){
-                for(int y=0; y<board[0].length; y++){
-                    if(board[x][y]!=null){
-                        if(board[x][y].getName().equals("Acid Jets")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_AcidJets,355+addX, 60+addY, 164,164,null);
+            for(int r=0; r<board.length; r++){
+                for(int c=0; c<board[0].length; c++){
+                    if(board[r][c]!=null){
+                        if(board[r][c].getName().equals("Acid Jets")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_AcidJets,355+(c*164), 60+(r*164), 164,164,null);
                             }
-                            else if(board[x][y].getDegRot()==90){
+                            else if(board[r][c].getDegRot()==90){
                                 //Bro idk how to rotate
 //                            int newWL = (int)Math.floor(164*Math.abs(Math.cos(90)) + 164*Math.abs(Math.sin(90)));
 //                            rotated = new BufferedImage(newWL,newWL,ct_AcidJets.TYPE_INT_ARGB);
 //                            g.drawImage(rotated,)
                             }
-                            else if(board[x][y].getDegRot()==180){
+                            else if(board[r][c].getDegRot()==180){
 
                             }
-                            else if(board[x][y].getDegRot()==270){
-
-                            }
-                        }
-                        else if(board[x][y].getName().equals("Arrow Trap")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_ArrowTrap,355+addX, 60+addY, 164,164,null);
-                            }
-                            else if(board[x][y].getDegRot()==90){
-
-                            }
-                            else if(board[x][y].getDegRot()==180){
-
-                            }
-                            else if(board[x][y].getDegRot()==270){
+                            else if(board[r][c].getDegRot()==270){
 
                             }
                         }
-                        else if(board[x][y].getName().equals("Dark Slime")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_DarkSlime,355+addX, 60+addY, 164,164,null);
+                        else if(board[r][c].getName().equals("Arrow Trap")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_ArrowTrap,355+(c*164), 60+(r*164), 164,164,null);
                             }
-                            else if(board[x][y].getDegRot()==90){
+                            else if(board[r][c].getDegRot()==90){
 
                             }
-                            else if(board[x][y].getDegRot()==180){
+                            else if(board[r][c].getDegRot()==180){
 
                             }
-                            else if(board[x][y].getDegRot()==270){
-
-                            }
-                        }
-                        else if(board[x][y].getName().equals("Den of Snakes")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_DenofSnakes,355+addX, 60+addY, 164,164,null);
-                            }
-                            else if(board[x][y].getDegRot()==90){
-
-                            }
-                            else if(board[x][y].getDegRot()==180){
-
-                            }
-                            else if(board[x][y].getDegRot()==270){
+                            else if(board[r][c].getDegRot()==270){
 
                             }
                         }
-                        else if(board[x][y].getName().equals("Dragonling")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_Dragonling,355+addX, 60+addY, 164,164,null);
+                        else if(board[r][c].getName().equals("Dark Slime")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_DarkSlime,355+(c*164), 60+(r*164), 164,164,null);
                             }
-                            else if(board[x][y].getDegRot()==90){
+                            else if(board[r][c].getDegRot()==90){
 
                             }
-                            else if(board[x][y].getDegRot()==180){
+                            else if(board[r][c].getDegRot()==180){
 
                             }
-                            else if(board[x][y].getDegRot()==270){
-
-                            }
-                        }
-                        else if(board[x][y].getName().equals("Fel Knight")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_FelKnight,355+addX, 60+addY, 164,164,null);
-                            }
-                            else if(board[x][y].getDegRot()==90){
-
-                            }
-                            else if(board[x][y].getDegRot()==180){
-
-                            }
-                            else if(board[x][y].getDegRot()==270){
+                            else if(board[r][c].getDegRot()==270){
 
                             }
                         }
-                        else if(board[x][y].getName().equals("Fire of Eidolon")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_FOE,355+addX, 60+addY, 164,164,null);
+                        else if(board[r][c].getName().equals("Den of Snakes")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_DenofSnakes,355+(c*164), 60+(r*164), 164,164,null);
                             }
-                            else if(board[x][y].getDegRot()==90){
+                            else if(board[r][c].getDegRot()==90){
 
                             }
-                            else if(board[x][y].getDegRot()==180){
+                            else if(board[r][c].getDegRot()==180){
 
                             }
-                            else if(board[x][y].getDegRot()==270){
-
-                            }
-                        }
-                        else if(board[x][y].getName().equals("Floating Stones")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_FloatingStones,355+addX, 60+addY, 164,164,null);
-                            }
-                            else if(board[x][y].getDegRot()==90){
-
-                            }
-                            else if(board[x][y].getDegRot()==180){
-
-                            }
-                            else if(board[x][y].getDegRot()==270){
+                            else if(board[r][c].getDegRot()==270){
 
                             }
                         }
-                        else if(board[x][y].getName().equals("Hall of Illusion")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_HallofIlusions,355+addX, 60+addY, 164,164,null);
+                        else if(board[r][c].getName().equals("Dragonling")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_Dragonling,355+(c*164), 60+(r*164), 164,164,null);
                             }
-                            else if(board[x][y].getDegRot()==90){
+                            else if(board[r][c].getDegRot()==90){
 
                             }
-                            else if(board[x][y].getDegRot()==180){
+                            else if(board[r][c].getDegRot()==180){
 
                             }
-                            else if(board[x][y].getDegRot()==270){
-
-                            }
-                        }
-                        else if(board[x][y].getName().equals("Laughing Shadow")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_LaughingShadow,355+addX, 60+addY, 164,164,null);
-                            }
-                            else if(board[x][y].getDegRot()==90){
-
-                            }
-                            else if(board[x][y].getDegRot()==180){
-
-                            }
-                            else if(board[x][y].getDegRot()==270){
+                            else if(board[r][c].getDegRot()==270){
 
                             }
                         }
-                        else if(board[x][y].getName().equals("Lava Lake")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_LavaLake,355+addX, 60+addY, 164,164,null);
+                        else if(board[r][c].getName().equals("Fel Knight")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_FelKnight,355+(c*164), 60+(r*164), 164,164,null);
                             }
-                            else if(board[x][y].getDegRot()==90){
+                            else if(board[r][c].getDegRot()==90){
 
                             }
-                            else if(board[x][y].getDegRot()==180){
+                            else if(board[r][c].getDegRot()==180){
 
                             }
-                            else if(board[x][y].getDegRot()==270){
-
-                            }
-                        }
-                        else if(board[x][y].getName().equals("Mimic Chest")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_MimicChest,355+addX, 60+addY, 164,164,null);
-                            }
-                            else if(board[x][y].getDegRot()==90){
-
-                            }
-                            else if(board[x][y].getDegRot()==180){
-
-                            }
-                            else if(board[x][y].getDegRot()==270){
+                            else if(board[r][c].getDegRot()==270){
 
                             }
                         }
-                        else if(board[x][y].getName().equals("Mind Eater")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_Mindreader,355+addX, 60+addY, 164,164,null);
+                        else if(board[r][c].getName().equals("Fire of Eidolon")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_FOE,355+(c*164), 60+(r*164), 164,164,null);
                             }
-                            else if(board[x][y].getDegRot()==90){
+                            else if(board[r][c].getDegRot()==90){
 
                             }
-                            else if(board[x][y].getDegRot()==180){
+                            else if(board[r][c].getDegRot()==180){
 
                             }
-                            else if(board[x][y].getDegRot()==270){
-
-                            }
-                        }
-                        else if(board[x][y].getName().equals("Minotaur")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_Minotaur,355+addX, 60+addY, 164,164,null);
-                            }
-                            else if(board[x][y].getDegRot()==90){
-
-                            }
-                            else if(board[x][y].getDegRot()==180){
-
-                            }
-                            else if(board[x][y].getDegRot()==270){
+                            else if(board[r][c].getDegRot()==270){
 
                             }
                         }
-                        else if(board[x][y].getName().equals("Ogre Brute")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_OgerBrute,355+addX, 60+addY, 164,164,null);
+                        else if(board[r][c].getName().equals("Floating Stones")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_FloatingStones,355+(c*164), 60+(r*164), 164,164,null);
                             }
-                            else if(board[x][y].getDegRot()==90){
+                            else if(board[r][c].getDegRot()==90){
 
                             }
-                            else if(board[x][y].getDegRot()==180){
+                            else if(board[r][c].getDegRot()==180){
 
                             }
-                            else if(board[x][y].getDegRot()==270){
-
-                            }
-                        }
-                        else if(board[x][y].getName().equals("Paradox Puzzle")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_ParodoxPuzzle,355+addX, 60+addY, 164,164,null);
-                            }
-                            else if(board[x][y].getDegRot()==90){
-
-                            }
-                            else if(board[x][y].getDegRot()==180){
-
-                            }
-                            else if(board[x][y].getDegRot()==270){
+                            else if(board[r][c].getDegRot()==270){
 
                             }
                         }
-                        else if(board[x][y].getName().equals("Pengulum Blades")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_PengulumBlades,355+addX, 60+addY, 164,164,null);
+                        else if(board[r][c].getName().equals("Hall of Illusion")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_HallofIlusions,355+(c*164), 60+(r*164), 164,164,null);
                             }
-                            else if(board[x][y].getDegRot()==90){
+                            else if(board[r][c].getDegRot()==90){
 
                             }
-                            else if(board[x][y].getDegRot()==180){
+                            else if(board[r][c].getDegRot()==180){
 
                             }
-                            else if(board[x][y].getDegRot()==270){
-
-                            }
-                        }
-                        else if(board[x][y].getName().equals("Vagrant Portal")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_Portal,355+addX, 60+addY, 164,164,null);
-                            }
-                            else if(board[x][y].getDegRot()==90){
-
-                            }
-                            else if(board[x][y].getDegRot()==180){
-
-                            }
-                            else if(board[x][y].getDegRot()==270){
+                            else if(board[r][c].getDegRot()==270){
 
                             }
                         }
-                        else if(board[x][y].getName().equals("Psychomancer")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_Psycomancer,355+addX, 60+addY, 164,164,null);
+                        else if(board[r][c].getName().equals("Laughing Shadow")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_LaughingShadow,355+(c*164), 60+(r*164), 164,164,null);
                             }
-                            else if(board[x][y].getDegRot()==90){
+                            else if(board[r][c].getDegRot()==90){
 
                             }
-                            else if(board[x][y].getDegRot()==180){
+                            else if(board[r][c].getDegRot()==180){
 
                             }
-                            else if(board[x][y].getDegRot()==270){
-
-                            }
-                        }
-                        else if(board[x][y].getName().equals("Secret Passage X")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_SPX,355+addX, 60+addY, 164,164,null);
-                            }
-                            else if(board[x][y].getDegRot()==90){
-
-                            }
-                            else if(board[x][y].getDegRot()==180){
-
-                            }
-                            else if(board[x][y].getDegRot()==270){
+                            else if(board[r][c].getDegRot()==270){
 
                             }
                         }
-                        else if(board[x][y].getName().equals("Secret Passage Y")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_SPY,355+addX, 60+addY, 164,164,null);
+                        else if(board[r][c].getName().equals("Lava Lake")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_LavaLake,355+(c*164), 60+(r*164), 164,164,null);
                             }
-                            else if(board[x][y].getDegRot()==90){
+                            else if(board[r][c].getDegRot()==90){
 
                             }
-                            else if(board[x][y].getDegRot()==180){
+                            else if(board[r][c].getDegRot()==180){
 
                             }
-                            else if(board[x][y].getDegRot()==270){
-
-                            }
-                        }
-                        else if(board[x][y].getName().equals("Skeletal Guards")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_SkeletonGuards,355+addX, 60+addY, 164,164,null);
-                            }
-                            else if(board[x][y].getDegRot()==90){
-
-                            }
-                            else if(board[x][y].getDegRot()==180){
-
-                            }
-                            else if(board[x][y].getDegRot()==270){
+                            else if(board[r][c].getDegRot()==270){
 
                             }
                         }
-                        else if(board[x][y].getName().equals("Sphynx's Riddle")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_SphynxsRiddle,355+addX, 60+addY, 164,164,null);
+                        else if(board[r][c].getName().equals("Mimic Chest")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_MimicChest,355+(c*164), 60+(r*164), 164,164,null);
                             }
-                            else if(board[x][y].getDegRot()==90){
+                            else if(board[r][c].getDegRot()==90){
 
                             }
-                            else if(board[x][y].getDegRot()==180){
+                            else if(board[r][c].getDegRot()==180){
 
                             }
-                            else if(board[x][y].getDegRot()==270){
-
-                            }
-                        }
-                        else if(board[x][y].getName().equals("Spiked Pit")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_SpikedPit,355+addX, 60+addY, 164,164,null);
-                            }
-                            else if(board[x][y].getDegRot()==90){
-
-                            }
-                            else if(board[x][y].getDegRot()==180){
-
-                            }
-                            else if(board[x][y].getDegRot()==270){
+                            else if(board[r][c].getDegRot()==270){
 
                             }
                         }
-                        else if(board[x][y].getName().equals("Vestibule")){
+                        else if(board[r][c].getName().equals("Mind Eater")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_Mindreader,355+(c*164), 60+(r*164), 164,164,null);
+                            }
+                            else if(board[r][c].getDegRot()==90){
+
+                            }
+                            else if(board[r][c].getDegRot()==180){
+
+                            }
+                            else if(board[r][c].getDegRot()==270){
+
+                            }
+                        }
+                        else if(board[r][c].getName().equals("Minotaur")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_Minotaur,355+(c*164), 60+(r*164), 164,164,null);
+                            }
+                            else if(board[r][c].getDegRot()==90){
+
+                            }
+                            else if(board[r][c].getDegRot()==180){
+
+                            }
+                            else if(board[r][c].getDegRot()==270){
+
+                            }
+                        }
+                        else if(board[r][c].getName().equals("Ogre Brute")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_OgerBrute,355+(c*164), 60+(r*164), 164,164,null);
+                            }
+                            else if(board[r][c].getDegRot()==90){
+
+                            }
+                            else if(board[r][c].getDegRot()==180){
+
+                            }
+                            else if(board[r][c].getDegRot()==270){
+
+                            }
+                        }
+                        else if(board[r][c].getName().equals("Paradox Puzzle")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_ParodoxPuzzle,355+(c*164), 60+(r*164), 164,164,null);
+                            }
+                            else if(board[r][c].getDegRot()==90){
+
+                            }
+                            else if(board[r][c].getDegRot()==180){
+
+                            }
+                            else if(board[r][c].getDegRot()==270){
+
+                            }
+                        }
+                        else if(board[r][c].getName().equals("Pengulum Blades")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_PengulumBlades,355+(c*164), 60+(r*164), 164,164,null);
+                            }
+                            else if(board[r][c].getDegRot()==90){
+
+                            }
+                            else if(board[r][c].getDegRot()==180){
+
+                            }
+                            else if(board[r][c].getDegRot()==270){
+
+                            }
+                        }
+                        else if(board[r][c].getName().equals("Vagrant Portal")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_Portal,355+(c*164), 60+(r*164), 164,164,null);
+                            }
+                            else if(board[r][c].getDegRot()==90){
+
+                            }
+                            else if(board[r][c].getDegRot()==180){
+
+                            }
+                            else if(board[r][c].getDegRot()==270){
+
+                            }
+                        }
+                        else if(board[r][c].getName().equals("Psychomancer")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_Psycomancer,355+(c*164), 60+(r*164), 164,164,null);
+                            }
+                            else if(board[r][c].getDegRot()==90){
+
+                            }
+                            else if(board[r][c].getDegRot()==180){
+
+                            }
+                            else if(board[r][c].getDegRot()==270){
+
+                            }
+                        }
+                        else if(board[r][c].getName().equals("Secret Passage X")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_SPX,355+(c*164), 60+(r*164), 164,164,null);
+                            }
+                            else if(board[r][c].getDegRot()==90){
+
+                            }
+                            else if(board[r][c].getDegRot()==180){
+
+                            }
+                            else if(board[r][c].getDegRot()==270){
+
+                            }
+                        }
+                        else if(board[r][c].getName().equals("Secret Passage Y")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_SPY,355+(c*164), 60+(r*164), 164,164,null);
+                            }
+                            else if(board[r][c].getDegRot()==90){
+
+                            }
+                            else if(board[r][c].getDegRot()==180){
+
+                            }
+                            else if(board[r][c].getDegRot()==270){
+
+                            }
+                        }
+                        else if(board[r][c].getName().equals("Skeletal Guards")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_SkeletonGuards,355+(c*164), 60+(r*164), 164,164,null);
+                            }
+                            else if(board[r][c].getDegRot()==90){
+
+                            }
+                            else if(board[r][c].getDegRot()==180){
+
+                            }
+                            else if(board[r][c].getDegRot()==270){
+
+                            }
+                        }
+                        else if(board[r][c].getName().equals("Sphynx's Riddle")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_SphynxsRiddle,355+(c*164), 60+(r*164), 164,164,null);
+                            }
+                            else if(board[r][c].getDegRot()==90){
+
+                            }
+                            else if(board[r][c].getDegRot()==180){
+
+                            }
+                            else if(board[r][c].getDegRot()==270){
+
+                            }
+                        }
+                        else if(board[r][c].getName().equals("Spiked Pit")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_SpikedPit,355+(c*164), 60+(r*164), 164,164,null);
+                            }
+                            else if(board[r][c].getDegRot()==90){
+
+                            }
+                            else if(board[r][c].getDegRot()==180){
+
+                            }
+                            else if(board[r][c].getDegRot()==270){
+
+                            }
+                        }
+                        else if(board[r][c].getName().equals("Vestibule")){
                             //System.out.println("Vestibule");
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_Vestibule,355+addX, 60+addY, 164,164,null);
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_Vestibule,355+(c*164), 60+(r*164), 164,164,null);
                                 //System.out.println("Drawn");
                             }
-                            else if(board[x][y].getDegRot()==90){
+                            else if(board[r][c].getDegRot()==90){
 
                             }
-                            else if(board[x][y].getDegRot()==180){
+                            else if(board[r][c].getDegRot()==180){
 
                             }
-                            else if(board[x][y].getDegRot()==270){
-
-                            }
-                        }
-                        else if(board[x][y].getName().equals("Voracious Plant")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_VoraciousPlant,355+addX, 60+addY, 164,164,null);
-                            }
-                            else if(board[x][y].getDegRot()==90){
-
-                            }
-                            else if(board[x][y].getDegRot()==180){
-
-                            }
-                            else if(board[x][y].getDegRot()==270){
+                            else if(board[r][c].getDegRot()==270){
 
                             }
                         }
-                        else if(board[x][y].getName().equals("Vorax's Focus")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_VoraxsFocus,355+addX, 60+addY, 164,164,null);
+                        else if(board[r][c].getName().equals("Voracious Plant")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_VoraciousPlant,355+(c*164), 60+(r*164), 164,164,null);
                             }
-                            else if(board[x][y].getDegRot()==90){
+                            else if(board[r][c].getDegRot()==90){
 
                             }
-                            else if(board[x][y].getDegRot()==180){
+                            else if(board[r][c].getDegRot()==180){
 
                             }
-                            else if(board[x][y].getDegRot()==270){
-
-                            }
-                        }
-                        else if(board[x][y].getName().equals("Vorax's Heart")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_VoraxsHeart,355+addX, 60+addY, 164,164,null);
-                            }
-                            else if(board[x][y].getDegRot()==90){
-
-                            }
-                            else if(board[x][y].getDegRot()==180){
-
-                            }
-                            else if(board[x][y].getDegRot()==270){
+                            else if(board[r][c].getDegRot()==270){
 
                             }
                         }
-                        else if(board[x][y].getName().equals("Vorax's Knowledge")){
-                            if(board[x][y].getDegRot()==0){
-                                g.drawImage(ct_VoraxsKnowledge,355+addX, 60+addY, 164,164,null);
+                        else if(board[r][c].getName().equals("Vorax's Focus")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_VoraxsFocus,355+(c*164), 60+(r*164), 164,164,null);
                             }
-                            else if(board[x][y].getDegRot()==90){
+                            else if(board[r][c].getDegRot()==90){
 
                             }
-                            else if(board[x][y].getDegRot()==180){
+                            else if(board[r][c].getDegRot()==180){
 
                             }
-                            else if(board[x][y].getDegRot()==270){
+                            else if(board[r][c].getDegRot()==270){
+
+                            }
+                        }
+                        else if(board[r][c].getName().equals("Vorax's Heart")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_VoraxsHeart,355+(c*164), 60+(r*164), 164,164,null);
+                            }
+                            else if(board[r][c].getDegRot()==90){
+
+                            }
+                            else if(board[r][c].getDegRot()==180){
+
+                            }
+                            else if(board[r][c].getDegRot()==270){
+
+                            }
+                        }
+                        else if(board[r][c].getName().equals("Vorax's Knowledge")){
+                            if(board[r][c].getDegRot()==0){
+                                g.drawImage(ct_VoraxsKnowledge,355+(c*164), 60+(r*164), 164,164,null);
+                            }
+                            else if(board[r][c].getDegRot()==90){
+
+                            }
+                            else if(board[r][c].getDegRot()==180){
+
+                            }
+                            else if(board[r][c].getDegRot()==270){
 
                             }
                         }
