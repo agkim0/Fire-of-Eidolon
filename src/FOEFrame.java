@@ -489,6 +489,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_screenLeft.addActionListener(e->{screenLeft();});
         btn_screenRight.addActionListener(e->{screenRight();});
 
+
         backToHome();
         currentPage = TP;
         before = -1;

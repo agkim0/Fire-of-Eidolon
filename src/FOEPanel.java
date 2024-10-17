@@ -608,6 +608,29 @@ public class FOEPanel extends JPanel{
                             else if(board[r][c].getDegRot()==270){
 
                             }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Arrow Trap")){
                             if(board[r][c].getDegRot()==0){
@@ -621,6 +644,29 @@ public class FOEPanel extends JPanel{
                             }
                             else if(board[r][c].getDegRot()==270){
 
+                            }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
                             }
                         }
                         else if(board[r][c].getName().equals("Dark Slime")){
@@ -636,6 +682,29 @@ public class FOEPanel extends JPanel{
                             else if(board[r][c].getDegRot()==270){
 
                             }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Den of Snakes")){
                             if(board[r][c].getDegRot()==0){
@@ -649,6 +718,29 @@ public class FOEPanel extends JPanel{
                             }
                             else if(board[r][c].getDegRot()==270){
 
+                            }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
                             }
                         }
                         else if(board[r][c].getName().equals("Dragonling")){
@@ -664,6 +756,29 @@ public class FOEPanel extends JPanel{
                             else if(board[r][c].getDegRot()==270){
 
                             }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Fel Knight")){
                             if(board[r][c].getDegRot()==0){
@@ -677,6 +792,29 @@ public class FOEPanel extends JPanel{
                             }
                             else if(board[r][c].getDegRot()==270){
 
+                            }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
                             }
                         }
                         else if(board[r][c].getName().equals("Fire of Eidolon")){
@@ -692,6 +830,29 @@ public class FOEPanel extends JPanel{
                             else if(board[r][c].getDegRot()==270){
 
                             }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Floating Stones")){
                             if(board[r][c].getDegRot()==0){
@@ -705,6 +866,29 @@ public class FOEPanel extends JPanel{
                             }
                             else if(board[r][c].getDegRot()==270){
 
+                            }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
                             }
                         }
                         else if(board[r][c].getName().equals("Hall of Illusion")){
@@ -720,6 +904,29 @@ public class FOEPanel extends JPanel{
                             else if(board[r][c].getDegRot()==270){
 
                             }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Laughing Shadow")){
                             if(board[r][c].getDegRot()==0){
@@ -733,6 +940,29 @@ public class FOEPanel extends JPanel{
                             }
                             else if(board[r][c].getDegRot()==270){
 
+                            }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
                             }
                         }
                         else if(board[r][c].getName().equals("Lava Lake")){
@@ -748,6 +978,29 @@ public class FOEPanel extends JPanel{
                             else if(board[r][c].getDegRot()==270){
 
                             }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Mimic Chest")){
                             if(board[r][c].getDegRot()==0){
@@ -761,6 +1014,29 @@ public class FOEPanel extends JPanel{
                             }
                             else if(board[r][c].getDegRot()==270){
 
+                            }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
                             }
                         }
                         else if(board[r][c].getName().equals("Mind Eater")){
@@ -776,6 +1052,29 @@ public class FOEPanel extends JPanel{
                             else if(board[r][c].getDegRot()==270){
 
                             }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Minotaur")){
                             if(board[r][c].getDegRot()==0){
@@ -789,6 +1088,29 @@ public class FOEPanel extends JPanel{
                             }
                             else if(board[r][c].getDegRot()==270){
 
+                            }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
                             }
                         }
                         else if(board[r][c].getName().equals("Ogre Brute")){
@@ -804,6 +1126,29 @@ public class FOEPanel extends JPanel{
                             else if(board[r][c].getDegRot()==270){
 
                             }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Paradox Puzzle")){
                             if(board[r][c].getDegRot()==0){
@@ -817,6 +1162,29 @@ public class FOEPanel extends JPanel{
                             }
                             else if(board[r][c].getDegRot()==270){
 
+                            }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
                             }
                         }
                         else if(board[r][c].getName().equals("Pengulum Blades")){
@@ -832,6 +1200,29 @@ public class FOEPanel extends JPanel{
                             else if(board[r][c].getDegRot()==270){
 
                             }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Vagrant Portal")){
                             if(board[r][c].getDegRot()==0){
@@ -845,6 +1236,29 @@ public class FOEPanel extends JPanel{
                             }
                             else if(board[r][c].getDegRot()==270){
 
+                            }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
                             }
                         }
                         else if(board[r][c].getName().equals("Psychomancer")){
@@ -860,6 +1274,29 @@ public class FOEPanel extends JPanel{
                             else if(board[r][c].getDegRot()==270){
 
                             }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Secret Passage X")){
                             if(board[r][c].getDegRot()==0){
@@ -873,6 +1310,29 @@ public class FOEPanel extends JPanel{
                             }
                             else if(board[r][c].getDegRot()==270){
 
+                            }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
                             }
                         }
                         else if(board[r][c].getName().equals("Secret Passage Y")){
@@ -888,6 +1348,29 @@ public class FOEPanel extends JPanel{
                             else if(board[r][c].getDegRot()==270){
 
                             }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Skeletal Guards")){
                             if(board[r][c].getDegRot()==0){
@@ -901,6 +1384,29 @@ public class FOEPanel extends JPanel{
                             }
                             else if(board[r][c].getDegRot()==270){
 
+                            }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
                             }
                         }
                         else if(board[r][c].getName().equals("Sphynx's Riddle")){
@@ -916,6 +1422,29 @@ public class FOEPanel extends JPanel{
                             else if(board[r][c].getDegRot()==270){
 
                             }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Spiked Pit")){
                             if(board[r][c].getDegRot()==0){
@@ -929,6 +1458,29 @@ public class FOEPanel extends JPanel{
                             }
                             else if(board[r][c].getDegRot()==270){
 
+                            }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
                             }
                         }
                         else if(board[r][c].getName().equals("Vestibule")){
@@ -946,6 +1498,34 @@ public class FOEPanel extends JPanel{
                             else if(board[r][c].getDegRot()==270){
 
                             }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
+                            }
+
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+17,60+(r*164)+50,45,45,null);
+                            }
+
                         }
                         else if(board[r][c].getName().equals("Voracious Plant")){
                             if(board[r][c].getDegRot()==0){
@@ -959,6 +1539,29 @@ public class FOEPanel extends JPanel{
                             }
                             else if(board[r][c].getDegRot()==270){
 
+                            }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
                             }
                         }
                         else if(board[r][c].getName().equals("Vorax's Focus")){
@@ -974,6 +1577,29 @@ public class FOEPanel extends JPanel{
                             else if(board[r][c].getDegRot()==270){
 
                             }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Vorax's Heart")){
                             if(board[r][c].getDegRot()==0){
@@ -988,6 +1614,29 @@ public class FOEPanel extends JPanel{
                             else if(board[r][c].getDegRot()==270){
 
                             }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Vorax's Knowledge")){
                             if(board[r][c].getDegRot()==0){
@@ -1001,6 +1650,29 @@ public class FOEPanel extends JPanel{
                             }
                             else if(board[r][c].getDegRot()==270){
 
+                            }
+
+                            if(board[r][c].getHeroesOn()!=null){
+                                for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
+                                    if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
+                                        g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Cecilia")){
+                                        g.drawImage(cecelia_Token,355+(c*164)+25,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Daga")){
+                                        g.drawImage(daga_Token,355+(c*164)+50,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kalistos")){
+                                        g.drawImage(kalistos_Token,355+(c*164)+75,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Kaylana")){
+                                        g.drawImage(kaylana_Token,355+(c*164)+100,60+(r*164),50,50,null);
+                                    }
+                                    else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
+                                        g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
+                                    }
+                                }
                             }
                         }
                     }

@@ -103,6 +103,8 @@ public class GameData implements Serializable{
         grid[33][32].setOnBoard(true);
         grid[33][33].setOnBoard(true);
         System.out.println("Vestibule set");
+        grid[31][31].setHeroesOn(heroesPlaying);
+        grid[31][31].setCultistNum(1);
         tileDeck.remove(getThistile("Vestibule"));
         Collections.shuffle(tileDeck);
         Collections.shuffle(currDeck);
