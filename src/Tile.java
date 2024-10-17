@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Tile {
+public class Tile implements Serializable {
     public static final int STR = 0;
     public static final int DEX = 1;
     public static final int INTEL = 2;
