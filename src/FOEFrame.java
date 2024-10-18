@@ -35,6 +35,10 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public static final int WIN = 8;
     public static final int LOSE = 9;
 
+    public static final int MOVE=0;
+    public static final int MOVE_AND_PLACE_TILE=1;
+    int currAction;
+
 
     //start up screen
     private JButton btn_Host = new JButton("Host");
@@ -1517,6 +1521,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         }
     }
     public void move(){
+        currAction=MOVE;
         //highlight possible moves
     }
     public void moveUp(){
@@ -1525,6 +1530,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
                 screenUp();
             }
             if(gameData.getGrid()[r-1][c]==null){
+                currAction=MOVE_AND_PLACE_TILE;
                 foePanel.setShowingTileOnTop(true);
                 repaintPanel();
             }
@@ -1532,6 +1538,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
                 gameData.getGrid()[r][c].getHeroesOn().remove(you);
                 r--;
                 gameData.getGrid()[r][c].getHeroesOn().add(you);
+                repaintPanel();
             }
         }
     }
@@ -1709,20 +1716,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
                 }
             }
             else if(e.getKeyChar()=='w'){
-                if (r -1>0){
-                    if(r-2<rowShift){
-                        screenUp();
-                    }
-                    if(gameData.getGrid()[r-1][c]==null){
-                        foePanel.setShowingTileOnTop(true);
-                        repaintPanel();
-                    }
-                    else{
-                        gameData.getGrid()[r][c].getHeroesOn().remove(you);
-                        r--;
-                        gameData.getGrid()[r][c].getHeroesOn().add(you);
-                    }
-                }
+                moveUp();
             }
             else if(e.getKeyChar()=='s'){
                 if(r+1<61){
@@ -1774,18 +1768,34 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     @Override
     public void mouseClicked(MouseEvent e) {
         if(gameData.getTurn().equals(you)){
-            if(e.getX()>355&&e.getX()<1175&&e.getY()>60&&e.getY()<880){
+            if(e.getX()>355&&e.getX()<1175&&e.getY()>60&&e.getY()<880){//clicking board
                 int boardCol = (e.getX()-355)/164;
                 int boardRow = (e.getY()-60)/164;
                 int gridCol = boardCol+colShift;
                 int gridRow = boardRow+rowShift;
-                if(gameData.getGrid()[gridRow][gridCol]==null){//moving into new chamber
+
+                if(gameData.getGrid()[gridRow][gridCol]==null&&currAction==MOVE_AND_PLACE_TILE){//moving into new chamber
                     if(((gridCol==c-1||gridCol==c+1)&&gridRow==r)||((gridRow==r-1||gridRow==r+1)&&gridCol==c)){
                         if(gridRow==r-1){
                             placeTileUp();
                         }
                         else if(gridRow==r+1){
 
+                        }
+                        else if(gridCol==c-1){
+
+                        }
+                        else if(gridCol==c+1){
+
+                        }
+                    }
+                }
+                else{
+                    if(((gridCol==c-1||gridCol==c+1)&&gridRow==r)||((gridRow==r-1||gridRow==r+1)&&gridCol==c)){
+                        if(gridRow==r-1){
+                            moveUp();
+                        }
+                        else if(gridRow==r+1){
                         }
                         else if(gridCol==c-1){
 
