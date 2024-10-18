@@ -139,6 +139,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private JButton btn_screenRight = new JButton(">");
     private JButton btn_screenLeft = new JButton("<");
     private JButton btn_rot90 = new JButton("90");
+    private JButton btn_backAction = new JButton("Back to Actions");
     private BufferedImage aelfric_Action_Token = null;
     private BufferedImage aelfric_Special_Token = null;
     private BufferedImage cecelia_Action_Token = null;
@@ -328,6 +329,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         actions.setListData(allA.toArray());
         actions.setBounds(24,188,200,150);
         add(actions);
+        btn_backAction.setBounds(235,188,100,50);
+        add(btn_backAction);
         aelfric_Action_Token = ImageIO.read(new File("character cards/aelfric action.png"));
         aelfric_Special_Token = ImageIO.read(new File("character cards/aelfric special.png"));
         cecelia_Action_Token = ImageIO.read(new File("character cards/cecelia action.png"));
@@ -493,6 +496,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_screenDown.addActionListener(e->{screenDown();});
         btn_screenLeft.addActionListener(e->{screenLeft();});
         btn_screenRight.addActionListener(e->{screenRight();});
+        actions.addListSelectionListener(e->{actionSelected();});
+        btn_backAction.addActionListener(e->{backAction();});
+
 
 
         backToHome();
@@ -530,6 +536,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_kaylaspec.setVisible(false);
         btn_siriaction.setVisible(false);
         btn_sirispec.setVisible(false);
+        btn_backAction.setVisible(false);
 
         btn_aelfric.setVisible(false);
         btn_cecilia.setVisible(false);
@@ -994,6 +1001,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         msgList.setVisible(true);
         msgScroll.setVisible(true);
         msgList.setListData(gameData.getMsgs().toArray());
+        gameData.setHeroesPlaying(new ArrayList<Hero>());
     }
     public void aelfricSelect(){
         checkselectedcc();
@@ -1102,7 +1110,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         repaintPanel();
         currSelectedHero = "Sirius";
         if(!gameData.getSiriusPlayer().equals("")){
-            btn_selectCharacter.setText("taken");
+            btn_selectCharacter.setText("Character taken");
             btn_selectCharacter.setEnabled(false);
         }
         else{
@@ -1111,7 +1119,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         }
     }
     public void selectHero(){
-
         sendCommand(CommandFromClient.HERO_SELECTED,currSelectedHero+","+username,gameData);
     }
     public void heroSelected(boolean selected){
@@ -1520,26 +1527,73 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             setBoard();
         }
     }
+    public void actionSelected(){
+        btn_backAction.setVisible(true);
+        if(actions.getSelectedValue().equals("move")){
+            move();
+        }
+        else if(actions.getSelectedValue().equals("move and place tile")){
+            moveAndPlaceTile();
+        }
+    }
+    public void backAction(){
+        currAction=-1;
+        actions.setEnabled(true);
+        btn_backAction.setVisible(false);
+    }
     public void move(){
         currAction=MOVE;
+        actions.setEnabled(false);
         //highlight possible moves
+    }
+    public void moveAndPlaceTile(){
+        foePanel.setShowingTileOnTop(true);
+        currAction=MOVE_AND_PLACE_TILE;
+        //highlight surrounding areas
+        repaintPanel();
     }
     public void moveUp(){
         if (r -1>0){
             if(r-2<rowShift){
                 screenUp();
             }
-            if(gameData.getGrid()[r-1][c]==null){
-                currAction=MOVE_AND_PLACE_TILE;
-                foePanel.setShowingTileOnTop(true);
-                repaintPanel();
+            gameData.getGrid()[r][c].getHeroesOn().remove(you);
+            r--;
+            gameData.getGrid()[r][c].getHeroesOn().add(you);
+            repaintPanel();
+        }
+    }
+    public void moveDown(){
+        if (r +1<61){
+            if(r+1>rowShift+5){
+                screenDown();
             }
-            else{
-                gameData.getGrid()[r][c].getHeroesOn().remove(you);
-                r--;
-                gameData.getGrid()[r][c].getHeroesOn().add(you);
-                repaintPanel();
+            gameData.getGrid()[r][c].getHeroesOn().remove(you);
+            r++;
+            gameData.getGrid()[r][c].getHeroesOn().add(you);
+            repaintPanel();
+        }
+    }
+    public void moveLeft(){
+        if (c -1>0){
+            if(c-2<colShift){
+                screenLeft();
             }
+            gameData.getGrid()[r][c].getHeroesOn().remove(you);
+            c--;
+            gameData.getGrid()[r][c].getHeroesOn().add(you);
+            repaintPanel();
+        }
+    }
+    public void moveRight(){
+        if (c +1<61){
+            if(c+1>colShift+5){
+                screenRight();
+            }
+            gameData.getGrid()[r][c].getHeroesOn().remove(you);
+            c++;
+            gameData.getGrid()[r][c].getHeroesOn().add(you);
+            repaintPanel();
         }
     }
     public void placeTileUp(){
@@ -1647,6 +1701,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_backcc.repaint();
         btn_frontcc.repaint();
         btn_backfromcc.repaint();
+        btn_backAction.repaint();
     }
     public void repaintPanel(){
         foePanel.setGameData(this.gameData);
@@ -1780,29 +1835,33 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
                             placeTileUp();
                         }
                         else if(gridRow==r+1){
-
+                            placeTileDown();
                         }
                         else if(gridCol==c-1){
-
+                            placeTileLeft();
                         }
                         else if(gridCol==c+1){
-
+                            placeTileRight();
                         }
                     }
                 }
-                else{
+                else if(currAction==MOVE){
                     if(((gridCol==c-1||gridCol==c+1)&&gridRow==r)||((gridRow==r-1||gridRow==r+1)&&gridCol==c)){
-                        if(gridRow==r-1){
-                            moveUp();
+                        if(gameData.getGrid()[gridRow][gridCol]!=null){
+                            if(gridRow==r-1){
+                                moveUp();
+                            }
+                            else if(gridRow==r+1){
+                                moveDown();
+                            }
+                            else if(gridCol==c-1){
+                                moveRight();
+                            }
+                            else if(gridCol==c+1){
+                                moveLeft();
+                            }
                         }
-                        else if(gridRow==r+1){
-                        }
-                        else if(gridCol==c-1){
 
-                        }
-                        else if(gridCol==c+1){
-
-                        }
                     }
                 }
 

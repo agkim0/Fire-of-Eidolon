@@ -129,7 +129,7 @@ public class ServersListener implements Runnable, Serializable {
                             room.getGameData().getHeroesPlaying().add(GameData.KAYLANA);
                         }
                     }
-                    else if(cfc.getData().equals("Sirius")){
+                    else if(wantedCharacter.equals("Sirius")){
                         if(room.getGameData().getSiriusPlayer().equals("")){
                             taken = false;
                             room.getGameData().setSiriusPlayer(user);
