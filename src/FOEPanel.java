@@ -631,6 +631,20 @@ public class FOEPanel extends JPanel{
                                     }
                                 }
                             }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Arrow Trap")){
                             if(board[r][c].getDegRot()==0){
@@ -666,6 +680,20 @@ public class FOEPanel extends JPanel{
                                     else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
                                         g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
                                     }
+                                }
+                            }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
                                 }
                             }
                         }
@@ -705,6 +733,20 @@ public class FOEPanel extends JPanel{
                                     }
                                 }
                             }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Den of Snakes")){
                             if(board[r][c].getDegRot()==0){
@@ -740,6 +782,20 @@ public class FOEPanel extends JPanel{
                                     else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
                                         g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
                                     }
+                                }
+                            }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
                                 }
                             }
                         }
@@ -779,6 +835,20 @@ public class FOEPanel extends JPanel{
                                     }
                                 }
                             }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Fel Knight")){
                             if(board[r][c].getDegRot()==0){
@@ -814,6 +884,20 @@ public class FOEPanel extends JPanel{
                                     else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
                                         g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
                                     }
+                                }
+                            }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
                                 }
                             }
                         }
@@ -853,6 +937,20 @@ public class FOEPanel extends JPanel{
                                     }
                                 }
                             }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Floating Stones")){
                             if(board[r][c].getDegRot()==0){
@@ -888,6 +986,20 @@ public class FOEPanel extends JPanel{
                                     else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
                                         g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
                                     }
+                                }
+                            }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
                                 }
                             }
                         }
@@ -927,6 +1039,20 @@ public class FOEPanel extends JPanel{
                                     }
                                 }
                             }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Laughing Shadow")){
                             if(board[r][c].getDegRot()==0){
@@ -962,6 +1088,20 @@ public class FOEPanel extends JPanel{
                                     else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
                                         g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
                                     }
+                                }
+                            }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
                                 }
                             }
                         }
@@ -1001,6 +1141,20 @@ public class FOEPanel extends JPanel{
                                     }
                                 }
                             }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Mimic Chest")){
                             if(board[r][c].getDegRot()==0){
@@ -1036,6 +1190,20 @@ public class FOEPanel extends JPanel{
                                     else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
                                         g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
                                     }
+                                }
+                            }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
                                 }
                             }
                         }
@@ -1075,6 +1243,20 @@ public class FOEPanel extends JPanel{
                                     }
                                 }
                             }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Minotaur")){
                             if(board[r][c].getDegRot()==0){
@@ -1110,6 +1292,20 @@ public class FOEPanel extends JPanel{
                                     else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
                                         g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
                                     }
+                                }
+                            }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
                                 }
                             }
                         }
@@ -1149,6 +1345,20 @@ public class FOEPanel extends JPanel{
                                     }
                                 }
                             }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Paradox Puzzle")){
                             if(board[r][c].getDegRot()==0){
@@ -1184,6 +1394,20 @@ public class FOEPanel extends JPanel{
                                     else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
                                         g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
                                     }
+                                }
+                            }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
                                 }
                             }
                         }
@@ -1223,6 +1447,20 @@ public class FOEPanel extends JPanel{
                                     }
                                 }
                             }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Vagrant Portal")){
                             if(board[r][c].getDegRot()==0){
@@ -1258,6 +1496,20 @@ public class FOEPanel extends JPanel{
                                     else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
                                         g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
                                     }
+                                }
+                            }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
                                 }
                             }
                         }
@@ -1297,6 +1549,20 @@ public class FOEPanel extends JPanel{
                                     }
                                 }
                             }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Secret Passage X")){
                             if(board[r][c].getDegRot()==0){
@@ -1332,6 +1598,20 @@ public class FOEPanel extends JPanel{
                                     else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
                                         g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
                                     }
+                                }
+                            }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
                                 }
                             }
                         }
@@ -1371,6 +1651,20 @@ public class FOEPanel extends JPanel{
                                     }
                                 }
                             }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Skeletal Guards")){
                             if(board[r][c].getDegRot()==0){
@@ -1406,6 +1700,20 @@ public class FOEPanel extends JPanel{
                                     else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
                                         g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
                                     }
+                                }
+                            }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
                                 }
                             }
                         }
@@ -1445,6 +1753,20 @@ public class FOEPanel extends JPanel{
                                     }
                                 }
                             }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Spiked Pit")){
                             if(board[r][c].getDegRot()==0){
@@ -1482,6 +1804,20 @@ public class FOEPanel extends JPanel{
                                     }
                                 }
                             }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Vestibule")){
                             //System.out.println("Vestibule");
@@ -1490,7 +1826,8 @@ public class FOEPanel extends JPanel{
                                 //System.out.println("Drawn");
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                BufferedImage wen = rotate(ct_Vestibule, 90);
+                                g.drawImage(wen,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
 
@@ -1523,11 +1860,17 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getCultistNum()==1){
-                                g.drawImage(cultist_Token,355+(c*164)+17,60+(r*164)+50,45,45,null);
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
                             }
                             if(board[r][c].isToken()){
-                                if(board[r][c].getSkillType()==STR){
-                                    
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
                                 }
                             }
 
@@ -1568,6 +1911,20 @@ public class FOEPanel extends JPanel{
                                     }
                                 }
                             }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Vorax's Focus")){
                             if(board[r][c].getDegRot()==0){
@@ -1603,6 +1960,20 @@ public class FOEPanel extends JPanel{
                                     else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
                                         g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
                                     }
+                                }
+                            }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
                                 }
                             }
                         }
@@ -1642,6 +2013,20 @@ public class FOEPanel extends JPanel{
                                     }
                                 }
                             }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                            }
                         }
                         else if(board[r][c].getName().equals("Vorax's Knowledge")){
                             if(board[r][c].getDegRot()==0){
@@ -1677,6 +2062,20 @@ public class FOEPanel extends JPanel{
                                     else if(board[r][c].getHeroesOn().get(x).getName().equals("Sirius")){
                                         g.drawImage(sirius_Token,355+(c*164)+125,60+(r*164),50,50,null);
                                     }
+                                }
+                            }
+                            if(board[r][c].getCultistNum()==1){
+                                g.drawImage(cultist_Token,355+(c*164)+20,60+(r*164)+52,45,45,null);
+                            }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==0){
+                                    g.drawImage(str_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==1){
+                                    g.drawImage(dex_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
+                                }
+                                else if(board[r][c].getSkillType()==2){
+                                    g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
                                 }
                             }
                         }
@@ -1718,6 +2117,21 @@ public class FOEPanel extends JPanel{
                 g.drawImage(sirius_Character_Card,500,200,550,350,null);
             }
         }
+    }
+
+    public static BufferedImage rotate(BufferedImage src, int deg){
+        if(deg == 90){
+            System.out.println("rotate 90");
+            int width = src.getWidth();
+            int height = src.getHeight();
+            BufferedImage wen = new BufferedImage(height, width, src.getType());
+            Graphics2D graphics2D = wen.createGraphics();
+            graphics2D.translate((height-width)/2, (height-width)/2);
+            graphics2D.rotate(Math.PI/2, height/2,width/2);
+            //graphics2D.drawRenderableImage(src, null);
+            return  wen;
+        }
+        return null;
     }
 
     public void drawCenteredString(Graphics g,String text,int x, int y){
@@ -1787,5 +2201,4 @@ public class FOEPanel extends JPanel{
     public void setHostRoomCodeScreen(boolean hostRoomCodeScreen) {
         this.hostRoomCodeScreen = hostRoomCodeScreen;
     }
-    
 }
