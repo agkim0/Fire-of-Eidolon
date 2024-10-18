@@ -319,6 +319,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
         //game screen
         allA.add("move");
+        allA.add("place and move");
         allA.add("explore");
         allA.add("exchange");
         allA.add("attack");

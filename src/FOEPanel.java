@@ -1525,6 +1525,11 @@ public class FOEPanel extends JPanel{
                             if(board[r][c].getCultistNum()==1){
                                 g.drawImage(cultist_Token,355+(c*164)+17,60+(r*164)+50,45,45,null);
                             }
+                            if(board[r][c].isToken()){
+                                if(board[r][c].getSkillType()==STR){
+                                    
+                                }
+                            }
 
                         }
                         else if(board[r][c].getName().equals("Voracious Plant")){
