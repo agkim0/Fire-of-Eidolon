@@ -2117,6 +2117,114 @@ public class FOEPanel extends JPanel{
                 g.drawImage(sirius_Character_Card,500,200,550,350,null);
             }
         }
+        if(showingTileOnTop){
+            BufferedImage img = null;
+            if(gameData.getCurrDeck().get(0).getName().equals("Acid Jets")){
+                img=ct_AcidJets;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Arrow Trap")){
+                img=ct_ArrowTrap;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Dark Slime")){
+                img=ct_DarkSlime;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Den of Snakes")){
+                img=ct_DenofSnakes;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Dragonling")){
+                img=ct_Dragonling;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Fel Knight")){
+                img=ct_FelKnight;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Floating Stones")){
+                img=ct_FloatingStones;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Hall of Illusions")){
+                img=ct_HallofIlusions;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Laughing Shadow")){
+                img=ct_LaughingShadow;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Lava Lake")){
+                img=ct_LavaLake;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Mimic Chest")){
+                img=ct_MimicChest;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Mindreader")){
+                img=ct_Mindreader;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Minotaur")){
+                img=ct_Minotaur;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Oger Brute")){
+                img=ct_OgerBrute;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Paradox Puzzle")){
+                img=ct_ParodoxPuzzle;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Pengulum Blades")){
+                img=ct_PengulumBlades;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Psychomancer")){
+                img=ct_Psycomancer;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Secret Passage X")){
+                img=ct_SPX;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Secret Passage Y")){
+                img=ct_SPY;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Skeleton Guards")){
+                img=ct_SkeletonGuards;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Sphynx's Riddle")){
+                img=ct_SphynxsRiddle;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Spiked Pit")){
+                img=ct_SpikedPit;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Voracious Plant")){
+                img=ct_VoraciousPlant;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Vorax's Focus")){
+                img=ct_VoraxsFocus;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Vorax's Heart")){
+                img=ct_VoraxsHeart;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Vorax's Knowledge")){
+                img=ct_VoraxsKnowledge;
+                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            }
+            g.drawImage(img,25,425,150,150,null);
+        }
     }
 
     public static BufferedImage rotate(BufferedImage src, int deg){

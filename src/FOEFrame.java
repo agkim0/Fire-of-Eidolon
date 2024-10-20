@@ -20,6 +20,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private int colShift;
     private int rowShift;
     String username;
+    ArrayList<String> msgs = new ArrayList<>();
+    private int actionPts = 3;
     private GameData gameData;
     private FOEPanel foePanel;
     ObjectOutputStream os;
@@ -37,6 +39,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
     public static final int MOVE=0;
     public static final int MOVE_AND_PLACE_TILE=1;
+    public static final int EXPLORE=2;
     int currAction;
 
 
@@ -287,10 +290,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         add(msgBox);
         btn_sendMsg.setBounds(1400,900,50,50);
         add(btn_sendMsg);
-        ArrayList<String> msgTest = new ArrayList<>();
         this.gameData = new GameData();
-        gameData.setMsgs(msgTest);
-        msgList.setListData(gameData.getMsgs().toArray());
+        msgList.setListData(msgs.toArray());
         msgScroll.setBounds(1200,600,250,250);
         add(msgScroll);
 
@@ -935,10 +936,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void sendMsg(){
         String msg = msgBox.getText();
         msgBox.setText("");
-        sendCommand(CommandFromClient.MSG,username+": "+msg,gameData);
+        sendCommand(CommandFromClient.MSG,username+": "+msg,null);
     }
-    public void recieveMsg(){
-        msgList.setListData(gameData.getMsgs().toArray());
+    public void recieveMsg(String msg){
+        msgs.add(msg);
+        msgList.setListData(msgs.toArray());
     }
 
     //character selection methods
@@ -1528,12 +1530,21 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         }
     }
     public void actionSelected(){
+        if(actionPts<=0&&!actions.getSelectedValue().equals("end turn")){
+            actionPts=3;
+            msgs.add("Server: You are out of AP! Click end turn to finish!");
+        }
+        
+        actions.setEnabled(false);
         btn_backAction.setVisible(true);
         if(actions.getSelectedValue().equals("move")){
             move();
         }
-        else if(actions.getSelectedValue().equals("move and place tile")){
+        else if(actions.getSelectedValue().equals("place and move")){
             moveAndPlaceTile();
+        }
+        else if(actions.getSelectedValue().equals("explore")){
+            explore();
         }
     }
     public void backAction(){
@@ -1598,16 +1609,65 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
     public void placeTileUp(){
         if(gameData.getTileDeck().get(0).isBottomSide()&&gameData.getGrid()[r][c].isTopSide()){
-            gameData.getGrid()[r--][c]=gameData.getTileDeck().get(0);
+            gameData.getGrid()[r-1][c]=gameData.getTileDeck().get(0);
             gameData.getTileDeck().remove(0);
+            foePanel.setShowingTileOnTop(false);
+            if(currAction==MOVE_AND_PLACE_TILE){
+                gameData.getGrid()[r][c].getHeroesOn().remove(you);
+                r--;
+                gameData.getGrid()[r-1][c].getHeroesOn().add(you);
+            }
+            actionPts--;
             repaintPanel();
         }
     }
     public void placeTileDown(){
+        if(gameData.getTileDeck().get(0).isTopSide()&&gameData.getGrid()[r][c].isBottomSide()){
+            gameData.getGrid()[r+1][c]=gameData.getTileDeck().get(0);
+            gameData.getTileDeck().remove(0);
+            foePanel.setShowingTileOnTop(false);
+            if(currAction==MOVE_AND_PLACE_TILE){
+                gameData.getGrid()[r][c].getHeroesOn().remove(you);
+                r++;
+                gameData.getGrid()[r+1][c].getHeroesOn().add(you);
+            }
+            actionPts--;
+            repaintPanel();
+        }
     }
-    public void placeTileLeft(){}
-    public void placeTileRight(){}
-    public void explore(){}
+    public void placeTileLeft(){
+        if(gameData.getTileDeck().get(0).isRightSide()&&gameData.getGrid()[r][c].isLeftSide()){
+            gameData.getGrid()[r][c-1]=gameData.getTileDeck().get(0);
+            gameData.getTileDeck().remove(0);
+            foePanel.setShowingTileOnTop(false);
+            if(currAction==MOVE_AND_PLACE_TILE){
+                gameData.getGrid()[r][c].getHeroesOn().remove(you);
+                c--;
+                gameData.getGrid()[r][c-1].getHeroesOn().add(you);
+            }
+            actionPts--;
+            repaintPanel();
+        }
+    }
+    public void placeTileRight(){
+        if(gameData.getTileDeck().get(0).isLeftSide()&&gameData.getGrid()[r][c].isRightSide()){
+            gameData.getGrid()[r][c+1]=gameData.getTileDeck().get(0);
+            gameData.getTileDeck().remove(0);
+            foePanel.setShowingTileOnTop(false);
+            if(currAction==MOVE_AND_PLACE_TILE){
+                gameData.getGrid()[r][c].getHeroesOn().remove(you);
+                c++;
+                gameData.getGrid()[r][c+1].getHeroesOn().add(you);
+            }
+            actionPts--;
+            repaintPanel();
+        }
+    }
+    public void explore(){
+        currAction=EXPLORE;
+        foePanel.setShowingTileOnTop(true);
+        repaintPanel();
+    }
     public void attack(){}
     public void challenge(){}
     public void wait_A(){}
@@ -1862,6 +1922,20 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
                             }
                         }
 
+                    }
+                }
+                else if(currAction==EXPLORE){
+                    if(gameData.getGrid()[gridRow-1][gridCol]!=null){
+                        placeTileUp();
+                    }
+                    else if(gameData.getGrid()[gridRow+1][gridCol]!=null){
+                        placeTileDown();
+                    }
+                    else if(gameData.getGrid()[gridRow][gridCol-1]!=null){
+                        placeTileLeft();
+                    }
+                    else if(gameData.getGrid()[gridRow][gridCol+1]!=null){
+                        placeTileRight();
                     }
                 }
 

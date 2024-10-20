@@ -150,8 +150,7 @@ public class ServersListener implements Runnable, Serializable {
                     }
                 }
                 else if(cfc.getCommand()==CommandFromClient.MSG){
-                    room.getGameData().getMsgs().add(cfc.getData());
-                    sendCommandtoAllUsers(CommandFromServer.MESSAGE,cfc.getData(),room.getGameData());
+                    sendCommandtoAllUsers(CommandFromServer.MESSAGE,cfc.getData(),null);
                 }
 
             }catch(Exception e){
