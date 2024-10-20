@@ -468,5 +468,11 @@ public class GameData implements Serializable{
         this.numOfPlayers = numOfPlayers;
     }
 
+    public int getOrderOfTurnIndex() {
+        return orderOfTurnIndex;
+    }
 
+    public void setOrderOfTurnIndex(int orderOfTurnIndex) {
+        this.orderOfTurnIndex = orderOfTurnIndex;
+    }
 }

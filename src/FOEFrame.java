@@ -1546,6 +1546,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         else if(actions.getSelectedValue().equals("explore")){
             explore();
         }
+        else if(actions.getSelectedValue().equals("end turn")){
+            endTurn();
+        }
     }
     public void backAction(){
         currAction=-1;
@@ -1572,6 +1575,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             r--;
             gameData.getGrid()[r][c].getHeroesOn().add(you);
             repaintPanel();
+            actions.setEnabled(true);
+            btn_backAction.setVisible(false);
+            sendCommand(CommandFromClient.ACTION,"move",gameData);
         }
     }
     public void moveDown(){
@@ -1583,6 +1589,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             r++;
             gameData.getGrid()[r][c].getHeroesOn().add(you);
             repaintPanel();
+            actions.setEnabled(true);
+            btn_backAction.setVisible(false);
+            sendCommand(CommandFromClient.ACTION,"move",gameData);
         }
     }
     public void moveLeft(){
@@ -1594,6 +1603,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             c--;
             gameData.getGrid()[r][c].getHeroesOn().add(you);
             repaintPanel();
+            actions.setEnabled(true);
+            btn_backAction.setVisible(false);
+            sendCommand(CommandFromClient.ACTION,"move",gameData);
         }
     }
     public void moveRight(){
@@ -1605,6 +1617,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             c++;
             gameData.getGrid()[r][c].getHeroesOn().add(you);
             repaintPanel();
+            actions.setEnabled(true);
+            btn_backAction.setVisible(false);
+            sendCommand(CommandFromClient.ACTION,"move",gameData);
         }
     }
     public void placeTileUp(){
@@ -1619,6 +1634,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
             actionPts--;
             repaintPanel();
+            actions.setEnabled(true);
+            btn_backAction.setVisible(false);
+            sendCommand(CommandFromClient.ACTION,"place tile",gameData);
         }
     }
     public void placeTileDown(){
@@ -1633,6 +1651,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
             actionPts--;
             repaintPanel();
+            actions.setEnabled(true);
+            btn_backAction.setVisible(false);
+            sendCommand(CommandFromClient.ACTION,"place tile",gameData);
         }
     }
     public void placeTileLeft(){
@@ -1647,6 +1668,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
             actionPts--;
             repaintPanel();
+            actions.setEnabled(true);
+            btn_backAction.setVisible(false);
+            sendCommand(CommandFromClient.ACTION,"place tile",gameData);
         }
     }
     public void placeTileRight(){
@@ -1661,6 +1685,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
             actionPts--;
             repaintPanel();
+            actions.setEnabled(true);
+            btn_backAction.setVisible(false);
+            sendCommand(CommandFromClient.ACTION,"place tile",gameData);
         }
     }
     public void explore(){
@@ -1673,6 +1700,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void wait_A(){}
     public void skill(){}
     public void message(){}
+    public void endTurn(){
+        sendCommand(CommandFromClient.END_TURN,null,gameData);
+    }
     public void reset(){
         System.out.println("reset");
         //character = new Hero();

@@ -152,6 +152,20 @@ public class ServersListener implements Runnable, Serializable {
                 else if(cfc.getCommand()==CommandFromClient.MSG){
                     sendCommandtoAllUsers(CommandFromServer.MESSAGE,cfc.getData(),null);
                 }
+                else if(cfc.getCommand()==CommandFromClient.ACTION){
+                    sendCommandtoAllUsers(CommandFromServer.ACTION,null,cfc.getGameData());
+                }
+                else if(cfc.getCommand()==CommandFromClient.END_TURN){
+                    if(room.getGameData().getOrderOfTurnIndex()+1==room.getGameData().getOrderOfTurns().size()){
+                        room.getGameData().setOrderOfTurnIndex(0);
+                    }
+                    else{
+                        room.getGameData().setOrderOfTurnIndex(room.getGameData().getOrderOfTurnIndex()+1);
+                    }
+                    
+                    room.getGameData().setCurHero(room.getGameData().getOrderOfTurns().get(room.getGameData().getOrderOfTurnIndex()));
+                    sendCommandtoAllUsers(CommandFromServer.ENDTURN,null,room.getGameData());
+                }
 
             }catch(Exception e){
                 e.printStackTrace();
