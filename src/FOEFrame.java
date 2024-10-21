@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import static java.lang.Integer.parseInt;
 
-public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener, MouseListener,Runnable{
+public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener, MouseListener{
 
     //player and game info
     private Hero you;
@@ -509,8 +509,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         colShift =29;
         rowShift =29;
 
-        Thread t = new Thread(this);
-        t.start();
+
     }
 
     public void removeEverythingFromScreen(){
@@ -894,7 +893,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             tf=false;
         }
         if(tf){
-            System.out.println(textBox_getRoomCode.getText()+","+textBox_getUsername.getText());
+            //System.out.println(textBox_getRoomCode.getText()+","+textBox_getUsername.getText());
             sendCommand(CommandFromClient.JOINING_HOST_GAME,textBox_getRoomCode.getText()+","+textBox_getUsername.getText(),gameData);
             sendCommand(CommandFromClient.LOBBY_CODE_ATTEMPT,textBox_getRoomCode.getText()+","+textBox_getUsername.getText(),gameData);
         }
@@ -911,10 +910,10 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         }
     }
     public void usernameValid(boolean valid){
-        System.out.println("usernamehelpter: "+text_numOfPlayersBox.getText());
+        //System.out.println("usernamehelpter: "+text_numOfPlayersBox.getText());
         if(valid){
             username = textBox_getUsername.getText();
-            System.out.println("valid");
+            //System.out.println("valid");
             btn_checkRoomCode.setVisible(false);
             textBox_getUsername.setEnabled(false);
             text_roomCode.setEnabled(false);
@@ -1009,7 +1008,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void aelfricSelect(){
         checkselectedcc();
         you = AELFRIC;
-        System.out.println("selected aelfric");
+        //System.out.println("selected aelfric");
         foePanel.setCurHero(0);
         foePanel.setCharacterselectscreen(true);
         foePanel.setSetUpJoinScreen(false);
@@ -1028,7 +1027,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
     public void ceceliaSelect(){
         you = CECELIA;
-        System.out.println("selected cecilia");
+        //System.out.println("selected cecilia");
         foePanel.setCurHero(1);
         foePanel.setCharacterselectscreen(true);
         foePanel.setSetUpJoinScreen(false);
@@ -1047,7 +1046,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
     public void dagaSelect(){
         you = DAGA;
-        System.out.println("selected daga");
+        //System.out.println("selected daga");
         foePanel.setCurHero(2);
         foePanel.setCharacterselectscreen(true);
         foePanel.setSetUpJoinScreen(false);
@@ -1066,7 +1065,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
     public void kalistosSelect(){
         you = KALISTOS;
-        System.out.println("selected kalistos");
+        //System.out.println("selected kalistos");
         foePanel.setCurHero(3);
         foePanel.setCharacterselectscreen(true);
         foePanel.setSetUpJoinScreen(false);
@@ -1104,7 +1103,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
     public void siriusSelect(){
         you = SIRIUS;
-        System.out.println("selected sirius");
+        //System.out.println("selected sirius");
         foePanel.setCurHero(5);
         foePanel.setCharacterselectscreen(true);
         foePanel.setSetUpJoinScreen(false);
@@ -1127,7 +1126,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void heroSelected(boolean selected){
         if(selected){
             btn_selectCharacter.setEnabled(false);
-            System.out.println(foePanel.getCurHero());
+            //System.out.println(foePanel.getCurHero());
             String name = "";
             if(foePanel.getCurHero() == 0){
                 name = "Aelfric";
@@ -1371,18 +1370,18 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         foePanel.setCcscreen(true);
         foePanel.setInd(ind);
         repaintPanel();
-        System.out.println("Index: "+ind);
+        //System.out.println("Index: "+ind);
     }
     public void bcc(){
-        System.out.println("Index Bef: "+ind);
+        //System.out.println("Index Bef: "+ind);
         if(ind==0){
             ind=gameData.getHeroesPlaying().size()-1;
         }
         else{
-            System.out.println("Index Bef: "+ind);
+            //System.out.println("Index Bef: "+ind);
             ind-=1;
         }
-        System.out.println("Index aft: "+ind);
+        //System.out.println("Index aft: "+ind);
         foePanel.setSetUpJoinScreen(false);
         foePanel.setDrawTitlePage(false);
         foePanel.setHostGameSetUpScreen(false);
@@ -1395,14 +1394,14 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         repaintPanel();
     }
     public void fcc(){
-        System.out.println("Index bef: "+ind);
+       // System.out.println("Index bef: "+ind);
         if(ind>=gameData.getHeroesPlaying().size()-1){
             ind=0;
         }
         else{
             ind+=1;
         }
-        System.out.println("Index aft: "+ind);
+      //  System.out.println("Index aft: "+ind);
         foePanel.setSetUpJoinScreen(false);
         foePanel.setDrawTitlePage(false);
         foePanel.setHostGameSetUpScreen(false);
@@ -1413,7 +1412,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         foePanel.setInd(ind);
         foePanel.setCcscreen(true);
         repaintPanel();
-        System.out.println("Index: "+ind);
+        //System.out.println("Index: "+ind);
     }
 
     //main game screen
@@ -1728,7 +1727,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         sendCommand(CommandFromClient.END_TURN,null,gameData);
     }
     public void reset(){
-        System.out.println("reset");
+       // System.out.println("reset");
         //character = new Hero();
         repaint();
     }
@@ -1760,6 +1759,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 //        g.setColor(Color.BLACK);
 //        g.fillRect(0,0,getWidth(),getHeight());
 //        g.drawImage(img,50,50, 800,800,null);
+      
         btn_Host.repaint();
         btn_Join.repaint();
         btn_RB.repaint();
@@ -1826,26 +1826,26 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void sendCommand(int com, String data, GameData gameData){
         CommandFromClient cfc = new CommandFromClient(com,data,gameData);
         try{
-            System.out.println("writing"+cfc);
+            //System.out.println("writing"+cfc);
             os.writeObject(cfc);
-            System.out.println("wrote"+cfc);
+            //System.out.println("wrote"+cfc);
         }catch (Exception e){
             e.printStackTrace();
         }
     }
     public void printBoard(){
-        System.out.println();
+        //System.out.println();
         for(int r = 0;r<board.length;r++){
-            System.out.print("[");
+            //System.out.print("[");
             for(int c = 0;c<board[0].length;c++){
                 if(board[r][c]==null){
-                    System.out.print("B, ");
+                    //System.out.print("B, ");
                 }
                 else{
-                    System.out.print(board[r][c].getName().charAt(0)+", ");
+                    //System.out.print(board[r][c].getName().charAt(0)+", ");
                 }
             }
-            System.out.println("]");
+            //System.out.println("]");
         }
 
 
@@ -1916,24 +1916,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void windowLostFocus(WindowEvent e) {
 
     }
-    @Override
-    public void run() {
-        while(true)
-        {
-            try
-            {
-                Thread.sleep(30);
-                repaint();
-            }
 
-            catch(Exception e)
-            {
-                e.printStackTrace();
-            }
-        }
-
-
-    }
 
     @Override
     public void mouseClicked(MouseEvent e) {
