@@ -1644,6 +1644,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
                 gameData.getGrid()[r-1][c].getHeroesOn().add(you);
             }
             actionPts--;
+            currAction=-1;
             repaintPanel();
             actions.setEnabled(true);
             btn_backAction.setVisible(false);
@@ -1661,6 +1662,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
                 gameData.getGrid()[r+1][c].getHeroesOn().add(you);
             }
             actionPts--;
+            currAction=-1;
             repaintPanel();
             actions.setEnabled(true);
             btn_backAction.setVisible(false);
@@ -1678,6 +1680,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
                 gameData.getGrid()[r][c-1].getHeroesOn().add(you);
             }
             actionPts--;
+            currAction=-1;
             repaintPanel();
             actions.setEnabled(true);
             btn_backAction.setVisible(false);
@@ -1695,6 +1698,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
                 gameData.getGrid()[r][c+1].getHeroesOn().add(you);
             }
             actionPts--;
+            currAction=-1;
             repaintPanel();
             actions.setEnabled(true);
             btn_backAction.setVisible(false);
@@ -1711,17 +1715,17 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         if(gameData.getGrid()[r][c].getCultistNum()!=0){
             gameData.getGrid()[r][c].setCultistNum(gameData.getGrid()[r][c].getCultistNum()-1);
             actionPts--;
+            currAction=-1;
             repaintPanel();
         }
     }
     public void challenge(){
         if(gameData.getGrid()[r][c].getSkillType()!=Tile.SPECIAL){
-            
+
         }
     }
     public void wait_A(){}
     public void skill(){}
-    public void message(){}
     public void endTurn(){
         actionPts=3;
         sendCommand(CommandFromClient.END_TURN,null,gameData);
