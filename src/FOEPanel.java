@@ -148,34 +148,121 @@ public class FOEPanel extends JPanel{
 
     private BufferedImage back_Of_CT = null;
     private BufferedImage ct_AcidJets = null;
+    private BufferedImage ct_AcidJets_90 = null;
+    private BufferedImage ct_AcidJets_180 = null;
+    private BufferedImage ct_AcidJets_270 = null;
     private BufferedImage ct_ArrowTrap = null;
+    private BufferedImage ct_ArrowTrap_90 = null;
+    private BufferedImage ct_ArrowTrap_180 = null;
+    private BufferedImage ct_ArrowTrap_270 = null;
     private BufferedImage ct_DarkSlime = null;
+    private BufferedImage ct_DarkSlime_90 = null;
+    private BufferedImage ct_DarkSlime_180 = null;
+    private BufferedImage ct_DarkSlime_270 = null;
     private BufferedImage ct_DenofSnakes = null;
+    private BufferedImage ct_DenofSnakes_90 = null;
+    private BufferedImage ct_DenofSnakes_180 = null;
+    private BufferedImage ct_DenofSnakes_270 = null;
     private BufferedImage ct_Dragonling = null;
+    private BufferedImage ct_Dragonling_90 = null;
+    private BufferedImage ct_Dragonling_180 = null;
+    private BufferedImage ct_Dragonling_270 = null;
     private BufferedImage ct_FelKnight = null;
+    private BufferedImage ct_FelKnight_90 = null;
+    private BufferedImage ct_FelKnight_180 = null;
+    private BufferedImage ct_FelKnight_270 = null;
     private BufferedImage ct_FOE = null;
+    private BufferedImage ct_FOE_90 = null;
+    private BufferedImage ct_FOE_180 = null;
+    private BufferedImage ct_FOE_270 = null;
     private BufferedImage ct_FloatingStones = null;
+    private BufferedImage ct_FloatingStones_90 = null;
+    private BufferedImage ct_FloatingStones_180 = null;
+    private BufferedImage ct_FloatingStones_270 = null;
     private BufferedImage ct_HallofIlusions = null;
+    private BufferedImage ct_HallofIlusions_90 = null;
+    private BufferedImage ct_HallofIlusions_180 = null;
+    private BufferedImage ct_HallofIlusions_270 = null;
     private BufferedImage ct_LaughingShadow = null;
+    private BufferedImage ct_LaughingShadow_90 = null;
+    private BufferedImage ct_LaughingShadow_180 = null;
+    private BufferedImage ct_LaughingShadow_270 = null;
     private BufferedImage ct_LavaLake = null;
+    private BufferedImage ct_LavaLake_90 = null;
+    private BufferedImage ct_LavaLake_180 = null;
+    private BufferedImage ct_LavaLake_270 = null;
     private BufferedImage ct_MimicChest = null;
+    private BufferedImage ct_MimicChest_90 = null;
+    private BufferedImage ct_MimicChest_180 = null;
+    private BufferedImage ct_MimicChest_270 = null;
     private BufferedImage ct_Mindreader = null;
+    private BufferedImage ct_Mindreader_90 = null;
+    private BufferedImage ct_Mindreader_180 = null;
+    private BufferedImage ct_Mindreader_270 = null;
     private BufferedImage ct_Minotaur = null;
+    private BufferedImage ct_Minotaur_90 = null;
+    private BufferedImage ct_Minotaur_180 = null;
+    private BufferedImage ct_Minotaur_270 = null;
     private BufferedImage ct_OgerBrute = null;
+    private BufferedImage ct_OgerBrute_90 = null;
+    private BufferedImage ct_OgerBrute_180 = null;
+    private BufferedImage ct_OgerBrute_270 = null;
     private BufferedImage ct_ParodoxPuzzle = null;
+    private BufferedImage ct_ParodoxPuzzle_90 = null;
+    private BufferedImage ct_ParodoxPuzzle_180 = null;
+    private BufferedImage ct_ParodoxPuzzle_270 = null;
     private BufferedImage ct_PengulumBlades = null;
+    private BufferedImage ct_PengulumBlades_90 = null;
+    private BufferedImage ct_PengulumBlades_180 = null;
+    private BufferedImage ct_PengulumBlades_270 = null;
     private BufferedImage ct_Portal = null;
+    private BufferedImage ct_Portal_90 = null;
+    private BufferedImage ct_Portal_180 = null;
+    private BufferedImage ct_Portal_270 = null;
     private BufferedImage ct_Psycomancer = null;
+    private BufferedImage ct_Psycomancer_90 = null;
+    private BufferedImage ct_Psycomancer_180 = null;
+    private BufferedImage ct_Psycomancer_270 = null;
     private BufferedImage ct_SPX = null;
+    private BufferedImage ct_SPX_90 = null;
+    private BufferedImage ct_SPX_180 = null;
+    private BufferedImage ct_SPX_270 = null;
     private BufferedImage ct_SPY = null;
+    private BufferedImage ct_SPY_90 = null;
+    private BufferedImage ct_SPY_180 = null;
+    private BufferedImage ct_SPY_270 = null;
     private BufferedImage ct_SkeletonGuards = null;
+    private BufferedImage ct_SkeletonGuards_90 = null;
+    private BufferedImage ct_SkeletonGuards_180 = null;
+    private BufferedImage ct_SkeletonGuards_270 = null;
     private BufferedImage ct_SphynxsRiddle = null;
+    private BufferedImage ct_SphynxsRiddle_90 = null;
+    private BufferedImage ct_SphynxsRiddle_180 = null;
+    private BufferedImage ct_SphynxsRiddle_270 = null;
     private BufferedImage ct_SpikedPit = null;
+    private BufferedImage ct_SpikedPit_90 = null;
+    private BufferedImage ct_SpikedPit_180 = null;
+    private BufferedImage ct_SpikedPit_270 = null;
     private BufferedImage ct_Vestibule = null;
+    private BufferedImage ct_Vestibule_90 = null;
+    private BufferedImage ct_Vestibule_180 = null;
+    private BufferedImage ct_Vestibule_270 = null;
     private BufferedImage ct_VoraciousPlant = null;
+    private BufferedImage ct_VoraciousPlant_90 = null;
+    private BufferedImage ct_VoraciousPlant_180 = null;
+    private BufferedImage ct_VoraciousPlant_270 = null;
     private BufferedImage ct_VoraxsFocus = null;
+    private BufferedImage ct_VoraxsFocus_90 = null;
+    private BufferedImage ct_VoraxsFocus_180 = null;
+    private BufferedImage ct_VoraxsFocus_270 = null;
     private BufferedImage ct_VoraxsHeart = null;
+    private BufferedImage ct_VoraxsHeart_90 = null;
+    private BufferedImage ct_VoraxsHeart_180 = null;
+    private BufferedImage ct_VoraxsHeart_270 = null;
     private BufferedImage ct_VoraxsKnowledge = null;
+    private BufferedImage ct_VoraxsKnowledge_90 = null;
+    private BufferedImage ct_VoraxsKnowledge_180 = null;
+    private BufferedImage ct_VoraxsKnowledge_270 = null;
 
     private BufferedImage back_Of_RDC = null;
     private BufferedImage rdc_AcidJets = null;
@@ -288,35 +375,122 @@ public class FOEPanel extends JPanel{
             df_VeryHardLevelBar = ImageIO.read(new File("difficulty cards/very hard difficulty bar.png"));
 
             ct_AcidJets = ImageIO.read(new File("Game images/Chamber Tiles/Acid jets.png"));
-            ct_ArrowTrap = ImageIO.read(new File("Game images/Chamber Tiles/Arrow Trap.png"));
+            ct_AcidJets_90 = ImageIO.read(new File("Game images/Chamber Tiles/Acid jets_90.png"));
+            ct_AcidJets_180 = ImageIO.read(new File("Game images/Chamber Tiles/Acid jets_180.png"));
+            ct_AcidJets_270 = ImageIO.read(new File("Game images/Chamber Tiles/Acid jets_270.png"));
+            ct_ArrowTrap = ImageIO.read(new File("Game images/Chamber Tiles/Arrow Trap(final).png"));
+            ct_ArrowTrap_90 = ImageIO.read(new File("Game images/Chamber Tiles/Arrow Trap_90.png"));
+            ct_ArrowTrap_180 = ImageIO.read(new File("Game images/Chamber Tiles/Arrow Trap_180.png"));
+            ct_ArrowTrap_270 = ImageIO.read(new File("Game images/Chamber Tiles/Arrow Trap_270.png"));
             back_Of_CT = ImageIO.read(new File("Game images/Chamber Tiles/Back of tiles.png"));
             ct_DarkSlime = ImageIO.read(new File("Game images/Chamber Tiles/Dark Slime.png"));
-            ct_DenofSnakes = ImageIO.read(new File("Game images/Chamber Tiles/Den of Snakes.png"));
+            ct_DarkSlime_90 = ImageIO.read(new File("Game images/Chamber Tiles/Dark Slime_90.png"));
+            ct_DarkSlime_180 = ImageIO.read(new File("Game images/Chamber Tiles/Dark Slime_180.png"));
+            ct_DarkSlime_270 = ImageIO.read(new File("Game images/Chamber Tiles/Dark Slime_270.png"));
+            ct_DenofSnakes = ImageIO.read(new File("Game images/Chamber Tiles/Den of Snakes(final).png"));
+            ct_DenofSnakes_90 = ImageIO.read(new File("Game images/Chamber Tiles/Den of Snakes_90.png"));
+            ct_DenofSnakes_180 = ImageIO.read(new File("Game images/Chamber Tiles/Den of Snakes_180.png"));
+            ct_DenofSnakes_270 = ImageIO.read(new File("Game images/Chamber Tiles/Den of Snakes_270.png"));
             ct_Dragonling = ImageIO.read(new File("Game images/Chamber Tiles/Dragonling.png"));
-            ct_FelKnight = ImageIO.read(new File("Game images/Chamber Tiles/Fel Knight.png"));
-            ct_FOE = ImageIO.read(new File("Game images/Chamber Tiles/Fire of Eidolon.png"));
-            ct_FloatingStones = ImageIO.read(new File("Game images/Chamber Tiles/Floating Stones.png"));
-            ct_HallofIlusions = ImageIO.read(new File("Game images/Chamber Tiles/Hall of Ilusions.png"));
+            ct_Dragonling_90 = ImageIO.read(new File("Game images/Chamber Tiles/Dragonling_90.png"));
+            ct_Dragonling_180 = ImageIO.read(new File("Game images/Chamber Tiles/Dragonling_180.png"));
+            ct_Dragonling_270 = ImageIO.read(new File("Game images/Chamber Tiles/Dragonling_270.png"));
+            ct_FelKnight = ImageIO.read(new File("Game images/Chamber Tiles/Fel Knight(final).png"));
+            ct_FelKnight_90 = ImageIO.read(new File("Game images/Chamber Tiles/Fel Knight_90.png"));
+            ct_FelKnight_180 = ImageIO.read(new File("Game images/Chamber Tiles/Fel Knight_180.png"));
+            ct_FelKnight_270 = ImageIO.read(new File("Game images/Chamber Tiles/Fel Knight_270.png"));
+            ct_FOE = ImageIO.read(new File("Game images/Chamber Tiles/Fire of Eidolon(final).png"));
+            ct_FOE_90 = ImageIO.read(new File("Game images/Chamber Tiles/Fire of Eidolon_90.png"));
+            ct_FOE_180 = ImageIO.read(new File("Game images/Chamber Tiles/Fire of Eidolon_180.png"));
+            ct_FOE_270 = ImageIO.read(new File("Game images/Chamber Tiles/Fire of Eidolon_270.png"));
+            ct_FloatingStones = ImageIO.read(new File("Game images/Chamber Tiles/Floating Stones(final).png"));
+            ct_FloatingStones_90 = ImageIO.read(new File("Game images/Chamber Tiles/Floating Stones_90.png"));
+            ct_FloatingStones_180 = ImageIO.read(new File("Game images/Chamber Tiles/Floating Stones_180.png"));
+            ct_FloatingStones_270 = ImageIO.read(new File("Game images/Chamber Tiles/Floating Stones_270.png"));
+            ct_HallofIlusions = ImageIO.read(new File("Game images/Chamber Tiles/Hall of Ilusions(final).png"));
+            ct_HallofIlusions_90 = ImageIO.read(new File("Game images/Chamber Tiles/Hall of Ilusions_90.png"));
+            ct_HallofIlusions_180 = ImageIO.read(new File("Game images/Chamber Tiles/Hall of Ilusions_180.png"));
+            ct_HallofIlusions_270 = ImageIO.read(new File("Game images/Chamber Tiles/Hall of Ilusions_270.png"));
             ct_LaughingShadow = ImageIO.read(new File("Game images/Chamber Tiles/Laughing Shadow.png"));
-            ct_LavaLake = ImageIO.read(new File("Game images/Chamber Tiles/Lava Lake.png"));
+            ct_LaughingShadow_90 = ImageIO.read(new File("Game images/Chamber Tiles/Laughing Shadow_90.png"));
+            ct_LaughingShadow_180 = ImageIO.read(new File("Game images/Chamber Tiles/Laughing Shadow_180.png"));
+            ct_LaughingShadow_270 = ImageIO.read(new File("Game images/Chamber Tiles/Laughing Shadow_270.png"));
+            ct_LavaLake = ImageIO.read(new File("Game images/Chamber Tiles/Lava Lake(final).png"));
+            ct_LavaLake_90 = ImageIO.read(new File("Game images/Chamber Tiles/Lava Lake_90.png"));
+            ct_LavaLake_180 = ImageIO.read(new File("Game images/Chamber Tiles/Lava Lake_180.png"));
+            ct_LavaLake_270 = ImageIO.read(new File("Game images/Chamber Tiles/Lava Lake_270.png"));
             ct_MimicChest = ImageIO.read(new File("Game images/Chamber Tiles/Mimic Chest.png"));
-            ct_Mindreader = ImageIO.read(new File("Game images/Chamber Tiles/Mindreader.png"));
+            ct_MimicChest_90 = ImageIO.read(new File("Game images/Chamber Tiles/Mimic Chest_90.png"));
+            ct_MimicChest_180 = ImageIO.read(new File("Game images/Chamber Tiles/Mimic Chest_180.png"));
+            ct_MimicChest_270 = ImageIO.read(new File("Game images/Chamber Tiles/Mimic Chest_270.png"));
+            ct_Mindreader = ImageIO.read(new File("Game images/Chamber Tiles/Mindreader(final).png"));
+            ct_Mindreader_90 = ImageIO.read(new File("Game images/Chamber Tiles/Mindreader_90.png"));
+            ct_Mindreader_180 = ImageIO.read(new File("Game images/Chamber Tiles/Mindreader_180.png"));
+            ct_Mindreader_270 = ImageIO.read(new File("Game images/Chamber Tiles/Mindreader_270.png"));
             ct_Minotaur = ImageIO.read(new File("Game images/Chamber Tiles/Minotaur.png"));
+            ct_Minotaur_90 = ImageIO.read(new File("Game images/Chamber Tiles/Minotaur_90.png"));
+            ct_Minotaur_180 = ImageIO.read(new File("Game images/Chamber Tiles/Minotaur_180.png"));
+            ct_Minotaur_270 = ImageIO.read(new File("Game images/Chamber Tiles/Minotaur_270.png"));
             ct_OgerBrute = ImageIO.read(new File("Game images/Chamber Tiles/Oger Brute.png"));
-            ct_ParodoxPuzzle = ImageIO.read(new File("Game images/Chamber Tiles/Paradox puzzle.png"));
-            ct_PengulumBlades = ImageIO.read(new File("Game images/Chamber Tiles/Pengulum Blades.png"));
-            ct_Portal = ImageIO.read(new File("Game images/Chamber Tiles/Portal.png"));
-            ct_Psycomancer = ImageIO.read(new File("Game images/Chamber Tiles/Psychomancer.png"));
+            ct_OgerBrute_90 = ImageIO.read(new File("Game images/Chamber Tiles/Oger Brute_90.png"));
+            ct_OgerBrute_180 = ImageIO.read(new File("Game images/Chamber Tiles/Oger Brute_180.png"));
+            ct_OgerBrute_270 = ImageIO.read(new File("Game images/Chamber Tiles/Oger Brute_270.png"));
+            ct_ParodoxPuzzle = ImageIO.read(new File("Game images/Chamber Tiles/Paradox puzzle(final).png"));
+            ct_ParodoxPuzzle_90 = ImageIO.read(new File("Game images/Chamber Tiles/Paradox puzzle_90.png"));
+            ct_ParodoxPuzzle_180 = ImageIO.read(new File("Game images/Chamber Tiles/Paradox puzzle_180.png"));
+            ct_ParodoxPuzzle_270 = ImageIO.read(new File("Game images/Chamber Tiles/Paradox puzzle_270.png"));
+            ct_PengulumBlades = ImageIO.read(new File("Game images/Chamber Tiles/Pengulum Blades(final).png"));
+            ct_PengulumBlades_90 = ImageIO.read(new File("Game images/Chamber Tiles/Pengulum Blades_90.png"));
+            ct_PengulumBlades_180 = ImageIO.read(new File("Game images/Chamber Tiles/Pengulum Blades_180.png"));
+            ct_PengulumBlades_270 = ImageIO.read(new File("Game images/Chamber Tiles/Pengulum Blades_270.png"));
+            ct_Portal = ImageIO.read(new File("Game images/Chamber Tiles/Portal(final).png"));
+            ct_Portal_90 = ImageIO.read(new File("Game images/Chamber Tiles/Portal_90.png"));
+            ct_Portal_180 = ImageIO.read(new File("Game images/Chamber Tiles/Portal_180.png"));
+            ct_Portal_270 = ImageIO.read(new File("Game images/Chamber Tiles/Portal_270.png"));
+            ct_Psycomancer = ImageIO.read(new File("Game images/Chamber Tiles/Psychomancer(final).png"));
+            ct_Psycomancer_90 = ImageIO.read(new File("Game images/Chamber Tiles/Psychomancer_90.png"));
+            ct_Psycomancer_180 = ImageIO.read(new File("Game images/Chamber Tiles/Psychomancer_180.png"));
+            ct_Psycomancer_270 = ImageIO.read(new File("Game images/Chamber Tiles/Psychomancer_270.png"));
             ct_SPX = ImageIO.read(new File("Game images/Chamber Tiles/Secret Passage X.png"));
-            ct_SPY = ImageIO.read(new File("Game images/Chamber Tiles/Secret Passage Y.png"));
-            ct_SkeletonGuards = ImageIO.read(new File("Game images/Chamber Tiles/Skeleton Guards.png"));
+            ct_SPX_90 = ImageIO.read(new File("Game images/Chamber Tiles/Secret Passage X_90.png"));
+            ct_SPX_180 = ImageIO.read(new File("Game images/Chamber Tiles/Secret Passage X_180.png"));
+            ct_SPX_270 = ImageIO.read(new File("Game images/Chamber Tiles/Secret Passage X_270.png"));
+            ct_SPY = ImageIO.read(new File("Game images/Chamber Tiles/Secret Passage Y(final).png"));
+            ct_SPY_90 = ImageIO.read(new File("Game images/Chamber Tiles/Secret Passage Y_90.png"));
+            ct_SPY_180 = ImageIO.read(new File("Game images/Chamber Tiles/Secret Passage Y_180.png"));
+            ct_SPY_270 = ImageIO.read(new File("Game images/Chamber Tiles/Secret Passage Y_270.png"));
+            ct_SkeletonGuards = ImageIO.read(new File("Game images/Chamber Tiles/Skeleton Guards(final).png"));
+            ct_SkeletonGuards_90 = ImageIO.read(new File("Game images/Chamber Tiles/Skeleton Guards_90.png"));
+            ct_SkeletonGuards_180 = ImageIO.read(new File("Game images/Chamber Tiles/Skeleton Guards_180.png"));
+            ct_SkeletonGuards_270 = ImageIO.read(new File("Game images/Chamber Tiles/Skeleton Guards_270.png"));
             ct_SphynxsRiddle = ImageIO.read(new File("Game images/Chamber Tiles/Sphynx_s Riddle.png"));
+            ct_SphynxsRiddle_90 = ImageIO.read(new File("Game images/Chamber Tiles/Sphynx_s Riddle_90.png"));
+            ct_SphynxsRiddle_180 = ImageIO.read(new File("Game images/Chamber Tiles/Sphynx_s Riddle_180.png"));
+            ct_SphynxsRiddle_270 = ImageIO.read(new File("Game images/Chamber Tiles/Sphynx_s Riddle_270.png"));
             ct_SpikedPit = ImageIO.read(new File("Game images/Chamber Tiles/Spiked pit.png"));
+            ct_SpikedPit_90 = ImageIO.read(new File("Game images/Chamber Tiles/Spiked pit_90.png"));
+            ct_SpikedPit_180 = ImageIO.read(new File("Game images/Chamber Tiles/Spiked pit_180.png"));
+            ct_SpikedPit_270 = ImageIO.read(new File("Game images/Chamber Tiles/Spiked pit_270.png"));
             ct_Vestibule = ImageIO.read(new File("Game images/Chamber Tiles/Start.png"));
-            ct_VoraciousPlant = ImageIO.read(new File("Game images/Chamber Tiles/Voracious Plant.png"));
-            ct_VoraxsFocus = ImageIO.read(new File("Game images/Chamber Tiles/Vorax_s Focus.png"));
+            ct_Vestibule_90 = ImageIO.read(new File("Game images/Chamber Tiles/Start_90.png"));
+            ct_Vestibule_180 = ImageIO.read(new File("Game images/Chamber Tiles/Start_180.png"));
+            ct_Vestibule_270 = ImageIO.read(new File("Game images/Chamber Tiles/Start_270.png"));
+            ct_VoraciousPlant = ImageIO.read(new File("Game images/Chamber Tiles/Voracious Plant(final).png"));
+            ct_VoraciousPlant_90 = ImageIO.read(new File("Game images/Chamber Tiles/Voracious Plant_90.png"));
+            ct_VoraciousPlant_180 = ImageIO.read(new File("Game images/Chamber Tiles/Voracious Plant_180.png"));
+            ct_VoraciousPlant_270 = ImageIO.read(new File("Game images/Chamber Tiles/Voracious Plant_270.png"));
+            ct_VoraxsFocus = ImageIO.read(new File("Game images/Chamber Tiles/Vorax_s Focus(final).png"));
+            ct_VoraxsFocus_90 = ImageIO.read(new File("Game images/Chamber Tiles/Vorax_s Focus_90.png"));
+            ct_VoraxsFocus_180 = ImageIO.read(new File("Game images/Chamber Tiles/Vorax_s Focus_180.png"));
+            ct_VoraxsFocus_270 = ImageIO.read(new File("Game images/Chamber Tiles/Vorax_s Focus_270.png"));
             ct_VoraxsHeart = ImageIO.read(new File("Game images/Chamber Tiles/Vorax_s Heart.png"));
-            ct_VoraxsKnowledge = ImageIO.read(new File("Game images/Chamber Tiles/Vorax_s Knowledge.png"));//chamber tiles
+            ct_VoraxsHeart_90 = ImageIO.read(new File("Game images/Chamber Tiles/Vorax_s Heart_90.png"));
+            ct_VoraxsHeart_180 = ImageIO.read(new File("Game images/Chamber Tiles/Vorax_s Heart_180.png"));
+            ct_VoraxsHeart_270 = ImageIO.read(new File("Game images/Chamber Tiles/Vorax_s Heart_270.png"));
+            ct_VoraxsKnowledge = ImageIO.read(new File("Game images/Chamber Tiles/Vorax_s Knowledge(final).png"));
+            ct_VoraxsKnowledge_90 = ImageIO.read(new File("Game images/Chamber Tiles/Vorax_s Knowledge_90.png"));
+            ct_VoraxsKnowledge_180 = ImageIO.read(new File("Game images/Chamber Tiles/Vorax_s Knowledge_180.png"));
+            ct_VoraxsKnowledge_270 = ImageIO.read(new File("Game images/Chamber Tiles/Vorax_s Knowledge_270.png"));//chamber tiles
 
             back_Of_RDC = ImageIO.read(new File("Game images/Ritual Deck Cards/Back of card.png"));
             rdc_AcidJets = ImageIO.read(new File("Game images/Ritual Deck Cards/Acid jets_card.png"));
@@ -597,16 +771,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_AcidJets,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-                                //Bro idk how to rotate
-//                            int newWL = (int)Math.floor(164*Math.abs(Math.cos(90)) + 164*Math.abs(Math.sin(90)));
-//                            rotated = new BufferedImage(newWL,newWL,ct_AcidJets.TYPE_INT_ARGB);
-//                            g.drawImage(rotated,)
+                                g.drawImage(ct_AcidJets_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_AcidJets_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_AcidJets_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -651,13 +822,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_ArrowTrap,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_ArrowTrap_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_ArrowTrap_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_ArrowTrap_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -702,13 +873,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_DarkSlime,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_DarkSlime_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_DarkSlime_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_DarkSlime_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -753,13 +924,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_DenofSnakes,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_DenofSnakes_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_DenofSnakes_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_DenofSnakes_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -804,13 +975,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_Dragonling,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_Dragonling_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_Dragonling_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_Dragonling_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -855,13 +1026,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_FelKnight,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_FelKnight_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_FelKnight_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_FelKnight_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -906,13 +1077,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_FOE,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_FOE_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_FOE_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_FOE_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -957,13 +1128,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_FloatingStones,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_FloatingStones_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_FloatingStones_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_FloatingStones_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -1008,13 +1179,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_HallofIlusions,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_HallofIlusions_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_HallofIlusions_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_HallofIlusions_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -1059,13 +1230,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_LaughingShadow,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_LaughingShadow_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_LaughingShadow_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_LaughingShadow_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -1110,13 +1281,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_LavaLake,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_LavaLake_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_LavaLake_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_LavaLake_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -1161,13 +1332,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_MimicChest,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_MimicChest_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_MimicChest_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_MimicChest_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -1212,13 +1383,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_Mindreader,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_Mindreader_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_Mindreader_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_Mindreader_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -1263,13 +1434,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_Minotaur,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_Minotaur_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_Minotaur_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_Minotaur_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -1314,13 +1485,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_OgerBrute,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_OgerBrute_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_OgerBrute_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_OgerBrute_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -1365,13 +1536,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_ParodoxPuzzle,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_ParodoxPuzzle_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_ParodoxPuzzle_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_ParodoxPuzzle_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -1416,13 +1587,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_PengulumBlades,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_PengulumBlades_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_PengulumBlades_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_PengulumBlades_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -1467,13 +1638,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_Portal,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_Portal_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_Portal_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_Portal_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -1518,13 +1689,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_Psycomancer,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_Psycomancer_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_Psycomancer_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_Psycomancer_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -1569,13 +1740,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_SPX,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_SPX_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_SPX_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_SPX_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -1620,13 +1791,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_SPY,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_SPY_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_SPY_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_SPY_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -1671,13 +1842,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_SkeletonGuards,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_SkeletonGuards_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_SkeletonGuards_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_SkeletonGuards_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -1722,13 +1893,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_SphynxsRiddle,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_SphynxsRiddle_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_SphynxsRiddle_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_SphynxsRiddle_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -1773,13 +1944,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_SpikedPit,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_SpikedPit_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_SpikedPit_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_SpikedPit_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -1820,20 +1991,17 @@ public class FOEPanel extends JPanel{
                             }
                         }
                         else if(board[r][c].getName().equals("Vestibule")){
-                            //System.out.println("Vestibule");
                             if(board[r][c].getDegRot()==0){
                                 g.drawImage(ct_Vestibule,355+(c*164), 60+(r*164), 164,164,null);
-                                //System.out.println("Drawn");
                             }
                             else if(board[r][c].getDegRot()==90){
-                                BufferedImage wen = rotate(ct_Vestibule, 90);
-                                g.drawImage(wen,355+(c*164), 60+(r*164), 164,164,null);
+                                g.drawImage(ct_Vestibule_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_Vestibule_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_Vestibule_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -1880,13 +2048,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_VoraciousPlant,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_VoraciousPlant_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_VoraciousPlant_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_VoraciousPlant_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -1931,13 +2099,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_VoraxsFocus,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_VoraxsFocus_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_VoraxsFocus_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_VoraxsFocus_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -1982,13 +2150,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_VoraxsHeart,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_VoraxsHeart_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_VoraxsHeart_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_VoraxsHeart_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
@@ -2033,13 +2201,13 @@ public class FOEPanel extends JPanel{
                                 g.drawImage(ct_VoraxsKnowledge,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==90){
-
+                                g.drawImage(ct_VoraxsKnowledge_90,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==180){
-
+                                g.drawImage(ct_VoraxsKnowledge_180,355+(c*164), 60+(r*164), 164,164,null);
                             }
                             else if(board[r][c].getDegRot()==270){
-
+                                g.drawImage(ct_VoraxsKnowledge_270,355+(c*164), 60+(r*164), 164,164,null);
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
