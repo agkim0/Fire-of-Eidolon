@@ -40,6 +40,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public static final int MOVE=0;
     public static final int MOVE_AND_PLACE_TILE=1;
     public static final int EXPLORE=2;
+    public static final int ATTACK=3;
     int currAction;
 
 
@@ -1530,25 +1531,36 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         }
     }
     public void actionSelected(){
-        if(actionPts<=0&&!actions.getSelectedValue().equals("end turn")){
-            actionPts=3;
-            msgs.add("Server: You are out of AP! Click end turn to finish!");
+        if(gameData.getTurn().equals(you)){
+            if(actionPts<=0&&!actions.getSelectedValue().equals("end turn")){
+                actionPts=3;
+                msgs.add("Server: You are out of AP! Click end turn to finish!");
+            }
+            else if(actions.getSelectedValue().equals("end turn")){
+                endTurn();
+            }
+            else {
+                if(actions.getSelectedValue().equals("move")){
+                    move();
+                }
+                else if(actions.getSelectedValue().equals("place and move")){
+                    moveAndPlaceTile();
+                }
+                else if(actions.getSelectedValue().equals("explore")){
+                    explore();
+                }
+                else if(actions.getSelectedValue().equals("end turn")){
+                    endTurn();
+                }
+                else if(actions.getSelectedValue().equals("attack")){
+                    attack();
+                }
+            }
+
+            actions.setEnabled(false);
+            btn_backAction.setVisible(true);
         }
-        
-        actions.setEnabled(false);
-        btn_backAction.setVisible(true);
-        if(actions.getSelectedValue().equals("move")){
-            move();
-        }
-        else if(actions.getSelectedValue().equals("place and move")){
-            moveAndPlaceTile();
-        }
-        else if(actions.getSelectedValue().equals("explore")){
-            explore();
-        }
-        else if(actions.getSelectedValue().equals("end turn")){
-            endTurn();
-        }
+
     }
     public void backAction(){
         currAction=-1;
@@ -1695,12 +1707,24 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         foePanel.setShowingTileOnTop(true);
         repaintPanel();
     }
-    public void attack(){}
-    public void challenge(){}
+    public void attack(){
+        currAction=ATTACK;
+        if(gameData.getGrid()[r][c].getCultistNum()!=0){
+            gameData.getGrid()[r][c].setCultistNum(gameData.getGrid()[r][c].getCultistNum()-1);
+            actionPts--;
+            repaintPanel();
+        }
+    }
+    public void challenge(){
+        if(gameData.getGrid()[r][c].getSkillType()!=Tile.SPECIAL){
+            
+        }
+    }
     public void wait_A(){}
     public void skill(){}
     public void message(){}
     public void endTurn(){
+        actionPts=3;
         sendCommand(CommandFromClient.END_TURN,null,gameData);
     }
     public void reset(){
@@ -1796,7 +1820,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void repaintPanel(){
         foePanel.setGameData(this.gameData);
         foePanel.repaint();
-//        repaint();
+        printBoard();
+        repaint();
     }
     public void sendCommand(int com, String data, GameData gameData){
         CommandFromClient cfc = new CommandFromClient(com,data,gameData);

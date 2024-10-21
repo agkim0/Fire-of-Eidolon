@@ -2229,7 +2229,7 @@ public class FOEPanel extends JPanel{
 
     public static BufferedImage rotate(BufferedImage src, int deg){
         if(deg == 90){
-            System.out.println("rotate 90");
+//            System.out.println("rotate 90");
             int width = src.getWidth();
             int height = src.getHeight();
             BufferedImage wen = new BufferedImage(height, width, src.getType());

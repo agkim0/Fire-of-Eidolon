@@ -181,9 +181,9 @@ public class GameData implements Serializable{
         Tile spikedPit = new Tile("Spiked Pit",Tile.DEX,true,true,true,false);
         Tile vestibule = new Tile("Vestibule",Tile.SPECIAL,true,true,true,true);
         Tile voraciousPlant = new Tile("Voracious Plant",Tile.STR,true,true,true,true);
-        Tile voraxsFocus = new Tile("Vorax's Focus",Tile.DEX,false,false,true,false);
-        Tile voraxsHeart = new Tile("Vorax's Heart",Tile.STR,false,false,true,false);
-        Tile voraxsKnowledge = new Tile("Vorax's Knowledge",Tile.INTEL,false,false,true,false);
+        Tile voraxsFocus = new Tile("Vorax's Focus",Tile.SPECIAL,false,false,true,false);
+        Tile voraxsHeart = new Tile("Vorax's Heart",Tile.SPECIAL,false,false,true,false);
+        Tile voraxsKnowledge = new Tile("Vorax's Knowledge",Tile.SPECIAL,false,false,true,false);
         Tile nuul = new Tile("nuul",Tile.SPECIAL,false,false,false,false);
 
         Card acidJetsCard = new Card("Acid Jets",Card.DEX,acidJets,false );

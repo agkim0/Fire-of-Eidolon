@@ -163,7 +163,7 @@ public class ServersListener implements Runnable, Serializable {
                         room.getGameData().setOrderOfTurnIndex(room.getGameData().getOrderOfTurnIndex()+1);
                     }
                     
-                    room.getGameData().setCurHero(room.getGameData().getOrderOfTurns().get(room.getGameData().getOrderOfTurnIndex()));
+                    room.getGameData().setTurn(room.getGameData().getOrderOfTurns().get(room.getGameData().getOrderOfTurnIndex()));
                     sendCommandtoAllUsers(CommandFromServer.ENDTURN,null,room.getGameData());
                 }
 
