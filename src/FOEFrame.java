@@ -41,6 +41,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public static final int MOVE_AND_PLACE_TILE=1;
     public static final int EXPLORE=2;
     public static final int ATTACK=3;
+    public static final int DIVING=4;
     int currAction;
 
 
@@ -1529,6 +1530,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             setBoard();
         }
     }
+
+    //actions
     public void actionSelected(){
         if(gameData.getTurn().equals(you)){
             if(actionPts<=0&&!actions.getSelectedValue().equals("end turn")){
@@ -1729,6 +1732,33 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void endTurn(){
         actionPts=3;
         sendCommand(CommandFromClient.END_TURN,null,gameData);
+    }
+    public void cultistTurn(){
+        for(int x = 0;x<gameData.getThreatLevel();x++){
+            foePanel.setDrawRitualDeck(true);
+            repaintPanel();
+            for (int r = 0;r<gameData.getGrid().length;r++){
+                for(int c = 0;c<gameData.getGrid()[0].length;c++){
+                    if(gameData.getCurrDeck().remove(0).equals(gameData.getGrid()[r][c].getCard())) {
+                        gameData.getGrid()[r][c].setCultistNum(gameData.getGrid()[r][c].getCultistNum()+1);
+                        if(gameData.getGrid()[r][c].getCultistNum()==2){
+                            for(Hero h:gameData.getGrid()[r][c].getHeroesOn()){
+                                sendCommand(CommandFromClient.DIVE,h.getName(),gameData);
+                            }
+
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+    public void dive(String u){
+        if(u.equals(you.getName())){
+            currAction=DIVING;
+            actions.setEnabled(false);
+            btn_backAction.setEnabled(false);
+        }
     }
     public void reset(){
        // System.out.println("reset");
@@ -1982,9 +2012,36 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
                 }
 
             }
-
-
                 //g.drawRect(355,60,820,820);
+        }
+        if(currAction==DIVING){
+            if(e.getX()>355&&e.getX()<1175&&e.getY()>60&&e.getY()<880){//clicking board
+                int boardCol = (e.getX()-355)/164;
+                int boardRow = (e.getY()-60)/164;
+                int gridCol = boardCol+colShift;
+                int gridRow = boardRow+rowShift;
+                if((((gridCol==c-1||gridCol==c+1)&&gridRow==r)||((gridRow==r-1||gridRow==r+1)&&gridCol==c))&&gameData.getGrid()[gridRow][gridCol]!=null){
+                    if(gridRow==r-1){
+                        r--;
+                    }
+                    else if(gridRow==r+1){
+                        r++;
+                    }
+                    else if(gridCol==c-1){
+                        c--;
+                    }
+                    else if(gridCol==c+1){
+                        c++;
+                    }
+                    gameData.getGrid()[r][c].getHeroesOn().add(you);
+                    sendCommand(CommandFromClient.ACTION,"dove",gameData);
+                }
+                else{
+                    msgs.add("Server: You cannot dive there.");
+                    msgList.setListData(msgs.toArray());
+                }
+
+            }
         }
     }
 
