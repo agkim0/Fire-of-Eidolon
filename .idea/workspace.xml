@@ -10,6 +10,7 @@
       <change beforePath="$PROJECT_DIR$/src/CommandFromClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandFromClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CommandFromServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandFromServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FOEFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FOEFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ServersListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServersListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

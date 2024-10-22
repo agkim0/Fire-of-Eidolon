@@ -19,6 +19,8 @@ public class GameData implements Serializable{
     private int threatLevel;
     private String difficultyLevel;
     private int numOfPlayers;
+    private int playersDove;
+    private int playersNeedingDive;
 
     private boolean unstableVoid=false;
     private boolean vagrantPortal=false;
@@ -307,6 +309,23 @@ public class GameData implements Serializable{
         System.out.println("fail");
         return null;
     }
+    public void divingSequence(int r, int c){
+        playersNeedingDive=grid[r][c].getHeroesOn().size();
+        playersDove=0;
+    }
+    public boolean allPlayersDove(){
+        if(playersDove==playersNeedingDive){
+            playersDove=0;
+            playersNeedingDive=0;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    public void nextTurn(){
+
+    }
 
     public Tile[][] getGrid() {
         return grid;
@@ -474,5 +493,21 @@ public class GameData implements Serializable{
 
     public void setOrderOfTurnIndex(int orderOfTurnIndex) {
         this.orderOfTurnIndex = orderOfTurnIndex;
+    }
+
+    public int getPlayersDove() {
+        return playersDove;
+    }
+
+    public void setPlayersDove(int playersDove) {
+        this.playersDove = playersDove;
+    }
+
+    public int getPlayersNeedingDive() {
+        return playersNeedingDive;
+    }
+
+    public void setPlayersNeedingDive(int playersNeedingDive) {
+        this.playersNeedingDive = playersNeedingDive;
     }
 }

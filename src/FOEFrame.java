@@ -1731,7 +1731,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void skill(){}
     public void endTurn(){
         actionPts=3;
-        sendCommand(CommandFromClient.END_TURN,null,gameData);
+        cultistTurn();
     }
     public void cultistTurn(){
         for(int x = 0;x<gameData.getThreatLevel();x++){
@@ -1759,6 +1759,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             actions.setEnabled(false);
             btn_backAction.setEnabled(false);
         }
+    }
+    public void endCultistTurn(){
+        gameData.setTurn(gameData.get);
     }
     public void reset(){
        // System.out.println("reset");
@@ -2034,7 +2037,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
                         c++;
                     }
                     gameData.getGrid()[r][c].getHeroesOn().add(you);
+                    gameData.setPlayersDove(gameData.getPlayersDove()+1);
                     sendCommand(CommandFromClient.ACTION,"dove",gameData);
+                    if(gameData.allPlayersDove()){
+                        sendCommand(CommandFromClient.ALL_PLAYERS_DOVE,null,gameData);
+                    }
                 }
                 else{
                     msgs.add("Server: You cannot dive there.");

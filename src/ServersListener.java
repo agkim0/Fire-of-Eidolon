@@ -169,6 +169,9 @@ public class ServersListener implements Runnable, Serializable {
                 else if(cfc.getCommand()==CommandFromClient.DIVE){
                     sendCommandtoAllUsers(CommandFromServer.DIVE,cfc.getData(),cfc.getGameData());
                 }
+                else if(cfc.getCommand()==CommandFromClient.ALL_PLAYERS_DOVE){
+                    sendCommandtoAllUsers(CommandFromServer.ALL_PLAYERS_DOVE,cfc.getData(),cfc.getGameData());
+                }
 
             }catch(Exception e){
                 e.printStackTrace();
