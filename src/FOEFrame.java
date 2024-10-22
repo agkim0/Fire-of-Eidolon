@@ -854,12 +854,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
     public void backToHome(){
         removeEverythingFromScreen();
-        btn_Join.setVisible(true);
-        btn_Host.setVisible(true);
-        btn_RB.setVisible(true);
         setAllPanel();
         foePanel.setDrawTitlePage(true);
         repaintPanel();
+        btn_Join.setVisible(true);
+        btn_Host.setVisible(true);
+        btn_RB.setVisible(true);
     }
 
     //join methods
