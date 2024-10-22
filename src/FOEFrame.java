@@ -582,12 +582,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void host(){
         removeEverythingFromScreen();
         gameData = new GameData();
-        foePanel.setSetUpJoinScreen(false);
-        foePanel.setDrawTitlePage(false);
-        foePanel.setHostGameSetUpScreen(true);
-        foePanel.setSetUpJoinScreen(false);
-        foePanel.setCharacterselectscreen(false);
-        foePanel.setDrawrulebook(false);
+        setAllPanel();
+        foePanel.setShowUnstableVoid(true);
+        repaintPanel();
         btn_RB.setVisible(true);
         textBox_getUsername.setBounds(700,50,300,50);
         textBox_getUsername.setVisible(true);
@@ -604,14 +601,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_forwardGameScenario.setVisible(true);
         checkbox_GameScenarioSelected.setVisible(true);
 
-        foePanel.setShowUnstableVoid(true);
         gameRuleSlidesIndex = 0;
         gameData.setUnstableVoid(false);
         gameData.setVagrantPortal(false);
         gameData.setInvasionOfTheShadowCult(false);
         gameData.setShadesOfVorax(false);
         gameData.setDifficultyLevel("Beginner");
-        repaintPanel();
     }
     public void numOfPlayersDecrease(){
         if(!text_numOfPlayersBox.getText().equals("1")){
@@ -661,10 +656,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             gameRuleSlidesIndex=3;
         }
         if(gameRuleSlidesIndex == 0){
-            foePanel.setShowUnstableVoid(true);
+            setAllPanel();
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
             foePanel.setShowShadesOfVorax(false);
+            foePanel.setShowUnstableVoid(true);
+
             if(gameData.isUnstableVoid()){
                 checkbox_GameScenarioSelected.setSelected(true);
             }
@@ -673,10 +670,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
         }
         if(gameRuleSlidesIndex == 1){
+            setAllPanel();
             foePanel.setShowVagrantPortal(true);
-            foePanel.setShowUnstableVoid(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
             foePanel.setShowShadesOfVorax(false);
+            foePanel.setShowUnstableVoid(false);
             if(gameData.isVagrantPortal()){
                 checkbox_GameScenarioSelected.setSelected(true);
             }
@@ -685,10 +683,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
         }
         if(gameRuleSlidesIndex == 2){
-            foePanel.setShowInvasionOfTheShadowCult(true);
-            foePanel.setShowUnstableVoid(false);
+            setAllPanel();
             foePanel.setShowVagrantPortal(false);
+            foePanel.setShowInvasionOfTheShadowCult(true);
             foePanel.setShowShadesOfVorax(false);
+            foePanel.setShowUnstableVoid(false);
             if(gameData.isInvasionOfTheShadowCult()){
                 checkbox_GameScenarioSelected.setSelected(true);
             }
@@ -697,10 +696,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
         }
         if(gameRuleSlidesIndex == 3){
-            foePanel.setShowShadesOfVorax(true);
-            foePanel.setShowUnstableVoid(false);
+            setAllPanel();
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
+            foePanel.setShowShadesOfVorax(true);
+            foePanel.setShowUnstableVoid(false);
             if(gameData.isShadesOfVorax()){
                 checkbox_GameScenarioSelected.setSelected(true);
             }
@@ -747,10 +747,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             gameRuleSlidesIndex=0;
         }
         if(gameRuleSlidesIndex == 0){
-            foePanel.setShowUnstableVoid(true);
+            setAllPanel();
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
             foePanel.setShowShadesOfVorax(false);
+            foePanel.setShowUnstableVoid(true);
             if(gameData.isUnstableVoid()){
                 checkbox_GameScenarioSelected.setSelected(true);
             }
@@ -759,10 +760,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
         }
         if(gameRuleSlidesIndex == 1){
+            setAllPanel();
             foePanel.setShowVagrantPortal(true);
-            foePanel.setShowUnstableVoid(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
             foePanel.setShowShadesOfVorax(false);
+            foePanel.setShowUnstableVoid(false);
             if(gameData.isVagrantPortal()){
                 checkbox_GameScenarioSelected.setSelected(true);
             }
@@ -771,10 +773,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
         }
         if(gameRuleSlidesIndex == 2){
-            foePanel.setShowInvasionOfTheShadowCult(true);
-            foePanel.setShowUnstableVoid(false);
+            setAllPanel();
             foePanel.setShowVagrantPortal(false);
+            foePanel.setShowInvasionOfTheShadowCult(true);
             foePanel.setShowShadesOfVorax(false);
+            foePanel.setShowUnstableVoid(false);
             if(gameData.isInvasionOfTheShadowCult()){
                 checkbox_GameScenarioSelected.setSelected(true);
             }
@@ -783,10 +786,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
         }
         if(gameRuleSlidesIndex == 3){
-            foePanel.setShowShadesOfVorax(true);
-            foePanel.setShowUnstableVoid(false);
+            setAllPanel();
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
+            foePanel.setShowShadesOfVorax(true);
+            foePanel.setShowUnstableVoid(false);
             if(gameData.isShadesOfVorax()){
                 checkbox_GameScenarioSelected.setSelected(true);
             }
@@ -825,12 +829,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             username = textBox_getUsername.getText();
             sendCommand(CommandFromClient.HOSTING,username,gameData);
             removeEverythingFromScreen();
+            setAllPanel();
             foePanel.setGameData(gameData);
-            foePanel.setSetUpJoinScreen(false);
-            foePanel.setDrawTitlePage(false);
-            foePanel.setCharacterselectscreen(false);
-            foePanel.setHostGameSetUpScreen(false);
-            foePanel.setSetUpJoinScreen(false);
             foePanel.setHostRoomCodeScreen(true);
             repaintPanel();
             //text_roomCode.setBounds(1150,25,300,30);
@@ -854,25 +854,18 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
     public void backToHome(){
         removeEverythingFromScreen();
+        setAllPanel();
+        foePanel.setDrawTitlePage(true);
+        repaintPanel();
         btn_Join.setVisible(true);
         btn_Host.setVisible(true);
         btn_RB.setVisible(true);
-        foePanel.setSetUpJoinScreen(false);
-        foePanel.setDrawTitlePage(true);
-        foePanel.setCharacterselectscreen(false);
-        foePanel.setHostGameSetUpScreen(false);
-        foePanel.setSetUpJoinScreen(false);
-        repaintPanel();
     }
 
     //join methods
     public void join(){
         removeEverythingFromScreen();
-        foePanel.setDrawrulebook(false);
-        foePanel.setDrawTitlePage(false);
-        foePanel.setCharacterselectscreen(false);
-        foePanel.setHostGameSetUpScreen(false);
-        foePanel.setSetUpJoinScreen(false);
+        setAllPanel();
         foePanel.setSetUpJoinScreen(true);
         repaintPanel();
         textBox_getUsername.setBounds(700,450,300,50);
@@ -983,12 +976,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
                 break;
             }
         }
-        foePanel.setDrawrulebook(false);
-        foePanel.setSetUpJoinScreen(false);
-        foePanel.setDrawTitlePage(false);
-        foePanel.setHostGameSetUpScreen(false);
-        foePanel.setSetUpJoinScreen(false);
-        foePanel.setHostRoomCodeScreen(false);
+        setAllPanel();
         foePanel.setCharacterselectscreen(true);
         repaintPanel();
         currSelectedHero="Aelfric";
@@ -1010,11 +998,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         checkselectedcc();
         you = AELFRIC;
         //System.out.println("selected aelfric");
+        setAllPanel();
         foePanel.setCurHero(0);
         foePanel.setCharacterselectscreen(true);
-        foePanel.setSetUpJoinScreen(false);
-        foePanel.setHostGameSetUpScreen(false);
-        foePanel.setHostGameSetUpScreen(false);
         repaintPanel();
         currSelectedHero = "Aelfric";
         if(!gameData.getAelfricPlayer().equals("")){
@@ -1029,11 +1015,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void ceceliaSelect(){
         you = CECELIA;
         //System.out.println("selected cecilia");
+        setAllPanel();
         foePanel.setCurHero(1);
         foePanel.setCharacterselectscreen(true);
-        foePanel.setSetUpJoinScreen(false);
-        foePanel.setHostGameSetUpScreen(false);
-        foePanel.setHostGameSetUpScreen(false);
         repaintPanel();
         currSelectedHero = "Cecelia";
         if(!gameData.getCeceliaPlayer().equals("")){
@@ -1048,11 +1032,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void dagaSelect(){
         you = DAGA;
         //System.out.println("selected daga");
+        setAllPanel();
         foePanel.setCurHero(2);
         foePanel.setCharacterselectscreen(true);
-        foePanel.setSetUpJoinScreen(false);
-        foePanel.setHostGameSetUpScreen(false);
-        foePanel.setHostGameSetUpScreen(false);
         repaintPanel();
         currSelectedHero = "Daga";
         if(!gameData.getDagaPlayer().equals("")){
@@ -1067,11 +1049,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void kalistosSelect(){
         you = KALISTOS;
         //System.out.println("selected kalistos");
+        setAllPanel();
         foePanel.setCurHero(3);
         foePanel.setCharacterselectscreen(true);
-        foePanel.setSetUpJoinScreen(false);
-        foePanel.setHostGameSetUpScreen(false);
-        foePanel.setHostGameSetUpScreen(false);
         repaintPanel();
         currSelectedHero = "Kalistos";
         if(!gameData.getKalistosPlayer().equals("")){
@@ -1086,11 +1066,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void kaylanaSelect(){
         you = KAYLANA;
         //System.out.println("selected kaylana");
+        setAllPanel();
         foePanel.setCurHero(4);
         foePanel.setCharacterselectscreen(true);
-        foePanel.setSetUpJoinScreen(false);
-        foePanel.setHostGameSetUpScreen(false);
-        foePanel.setHostGameSetUpScreen(false);
         repaintPanel();
         currSelectedHero = "Kaylana";
         if(!gameData.getKaylanaPlayer().equals("")){
@@ -1105,11 +1083,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void siriusSelect(){
         you = SIRIUS;
         //System.out.println("selected sirius");
+        setAllPanel();
         foePanel.setCurHero(5);
         foePanel.setCharacterselectscreen(true);
-        foePanel.setSetUpJoinScreen(false);
-        foePanel.setHostGameSetUpScreen(false);
-        foePanel.setHostGameSetUpScreen(false);
         repaintPanel();
         currSelectedHero = "Sirius";
         if(!gameData.getSiriusPlayer().equals("")){
@@ -1230,12 +1206,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_rulebookLEFT.setEnabled(false);
         btn_rulebookRIGHT.setVisible(true);
         btn_rulebookRIGHT.setEnabled(true);
-        foePanel.setSetUpJoinScreen(false);
-        foePanel.setDrawTitlePage(false);
-        foePanel.setCharacterselectscreen(false);
-        foePanel.setHostGameSetUpScreen(false);
-        foePanel.setSetUpJoinScreen(false);
-        foePanel.setGamescreen(false);
+        setAllPanel();
         foePanel.setRbNum(tf_pgnl.getText());
         foePanel.setDrawrulebook(true);
         repaintPanel();
@@ -1245,11 +1216,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         String temp = tf_pgnl.getText();
         int lpn = parseInt(temp);
         flipRB(lpn,"left");
-        foePanel.setSetUpJoinScreen(false);
-        foePanel.setDrawTitlePage(false);
-        foePanel.setCharacterselectscreen(false);
-        foePanel.setHostGameSetUpScreen(false);
-        foePanel.setSetUpJoinScreen(false);
+        setAllPanel();
         foePanel.setRbNum(tf_pgnl.getText());
         foePanel.setDrawrulebook(true);
         repaintPanel();
@@ -1259,11 +1226,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         String temp = tf_pgnl.getText();
         int lpn = parseInt(temp);
         flipRB(lpn,"right");
-        foePanel.setSetUpJoinScreen(false);
-        foePanel.setDrawTitlePage(false);
-        foePanel.setCharacterselectscreen(false);
-        foePanel.setHostGameSetUpScreen(false);
-        foePanel.setSetUpJoinScreen(false);
+        setAllPanel();
         foePanel.setRbNum(tf_pgnl.getText());
         foePanel.setDrawrulebook(true);
         repaintPanel();
@@ -1361,13 +1324,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_backcc.setVisible(true);
         btn_frontcc.setVisible(true);
         btn_backfromcc.setVisible(true);
-        foePanel.setSetUpJoinScreen(false);
-        foePanel.setDrawTitlePage(false);
-        foePanel.setHostGameSetUpScreen(false);
-        foePanel.setSetUpJoinScreen(false);
-        foePanel.setHostRoomCodeScreen(false);
-        foePanel.setCharacterselectscreen(false);
-        foePanel.setGamescreen(false);
+        setAllPanel();
         foePanel.setCcscreen(true);
         foePanel.setInd(ind);
         repaintPanel();
@@ -1383,13 +1340,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             ind-=1;
         }
         //System.out.println("Index aft: "+ind);
-        foePanel.setSetUpJoinScreen(false);
-        foePanel.setDrawTitlePage(false);
-        foePanel.setHostGameSetUpScreen(false);
-        foePanel.setSetUpJoinScreen(false);
-        foePanel.setHostRoomCodeScreen(false);
-        foePanel.setCharacterselectscreen(false);
-        foePanel.setGamescreen(false);
+        setAllPanel();
         foePanel.setInd(ind);
         foePanel.setCcscreen(true);
         repaintPanel();
@@ -1403,13 +1354,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             ind+=1;
         }
       //  System.out.println("Index aft: "+ind);
-        foePanel.setSetUpJoinScreen(false);
-        foePanel.setDrawTitlePage(false);
-        foePanel.setHostGameSetUpScreen(false);
-        foePanel.setSetUpJoinScreen(false);
-        foePanel.setHostRoomCodeScreen(false);
-        foePanel.setCharacterselectscreen(false);
-        foePanel.setGamescreen(false);
+        setAllPanel();
         foePanel.setInd(ind);
         foePanel.setCcscreen(true);
         repaintPanel();
@@ -1484,14 +1429,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 //        }
 //        foePanel.setBoard(temp);
         setBoard();
-        foePanel.setHostGameSetUpScreen(false);
-        foePanel.setDrawrulebook(false);
-        foePanel.setHostRoomCodeScreen(false);
-        foePanel.setSetUpJoinScreen(false);
-        foePanel.setCharacterselectscreen(false);
-        foePanel.setDrawTitlePage(false);
-        foePanel.setSetUpJoinScreen(false);
-        foePanel.setCcscreen(false);
+        setAllPanel();
         foePanel.setGamescreen(true);
         repaintPanel();
 
@@ -1771,6 +1709,19 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void rot90(){
         gameData.getTileDeck().get(0).rotateClockwise();
         repaintPanel();
+    }
+
+    public void setAllPanel(){
+        foePanel.setHostGameSetUpScreen(false);
+        foePanel.setHostRoomCodeScreen(false);
+        foePanel.setSetUpJoinScreen(false);
+        foePanel.setDrawrulebook(false);
+        foePanel.setCharacterselectscreen(false);
+        foePanel.setDrawTitlePage(false);
+        foePanel.setGamescreen(false);
+        foePanel.setCcscreen(false);
+        foePanel.setShowingTileOnTop(false);
+        foePanel.setDrawRitualDeck(false);
     }
 
     //getters and setters
