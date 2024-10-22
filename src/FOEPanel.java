@@ -14,6 +14,7 @@ public class FOEPanel extends JPanel{
         private boolean showVagrantPortal = false;
         private boolean showInvasionOfTheShadowCult = false;
         private boolean showShadesOfVorax = false;
+    private boolean drawRitualDeck = false;
     private boolean hostRoomCodeScreen;
     private boolean setUpJoinScreen;
     private boolean drawTitlePage;
@@ -2272,112 +2273,444 @@ public class FOEPanel extends JPanel{
             }
         }
         if(showingTileOnTop){
-            BufferedImage img = null;
+            if(gameData.getTileDeck().get(0).getName().equals("Acid Jets")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_AcidJets,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_AcidJets_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_AcidJets_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_AcidJets_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Arrow Trap")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_ArrowTrap,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_ArrowTrap_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_ArrowTrap_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_ArrowTrap_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Dark Slime")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_DarkSlime,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_DarkSlime_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_DarkSlime_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_DarkSlime_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Den of Snakes")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_DenofSnakes,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_DenofSnakes_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_DenofSnakes_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_DenofSnakes_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Dragonling")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_Dragonling,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_Dragonling_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_Dragonling_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_Dragonling_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Fel Knight")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_FelKnight,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_FelKnight_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_FelKnight_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_FelKnight_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Floating Stones")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_FloatingStones,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_FloatingStones_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_FloatingStones_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_FloatingStones_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Hall of Illusions")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_HallofIlusions,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_HallofIlusions_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_HallofIlusions_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_HallofIlusions_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Laughing Shadow")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_LaughingShadow,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_LaughingShadow_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_LaughingShadow_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_LaughingShadow_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Lava Lake")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_LavaLake,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_LavaLake_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_LavaLake_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_LavaLake_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Mimic Chest")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_MimicChest,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_MimicChest_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_MimicChest_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_MimicChest_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Mindreader")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_Mindreader,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_Mindreader_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_Mindreader_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_Mindreader_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Minotaur")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_Minotaur,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_Minotaur_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_Minotaur_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_Minotaur_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Oger Brute")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_OgerBrute,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_OgerBrute_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_OgerBrute_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_OgerBrute_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Paradox Puzzle")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_ParodoxPuzzle,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_ParodoxPuzzle_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_ParodoxPuzzle_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_ParodoxPuzzle_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Pengulum Blades")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_PengulumBlades,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_PengulumBlades_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_PengulumBlades_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_PengulumBlades_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Psychomancer")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_Psycomancer,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_Psycomancer_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_Psycomancer_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_Psycomancer_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Secret Passage X")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_SPX,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_SPX_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_SPX_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_SPX_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Secret Passage Y")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_SPY,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_SPY_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_SPY_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_SPY_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Skeleton Guards")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_SkeletonGuards,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_SkeletonGuards_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_SkeletonGuards_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_SkeletonGuards_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Sphynx's Riddle")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_SphynxsRiddle,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_SphynxsRiddle_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_SphynxsRiddle_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_SphynxsRiddle_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Spiked Pit")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_SpikedPit,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_SpikedPit_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_SpikedPit_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_SpikedPit_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Voracious Plant")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_VoraciousPlant,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_VoraciousPlant_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_VoraciousPlant_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_VoraciousPlant_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Vorax's Focus")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_VoraxsFocus,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_VoraxsFocus_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_VoraxsFocus_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_VoraxsFocus_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Vorax's Heart")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_VoraxsHeart,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_VoraxsHeart_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_VoraxsHeart_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_VoraxsHeart_270,25,425,150,150,null);
+                }
+            }
+            else if(gameData.getTileDeck().get(0).getName().equals("Vorax's Knowledge")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_VoraxsKnowledge,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_VoraxsKnowledge_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_VoraxsKnowledge_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_VoraxsKnowledge_270,25,425,150,150,null);
+                }
+            }
+        }
+        if(drawRitualDeck){
             if(gameData.getCurrDeck().get(0).getName().equals("Acid Jets")){
-                img=ct_AcidJets;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+                g.drawImage(rdc_AcidJets, 185,525,165,300,null);
             }
             else if(gameData.getCurrDeck().get(0).getName().equals("Arrow Trap")){
-                img=ct_ArrowTrap;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+                g.drawImage(rdc_ArrowTrap, 185,525,165,300,null);
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Intelligence Event")){
+                g.drawImage(rdc_BlueEvent, 185,525,165,300,null);
             }
             else if(gameData.getCurrDeck().get(0).getName().equals("Dark Slime")){
-                img=ct_DarkSlime;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+                g.drawImage(rdc_DarkSlime, 185,525,165,300,null);
             }
             else if(gameData.getCurrDeck().get(0).getName().equals("Den of Snakes")){
-                img=ct_DenofSnakes;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+                g.drawImage(rdc_DenofSnakes, 185,525,165,300,null);
             }
             else if(gameData.getCurrDeck().get(0).getName().equals("Dragonling")){
-                img=ct_Dragonling;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+                g.drawImage(rdc_Dragonling, 185,525,165,300,null);
             }
             else if(gameData.getCurrDeck().get(0).getName().equals("Fel Knight")){
-                img=ct_FelKnight;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+                g.drawImage(rdc_FelKnight, 185,525,165,300,null);
             }
             else if(gameData.getCurrDeck().get(0).getName().equals("Floating Stones")){
-                img=ct_FloatingStones;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+                g.drawImage(rdc_FloatingStones, 185,525,165,300,null);
+            }
+            else if(gameData.getCurrDeck().get(0).getName().equals("Dexterity Event")){
+                g.drawImage(rdc_GreenEvent, 185,525,165,300,null);
             }
             else if(gameData.getCurrDeck().get(0).getName().equals("Hall of Illusions")){
-                img=ct_HallofIlusions;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+                g.drawImage(rdc_HallofIlusions, 185,525,165,300,null);
             }
             else if(gameData.getCurrDeck().get(0).getName().equals("Laughing Shadow")){
-                img=ct_LaughingShadow;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+                g.drawImage(rdc_LaughingShadow, 185,525,165,300,null);
             }
             else if(gameData.getCurrDeck().get(0).getName().equals("Lava Lake")){
-                img=ct_LavaLake;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+                g.drawImage(rdc_LavaLake, 185,525,165,300,null);
             }
             else if(gameData.getCurrDeck().get(0).getName().equals("Mimic Chest")){
-                img=ct_MimicChest;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+                g.drawImage(rdc_MimicChest, 185,525,165,300,null);
             }
-            else if(gameData.getCurrDeck().get(0).getName().equals("Mindreader")){
-                img=ct_Mindreader;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            else if(gameData.getCurrDeck().get(0).getName().equals("Mindeater")){
+                g.drawImage(rdc_Mindreader, 185,525,165,300,null);
             }
             else if(gameData.getCurrDeck().get(0).getName().equals("Minotaur")){
-                img=ct_Minotaur;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+                g.drawImage(rdc_Minotaur, 185,525,165,300,null);
             }
-            else if(gameData.getCurrDeck().get(0).getName().equals("Oger Brute")){
-                img=ct_OgerBrute;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            else if(gameData.getCurrDeck().get(0).getName().equals("Ogre Brute")){
+                g.drawImage(rdc_OgerBrute, 185,525,165,300,null);
             }
             else if(gameData.getCurrDeck().get(0).getName().equals("Paradox Puzzle")){
-                img=ct_ParodoxPuzzle;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+                g.drawImage(rdc_ParodoxPuzzle, 185,525,165,300,null);
             }
-            else if(gameData.getCurrDeck().get(0).getName().equals("Pengulum Blades")){
-                img=ct_PengulumBlades;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            else if(gameData.getCurrDeck().get(0).getName().equals("Pendulum Blades")){
+                g.drawImage(rdc_PengulumBlades, 185,525,165,300,null);
             }
             else if(gameData.getCurrDeck().get(0).getName().equals("Psychomancer")){
-                img=ct_Psycomancer;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+                g.drawImage(rdc_Psycomancer, 185,525,165,300,null);
             }
-            else if(gameData.getCurrDeck().get(0).getName().equals("Secret Passage X")){
-                img=ct_SPX;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            else if(gameData.getCurrDeck().get(0).getName().equals("Strength Event")){
+                g.drawImage(rdc_RedEvent, 185,525,165,300,null);
             }
-            else if(gameData.getCurrDeck().get(0).getName().equals("Secret Passage Y")){
-                img=ct_SPY;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
-            }
-            else if(gameData.getCurrDeck().get(0).getName().equals("Skeleton Guards")){
-                img=ct_SkeletonGuards;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            else if(gameData.getCurrDeck().get(0).getName().equals("Skeletal Guards")){
+                g.drawImage(rdc_SkeletonGuards, 185,525,165,300,null);
             }
             else if(gameData.getCurrDeck().get(0).getName().equals("Sphynx's Riddle")){
-                img=ct_SphynxsRiddle;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+                g.drawImage(rdc_SphynxsRiddle, 185,525,165,300,null);
             }
             else if(gameData.getCurrDeck().get(0).getName().equals("Spiked Pit")){
-                img=ct_SpikedPit;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+                g.drawImage(rdc_SpikedPit, 185,525,165,300,null);
             }
-            else if(gameData.getCurrDeck().get(0).getName().equals("Voracious Plant")){
-                img=ct_VoraciousPlant;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
+            else if(gameData.getCurrDeck().get(0).getName().equals("Voracios Plant")){
+                g.drawImage(rdc_VoraciousPlant, 185,525,165,300,null);
             }
-            else if(gameData.getCurrDeck().get(0).getName().equals("Vorax's Focus")){
-                img=ct_VoraxsFocus;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
-            }
-            else if(gameData.getCurrDeck().get(0).getName().equals("Vorax's Heart")){
-                img=ct_VoraxsHeart;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
-            }
-            else if(gameData.getCurrDeck().get(0).getName().equals("Vorax's Knowledge")){
-                img=ct_VoraxsKnowledge;
-                img=rotate(img,gameData.getTileDeck().get(0).getDegRot());
-            }
-            g.drawImage(img,25,425,150,150,null);
         }
     }
 
@@ -2398,6 +2731,13 @@ public class FOEPanel extends JPanel{
 
     public void drawCenteredString(Graphics g,String text,int x, int y){
         //https://stackoverflow.com/questions/27706197/how-can-i-center-graphics-drawstring-in-java
+    }
+
+    public boolean isDrawRitualDeck() {
+        return drawRitualDeck;
+    }
+    public void setDrawRitualDeck(boolean drawRitualDeck) {
+        this.drawRitualDeck = drawRitualDeck;
     }
 
     public GameData getGameData() {
