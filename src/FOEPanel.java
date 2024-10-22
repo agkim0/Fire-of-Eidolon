@@ -1988,18 +1988,7 @@ public class FOEPanel extends JPanel{
                             }
                         }
                         else if(board[r][c].getName().equals("Vestibule")){
-                            if(board[r][c].getDegRot()==0){
-                                g.drawImage(ct_Vestibule,355+(c*164), 60+(r*164), 164,164,null);
-                            }
-                            else if(board[r][c].getDegRot()==90){
-                                g.drawImage(ct_Vestibule_90,355+(c*164), 60+(r*164), 164,164,null);
-                            }
-                            else if(board[r][c].getDegRot()==180){
-                                g.drawImage(ct_Vestibule_180,355+(c*164), 60+(r*164), 164,164,null);
-                            }
-                            else if(board[r][c].getDegRot()==270){
-                                g.drawImage(ct_Vestibule_270,355+(c*164), 60+(r*164), 164,164,null);
-                            }
+                            g.drawImage(ct_Vestibule,355+(c*164), 60+(r*164), 164,164,null);
 
                             if(board[r][c].getHeroesOn()!=null){
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
@@ -2423,7 +2412,7 @@ public class FOEPanel extends JPanel{
     }
 
     public void setGameData(GameData gd) {
-        System.out.println("game data recieved: "+gd.getDifficultyLevel());
+        //System.out.println("game data recieved: "+gd.getDifficultyLevel());
         this.gameData = gd;
     }
 
