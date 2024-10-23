@@ -17,7 +17,7 @@ public class GameData implements Serializable{
     private ArrayList<Hero> orderOfTurns = new ArrayList<>();
     private int orderOfTurnIndex=0;
     private int threatLevel;
-    private String difficultyLevel;
+    private String difficultyLevel = "";
     private int numOfPlayers;
     private int playersDove;
     private int playersNeedingDive;
