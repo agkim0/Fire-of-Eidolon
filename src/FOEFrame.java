@@ -321,6 +321,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         //panel
         foePanel = new FOEPanel();
         foePanel.setBounds(0,0,1500,1000);
+        foePanel.setGameData(gameData);
         add(foePanel);
 
         //game screen
@@ -818,14 +819,15 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         //reppaintPanel();
     }
     public void raiseDifficulty(){
-        if(difficultyLevelIndex<difficultyLevel.size()){
+        if(difficultyLevelIndex+1<difficultyLevel.size()){
             difficultyLevelIndex++;
         }
         else{
             difficultyLevelIndex = 0;
         }
         gameData.setDifficultyLevel(difficultyLevel.get(difficultyLevelIndex));
-        //reppaintPanel();
+        System.out.println(difficultyLevelIndex+"            "+gameData.getDifficultyLevel());
+        repaint();
     }
     public void startLobby(){
         before = currentPage;
@@ -1756,6 +1758,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
     //misc
     public void paint(Graphics g){
         Graphics bg = buffer.getGraphics();
+        foePanel.setGameData(gameData);
         foePanel.paint(bufferBack.getGraphics());
         bg.drawImage(bufferBack,0,0,null);
         g.drawImage(buffer,0,0,null);

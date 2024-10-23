@@ -564,7 +564,6 @@ public class FOEPanel extends JPanel{
                 g.drawImage(scenario_4,440,550,550,350,null);
             }
             if(gameData.getDifficultyLevel().equals("Beginner")){
-                System.out.println("beginner");
                 g.drawImage(df_Beginner,1100,250,350,550,null);
             }
             if(gameData.getDifficultyLevel().equals("Normal")){

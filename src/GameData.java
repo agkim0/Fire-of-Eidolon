@@ -16,11 +16,11 @@ public class GameData implements Serializable{
     private Hero turn;
     private ArrayList<Hero> orderOfTurns = new ArrayList<>();
     private int orderOfTurnIndex=0;
-    private int threatLevel;
-    private String difficultyLevel;
-    private int numOfPlayers;
-    private int playersDove;
-    private int playersNeedingDive;
+    private int threatLevel=0;
+    private String difficultyLevel="Beginner";
+    private int numOfPlayers=0;
+    private int playersDove=0;
+    private int playersNeedingDive=0;
     private ArrayList<Tile> collapsingTiles=new ArrayList<>();
 
     private boolean unstableVoid=false;
