@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import static java.lang.Integer.parseInt;
 
-public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener, MouseListener{
+public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,KeyListener, MouseListener{
 
     //player and game info
     private Hero you;
@@ -157,6 +157,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     private BufferedImage kaylana_Special_Token = null;
     private BufferedImage sirius_Action_Token = null;
     private BufferedImage sirius_Special_Token = null;
+    private BufferedImage bufferBack;
     private BufferedImage buffer;
 
     //Character info screen
@@ -168,6 +169,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
     public FOEFrame(ObjectOutputStream os) throws IOException{
         super("FOE Game");
+        setIgnoreRepaint(true);
         this.gameData = new GameData();;
         this.os = os;
         you=AELFRIC;
@@ -175,7 +177,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         addWindowFocusListener(this);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(1500,1000);
-        buffer = new BufferedImage(1500,100,BufferedImage.TYPE_4BYTE_ABGR);
+        buffer = new BufferedImage(1500,1000,BufferedImage.TYPE_4BYTE_ABGR);
+        bufferBack = new BufferedImage(1500,1000,BufferedImage.TYPE_4BYTE_ABGR);
         setResizable(false);
         setAlwaysOnTop(true);
         setVisible(true);
@@ -510,6 +513,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         colShift =29;
         rowShift =29;
 
+        Thread t = new Thread(this);
+        t.start();
 
     }
 
@@ -582,9 +587,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void host(){
         removeEverythingFromScreen();
         gameData = new GameData();
-        setAllPanel();
-        foePanel.setShowUnstableVoid(true);
-        repaintPanel();
         btn_RB.setVisible(true);
         textBox_getUsername.setBounds(700,50,300,50);
         textBox_getUsername.setVisible(true);
@@ -602,11 +604,15 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         checkbox_GameScenarioSelected.setVisible(true);
 
         gameRuleSlidesIndex = 0;
-        gameData.setUnstableVoid(false);
+        gameData.setUnstableVoid(true);
         gameData.setVagrantPortal(false);
         gameData.setInvasionOfTheShadowCult(false);
         gameData.setShadesOfVorax(false);
         gameData.setDifficultyLevel("Beginner");
+
+        setAllPanel();
+        foePanel.setHostGameSetUpScreen(true);
+        foePanel.setShowUnstableVoid(true);
     }
     public void numOfPlayersDecrease(){
         if(!text_numOfPlayersBox.getText().equals("1")){
@@ -709,7 +715,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
         }
 
-        repaintPanel();
+        //reppaintPanel();
     }
     public void forwardGameScenario(){
         if(checkbox_GameScenarioSelected.isSelected()){
@@ -799,7 +805,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
         }
 
-        repaintPanel();
+        //reppaintPanel();
     }
     public void lowerDifficulty(){
         if(difficultyLevelIndex>0){
@@ -809,7 +815,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             difficultyLevelIndex = difficultyLevel.size()-1;
         }
         gameData.setDifficultyLevel(difficultyLevel.get(difficultyLevelIndex));
-        repaintPanel();
+        //reppaintPanel();
     }
     public void raiseDifficulty(){
         if(difficultyLevelIndex<difficultyLevel.size()){
@@ -819,7 +825,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             difficultyLevelIndex = 0;
         }
         gameData.setDifficultyLevel(difficultyLevel.get(difficultyLevelIndex));
-        repaintPanel();
+        //reppaintPanel();
     }
     public void startLobby(){
         before = currentPage;
@@ -832,7 +838,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             setAllPanel();
             foePanel.setGameData(gameData);
             foePanel.setHostRoomCodeScreen(true);
-            repaintPanel();
+            //reppaintPanel();
             //text_roomCode.setBounds(1150,25,300,30);
             text_roomCode.setVisible(true);
             text_roomCode.setOpaque(true);
@@ -856,7 +862,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         removeEverythingFromScreen();
         setAllPanel();
         foePanel.setDrawTitlePage(true);
-        repaintPanel();
+        //reppaintPanel();
         btn_Join.setVisible(true);
         btn_Host.setVisible(true);
         btn_RB.setVisible(true);
@@ -867,7 +873,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         removeEverythingFromScreen();
         setAllPanel();
         foePanel.setSetUpJoinScreen(true);
-        repaintPanel();
+        //reppaintPanel();
         textBox_getUsername.setBounds(700,450,300,50);
         textBox_getUsername.setVisible(true);
         textBox_getRoomCode.setVisible(true);
@@ -978,7 +984,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         }
         setAllPanel();
         foePanel.setCharacterselectscreen(true);
-        repaintPanel();
+        //reppaintPanel();
         currSelectedHero="Aelfric";
         btn_aelfric.setVisible(true);
         btn_cecilia.setVisible(true);
@@ -1001,7 +1007,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         setAllPanel();
         foePanel.setCurHero(0);
         foePanel.setCharacterselectscreen(true);
-        repaintPanel();
+        //reppaintPanel();
         currSelectedHero = "Aelfric";
         if(!gameData.getAelfricPlayer().equals("")){
             btn_selectCharacter.setText("taken");
@@ -1018,7 +1024,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         setAllPanel();
         foePanel.setCurHero(1);
         foePanel.setCharacterselectscreen(true);
-        repaintPanel();
+        //reppaintPanel();
         currSelectedHero = "Cecelia";
         if(!gameData.getCeceliaPlayer().equals("")){
             btn_selectCharacter.setText("taken");
@@ -1035,7 +1041,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         setAllPanel();
         foePanel.setCurHero(2);
         foePanel.setCharacterselectscreen(true);
-        repaintPanel();
+        //reppaintPanel();
         currSelectedHero = "Daga";
         if(!gameData.getDagaPlayer().equals("")){
             btn_selectCharacter.setText("taken");
@@ -1052,7 +1058,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         setAllPanel();
         foePanel.setCurHero(3);
         foePanel.setCharacterselectscreen(true);
-        repaintPanel();
+        //reppaintPanel();
         currSelectedHero = "Kalistos";
         if(!gameData.getKalistosPlayer().equals("")){
             btn_selectCharacter.setText("taken");
@@ -1069,7 +1075,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         setAllPanel();
         foePanel.setCurHero(4);
         foePanel.setCharacterselectscreen(true);
-        repaintPanel();
+        //reppaintPanel();
         currSelectedHero = "Kaylana";
         if(!gameData.getKaylanaPlayer().equals("")){
             btn_selectCharacter.setText("taken");
@@ -1086,7 +1092,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         setAllPanel();
         foePanel.setCurHero(5);
         foePanel.setCharacterselectscreen(true);
-        repaintPanel();
+        //reppaintPanel();
         currSelectedHero = "Sirius";
         if(!gameData.getSiriusPlayer().equals("")){
             btn_selectCharacter.setText("Character taken");
@@ -1209,7 +1215,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         setAllPanel();
         foePanel.setRbNum(tf_pgnl.getText());
         foePanel.setDrawrulebook(true);
-        repaintPanel();
+        //reppaintPanel();
     }
     public void rbleft(){
         //System.out.print("rb left");
@@ -1219,7 +1225,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         setAllPanel();
         foePanel.setRbNum(tf_pgnl.getText());
         foePanel.setDrawrulebook(true);
-        repaintPanel();
+        //reppaintPanel();
     }
     public void rbright(){
         //System.out.print("rb right");
@@ -1229,7 +1235,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         setAllPanel();
         foePanel.setRbNum(tf_pgnl.getText());
         foePanel.setDrawrulebook(true);
-        repaintPanel();
+        //reppaintPanel();
     }
     public void flipRB(int lpn, String dir){
         if(lpn == 1 && dir.equals("right")){
@@ -1327,7 +1333,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         setAllPanel();
         foePanel.setCcscreen(true);
         foePanel.setInd(ind);
-        repaintPanel();
+        //reppaintPanel();
         //System.out.println("Index: "+ind);
     }
     public void bcc(){
@@ -1343,7 +1349,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         setAllPanel();
         foePanel.setInd(ind);
         foePanel.setCcscreen(true);
-        repaintPanel();
+        //reppaintPanel();
     }
     public void fcc(){
        // System.out.println("Index bef: "+ind);
@@ -1357,7 +1363,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         setAllPanel();
         foePanel.setInd(ind);
         foePanel.setCcscreen(true);
-        repaintPanel();
+        //reppaintPanel();
         //System.out.println("Index: "+ind);
     }
 
@@ -1431,7 +1437,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         setBoard();
         setAllPanel();
         foePanel.setGamescreen(true);
-        repaintPanel();
+        //reppaintPanel();
 
     }
     public void setBoard(){
@@ -1442,7 +1448,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         }
         foePanel.setBoard(board);
         printBoard();
-        repaintPanel();
+        //reppaintPanel();
     }
     public void screenUp(){
         if(rowShift -1+5<61&& rowShift -1>=0){
@@ -1516,7 +1522,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         foePanel.setShowingTileOnTop(true);
         currAction=MOVE_AND_PLACE_TILE;
         //highlight surrounding areas
-        repaintPanel();
+        //reppaintPanel();
     }
     public void moveUp(){
         if (r -1>0){
@@ -1526,7 +1532,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             gameData.getGrid()[r][c].getHeroesOn().remove(you);
             r--;
             gameData.getGrid()[r][c].getHeroesOn().add(you);
-            repaintPanel();
+            //reppaintPanel();
             actions.setEnabled(true);
             btn_backAction.setVisible(false);
             sendCommand(CommandFromClient.ACTION,"move",gameData);
@@ -1540,7 +1546,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             gameData.getGrid()[r][c].getHeroesOn().remove(you);
             r++;
             gameData.getGrid()[r][c].getHeroesOn().add(you);
-            repaintPanel();
+            //reppaintPanel();
             actions.setEnabled(true);
             btn_backAction.setVisible(false);
             sendCommand(CommandFromClient.ACTION,"move",gameData);
@@ -1554,7 +1560,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             gameData.getGrid()[r][c].getHeroesOn().remove(you);
             c--;
             gameData.getGrid()[r][c].getHeroesOn().add(you);
-            repaintPanel();
+            //reppaintPanel();
             actions.setEnabled(true);
             btn_backAction.setVisible(false);
             sendCommand(CommandFromClient.ACTION,"move",gameData);
@@ -1568,7 +1574,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             gameData.getGrid()[r][c].getHeroesOn().remove(you);
             c++;
             gameData.getGrid()[r][c].getHeroesOn().add(you);
-            repaintPanel();
+            //reppaintPanel();
             actions.setEnabled(true);
             btn_backAction.setVisible(false);
             sendCommand(CommandFromClient.ACTION,"move",gameData);
@@ -1586,7 +1592,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
             actionPts--;
             currAction=-1;
-            repaintPanel();
+            //reppaintPanel();
             actions.setEnabled(true);
             btn_backAction.setVisible(false);
             sendCommand(CommandFromClient.ACTION,"place tile",gameData);
@@ -1604,7 +1610,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
             actionPts--;
             currAction=-1;
-            repaintPanel();
+            //reppaintPanel();
             actions.setEnabled(true);
             btn_backAction.setVisible(false);
             sendCommand(CommandFromClient.ACTION,"place tile",gameData);
@@ -1622,7 +1628,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
             actionPts--;
             currAction=-1;
-            repaintPanel();
+            //reppaintPanel();
             actions.setEnabled(true);
             btn_backAction.setVisible(false);
             sendCommand(CommandFromClient.ACTION,"place tile",gameData);
@@ -1640,7 +1646,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             }
             actionPts--;
             currAction=-1;
-            repaintPanel();
+            //reppaintPanel();
             actions.setEnabled(true);
             btn_backAction.setVisible(false);
             sendCommand(CommandFromClient.ACTION,"place tile",gameData);
@@ -1649,7 +1655,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void explore(){
         currAction=EXPLORE;
         foePanel.setShowingTileOnTop(true);
-        repaintPanel();
+        //reppaintPanel();
     }
     public void attack(){
         currAction=ATTACK;
@@ -1657,7 +1663,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
             gameData.getGrid()[r][c].setCultistNum(gameData.getGrid()[r][c].getCultistNum()-1);
             actionPts--;
             currAction=-1;
-            repaintPanel();
+            //reppaintPanel();
         }
     }
     public void challenge(){
@@ -1674,7 +1680,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     public void cultistTurn(){
         for(int x = 0;x<gameData.getThreatLevel();x++){
             foePanel.setDrawRitualDeck(true);
-            repaintPanel();
+            //reppaintPanel();
             for (int r = 0;r<gameData.getGrid().length;r++){
                 for(int c = 0;c<gameData.getGrid()[0].length;c++){
                     if(gameData.getCurrDeck().remove(0).equals(gameData.getGrid()[r][c].getCard())) {
@@ -1705,7 +1711,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     }
     public void rot90(){
         gameData.getTileDeck().get(0).rotateClockwise();
-        repaintPanel();
+        //reppaintPanel();
     }
 
     public void setAllPanel(){
@@ -1738,7 +1744,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     //misc
     //misc
     public void paint(Graphics g){
+        Graphics bg = buffer.getGraphics();
+        foePanel.paint(bufferBack.getGraphics());
+        bg.drawImage(bufferBack,0,0,null);
+        g.drawImage(buffer,0,0,null);
         paintComponents(g);
+
     }
     public void paintComponents(Graphics g){
 //        g.setColor(Color.BLACK);
@@ -1802,12 +1813,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         btn_backfromcc.repaint();
         btn_backAction.repaint();
     }
-    public void repaintPanel(){
+    /*public void repaintPanel(){
         foePanel.setGameData(this.gameData);
         foePanel.repaint();
         printBoard();
         repaint();
-    }
+    }*/
     public void sendCommand(int com, String data, GameData gameData){
         CommandFromClient cfc = new CommandFromClient(com,data,gameData);
         try{
@@ -2014,5 +2025,22 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
     @Override
     public void mouseExited(MouseEvent e) {
 
+    }
+
+    @Override
+    public void run() {
+        while(true)
+        {
+            if(this.getGraphics()!=null)
+                paint(this.getGraphics());
+            try
+            {
+                Thread.sleep(50);
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
     }
 }

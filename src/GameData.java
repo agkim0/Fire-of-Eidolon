@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class GameData implements Serializable{
     private Tile[][] grid = new Tile[61][61];
-    private boolean allTilesOpen;
+    private boolean allTilesOpen = false;
     private ArrayList<Card> fullDeck = new ArrayList<>();
     private ArrayList<Card> currDeck = new ArrayList<>();
     private ArrayList<Tile> tileDeck = new ArrayList<>();
@@ -16,9 +16,9 @@ public class GameData implements Serializable{
     private Hero turn;
     private ArrayList<Hero> orderOfTurns = new ArrayList<>();
     private int orderOfTurnIndex=0;
-    private int threatLevel;
-    private String difficultyLevel;
-    private int numOfPlayers;
+    private int threatLevel = 0;
+    private String difficultyLevel = "Beginner";
+    private int numOfPlayers = 0;
 
     private boolean unstableVoid=false;
     private boolean vagrantPortal=false;

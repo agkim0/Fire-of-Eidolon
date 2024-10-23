@@ -66,11 +66,11 @@ public class ClientsListener implements Runnable,Serializable{
                 }
                 if(cfs.getCommand()==CommandFromServer.ACTION){
                     frame.setGameData(cfs.getGameData());
-                    frame.repaintPanel();
+                    //frame.repaintPanel();
                 }
                 if(cfs.getCommand()==CommandFromServer.ENDTURN){
                     frame.setGameData(cfs.getGameData());
-                    frame.repaintPanel();
+                    //frame.repaintPanel();
                 }
                 if(cfs.getCommand()==CommandFromServer.DIVE){
                     frame.dive(cfs.getData());

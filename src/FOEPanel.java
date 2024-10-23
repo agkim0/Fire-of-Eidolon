@@ -322,7 +322,7 @@ public class FOEPanel extends JPanel{
         setSize(1500,1000);
         this.gameData = new GameData();
         bg =ImageIO.read(new File("Game Images/eidolon bg.png"));
-        do{
+        {
             logo = ImageIO.read(new File("Game images/Fire of Eidolon Title.png"));
             aelfric_Token = ImageIO.read(new File("token pieces/character tokens/aelfric character token(Fix).png"));
             aelfric_Action_Token = ImageIO.read(new File("character cards/aelfric action.png"));
@@ -542,7 +542,7 @@ public class FOEPanel extends JPanel{
             redVorax_Token = ImageIO.read(new File("token pieces/voraxes/red vorax.png"));
             purpleVorax_Token = ImageIO.read(new File("token pieces/voraxes/purple vorax.png"));
             greenVorax_Token = ImageIO.read(new File("token pieces/voraxes/green vorax.png"));
-        }while(false);
+        }
         
     }
     public void paint(Graphics g){
@@ -550,6 +550,7 @@ public class FOEPanel extends JPanel{
         g.setColor(Color.white);
 
         if(hostGameSetUpScreen){
+
             if(showUnstableVoid){
                 g.drawImage(scenario_1,440,550,550,350,null);
             }
@@ -563,6 +564,7 @@ public class FOEPanel extends JPanel{
                 g.drawImage(scenario_4,440,550,550,350,null);
             }
             if(gameData.getDifficultyLevel().equals("Beginner")){
+                System.out.println("beginner");
                 g.drawImage(df_Beginner,1100,250,350,550,null);
             }
             if(gameData.getDifficultyLevel().equals("Normal")){
@@ -591,7 +593,7 @@ public class FOEPanel extends JPanel{
             }
             g.drawImage(logo,50,50,600,500,null);
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
-            g.drawString("Username:",450,70);
+            g.drawString("Username:",450,100);
 
         }
         if(hostRoomCodeScreen){
