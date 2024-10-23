@@ -1681,7 +1681,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
                         gameData.getGrid()[r][c].setCultistNum(gameData.getGrid()[r][c].getCultistNum()+1);
                         if(gameData.getGrid()[r][c].getCultistNum()==2){
                             for(Hero h:gameData.getGrid()[r][c].getHeroesOn()){
-                                sendCommand(CommandFromClient.DIVE,h.getName(),gameData);
+                                gameData.getGrid()[r][c].setCollapsing(true);
+                                gameData.getCollapsingTiles().add(gameData.getGrid()[r][c]);
                             }
 
                         }
@@ -1690,6 +1691,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
 
             }
         }
+        gameData.divingSequence(gameData.getCollapsingTiles().get(0));
+        for(int x = 0;x<gameData.getPlayersNeedingDive();x++){
+            sendCommand(CommandFromClient.DIVE,null,gameData);
+        }
+
+
     }
     public void dive(String u){
         if(u.equals(you.getName())){
@@ -1699,7 +1706,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
         }
     }
     public void endCultistTurn(){
-        gameData.setTurn(gameData.get);
+        gameData.nextTurn();
+        sendCommand(CommandFromClient.END_TURN,null,gameData);
     }
     public void reset(){
        // System.out.println("reset");
@@ -1974,6 +1982,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
                 int boardRow = (e.getY()-60)/164;
                 int gridCol = boardCol+colShift;
                 int gridRow = boardRow+rowShift;
+                int rt=r;
+                int ct=c;
                 if((((gridCol==c-1||gridCol==c+1)&&gridRow==r)||((gridRow==r-1||gridRow==r+1)&&gridCol==c))&&gameData.getGrid()[gridRow][gridCol]!=null){
                     if(gridRow==r-1){
                         r--;
@@ -1990,8 +2000,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, KeyListener
                     gameData.getGrid()[r][c].getHeroesOn().add(you);
                     gameData.setPlayersDove(gameData.getPlayersDove()+1);
                     sendCommand(CommandFromClient.ACTION,"dove",gameData);
-                    if(gameData.allPlayersDove()){
-                        sendCommand(CommandFromClient.ALL_PLAYERS_DOVE,null,gameData);
+                    if(gameData.allPlayersDove(gameData.getGrid()[rt][ct])){
+                        gameData.getGrid()[rt][ct]=null;
+                        sendCommand(CommandFromClient.END_CULTIST_TURN,null,gameData);
                     }
                 }
                 else{

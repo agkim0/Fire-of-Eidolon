@@ -21,7 +21,7 @@ public class CommandFromServer implements Serializable {
     public static final int CHARACTER_UNTAKEN=15;
     public static final int START_GAME=16;
     public static final int DIVE=17;
-    public static final int ALL_PLAYERS_DOVE=18;
+    public static final int END_CULTIST_TURN=18;
 
 
 

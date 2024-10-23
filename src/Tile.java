@@ -13,6 +13,7 @@ public class Tile implements Serializable {
     private ArrayList<Hero> heroesOn = new ArrayList<Hero>();
     private boolean onBoard;
     private boolean inVoid;
+    private boolean collapsing=false;
     private Card card;
     private boolean topSide;
     private boolean bottomSide;
@@ -60,6 +61,71 @@ public class Tile implements Serializable {
         this.bottomSide = bottomSide;
         this.leftSide = leftSide;
         this.rightSide = rightSide;
+    }
+
+
+    public void rotateCounterClockwise(){
+        boolean newTop = false;
+        boolean newBot = false;
+        boolean newLeft = false;
+        boolean newRight = false;
+        if(topSide){
+            newLeft = true;
+        }
+        if(leftSide){
+            newBot = true;
+        }
+        if(bottomSide){
+            newRight = true;
+        }
+        if(rightSide){
+            newTop = true;
+        }
+
+        topSide = newTop;
+        leftSide = newLeft;
+        bottomSide = newBot;
+        rightSide = newRight;
+    }
+    public void rotateClockwise(){
+        boolean newTop = false;
+        boolean newBot = false;
+        boolean newLeft = false;
+        boolean newRight = false;
+        if(topSide){
+            newRight= true;
+        }
+        if(leftSide){
+            newTop = true;
+        }
+        if(bottomSide){
+            newLeft = true;
+        }
+        if(rightSide){
+            newBot = true;
+        }
+
+        topSide = newTop;
+        leftSide = newLeft;
+        bottomSide = newBot;
+        rightSide = newRight;
+        if(degRot==270){
+            degRot=0;
+        }
+        else{
+            degRot+=90;
+        }
+    }
+    public String toString(){
+        return name.charAt(0)+"";
+    }
+
+    public boolean isCollapsing() {
+        return collapsing;
+    }
+
+    public void setCollapsing(boolean collapsing) {
+        this.collapsing = collapsing;
     }
 
     public String getName() {
@@ -158,59 +224,4 @@ public class Tile implements Serializable {
         this.rightSide = rightSide;
     }
 
-    public void rotateCounterClockwise(){
-        boolean newTop = false;
-        boolean newBot = false;
-        boolean newLeft = false;
-        boolean newRight = false;
-        if(topSide){
-            newLeft = true;
-        }
-        if(leftSide){
-            newBot = true;
-        }
-        if(bottomSide){
-            newRight = true;
-        }
-        if(rightSide){
-            newTop = true;
-        }
-
-        topSide = newTop;
-        leftSide = newLeft;
-        bottomSide = newBot;
-        rightSide = newRight;
-    }
-    public void rotateClockwise(){
-        boolean newTop = false;
-        boolean newBot = false;
-        boolean newLeft = false;
-        boolean newRight = false;
-        if(topSide){
-            newRight= true;
-        }
-        if(leftSide){
-            newTop = true;
-        }
-        if(bottomSide){
-            newLeft = true;
-        }
-        if(rightSide){
-            newBot = true;
-        }
-
-        topSide = newTop;
-        leftSide = newLeft;
-        bottomSide = newBot;
-        rightSide = newRight;
-        if(degRot==270){
-            degRot=0;
-        }
-        else{
-            degRot+=90;
-        }
-    }
-    public String toString(){
-        return name.charAt(0)+"";
-    }
 }

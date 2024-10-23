@@ -21,6 +21,7 @@ public class GameData implements Serializable{
     private int numOfPlayers;
     private int playersDove;
     private int playersNeedingDive;
+    private ArrayList<Tile> collapsingTiles=new ArrayList<>();
 
     private boolean unstableVoid=false;
     private boolean vagrantPortal=false;
@@ -286,16 +287,11 @@ public class GameData implements Serializable{
         allHeroes.add(SIRIUS);
     }
     public void nextTurn(){
-        for(int x=0 ;x<6; x++){
-            if(allHeroes.get(x) == turn){
-                if(x==5){
-                    turn = allHeroes.get(0);
-                }
-                else{
-                    turn = allHeroes.get(x+1);
-                }
-            }
+        orderOfTurnIndex++;
+        if(orderOfTurnIndex==orderOfTurns.size()){
+            orderOfTurnIndex=0;
         }
+        turn=orderOfTurns.get(orderOfTurnIndex);
     }
     public Tile getThistile(String tileName){
         for(int x = 0;x<fullTileDeck.size();x++){
@@ -309,11 +305,11 @@ public class GameData implements Serializable{
         System.out.println("fail");
         return null;
     }
-    public void divingSequence(int r, int c){
-        playersNeedingDive=grid[r][c].getHeroesOn().size();
+    public void divingSequence(Tile t){
+        playersNeedingDive=t.getHeroesOn().size();
         playersDove=0;
     }
-    public boolean allPlayersDove(){
+    public boolean allPlayersDove(Tile t){
         if(playersDove==playersNeedingDive){
             playersDove=0;
             playersNeedingDive=0;
@@ -322,9 +318,6 @@ public class GameData implements Serializable{
         else {
             return false;
         }
-    }
-    public void nextTurn(){
-
     }
 
     public Tile[][] getGrid() {
@@ -509,5 +502,13 @@ public class GameData implements Serializable{
 
     public void setPlayersNeedingDive(int playersNeedingDive) {
         this.playersNeedingDive = playersNeedingDive;
+    }
+
+    public ArrayList<Tile> getCollapsingTiles() {
+        return collapsingTiles;
+    }
+
+    public void setCollapsingTiles(ArrayList<Tile> collapsingTiles) {
+        this.collapsingTiles = collapsingTiles;
     }
 }
