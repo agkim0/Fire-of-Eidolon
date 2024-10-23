@@ -210,9 +210,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         add(btn_forwardGameScenario);
         checkbox_GameScenarioSelected.setBounds(700,450,50,50);
         add(checkbox_GameScenarioSelected);
-        btn_lowerDifficulty.setBounds(1233,170,75,75);
+        btn_lowerDifficulty.setBounds(1233,145,75,75);
         add(btn_lowerDifficulty);
-        btn_raiseDifficulty.setBounds(1238,800,75,75);
+        btn_raiseDifficulty.setBounds(1238,790,75,75);
         add(btn_raiseDifficulty);
         difficultyLevel.add("Beginner");
         difficultyLevel.add("Normal");
@@ -664,6 +664,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         }
         if(gameRuleSlidesIndex == 0){
             setAllPanel();
+            foePanel.setHostGameSetUpScreen(true);
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
             foePanel.setShowShadesOfVorax(false);
@@ -678,6 +679,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         }
         if(gameRuleSlidesIndex == 1){
             setAllPanel();
+            foePanel.setHostGameSetUpScreen(true);
             foePanel.setShowVagrantPortal(true);
             foePanel.setShowInvasionOfTheShadowCult(false);
             foePanel.setShowShadesOfVorax(false);
@@ -691,6 +693,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         }
         if(gameRuleSlidesIndex == 2){
             setAllPanel();
+            foePanel.setHostGameSetUpScreen(true);
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowInvasionOfTheShadowCult(true);
             foePanel.setShowShadesOfVorax(false);
@@ -704,6 +707,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         }
         if(gameRuleSlidesIndex == 3){
             setAllPanel();
+            foePanel.setHostGameSetUpScreen(true);
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
             foePanel.setShowShadesOfVorax(true);
@@ -755,6 +759,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         }
         if(gameRuleSlidesIndex == 0){
             setAllPanel();
+            foePanel.setHostGameSetUpScreen(true);
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
             foePanel.setShowShadesOfVorax(false);
@@ -768,6 +773,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         }
         if(gameRuleSlidesIndex == 1){
             setAllPanel();
+            foePanel.setHostGameSetUpScreen(true);
             foePanel.setShowVagrantPortal(true);
             foePanel.setShowInvasionOfTheShadowCult(false);
             foePanel.setShowShadesOfVorax(false);
@@ -781,6 +787,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         }
         if(gameRuleSlidesIndex == 2){
             setAllPanel();
+            foePanel.setHostGameSetUpScreen(true);
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowInvasionOfTheShadowCult(true);
             foePanel.setShowShadesOfVorax(false);
@@ -794,6 +801,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         }
         if(gameRuleSlidesIndex == 3){
             setAllPanel();
+            foePanel.setHostGameSetUpScreen(true);
             foePanel.setShowVagrantPortal(false);
             foePanel.setShowInvasionOfTheShadowCult(false);
             foePanel.setShowShadesOfVorax(true);
