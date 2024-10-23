@@ -194,7 +194,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         add(btn_frontcc);
 
         //host set up screen
-        btn_startLobby.setBounds(50,550,300,75);
+        btn_startLobby.setBounds(50,650,300,75);
         add(btn_startLobby);
         btn_backToHome.setBounds(50,650,300,75);
         add(btn_backToHome);
@@ -208,7 +208,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         add(btn_backGameScenario);
         btn_forwardGameScenario.setBounds(995,688,75,75);
         add(btn_forwardGameScenario);
-        checkbox_GameScenarioSelected.setBounds(700,500,50,50);
+        checkbox_GameScenarioSelected.setBounds(700,450,50,50);
         add(checkbox_GameScenarioSelected);
         btn_lowerDifficulty.setBounds(1233,170,75,75);
         add(btn_lowerDifficulty);
@@ -333,7 +333,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         allA.add("challenge");
         allA.add("skill");
         actions.setListData(allA.toArray());
-        actions.setBounds(24,188,200,150);
+        actions.setBounds(19,152,200,150);
         add(actions);
         btn_backAction.setBounds(235,188,100,50);
         add(btn_backAction);
@@ -430,7 +430,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         add(btn_screenRight);
         btn_screenLeft.setBounds(255,445,100,50);
         add(btn_screenLeft);
-        btn_rot90.setBounds(25,360,100,50);
+        btn_rot90.setBounds(25,330,100,50);
         add(btn_rot90);
 
 //        btn_rot180.setBounds(150,375,100,50);
@@ -596,7 +596,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         btn_numOfPlayersDecrease.setVisible(true);
         btn_raiseDifficulty.setVisible(true);
         btn_lowerDifficulty.setVisible(true);
-        btn_backToHome.setBounds(50,650,300,75);
+        btn_backToHome.setBounds(50,750,300,75);
         btn_backToHome.setVisible(true);
         btn_startLobby.setVisible(true);
         btn_backGameScenario.setVisible(true);
@@ -1751,9 +1751,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
     public void setYou(Hero you) {
         this.you = you;
     }
-
-    //misc
-    //misc
+    
     public void paint(Graphics g){
         Graphics bg = buffer.getGraphics();
         foePanel.paint(bufferBack.getGraphics());
@@ -1763,10 +1761,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
 
     }
     public void paintComponents(Graphics g){
-//        g.setColor(Color.BLACK);
-//        g.fillRect(0,0,getWidth(),getHeight());
-//        g.drawImage(img,50,50, 800,800,null);
-      
         btn_Host.repaint();
         btn_Join.repaint();
         btn_RB.repaint();
@@ -1824,12 +1818,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         btn_backfromcc.repaint();
         btn_backAction.repaint();
     }
-    /*public void repaintPanel(){
-        foePanel.setGameData(this.gameData);
-        foePanel.repaint();
-        printBoard();
-        repaint();
-    }*/
     public void sendCommand(int com, String data, GameData gameData){
         CommandFromClient cfc = new CommandFromClient(com,data,gameData);
         try{
