@@ -1173,7 +1173,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
     public void heroSelected(boolean selected){
         if(selected){
             btn_selectCharacter.setEnabled(false);
-            //System.out.println(foePanel.getCurHero());
             String name = "";
             if(foePanel.getCurHero() == 0){
                 name = "Aelfric";
@@ -1659,6 +1658,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
             gameData.getTileDeck().remove(0);
             foePanel.setShowingTileOnTop(false);
             if(currAction==MOVE_AND_PLACE_TILE){
+                System.out.println("heros: "+gameData.getHeroesPlaying().size());
                 System.out.println("move and place tile");
                 for(int x = 0;x<gameData.getGrid()[r][c].getHeroesOn().size();x++){
                     if (gameData.getGrid()[r][c].getHeroesOn().get(x).getName().equals(you.getName())) {
@@ -1666,11 +1666,14 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
                         break;
                     }
                 }
+                //THERE IS A PROBLEM WITH HEROS PLAYING TURNING INTO ZERO AFTER THIS CODE ^
+                System.out.println("heros: "+gameData.getHeroesPlaying().size());
                 gameData.getGrid()[r][c].getHeroesOn().remove(you);
                 System.out.println(gameData.getGrid()[r][c].getHeroesOn().toString());
                 r--;
                 gameData.getGrid()[r][c].getHeroesOn().add(you);
                 System.out.println(gameData.getGrid()[r][c].getHeroesOn().toString());
+
             }
             setBoard();
             printBoard();
@@ -2027,108 +2030,112 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
     @Override
     public void mouseClicked(MouseEvent e) {
         System.out.println(currAction);
-        if(gameData.getTurn().getName().equals(you.getName())){
-            System.out.println("Your turn when clickingg");
-            if(e.getX()>355&&e.getX()<1175&&e.getY()>60&&e.getY()<880){//clicking board
-                System.out.println("Clicking board");
-                int boardCol = (e.getX()-355)/164;
-                int boardRow = (e.getY()-60)/164;
-                int gridCol = boardCol+colShift;
-                int gridRow = boardRow+rowShift;
-                System.out.println("Grid row: "+gridRow+"   Curr Row: "+r);
-                System.out.println("Grid col: "+gridCol+"   Curr Col: "+c);
+        if(gameData.getTurn().getName()!=null){
+            if(gameData.getTurn().getName().equals(you.getName())){
+                System.out.println("Your turn when clickingg");
+                if(e.getX()>355&&e.getX()<1175&&e.getY()>60&&e.getY()<880){//clicking board
+                    System.out.println("Clicking board");
+                    int boardCol = (e.getX()-355)/164;
+                    int boardRow = (e.getY()-60)/164;
+                    int gridCol = boardCol+colShift;
+                    int gridRow = boardRow+rowShift;
+                    System.out.println("Grid row: "+gridRow+"   Curr Row: "+r);
+                    System.out.println("Grid col: "+gridCol+"   Curr Col: "+c);
 
-                if(gameData.getGrid()[gridRow][gridCol]==gameData.getThistile("nuul")&&currAction==MOVE_AND_PLACE_TILE){//moving into new chamber
-                    System.out.println("Tile is null and curr action is move and place");
-                    if(((gridCol==c-1||gridCol==c+1)&&gridRow==r)||((gridRow==r-1||gridRow==r+1)&&gridCol==c)){
-                        System.out.println("Adjacent to curr tile");
-                        if(gridRow==r-1){
+                    if(gameData.getGrid()[gridRow][gridCol]==gameData.getThistile("nuul")&&currAction==MOVE_AND_PLACE_TILE){//moving into new chamber
+                        System.out.println("Tile is null and curr action is move and place");
+                        if(gridRow==r-1 && gridCol==c){
+                            System.out.println("Up");
                             placeTileUp();
                         }
-                        else if(gridRow==r+1){
+                        else if(gridRow==r+1 && gridCol==c){
+                            System.out.println("Down");
                             placeTileDown();
                         }
-                        else if(gridCol==c-1){
+                        else if(gridCol==c-1 && gridRow==r){
+                            System.out.println("Left");
                             placeTileLeft();
                         }
-                        else if(gridCol==c+1){
+                        else if(gridCol==c+1 && gridRow==r){
+                            System.out.println("Right");
                             placeTileRight();
                         }
                     }
-                }
-                else if(currAction==MOVE){
-                    if(((gridCol==c-1||gridCol==c+1)&&gridRow==r)||((gridRow==r-1||gridRow==r+1)&&gridCol==c)){
-                        if(gameData.getGrid()[gridRow][gridCol]!=null){
-                            if(gridRow==r-1){
-                                moveUp();
+                    else if(currAction==MOVE){
+                        if(((gridCol==c-1||gridCol==c+1)&&gridRow==r)||((gridRow==r-1||gridRow==r+1)&&gridCol==c)){
+                            if(gameData.getGrid()[gridRow][gridCol]!=null){
+                                if(gridRow==r-1){
+                                    moveUp();
+                                }
+                                else if(gridRow==r+1){
+                                    moveDown();
+                                }
+                                else if(gridCol==c-1){
+                                    moveRight();
+                                }
+                                else if(gridCol==c+1){
+                                    moveLeft();
+                                }
                             }
-                            else if(gridRow==r+1){
-                                moveDown();
-                            }
-                            else if(gridCol==c-1){
-                                moveRight();
-                            }
-                            else if(gridCol==c+1){
-                                moveLeft();
-                            }
+
                         }
+                    }
+                    else if(currAction==EXPLORE){
+                        if(gameData.getGrid()[gridRow-1][gridCol]!=null){
+                            placeTileUp();
+                        }
+                        else if(gameData.getGrid()[gridRow+1][gridCol]!=null){
+                            placeTileDown();
+                        }
+                        else if(gameData.getGrid()[gridRow][gridCol-1]!=null){
+                            placeTileLeft();
+                        }
+                        else if(gameData.getGrid()[gridRow][gridCol+1]!=null){
+                            placeTileRight();
+                        }
+                    }
 
-                    }
                 }
-                else if(currAction==EXPLORE){
-                    if(gameData.getGrid()[gridRow-1][gridCol]!=null){
-                        placeTileUp();
-                    }
-                    else if(gameData.getGrid()[gridRow+1][gridCol]!=null){
-                        placeTileDown();
-                    }
-                    else if(gameData.getGrid()[gridRow][gridCol-1]!=null){
-                        placeTileLeft();
-                    }
-                    else if(gameData.getGrid()[gridRow][gridCol+1]!=null){
-                        placeTileRight();
-                    }
-                }
-
-            }
                 //g.drawRect(355,60,820,820);
-        }
-        if(currAction==DIVING){
-            if(e.getX()>355&&e.getX()<1175&&e.getY()>60&&e.getY()<880){//clicking board
-                int boardCol = (e.getX()-355)/164;
-                int boardRow = (e.getY()-60)/164;
-                int gridCol = boardCol+colShift;
-                int gridRow = boardRow+rowShift;
-                int rt=r;
-                int ct=c;
-                if((((gridCol==c-1||gridCol==c+1)&&gridRow==r)||((gridRow==r-1||gridRow==r+1)&&gridCol==c))&&gameData.getGrid()[gridRow][gridCol]!=null){
-                    if(gridRow==r-1){
-                        r--;
+            }
+            if(currAction==DIVING){
+                if(e.getX()>355&&e.getX()<1175&&e.getY()>60&&e.getY()<880){//clicking board
+                    int boardCol = (e.getX()-355)/164;
+                    int boardRow = (e.getY()-60)/164;
+                    int gridCol = boardCol+colShift;
+                    int gridRow = boardRow+rowShift;
+                    int rt=r;
+                    int ct=c;
+                    if((((gridCol==c-1||gridCol==c+1)&&gridRow==r)||((gridRow==r-1||gridRow==r+1)&&gridCol==c))&&gameData.getGrid()[gridRow][gridCol]!=null){
+                        if(gridRow==r-1){
+                            r--;
+                        }
+                        else if(gridRow==r+1){
+                            r++;
+                        }
+                        else if(gridCol==c-1){
+                            c--;
+                        }
+                        else if(gridCol==c+1){
+                            c++;
+                        }
+                        gameData.getGrid()[r][c].getHeroesOn().add(you);
+                        gameData.setPlayersDove(gameData.getPlayersDove()+1);
+                        sendCommand(CommandFromClient.ACTION,"dove",gameData);
+                        if(gameData.allPlayersDove(gameData.getGrid()[rt][ct])){
+                            gameData.getGrid()[rt][ct]=null;
+                            sendCommand(CommandFromClient.END_CULTIST_TURN,null,gameData);
+                        }
                     }
-                    else if(gridRow==r+1){
-                        r++;
+                    else{
+                        msgs.add("Server: You cannot dive there.");
+                        msgList.setListData(msgs.toArray());
                     }
-                    else if(gridCol==c-1){
-                        c--;
-                    }
-                    else if(gridCol==c+1){
-                        c++;
-                    }
-                    gameData.getGrid()[r][c].getHeroesOn().add(you);
-                    gameData.setPlayersDove(gameData.getPlayersDove()+1);
-                    sendCommand(CommandFromClient.ACTION,"dove",gameData);
-                    if(gameData.allPlayersDove(gameData.getGrid()[rt][ct])){
-                        gameData.getGrid()[rt][ct]=null;
-                        sendCommand(CommandFromClient.END_CULTIST_TURN,null,gameData);
-                    }
-                }
-                else{
-                    msgs.add("Server: You cannot dive there.");
-                    msgList.setListData(msgs.toArray());
-                }
 
+                }
             }
         }
+
     }
 
     @Override

@@ -460,6 +460,7 @@ public class GameData implements Serializable{
         return this.heroesPlaying;
     }
     public void setHeroesPlaying(ArrayList<Hero> heroesPlaying){
+        System.out.println("Change");
         this.heroesPlaying = heroesPlaying;
     }
     public void addHeroesPlaying(Hero hero){

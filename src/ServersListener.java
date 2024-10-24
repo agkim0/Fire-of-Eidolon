@@ -24,43 +24,22 @@ public class ServersListener implements Runnable, Serializable {
     @Override
     public void run(){
         while(true){
-//            System.out.println("new server thread going.");
             try{
                 CommandFromClient cfc = (CommandFromClient) is.readObject();
-//                System.out.println("I just read "+cfc);
-
-//                if(cfc.getCommand()==CommandFromClient.CHECK_USERNAME){
-////                    System.out.println("Check username recieved");
-////                    System.out.println(cfc.getGameData().getNumOfPlayers());
-//                    if(cfc.getGameData().getUsernames().contains(cfc.getData())){
-//                        System.out.println("sending valid");
-//                        sendCommand(CommandFromServer.USERNAME_INVALID,null,null);
-//                    }
-//                    else{
-//                        System.out.println("sending valid");
-//                        sendCommand(CommandFromServer.USERNAME_VAlID,null,null);
-//                    }
-//                }
                 if(cfc.getCommand()==CommandFromClient.LOBBY_CODE_ATTEMPT){
-//                    System.out.println("LOBBY_CODE_ATTEMPT");
                     String[] x = cfc.getData().split(",",2);
-//                    System.out.println("length: "+x.length);
                     String attemptCode = x[0];
-//                    System.out.println(attemptCode);
                     String usernameAttempt = x[1];
                     boolean lobbycodefound = false;
                     for(Room r:rooms){
-//                        System.out.println("curr: "+r.getGameData().getLobbyCode()+"            attemptCode: "+attemptCode);
                         if(r.getGameData().getLobbyCode().equals(attemptCode)){
                             lobbycodefound=true;
-//                            System.out.println(usernameAttempt+" found room");
                             if(r.getUsers().size() == r.getGameData().getNumOfPlayers()){
                                 sendCommand(CommandFromServer.GAME_IS_FULL,null,null);
                                 break;
                             }
                             System.out.println(r.getUsers());
                             if(r.getUsers().contains(usernameAttempt)){
-//                                System.out.println(usernameAttempt+" invalid username");
                                 sendCommand(CommandFromServer.USERNAME_INVALID,null,null);
                                 break;
                             }
@@ -70,10 +49,8 @@ public class ServersListener implements Runnable, Serializable {
                                 acceptedName = true;
                                 room.getUsers().add(usernameAttempt);
                                 room.getGameData().getUsernames().add(usernameAttempt);
-//                                System.out.println("Users: "+room.getUsers());
                                 sendCommand(CommandFromServer.LOBBY_CODE_AND_USERNAME_VALID,usernameAttempt,room.getGameData());
                                 room.getOuts().add(os);
-//                                System.out.println("Outs.size(): "+room.getOuts().size()+"       users.size(): "+room.getUsers().size());
                                 serverMessage(usernameAttempt+ " has joined the game!");
                                 sendCommandtoAllUsers(CommandFromServer.NEW_USER_JOINED,null,room.getGameData());
                                 break;
