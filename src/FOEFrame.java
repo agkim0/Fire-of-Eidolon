@@ -1688,15 +1688,25 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
             gameData.getTileDeck().remove(0);
             foePanel.setShowingTileOnTop(false);
             if(currAction==MOVE_AND_PLACE_TILE){
+                for(int x = 0;x<gameData.getGrid()[r][c].getHeroesOn().size();x++){
+                    if (gameData.getGrid()[r][c].getHeroesOn().get(x).getName().equals(you.getName())) {
+                        gameData.getGrid()[r][c].getHeroesOn().remove(x);
+                        break;
+                    }
+                }
                 gameData.getGrid()[r][c].getHeroesOn().remove(you);
+                System.out.println(gameData.getGrid()[r][c].getHeroesOn().toString());
                 r++;
-                gameData.getGrid()[r+1][c].getHeroesOn().add(you);
+                gameData.getGrid()[r][c].getHeroesOn().add(you);
+                System.out.println(gameData.getGrid()[r][c].getHeroesOn().toString());
             }
             actionPts--;
             currAction=-1;
             //reppaintPanel();
             actions.setEnabled(true);
             btn_backAction.setVisible(false);
+            setBoard();
+            printBoard();
             sendCommand(CommandFromClient.ACTION,"place tile",gameData);
         }
     }
@@ -1706,15 +1716,25 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
             gameData.getTileDeck().remove(0);
             foePanel.setShowingTileOnTop(false);
             if(currAction==MOVE_AND_PLACE_TILE){
+                for(int x = 0;x<gameData.getGrid()[r][c].getHeroesOn().size();x++){
+                    if (gameData.getGrid()[r][c].getHeroesOn().get(x).getName().equals(you.getName())) {
+                        gameData.getGrid()[r][c].getHeroesOn().remove(x);
+                        break;
+                    }
+                }
                 gameData.getGrid()[r][c].getHeroesOn().remove(you);
+                System.out.println(gameData.getGrid()[r][c].getHeroesOn().toString());
                 c--;
-                gameData.getGrid()[r][c-1].getHeroesOn().add(you);
+                gameData.getGrid()[r][c].getHeroesOn().add(you);
+                System.out.println(gameData.getGrid()[r][c].getHeroesOn().toString());
             }
             actionPts--;
             currAction=-1;
             //reppaintPanel();
             actions.setEnabled(true);
             btn_backAction.setVisible(false);
+            setBoard();
+            printBoard();
             sendCommand(CommandFromClient.ACTION,"place tile",gameData);
         }
     }
@@ -1724,15 +1744,25 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
             gameData.getTileDeck().remove(0);
             foePanel.setShowingTileOnTop(false);
             if(currAction==MOVE_AND_PLACE_TILE){
+                for(int x = 0;x<gameData.getGrid()[r][c].getHeroesOn().size();x++){
+                    if (gameData.getGrid()[r][c].getHeroesOn().get(x).getName().equals(you.getName())) {
+                        gameData.getGrid()[r][c].getHeroesOn().remove(x);
+                        break;
+                    }
+                }
                 gameData.getGrid()[r][c].getHeroesOn().remove(you);
+                System.out.println(gameData.getGrid()[r][c].getHeroesOn().toString());
                 c++;
-                gameData.getGrid()[r][c+1].getHeroesOn().add(you);
+                gameData.getGrid()[r][c].getHeroesOn().add(you);
+                System.out.println(gameData.getGrid()[r][c].getHeroesOn().toString());
             }
             actionPts--;
             currAction=-1;
             //reppaintPanel();
             actions.setEnabled(true);
             btn_backAction.setVisible(false);
+            setBoard();
+            printBoard();
             sendCommand(CommandFromClient.ACTION,"place tile",gameData);
         }
     }
