@@ -1487,19 +1487,22 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
 
     //actions
     public void actionSelected(){
+        System.out.println("actions");
         if(gameData.getTurn().equals(you)){
-            if(actionPts<=0&&!actions.getSelectedValue().equals("end turn")){
+            System.out.println("Your turn");
+            if(actions.getSelectedValue().equals("end turn")){
+                endTurn();
+            }
+            else if(actionPts<=0&&!actions.getSelectedValue().equals("end turn")){
                 actionPts=3;
                 msgs.add("Server: You are out of AP! Click end turn to finish!");
-            }
-            else if(actions.getSelectedValue().equals("end turn")){
-                endTurn();
             }
             else {
                 if(actions.getSelectedValue().equals("move")){
                     move();
                 }
                 else if(actions.getSelectedValue().equals("place and move")){
+                    System.out.println("move and place tile");
                     moveAndPlaceTile();
                 }
                 else if(actions.getSelectedValue().equals("explore")){
@@ -1529,6 +1532,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         //highlight possible moves
     }
     public void moveAndPlaceTile(){
+        setAllPanel();
+        foePanel.setGamescreen(true);
         foePanel.setShowingTileOnTop(true);
         currAction=MOVE_AND_PLACE_TILE;
         //highlight surrounding areas
