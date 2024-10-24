@@ -68,6 +68,7 @@ public class GameData implements Serializable{
         }
         Collections.shuffle(orderOfTurns);
         turn = orderOfTurns.get(orderOfTurnIndex);
+        System.out.println("Turn: "+turn.getName());
 
         createAllTilesAndCards();
         for(int x = 0;x<tileDeck.size();x++){

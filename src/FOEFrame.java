@@ -1709,7 +1709,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         }
         gameData.divingSequence(gameData.getCollapsingTiles().get(0));
         for(int x = 0;x<gameData.getPlayersNeedingDive();x++){
-            sendCommand(CommandFromClient.DIVE,null,gameData);
+//            sendCommand(CommandFromClient.DIVE,gameData.get,gameData);
         }
 
 
@@ -1729,10 +1729,6 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
        // System.out.println("reset");
         //character = new Hero();
         repaint();
-    }
-    public void rot90(){
-        gameData.getTileDeck().get(0).rotateClockwise();
-        //reppaintPanel();
     }
 
     public void setAllPanel(){
@@ -1840,18 +1836,18 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         }
     }
     public void printBoard(){
-        //System.out.println();
+        System.out.println();
         for(int r = 0;r<board.length;r++){
-            //System.out.print("[");
+            System.out.print("[");
             for(int c = 0;c<board[0].length;c++){
                 if(board[r][c]==null){
-                    //System.out.print("B, ");
+                    System.out.print("B, ");
                 }
                 else{
-                    //System.out.print(board[r][c].getName().charAt(0)+", ");
+                    System.out.print(board[r][c].getName().charAt(0)+", ");
                 }
             }
-            //System.out.println("]");
+            System.out.println("]");
         }
 
 
