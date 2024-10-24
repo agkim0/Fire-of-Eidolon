@@ -557,6 +557,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
             btn_backAction.addActionListener(e -> {
                 backAction();
             });
+
         }
 
 
@@ -1574,6 +1575,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
 
     }
     public void backAction(){
+        setAllPanel();
+        foePanel.setGamescreen(true);
         currAction=-1;
         actions.setEnabled(true);
         btn_backAction.setVisible(false);
