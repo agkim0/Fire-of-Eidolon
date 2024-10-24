@@ -8,6 +8,7 @@ public class Tile implements Serializable {
     public static final int SPECIAL = 3;
     private String name;
     private int skillType;
+    private boolean broken;
     private boolean token = true;
     private int cultistNum = 0;
     private ArrayList<Hero> heroesOn = new ArrayList<Hero>();
@@ -116,6 +117,15 @@ public class Tile implements Serializable {
             degRot+=90;
         }
     }
+
+    public boolean isBroken() {
+        return broken;
+    }
+
+    public void setBroken(boolean broken) {
+        this.broken = broken;
+    }
+
     public String toString(){
         return name.charAt(0)+"";
     }

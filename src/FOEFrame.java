@@ -26,6 +26,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
     private FOEPanel foePanel;
     ObjectOutputStream os;
 
+
     public static final int TP = 0;//title page
     public static final int RB = 1;//rulebook
     public static final int SUG = 2;//set up game
@@ -37,13 +38,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
     public static final int WIN = 8;
     public static final int LOSE = 9;
 
-    public static final int MOVE=0;
-    public static final int MOVE_AND_PLACE_TILE=1;
-    public static final int EXPLORE=2;
-    public static final int ATTACK=3;
-    public static final int DIVING=4;
+    public static final int MOVE = 0;
+    public static final int MOVE_AND_PLACE_TILE = 1;
+    public static final int EXPLORE = 2;
+    public static final int ATTACK = 3;
+    public static final int DIVING = 4;
     int currAction;
-
 
     //start up screen
     private JButton btn_Host = new JButton("Host");
@@ -185,14 +185,16 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         setVisible(true);
         setLayout(null);
         //looking at character card screen
-        btn_cc.setBounds(150,10,100,100);
-        add(btn_cc);
-        btn_backfromcc.setBounds(25,25,100,50);
-        add(btn_backfromcc);
-        btn_backcc.setBounds(425,275,50,50);
-        add(btn_backcc);
-        btn_frontcc.setBounds(1075,275,50,50);
-        add(btn_frontcc);
+        {
+            btn_cc.setBounds(150, 10, 100, 100);
+            add(btn_cc);
+            btn_backfromcc.setBounds(25, 25, 100, 50);
+            add(btn_backfromcc);
+            btn_backcc.setBounds(425, 275, 50, 50);
+            add(btn_backcc);
+            btn_frontcc.setBounds(1075, 275, 50, 50);
+            add(btn_frontcc);
+        }
 
         //host set up screen
         {
@@ -236,8 +238,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
             characterCards.add("Kaylana");
             characterCards.add("Sirius");}
 
-
         //username and lobby code screen
+        {
         text_roomCode.setBounds(700,425,300,50);
         add(text_roomCode);
         textBox_getUsername.setBounds(700,50,300,50);
@@ -245,270 +247,319 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         textBox_getRoomCode.setBounds(700,550,300,50);
         add(textBox_getRoomCode);
         btn_checkRoomCode.setBounds(1200,575,200,50);
-        add(btn_checkRoomCode);
+        add(btn_checkRoomCode);}
 
         //character selection
-        btn_selectCharacter.setBounds(575,650,300,75);
-        add(btn_selectCharacter);
-        aelfric_Token = ImageIO.read(new File("token pieces/character tokens/aelfric character token(Fix).png"));
-        cecelia_Token = ImageIO.read(new File("token pieces/character tokens/cecelia character token(Fix).png"));
-        daga_Token = ImageIO.read(new File("token pieces/character tokens/daga character token(Fix).png"));
-        kalistos_Token = ImageIO.read(new File("token pieces/character tokens/kalistos character token(Fix).png"));
-        kaylana_Token = ImageIO.read(new File("token pieces/character tokens/kaylana character token(Fix).png"));
-        sirius_Token = ImageIO.read(new File("token pieces/character tokens/sirius character token(Fix).png"));
-        btn_aelfric = new JButton(new ImageIcon(aelfric_Token));
-        btn_aelfric.setBorderPainted(false);
-        btn_aelfric.setFocusPainted(false);
-        btn_aelfric.setContentAreaFilled(false);
-        btn_aelfric.setBounds(100,100,100,100);
-        add(btn_aelfric);
-        btn_cecilia = new JButton(new ImageIcon(cecelia_Token));
-        btn_cecilia.setBorderPainted(false);
-        btn_cecilia.setFocusPainted(false);
-        btn_cecilia.setContentAreaFilled(false);
-        btn_cecilia.setBounds(100,200,100,100);
-        add(btn_cecilia);
-        btn_daga = new JButton(new ImageIcon(daga_Token));
-        btn_daga.setBorderPainted(false);
-        btn_daga.setFocusPainted(false);
-        btn_daga.setContentAreaFilled(false);
-        btn_daga.setBounds(100,300,100,100);
-        add(btn_daga);
-        btn_kalistos = new JButton(new ImageIcon(kalistos_Token));
-        btn_kalistos.setBorderPainted(false);
-        btn_kalistos.setFocusPainted(false);
-        btn_kalistos.setContentAreaFilled(false);
-        btn_kalistos.setBounds(100,400,100,100);
-        add(btn_kalistos);
-        btn_kaylana = new JButton(new ImageIcon(kaylana_Token));
-        btn_kaylana.setBorderPainted(false);
-        btn_kaylana.setFocusPainted(false);
-        btn_kaylana.setContentAreaFilled(false);
-        btn_kaylana.setBounds(100,500,100,100);
-        add(btn_kaylana);
-        btn_sirius = new JButton(new ImageIcon(sirius_Token));
-        btn_sirius.setBorderPainted(false);
-        btn_sirius.setFocusPainted(false);
-        btn_sirius.setContentAreaFilled(false);
-        btn_sirius.setBounds(100,600,100,100);
-        add(btn_sirius);
+        {
+            btn_selectCharacter.setBounds(575, 650, 300, 75);
+            add(btn_selectCharacter);
+            aelfric_Token = ImageIO.read(new File("token pieces/character tokens/aelfric character token(Fix).png"));
+            cecelia_Token = ImageIO.read(new File("token pieces/character tokens/cecelia character token(Fix).png"));
+            daga_Token = ImageIO.read(new File("token pieces/character tokens/daga character token(Fix).png"));
+            kalistos_Token = ImageIO.read(new File("token pieces/character tokens/kalistos character token(Fix).png"));
+            kaylana_Token = ImageIO.read(new File("token pieces/character tokens/kaylana character token(Fix).png"));
+            sirius_Token = ImageIO.read(new File("token pieces/character tokens/sirius character token(Fix).png"));
+            btn_aelfric = new JButton(new ImageIcon(aelfric_Token));
+            btn_aelfric.setBorderPainted(false);
+            btn_aelfric.setFocusPainted(false);
+            btn_aelfric.setContentAreaFilled(false);
+            btn_aelfric.setBounds(100, 100, 100, 100);
+            add(btn_aelfric);
+            btn_cecilia = new JButton(new ImageIcon(cecelia_Token));
+            btn_cecilia.setBorderPainted(false);
+            btn_cecilia.setFocusPainted(false);
+            btn_cecilia.setContentAreaFilled(false);
+            btn_cecilia.setBounds(100, 200, 100, 100);
+            add(btn_cecilia);
+            btn_daga = new JButton(new ImageIcon(daga_Token));
+            btn_daga.setBorderPainted(false);
+            btn_daga.setFocusPainted(false);
+            btn_daga.setContentAreaFilled(false);
+            btn_daga.setBounds(100, 300, 100, 100);
+            add(btn_daga);
+            btn_kalistos = new JButton(new ImageIcon(kalistos_Token));
+            btn_kalistos.setBorderPainted(false);
+            btn_kalistos.setFocusPainted(false);
+            btn_kalistos.setContentAreaFilled(false);
+            btn_kalistos.setBounds(100, 400, 100, 100);
+            add(btn_kalistos);
+            btn_kaylana = new JButton(new ImageIcon(kaylana_Token));
+            btn_kaylana.setBorderPainted(false);
+            btn_kaylana.setFocusPainted(false);
+            btn_kaylana.setContentAreaFilled(false);
+            btn_kaylana.setBounds(100, 500, 100, 100);
+            add(btn_kaylana);
+            btn_sirius = new JButton(new ImageIcon(sirius_Token));
+            btn_sirius.setBorderPainted(false);
+            btn_sirius.setFocusPainted(false);
+            btn_sirius.setContentAreaFilled(false);
+            btn_sirius.setBounds(100, 600, 100, 100);
+            add(btn_sirius);
+        }
 
         //chatBox
-        msgBox.setBounds(1200,900,200,50);
-        add(msgBox);
-        btn_sendMsg.setBounds(1400,900,50,50);
-        add(btn_sendMsg);
-        this.gameData = new GameData();
-        msgList.setListData(msgs.toArray());
-        msgScroll.setBounds(1200,600,250,250);
-        add(msgScroll);
+        {
+            msgBox.setBounds(1200, 900, 200, 50);
+            add(msgBox);
+            btn_sendMsg.setBounds(1400, 900, 50, 50);
+            add(btn_sendMsg);
+            this.gameData = new GameData();
+            msgList.setListData(msgs.toArray());
+            msgScroll.setBounds(1200, 600, 250, 250);
+            add(msgScroll);
+        }
 
         //rulebook
-        tf_pgnl.setBounds(10,850,75,75);
-        add(tf_pgnl);
-        tf_pgnr.setBounds(1360,850,75,75);
-        add(tf_pgnr);
-        btn_rulebookLEFT.setBounds(10,500,75,75);
-        add(btn_rulebookLEFT);
-        btn_rulebookRIGHT.setBounds(1375,500,75,75);
-        add(btn_rulebookRIGHT);
-        btn_rbBack.setBounds(10,10,75,75);
-        add(btn_rbBack);
-        btn_Host.setBounds(900,400,300,75);
-        add(btn_Host);
-        btn_Join.setBounds(900,500,300,75);
-        add(btn_Join);
-        btn_RB.setBounds(10,10,100,100);
-        add(btn_RB);
+        {
+            tf_pgnl.setBounds(10, 850, 75, 75);
+            add(tf_pgnl);
+            tf_pgnr.setBounds(1360, 850, 75, 75);
+            add(tf_pgnr);
+            btn_rulebookLEFT.setBounds(10, 500, 75, 75);
+            add(btn_rulebookLEFT);
+            btn_rulebookRIGHT.setBounds(1375, 500, 75, 75);
+            add(btn_rulebookRIGHT);
+            btn_rbBack.setBounds(10, 10, 75, 75);
+            add(btn_rbBack);
+            btn_Host.setBounds(900, 400, 300, 75);
+            add(btn_Host);
+            btn_Join.setBounds(900, 500, 300, 75);
+            add(btn_Join);
+            btn_RB.setBounds(10, 10, 100, 100);
+            add(btn_RB);
+        }
 
         //panel
-        foePanel = new FOEPanel();
-        foePanel.setBounds(0,0,1500,1000);
-        foePanel.setGameData(gameData);
-        add(foePanel);
+        {
+            foePanel = new FOEPanel();
+            foePanel.setBounds(0, 0, 1500, 1000);
+            foePanel.setGameData(gameData);
+            add(foePanel);
+        }
 
         //game screen
-        allA.add("move");
-        allA.add("place and move");
-        allA.add("explore");
-        allA.add("exchange");
-        allA.add("attack");
-        allA.add("wait");
-        allA.add("challenge");
-        allA.add("skill");
-        actions.setListData(allA.toArray());
-        actions.setBounds(19,152,200,150);
-        add(actions);
-        btn_backAction.setBounds(235,188,100,50);
-        add(btn_backAction);
-        aelfric_Action_Token = ImageIO.read(new File("character cards/aelfric action.png"));
-        aelfric_Special_Token = ImageIO.read(new File("character cards/aelfric special.png"));
-        cecelia_Action_Token = ImageIO.read(new File("character cards/cecelia action.png"));
-        cecelia_Special_Token = ImageIO.read(new File("character cards/cecelia special.png"));
-        daga_Action_Token = ImageIO.read(new File("character cards/daga action.png"));
-        daga_Special_Token = ImageIO.read(new File("character cards/daga special.png"));
-        kalistos_Action_Token = ImageIO.read(new File("character cards/kalistos action.png"));
-        kalistos_Special_Token = ImageIO.read(new File("character cards/kalistos special.png"));
-        kaylana_Action_Token = ImageIO.read(new File("character cards/kaylana action.png"));
-        kaylana_Special_Token = ImageIO.read(new File("character cards/kaylana special.png"));
-        sirius_Action_Token = ImageIO.read(new File("character cards/sirius action.png"));
-        sirius_Special_Token = ImageIO.read(new File("character cards/sirius special.png"));
-        btn_aelfaction = new JButton(new ImageIcon(aelfric_Action_Token));
-        btn_aelfaction.setBorderPainted(false);
-        btn_aelfaction.setFocusPainted(false);
-        btn_aelfaction.setContentAreaFilled(false);
-        btn_aelfaction.setBounds(900,750,125,125);
-        add(btn_aelfaction);
-        btn_aelfspec = new JButton(new ImageIcon(aelfric_Special_Token));
-        btn_aelfspec.setBorderPainted(false);
-        btn_aelfspec.setFocusPainted(false);
-        btn_aelfspec.setContentAreaFilled(false);
-        btn_aelfspec.setBounds(900,850,125,125);
-        add(btn_aelfspec);
-        btn_ceciaction = new JButton(new ImageIcon(cecelia_Action_Token));
-        btn_ceciaction.setBorderPainted(false);
-        btn_ceciaction.setFocusPainted(false);
-        btn_ceciaction.setContentAreaFilled(false);
-        btn_ceciaction.setBounds(900,750,125,125);
-        add(btn_ceciaction);
-        btn_cecispec = new JButton(new ImageIcon(cecelia_Special_Token));
-        btn_cecispec.setBorderPainted(false);
-        btn_cecispec.setFocusPainted(false);
-        btn_cecispec.setContentAreaFilled(false);
-        btn_cecispec.setBounds(900,850,125,125);
-        add(btn_cecispec);
-        btn_kaliaction = new JButton(new ImageIcon(kalistos_Action_Token));
-        btn_kaliaction.setBorderPainted(false);
-        btn_kaliaction.setFocusPainted(false);
-        btn_kaliaction.setContentAreaFilled(false);
-        btn_kaliaction.setBounds(900,750,125,125);
-        add(btn_kaliaction);
-        btn_kalispec = new JButton(new ImageIcon(kalistos_Special_Token));
-        btn_kalispec.setBorderPainted(false);
-        btn_kalispec.setFocusPainted(false);
-        btn_kalispec.setContentAreaFilled(false);
-        btn_kalispec.setBounds(900,850,125,125);
-        add(btn_kalispec);
-        btn_kaylaaction = new JButton(new ImageIcon(kaylana_Action_Token));
-        btn_kaylaaction.setBorderPainted(false);
-        btn_kaylaaction.setFocusPainted(false);
-        btn_kaylaaction.setContentAreaFilled(false);
-        btn_kaylaaction.setBounds(900,750,125,125);
-        add(btn_kaylaaction);
-        btn_kaylaspec = new JButton(new ImageIcon(kaylana_Special_Token));
-        btn_kaylaspec.setBorderPainted(false);
-        btn_kaylaspec.setFocusPainted(false);
-        btn_kaylaspec.setContentAreaFilled(false);
-        btn_kaylaspec.setBounds(900,850,125,125);
-        add(btn_kaylaspec);
-        btn_dagaaction = new JButton(new ImageIcon(daga_Action_Token));
-        btn_dagaaction.setBorderPainted(false);
-        btn_dagaaction.setFocusPainted(false);
-        btn_dagaaction.setContentAreaFilled(false);
-        btn_dagaaction.setBounds(900,750,125,125);
-        add(btn_dagaaction);
-        btn_dagaspec = new JButton(new ImageIcon(daga_Special_Token));
-        btn_dagaspec.setBorderPainted(false);
-        btn_dagaspec.setFocusPainted(false);
-        btn_dagaspec.setContentAreaFilled(false);
-        btn_dagaspec.setBounds(900,850,125,125);
-        add(btn_dagaspec);
-        btn_siriaction = new JButton(new ImageIcon(sirius_Action_Token));
-        btn_siriaction.setBorderPainted(false);
-        btn_siriaction.setFocusPainted(false);
-        btn_siriaction.setContentAreaFilled(false);
-        btn_siriaction.setBounds(900,750,125,125);
-        add(btn_siriaction);
-        btn_sirispec = new JButton(new ImageIcon(sirius_Special_Token));
-        btn_sirispec.setBorderPainted(false);
-        btn_sirispec.setFocusPainted(false);
-        btn_sirispec.setContentAreaFilled(false);
-        btn_sirispec.setBounds(900,850,125,125);
-        add(btn_sirispec);
+        {
+            allA.add("move");
+            allA.add("place and move");
+            allA.add("explore");
+            allA.add("exchange");
+            allA.add("attack");
+            allA.add("wait");
+            allA.add("challenge");
+            allA.add("skill");
+            actions.setListData(allA.toArray());
+            actions.setBounds(19, 152, 200, 150);
+            add(actions);
+            btn_backAction.setBounds(235, 188, 100, 50);
+            add(btn_backAction);
+            aelfric_Action_Token = ImageIO.read(new File("character cards/aelfric action.png"));
+            aelfric_Special_Token = ImageIO.read(new File("character cards/aelfric special.png"));
+            cecelia_Action_Token = ImageIO.read(new File("character cards/cecelia action.png"));
+            cecelia_Special_Token = ImageIO.read(new File("character cards/cecelia special.png"));
+            daga_Action_Token = ImageIO.read(new File("character cards/daga action.png"));
+            daga_Special_Token = ImageIO.read(new File("character cards/daga special.png"));
+            kalistos_Action_Token = ImageIO.read(new File("character cards/kalistos action.png"));
+            kalistos_Special_Token = ImageIO.read(new File("character cards/kalistos special.png"));
+            kaylana_Action_Token = ImageIO.read(new File("character cards/kaylana action.png"));
+            kaylana_Special_Token = ImageIO.read(new File("character cards/kaylana special.png"));
+            sirius_Action_Token = ImageIO.read(new File("character cards/sirius action.png"));
+            sirius_Special_Token = ImageIO.read(new File("character cards/sirius special.png"));
+            btn_aelfaction = new JButton(new ImageIcon(aelfric_Action_Token));
+            btn_aelfaction.setBorderPainted(false);
+            btn_aelfaction.setFocusPainted(false);
+            btn_aelfaction.setContentAreaFilled(false);
+            btn_aelfaction.setBounds(900, 750, 125, 125);
+            add(btn_aelfaction);
+            btn_aelfspec = new JButton(new ImageIcon(aelfric_Special_Token));
+            btn_aelfspec.setBorderPainted(false);
+            btn_aelfspec.setFocusPainted(false);
+            btn_aelfspec.setContentAreaFilled(false);
+            btn_aelfspec.setBounds(900, 850, 125, 125);
+            add(btn_aelfspec);
+            btn_ceciaction = new JButton(new ImageIcon(cecelia_Action_Token));
+            btn_ceciaction.setBorderPainted(false);
+            btn_ceciaction.setFocusPainted(false);
+            btn_ceciaction.setContentAreaFilled(false);
+            btn_ceciaction.setBounds(900, 750, 125, 125);
+            add(btn_ceciaction);
+            btn_cecispec = new JButton(new ImageIcon(cecelia_Special_Token));
+            btn_cecispec.setBorderPainted(false);
+            btn_cecispec.setFocusPainted(false);
+            btn_cecispec.setContentAreaFilled(false);
+            btn_cecispec.setBounds(900, 850, 125, 125);
+            add(btn_cecispec);
+            btn_kaliaction = new JButton(new ImageIcon(kalistos_Action_Token));
+            btn_kaliaction.setBorderPainted(false);
+            btn_kaliaction.setFocusPainted(false);
+            btn_kaliaction.setContentAreaFilled(false);
+            btn_kaliaction.setBounds(900, 750, 125, 125);
+            add(btn_kaliaction);
+            btn_kalispec = new JButton(new ImageIcon(kalistos_Special_Token));
+            btn_kalispec.setBorderPainted(false);
+            btn_kalispec.setFocusPainted(false);
+            btn_kalispec.setContentAreaFilled(false);
+            btn_kalispec.setBounds(900, 850, 125, 125);
+            add(btn_kalispec);
+            btn_kaylaaction = new JButton(new ImageIcon(kaylana_Action_Token));
+            btn_kaylaaction.setBorderPainted(false);
+            btn_kaylaaction.setFocusPainted(false);
+            btn_kaylaaction.setContentAreaFilled(false);
+            btn_kaylaaction.setBounds(900, 750, 125, 125);
+            add(btn_kaylaaction);
+            btn_kaylaspec = new JButton(new ImageIcon(kaylana_Special_Token));
+            btn_kaylaspec.setBorderPainted(false);
+            btn_kaylaspec.setFocusPainted(false);
+            btn_kaylaspec.setContentAreaFilled(false);
+            btn_kaylaspec.setBounds(900, 850, 125, 125);
+            add(btn_kaylaspec);
+            btn_dagaaction = new JButton(new ImageIcon(daga_Action_Token));
+            btn_dagaaction.setBorderPainted(false);
+            btn_dagaaction.setFocusPainted(false);
+            btn_dagaaction.setContentAreaFilled(false);
+            btn_dagaaction.setBounds(900, 750, 125, 125);
+            add(btn_dagaaction);
+            btn_dagaspec = new JButton(new ImageIcon(daga_Special_Token));
+            btn_dagaspec.setBorderPainted(false);
+            btn_dagaspec.setFocusPainted(false);
+            btn_dagaspec.setContentAreaFilled(false);
+            btn_dagaspec.setBounds(900, 850, 125, 125);
+            add(btn_dagaspec);
+            btn_siriaction = new JButton(new ImageIcon(sirius_Action_Token));
+            btn_siriaction.setBorderPainted(false);
+            btn_siriaction.setFocusPainted(false);
+            btn_siriaction.setContentAreaFilled(false);
+            btn_siriaction.setBounds(900, 750, 125, 125);
+            add(btn_siriaction);
+            btn_sirispec = new JButton(new ImageIcon(sirius_Special_Token));
+            btn_sirispec.setBorderPainted(false);
+            btn_sirispec.setFocusPainted(false);
+            btn_sirispec.setContentAreaFilled(false);
+            btn_sirispec.setBounds(900, 850, 125, 125);
+            add(btn_sirispec);
 
-        btn_screenUp.setBounds(715,10,100,50);
-        add(btn_screenUp);
-        btn_screenDown.setBounds(715,885,100,50);
-        add(btn_screenDown);
-        btn_screenRight.setBounds(1175,445,100,50);
-        add(btn_screenRight);
-        btn_screenLeft.setBounds(255,445,100,50);
-        add(btn_screenLeft);
-        btn_rot90.setBounds(25,330,100,50);
-        add(btn_rot90);
+            btn_screenUp.setBounds(715, 10, 100, 50);
+            add(btn_screenUp);
+            btn_screenDown.setBounds(715, 885, 100, 50);
+            add(btn_screenDown);
+            btn_screenRight.setBounds(1175, 445, 100, 50);
+            add(btn_screenRight);
+            btn_screenLeft.setBounds(255, 445, 100, 50);
+            add(btn_screenLeft);
+            btn_rot90.setBounds(25, 330, 100, 50);
+            add(btn_rot90);
+        }
 
-//        btn_rot180.setBounds(150,375,100,50);
-//        add(btn_rot180);
-//        btn_rot270.setBounds(25,450,100,50);
-//        add(btn_rot270);
-//        btn_rot360.setBounds(150,450,100,50);
-//        add(btn_rot360);
+        //action listeners
+        {
+            btn_selectCharacter.addActionListener(e -> {
+                selectHero();
+            });
+            btn_aelfric.addActionListener(e -> {
+                aelfricSelect();
+            });
+            btn_cecilia.addActionListener(e -> {
+                ceceliaSelect();
+            });
+            btn_daga.addActionListener(e -> {
+                dagaSelect();
+            });
+            btn_kalistos.addActionListener(e -> {
+                kalistosSelect();
+            });
+            btn_kaylana.addActionListener(e -> {
+                kaylanaSelect();
+            });
+            btn_sirius.addActionListener(e -> {
+                siriusSelect();
+            });
+            btn_backToHome.addActionListener(e -> {
+                backToHome();
+            });
+            btn_Host.addActionListener(e -> {
+                before = currentPage;
+                currentPage = SUG;
+                host();
+            });
+            btn_Join.addActionListener(e -> {
+                before = currentPage;
+                currentPage = JOIN;
+                join();
+            });
+            btn_startLobby.addActionListener(e -> {
+                startLobby();
+            });
+            btn_RB.addActionListener(e -> {
+                before = currentPage;
+                currentPage = RB;
+                drawRuleBook();
+            });
+            btn_rbBack.addActionListener(e -> {
+                rbReturn();
+            });
+            btn_rulebookLEFT.addActionListener(e -> {
+                rbleft();
+            });
+            btn_rulebookRIGHT.addActionListener(e -> {
+                rbright();
+            });
+            btn_numOfPlayersIncrease.addActionListener(e -> {
+                numOfPlayersIncrease();
+            });
+            btn_numOfPlayersDecrease.addActionListener(e -> {
+                numOfPlayersDecrease();
+            });
+            btn_backGameScenario.addActionListener(e -> {
+                backGameScenario();
+            });
+            btn_forwardGameScenario.addActionListener(e -> {
+                forwardGameScenario();
+            });
+            btn_lowerDifficulty.addActionListener(e -> {
+                lowerDifficulty();
+            });
+            btn_raiseDifficulty.addActionListener(e -> {
+                raiseDifficulty();
+            });
+            btn_checkRoomCode.addActionListener(e -> {
+                checkRoomCode();
+            });
+            btn_sendMsg.addActionListener(e -> {
+                sendMsg();
+            });
+            btn_cc.addActionListener(e -> {
+                chCa();
+            });
+            btn_backcc.addActionListener(e -> {
+                //System.out.println("Start bcc");
+                bcc();
+            });
+            btn_frontcc.addActionListener(e -> {
+                //System.out.println("Start fcc");
+                fcc();
+            });
+            btn_backfromcc.addActionListener(e -> {
+                makeGameScreen();
+            });
+            btn_screenUp.addActionListener(e -> {
+                screenUp();
+            });
+            btn_screenDown.addActionListener(e -> {
+                screenDown();
+            });
+            btn_screenLeft.addActionListener(e -> {
+                screenLeft();
+            });
+            btn_screenRight.addActionListener(e -> {
+                screenRight();
+            });
+            actions.addListSelectionListener(e -> {
+                actionSelected();
+            });
+            btn_backAction.addActionListener(e -> {
+                backAction();
+            });
 
-
-
-
-        btn_selectCharacter.addActionListener(e->{selectHero();});
-        btn_aelfric.addActionListener(e->{aelfricSelect();});
-        btn_cecilia.addActionListener(e->{ceceliaSelect();});
-        btn_daga.addActionListener(e->{dagaSelect();});
-        btn_kalistos.addActionListener(e->{kalistosSelect();});
-        btn_kaylana.addActionListener(e->{kaylanaSelect();});
-        btn_sirius.addActionListener(e->{siriusSelect();});
-        btn_backToHome.addActionListener(e->{
-            backToHome();
-        });
-        btn_Host.addActionListener(e->{
-            before = currentPage;
-            currentPage = SUG;
-            host();
-        });
-        btn_Join.addActionListener(e->{
-            before = currentPage;
-            currentPage = JOIN;
-            join();
-        });
-        btn_startLobby.addActionListener(e->{
-            startLobby();
-        });
-        btn_RB.addActionListener(e->{
-            before = currentPage;
-            currentPage = RB;
-            drawRuleBook();
-        });
-        btn_rbBack.addActionListener(e -> {
-            rbReturn();
-        });
-        btn_rulebookLEFT.addActionListener(e->{
-            rbleft();
-        });
-        btn_rulebookRIGHT.addActionListener(e->{
-            rbright();
-        });
-        btn_numOfPlayersIncrease.addActionListener(e->{numOfPlayersIncrease();});
-        btn_numOfPlayersDecrease.addActionListener(e->{numOfPlayersDecrease();});
-        btn_backGameScenario.addActionListener(e->{backGameScenario();});
-        btn_forwardGameScenario.addActionListener(e->{forwardGameScenario();});
-        btn_lowerDifficulty.addActionListener(e->{lowerDifficulty();});
-        btn_raiseDifficulty.addActionListener(e->{raiseDifficulty();});
-        btn_checkRoomCode.addActionListener(e->{checkRoomCode();});
-        btn_sendMsg.addActionListener(e->{sendMsg();});
-        btn_cc.addActionListener(e->{chCa();});
-        btn_backcc.addActionListener(e->{
-            //System.out.println("Start bcc");
-            bcc();});
-        btn_frontcc.addActionListener(e->{
-            //System.out.println("Start fcc");
-            fcc();});
-        btn_backfromcc.addActionListener(e->{
-            makeGameScreen();
-        });
-        btn_screenUp.addActionListener(e->{screenUp();});
-        btn_screenDown.addActionListener(e->{screenDown();});
-        btn_screenLeft.addActionListener(e->{screenLeft();});
-        btn_screenRight.addActionListener(e->{screenRight();});
-        actions.addListSelectionListener(e->{actionSelected();});
-        btn_backAction.addActionListener(e->{backAction();});
-
+        }
 
 
         backToHome();
@@ -1525,6 +1576,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
 
     }
     public void backAction(){
+        setAllPanel();
+        foePanel.setGamescreen(true);
         currAction=-1;
         actions.setEnabled(true);
         btn_backAction.setVisible(false);

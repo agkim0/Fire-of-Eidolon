@@ -186,8 +186,11 @@ public class GameData implements Serializable{
         Tile vestibule = new Tile("Vestibule",Tile.SPECIAL,true,true,true,true);
         Tile voraciousPlant = new Tile("Voracious Plant",Tile.STR,true,true,true,true);
         Tile voraxsFocus = new Tile("Vorax's Focus",Tile.SPECIAL,false,false,true,false);
+        voraxsFocus.setBroken(false);
         Tile voraxsHeart = new Tile("Vorax's Heart",Tile.SPECIAL,false,false,true,false);
+        voraxsHeart.setBroken(false);
         Tile voraxsKnowledge = new Tile("Vorax's Knowledge",Tile.SPECIAL,false,false,true,false);
+        voraxsKnowledge.setBroken(false);
         Tile nuul = new Tile("nuul",Tile.SPECIAL,false,false,false,false);
 
         Card acidJetsCard = new Card("Acid Jets",Card.DEX,acidJets,false );

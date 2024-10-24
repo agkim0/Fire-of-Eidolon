@@ -2132,6 +2132,12 @@ public class FOEPanel extends JPanel{
                                     g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
                                 }
                             }
+                            if(!board[r][c].isBroken()){
+                                g.drawImage(crystal_Relic_Front,355+(c*164)+102,60+(r*164)+52,50,50,null);
+                            }
+                            else if(board[r][c].isBroken()){
+                                g.drawImage(crystal_Relic_Back,355+(c*164)+102,60+(r*164)+52,50,50,null);
+                            }
                         }
                         else if(board[r][c].getName().equals("Vorax's Heart")){
                             if(board[r][c].getDegRot()==0){
@@ -2183,6 +2189,12 @@ public class FOEPanel extends JPanel{
                                     g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
                                 }
                             }
+                            if(!board[r][c].isBroken()){
+                                g.drawImage(heart_Relic_Front,355+(c*164)+102,60+(r*164)+52,50,50,null);
+                            }
+                            else if(board[r][c].isBroken()){
+                                g.drawImage(heart_Relic_Back,355+(c*164)+102,60+(r*164)+52,50,50,null);
+                            }
                         }
                         else if(board[r][c].getName().equals("Vorax's Knowledge")){
                             if(board[r][c].getDegRot()==0){
@@ -2233,6 +2245,12 @@ public class FOEPanel extends JPanel{
                                 else if(board[r][c].getSkillType()==2){
                                     g.drawImage(int_Token,355+(c*164)+102,60+(r*164)+52,40,40,null);
                                 }
+                            }
+                            if(!board[r][c].isBroken()){
+                                g.drawImage(book_Relic_Front,355+(c*164)+102,60+(r*164)+52,50,50,null);
+                            }
+                            else if(board[r][c].isBroken()){
+                                g.drawImage(book_Relic_Back,355+(c*164)+102,60+(r*164)+52,50,50,null);
                             }
                         }
                     }
