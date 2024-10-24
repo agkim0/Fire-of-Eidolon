@@ -2274,7 +2274,7 @@ public class FOEPanel extends JPanel{
             }
         }
         if(showingTileOnTop){
-            System.out.println("showing tile on top");
+//            System.out.println("showing tile on top");
             if(gameData.getTileDeck().get(0).getName().equals("Acid Jets")){
                 if(gameData.getTileDeck().get(0).getDegRot()==0){
                     g.drawImage(ct_AcidJets,25,425,150,150,null);

@@ -194,45 +194,47 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         add(btn_frontcc);
 
         //host set up screen
-        btn_startLobby.setBounds(50,650,300,75);
-        add(btn_startLobby);
-        btn_backToHome.setBounds(50,650,300,75);
-        add(btn_backToHome);
-        text_numOfPlayersBox.setBounds(825,250,150,150);
-        add(text_numOfPlayersBox);
-        btn_numOfPlayersDecrease.setBounds(738,288,75,75);
-        add(btn_numOfPlayersDecrease);
-        btn_numOfPlayersIncrease.setBounds(1000,288,75,75);
-        add(btn_numOfPlayersIncrease);
-        btn_backGameScenario.setBounds(355,688,75,75);
-        add(btn_backGameScenario);
-        btn_forwardGameScenario.setBounds(995,688,75,75);
-        add(btn_forwardGameScenario);
-        checkbox_GameScenarioSelected.setBounds(700,450,50,50);
-        add(checkbox_GameScenarioSelected);
-        btn_lowerDifficulty.setBounds(1233,145,75,75);
-        add(btn_lowerDifficulty);
-        btn_raiseDifficulty.setBounds(1238,790,75,75);
-        add(btn_raiseDifficulty);
-        difficultyLevel.add("Beginner");
-        difficultyLevel.add("Normal");
-        difficultyLevel.add("Hard");
-        difficultyLevel.add("Very Hard");
-        difficultyLevel.add("Extreme");
-        difficultyLevel.add("Heroic");
-        difficultyLevel.add("Nightmare");
-        difficultyLevel.add("Legendary");
-        difficultyLevel.add("Glitch");
-        gameRuleSlides.add("Unstable Void");
-        gameRuleSlides.add("Vagrant Portal");
-        gameRuleSlides.add("Invasion of the Shadow Cult");
-        gameRuleSlides.add("Shades of Vorax");
-        characterCards.add("Aelfric");
-        characterCards.add("Cecilia");
-        characterCards.add("Daga");
-        characterCards.add("Kalistos");
-        characterCards.add("Kaylana");
-        characterCards.add("Sirius");
+        {
+            btn_startLobby.setBounds(50,650,300,75);
+            add(btn_startLobby);
+            btn_backToHome.setBounds(50,650,300,75);
+            add(btn_backToHome);
+            text_numOfPlayersBox.setBounds(825,250,150,150);
+            add(text_numOfPlayersBox);
+            btn_numOfPlayersDecrease.setBounds(738,288,75,75);
+            add(btn_numOfPlayersDecrease);
+            btn_numOfPlayersIncrease.setBounds(1000,288,75,75);
+            add(btn_numOfPlayersIncrease);
+            btn_backGameScenario.setBounds(355,688,75,75);
+            add(btn_backGameScenario);
+            btn_forwardGameScenario.setBounds(995,688,75,75);
+            add(btn_forwardGameScenario);
+            checkbox_GameScenarioSelected.setBounds(700,450,50,50);
+            add(checkbox_GameScenarioSelected);
+            btn_lowerDifficulty.setBounds(1233,145,75,75);
+            add(btn_lowerDifficulty);
+            btn_raiseDifficulty.setBounds(1238,790,75,75);
+            add(btn_raiseDifficulty);
+            difficultyLevel.add("Beginner");
+            difficultyLevel.add("Normal");
+            difficultyLevel.add("Hard");
+            difficultyLevel.add("Very Hard");
+            difficultyLevel.add("Extreme");
+            difficultyLevel.add("Heroic");
+            difficultyLevel.add("Nightmare");
+            difficultyLevel.add("Legendary");
+            difficultyLevel.add("Glitch");
+            gameRuleSlides.add("Unstable Void");
+            gameRuleSlides.add("Vagrant Portal");
+            gameRuleSlides.add("Invasion of the Shadow Cult");
+            gameRuleSlides.add("Shades of Vorax");
+            characterCards.add("Aelfric");
+            characterCards.add("Cecilia");
+            characterCards.add("Daga");
+            characterCards.add("Kalistos");
+            characterCards.add("Kaylana");
+            characterCards.add("Sirius");}
+
 
         //username and lobby code screen
         text_roomCode.setBounds(700,425,300,50);
@@ -1488,7 +1490,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
     //actions
     public void actionSelected(){
         System.out.println("actions");
-        if(gameData.getTurn().equals(you)){
+        if(gameData.getTurn().getName().equals(you.getName())){
             System.out.println("Your turn");
             if(actions.getSelectedValue().equals("end turn")){
                 endTurn();
@@ -1605,6 +1607,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
                 r--;
                 gameData.getGrid()[r-1][c].getHeroesOn().add(you);
             }
+            setBoard();
+            printBoard();
             actionPts--;
             currAction=-1;
             //reppaintPanel();
@@ -1927,7 +1931,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(gameData.getTurn().equals(you)){
+        System.out.println(currAction);
+        if(gameData.getTurn().getName().equals(you.getName())){
+            System.out.println("Your turn when clickingg");
             if(e.getX()>355&&e.getX()<1175&&e.getY()>60&&e.getY()<880){//clicking board
                 int boardCol = (e.getX()-355)/164;
                 int boardRow = (e.getY()-60)/164;
@@ -1936,6 +1942,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
 
                 if(gameData.getGrid()[gridRow][gridCol]==null&&currAction==MOVE_AND_PLACE_TILE){//moving into new chamber
                     if(((gridCol==c-1||gridCol==c+1)&&gridRow==r)||((gridRow==r-1||gridRow==r+1)&&gridCol==c)){
+                        System.out.println("Adjacent to curr tile");
                         if(gridRow==r-1){
                             placeTileUp();
                         }
