@@ -2274,7 +2274,6 @@ public class FOEPanel extends JPanel{
             }
         }
         if(showingTileOnTop){
-//            System.out.println("showing tile on top");
             if(gameData.getTileDeck().get(0).getName().equals("Acid Jets")){
                 if(gameData.getTileDeck().get(0).getDegRot()==0){
                     g.drawImage(ct_AcidJets,25,425,150,150,null);
@@ -2457,7 +2456,7 @@ public class FOEPanel extends JPanel{
                     g.drawImage(ct_Minotaur_270,25,425,150,150,null);
                 }
             }
-            else if(gameData.getTileDeck().get(0).getName().equals("Oger Brute")){
+            else if(gameData.getTileDeck().get(0).getName().equals("Ogre Brute")){
                 if(gameData.getTileDeck().get(0).getDegRot()==0){
                     g.drawImage(ct_OgerBrute,25,425,150,150,null);
                 }

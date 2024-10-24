@@ -14,8 +14,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
 
     //player and game info
     private Hero you;
-    private int r;
-    private int c;
+    private int r=31;
+    private int c=31;
     private Tile[][] board = new Tile[5][5];
     private int colShift;
     private int rowShift;
@@ -174,6 +174,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         this.os = os;
         you=AELFRIC;
         addKeyListener(this);
+        addMouseListener(this);
         addWindowFocusListener(this);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(1500,1000);
@@ -1537,7 +1538,9 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         setAllPanel();
         foePanel.setGamescreen(true);
         foePanel.setShowingTileOnTop(true);
+        System.out.println("Top tile: "+gameData.getTileDeck().get(0).getName());
         currAction=MOVE_AND_PLACE_TILE;
+        foePanel.repaint();
         //highlight surrounding areas
         //reppaintPanel();
     }
@@ -1603,9 +1606,18 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
             gameData.getTileDeck().remove(0);
             foePanel.setShowingTileOnTop(false);
             if(currAction==MOVE_AND_PLACE_TILE){
+                System.out.println("move and place tile");
+                for(int x = 0;x<gameData.getGrid()[r][c].getHeroesOn().size();x++){
+                    if (gameData.getGrid()[r][c].getHeroesOn().get(x).getName().equals(you.getName())) {
+                        gameData.getGrid()[r][c].getHeroesOn().remove(x);
+                        break;
+                    }
+                }
                 gameData.getGrid()[r][c].getHeroesOn().remove(you);
+                System.out.println(gameData.getGrid()[r][c].getHeroesOn().toString());
                 r--;
-                gameData.getGrid()[r-1][c].getHeroesOn().add(you);
+                gameData.getGrid()[r][c].getHeroesOn().add(you);
+                System.out.println(gameData.getGrid()[r][c].getHeroesOn().toString());
             }
             setBoard();
             printBoard();
@@ -1935,12 +1947,16 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         if(gameData.getTurn().getName().equals(you.getName())){
             System.out.println("Your turn when clickingg");
             if(e.getX()>355&&e.getX()<1175&&e.getY()>60&&e.getY()<880){//clicking board
+                System.out.println("Clicking board");
                 int boardCol = (e.getX()-355)/164;
                 int boardRow = (e.getY()-60)/164;
                 int gridCol = boardCol+colShift;
                 int gridRow = boardRow+rowShift;
+                System.out.println("Grid row: "+gridRow+"   Curr Row: "+r);
+                System.out.println("Grid col: "+gridCol+"   Curr Col: "+c);
 
-                if(gameData.getGrid()[gridRow][gridCol]==null&&currAction==MOVE_AND_PLACE_TILE){//moving into new chamber
+                if(gameData.getGrid()[gridRow][gridCol]==gameData.getThistile("nuul")&&currAction==MOVE_AND_PLACE_TILE){//moving into new chamber
+                    System.out.println("Tile is null and curr action is move and place");
                     if(((gridCol==c-1||gridCol==c+1)&&gridRow==r)||((gridRow==r-1||gridRow==r+1)&&gridCol==c)){
                         System.out.println("Adjacent to curr tile");
                         if(gridRow==r-1){
