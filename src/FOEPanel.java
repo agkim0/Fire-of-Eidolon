@@ -2390,7 +2390,7 @@ public class FOEPanel extends JPanel{
                     g.drawImage(ct_FloatingStones_270,25,425,150,150,null);
                 }
             }
-            else if(gameData.getTileDeck().get(0).getName().equals("Hall of Illusions")){
+            else if(gameData.getTileDeck().get(0).getName().equals("Hall of Illusion")){
                 if(gameData.getTileDeck().get(0).getDegRot()==0){
                     g.drawImage(ct_HallofIlusions,25,425,150,150,null);
                 }
@@ -2446,7 +2446,7 @@ public class FOEPanel extends JPanel{
                     g.drawImage(ct_MimicChest_270,25,425,150,150,null);
                 }
             }
-            else if(gameData.getTileDeck().get(0).getName().equals("Mindreader")){
+            else if(gameData.getTileDeck().get(0).getName().equals("Mind Eater")){
                 if(gameData.getTileDeck().get(0).getDegRot()==0){
                     g.drawImage(ct_Mindreader,25,425,150,150,null);
                 }
