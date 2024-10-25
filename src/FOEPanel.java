@@ -2707,6 +2707,20 @@ public class FOEPanel extends JPanel{
                     g.drawImage(ct_VoraxsKnowledge_270,25,425,150,150,null);
                 }
             }
+            else if(gameData.getTileDeck().get(0).getName().equals("Fire Of Eidolon")){
+                if(gameData.getTileDeck().get(0).getDegRot()==0){
+                    g.drawImage(ct_FOE,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==90){
+                    g.drawImage(ct_FOE_90,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==180){
+                    g.drawImage(ct_FOE_180,25,425,150,150,null);
+                }
+                else if(gameData.getTileDeck().get(0).getDegRot()==270){
+                    g.drawImage(ct_FOE_270,25,425,150,150,null);
+                }
+            }
         }
         if(drawRitualDeck){
             if(gameData.getCurrDeck().get(0).getName().equals("Acid Jets")){

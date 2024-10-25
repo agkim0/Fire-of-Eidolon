@@ -116,6 +116,7 @@ public class Tile implements Serializable {
         else{
             degRot+=90;
         }
+        System.out.println("Tile degree:"+degRot);
     }
 
     public boolean isBroken() {

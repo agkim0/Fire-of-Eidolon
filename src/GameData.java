@@ -39,6 +39,8 @@ public class GameData implements Serializable{
     private String kalistosPlayer = "";
     private String kaylanaPlayer = "";
     private String siriusPlayer = "";
+
+    public static final Tile NUUL = new Tile("nuul",Tile.SPECIAL,false,false,false,false);
     public static final Hero AELFRIC = new Hero("Aelfric",1,2,3,0,0,0,false,false,false,false,3,false);
     public static final Hero CECELIA = new Hero("Cecilia",1,3,2,0,0,0,false,false,false,false,3,false);
     public static final Hero DAGA = new Hero("Daga",2,3,1,0,0,0,false,false,false,false,3,false);
@@ -76,7 +78,7 @@ public class GameData implements Serializable{
         }
         for(int x=0; x< grid.length;x++){
             for(int y=0; y<grid[0].length; y++){
-                grid[x][y]=getThistile("nuul");
+                grid[x][y]= NUUL;
                 grid[x][y].setOnBoard(false);
             }
         }
@@ -107,7 +109,10 @@ public class GameData implements Serializable{
         grid[33][32].setOnBoard(true);
         grid[33][33].setOnBoard(true);
         //System.out.println("Vestibule set");
-        grid[31][31].setHeroesOn(heroesPlaying);
+        for(int x =0;x<heroesPlaying.size();x++){
+            grid[31][31].getHeroesOn().add(heroesPlaying.get(x));
+        }
+
         grid[31][31].setDegRot(90);
         tileDeck.remove(getThistile("Vestibule"));
         Collections.shuffle(tileDeck);
@@ -191,8 +196,6 @@ public class GameData implements Serializable{
         voraxsHeart.setBroken(false);
         Tile voraxsKnowledge = new Tile("Vorax's Knowledge",Tile.SPECIAL,false,false,true,false);
         voraxsKnowledge.setBroken(false);
-        Tile nuul = new Tile("nuul",Tile.SPECIAL,false,false,false,false);
-
         Card acidJetsCard = new Card("Acid Jets",Card.DEX,acidJets,false );
         Card arrowTrapCard = new Card("Arrow Trap", Card.DEX,arrowTrap,false);
         Card intelEventCard = new Card("Intelligence Event", Card.DEX, null, true);
@@ -266,7 +269,6 @@ public class GameData implements Serializable{
         tileDeck.add(voraxsFocus);
         tileDeck.add(voraxsHeart);
         tileDeck.add(voraxsKnowledge);
-        tileDeck.add(nuul);
 
         if(vagrantPortal){
             tileDeck.add(secretPassageX);
