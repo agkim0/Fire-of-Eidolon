@@ -94,230 +94,230 @@ public class FOEPanel extends JPanel{
         this.setUpJoinScreen = setUpJoinScreen;
     }
 
-    private BufferedImage logo = null;
 
-    private BufferedImage aelfric_Token = null;
-    private BufferedImage aelfric_Action_Token = null;
-    private BufferedImage aelfric_Special_Token = null;
-    private BufferedImage aelfric_Character_Card = null;
-    private BufferedImage cecelia_Token = null;
-    private BufferedImage cecelia_Action_Token = null;
-    private BufferedImage cecelia_Special_Token = null;
-    private BufferedImage cecelia_Character_Card = null;
-    private BufferedImage daga_Token = null;
-    private BufferedImage daga_Action_Token = null;
-    private BufferedImage daga_Special_Token = null;
-    private BufferedImage daga_Character_Card = null;
-    private BufferedImage kalistos_Token = null;
-    private BufferedImage kalistos_Action_Token = null;
-    private BufferedImage kalistos_Special_Token = null;
-    private BufferedImage kalistos_Character_Card = null;
-    private BufferedImage kaylana_Token = null;
-    private BufferedImage kaylana_Action_Token = null;
-    private BufferedImage kaylana_Special_Token = null;
-    private BufferedImage kaylana_Character_Card = null;
-    private BufferedImage sirius_Token = null;
-    private BufferedImage sirius_Action_Token = null;
-    private BufferedImage sirius_Special_Token = null;
-    private BufferedImage sirius_Character_Card = null;
-    private BufferedImage back_Of_CC = null;
+        private BufferedImage logo = null;
+        private BufferedImage aelfric_Token = null;
+        private BufferedImage aelfric_Action_Token = null;
+        private BufferedImage aelfric_Special_Token = null;
+        private BufferedImage aelfric_Character_Card = null;
+        private BufferedImage cecelia_Token = null;
+        private BufferedImage cecelia_Action_Token = null;
+        private BufferedImage cecelia_Special_Token = null;
+        private BufferedImage cecelia_Character_Card = null;
+        private BufferedImage daga_Token = null;
+        private BufferedImage daga_Action_Token = null;
+        private BufferedImage daga_Special_Token = null;
+        private BufferedImage daga_Character_Card = null;
+        private BufferedImage kalistos_Token = null;
+        private BufferedImage kalistos_Action_Token = null;
+        private BufferedImage kalistos_Special_Token = null;
+        private BufferedImage kalistos_Character_Card = null;
+        private BufferedImage kaylana_Token = null;
+        private BufferedImage kaylana_Action_Token = null;
+        private BufferedImage kaylana_Special_Token = null;
+        private BufferedImage kaylana_Character_Card = null;
+        private BufferedImage sirius_Token = null;
+        private BufferedImage sirius_Action_Token = null;
+        private BufferedImage sirius_Special_Token = null;
+        private BufferedImage sirius_Character_Card = null;
+        private BufferedImage back_Of_CC = null;
 
-    private BufferedImage difficulty_Levels = null;
-    private BufferedImage df_Beginner = null;
-    private BufferedImage df_Normal = null;
-    private BufferedImage df_Extreme = null;
-    private BufferedImage df_Glitch = null;
-    private BufferedImage df_Hard = null;
-    private BufferedImage df_Heroic = null;
-    private BufferedImage df_Legendary = null;
-    private BufferedImage df_Nightmare = null;
-    private BufferedImage df_VeryHard = null;
-    private BufferedImage scenario_1 = null;
-    private BufferedImage scenario_2 = null;
-    private BufferedImage scenario_3 = null;
-    private BufferedImage scenario_4 = null;
+        private BufferedImage difficulty_Levels = null;
+        private BufferedImage df_Beginner = null;
+        private BufferedImage df_Normal = null;
+        private BufferedImage df_Extreme = null;
+        private BufferedImage df_Glitch = null;
+        private BufferedImage df_Hard = null;
+        private BufferedImage df_Heroic = null;
+        private BufferedImage df_Legendary = null;
+        private BufferedImage df_Nightmare = null;
+        private BufferedImage df_VeryHard = null;
+        private BufferedImage scenario_1 = null;
+        private BufferedImage scenario_2 = null;
+        private BufferedImage scenario_3 = null;
+        private BufferedImage scenario_4 = null;
 
-    private BufferedImage df_BeginnerLevelBar = null;
-    private BufferedImage df_NormalLevelBar = null;
-    private BufferedImage df_ExtremeLevelBar = null;
-    private BufferedImage df_GlitchLevelBar = null;
-    private BufferedImage df_HardLevelBar = null;
-    private BufferedImage df_HeroicLevelBar = null;
-    private BufferedImage df_LegendaryLevelBar = null;
-    private BufferedImage df_NightmareLevelBar = null;
-    private BufferedImage df_VeryHardLevelBar = null;
+        private BufferedImage df_BeginnerLevelBar = null;
+        private BufferedImage df_NormalLevelBar = null;
+        private BufferedImage df_ExtremeLevelBar = null;
+        private BufferedImage df_GlitchLevelBar = null;
+        private BufferedImage df_HardLevelBar = null;
+        private BufferedImage df_HeroicLevelBar = null;
+        private BufferedImage df_LegendaryLevelBar = null;
+        private BufferedImage df_NightmareLevelBar = null;
+        private BufferedImage df_VeryHardLevelBar = null;
 
-    private BufferedImage back_Of_CT = null;
-    private BufferedImage ct_AcidJets = null;
-    private BufferedImage ct_AcidJets_90 = null;
-    private BufferedImage ct_AcidJets_180 = null;
-    private BufferedImage ct_AcidJets_270 = null;
-    private BufferedImage ct_ArrowTrap = null;
-    private BufferedImage ct_ArrowTrap_90 = null;
-    private BufferedImage ct_ArrowTrap_180 = null;
-    private BufferedImage ct_ArrowTrap_270 = null;
-    private BufferedImage ct_DarkSlime = null;
-    private BufferedImage ct_DarkSlime_90 = null;
-    private BufferedImage ct_DarkSlime_180 = null;
-    private BufferedImage ct_DarkSlime_270 = null;
-    private BufferedImage ct_DenofSnakes = null;
-    private BufferedImage ct_DenofSnakes_90 = null;
-    private BufferedImage ct_DenofSnakes_180 = null;
-    private BufferedImage ct_DenofSnakes_270 = null;
-    private BufferedImage ct_Dragonling = null;
-    private BufferedImage ct_Dragonling_90 = null;
-    private BufferedImage ct_Dragonling_180 = null;
-    private BufferedImage ct_Dragonling_270 = null;
-    private BufferedImage ct_FelKnight = null;
-    private BufferedImage ct_FelKnight_90 = null;
-    private BufferedImage ct_FelKnight_180 = null;
-    private BufferedImage ct_FelKnight_270 = null;
-    private BufferedImage ct_FOE = null;
-    private BufferedImage ct_FOE_90 = null;
-    private BufferedImage ct_FOE_180 = null;
-    private BufferedImage ct_FOE_270 = null;
-    private BufferedImage ct_FloatingStones = null;
-    private BufferedImage ct_FloatingStones_90 = null;
-    private BufferedImage ct_FloatingStones_180 = null;
-    private BufferedImage ct_FloatingStones_270 = null;
-    private BufferedImage ct_HallofIlusions = null;
-    private BufferedImage ct_HallofIlusions_90 = null;
-    private BufferedImage ct_HallofIlusions_180 = null;
-    private BufferedImage ct_HallofIlusions_270 = null;
-    private BufferedImage ct_LaughingShadow = null;
-    private BufferedImage ct_LaughingShadow_90 = null;
-    private BufferedImage ct_LaughingShadow_180 = null;
-    private BufferedImage ct_LaughingShadow_270 = null;
-    private BufferedImage ct_LavaLake = null;
-    private BufferedImage ct_LavaLake_90 = null;
-    private BufferedImage ct_LavaLake_180 = null;
-    private BufferedImage ct_LavaLake_270 = null;
-    private BufferedImage ct_MimicChest = null;
-    private BufferedImage ct_MimicChest_90 = null;
-    private BufferedImage ct_MimicChest_180 = null;
-    private BufferedImage ct_MimicChest_270 = null;
-    private BufferedImage ct_Mindreader = null;
-    private BufferedImage ct_Mindreader_90 = null;
-    private BufferedImage ct_Mindreader_180 = null;
-    private BufferedImage ct_Mindreader_270 = null;
-    private BufferedImage ct_Minotaur = null;
-    private BufferedImage ct_Minotaur_90 = null;
-    private BufferedImage ct_Minotaur_180 = null;
-    private BufferedImage ct_Minotaur_270 = null;
-    private BufferedImage ct_OgerBrute = null;
-    private BufferedImage ct_OgerBrute_90 = null;
-    private BufferedImage ct_OgerBrute_180 = null;
-    private BufferedImage ct_OgerBrute_270 = null;
-    private BufferedImage ct_ParodoxPuzzle = null;
-    private BufferedImage ct_ParodoxPuzzle_90 = null;
-    private BufferedImage ct_ParodoxPuzzle_180 = null;
-    private BufferedImage ct_ParodoxPuzzle_270 = null;
-    private BufferedImage ct_PengulumBlades = null;
-    private BufferedImage ct_PengulumBlades_90 = null;
-    private BufferedImage ct_PengulumBlades_180 = null;
-    private BufferedImage ct_PengulumBlades_270 = null;
-    private BufferedImage ct_Portal = null;
-    private BufferedImage ct_Portal_90 = null;
-    private BufferedImage ct_Portal_180 = null;
-    private BufferedImage ct_Portal_270 = null;
-    private BufferedImage ct_Psycomancer = null;
-    private BufferedImage ct_Psycomancer_90 = null;
-    private BufferedImage ct_Psycomancer_180 = null;
-    private BufferedImage ct_Psycomancer_270 = null;
-    private BufferedImage ct_SPX = null;
-    private BufferedImage ct_SPX_90 = null;
-    private BufferedImage ct_SPX_180 = null;
-    private BufferedImage ct_SPX_270 = null;
-    private BufferedImage ct_SPY = null;
-    private BufferedImage ct_SPY_90 = null;
-    private BufferedImage ct_SPY_180 = null;
-    private BufferedImage ct_SPY_270 = null;
-    private BufferedImage ct_SkeletonGuards = null;
-    private BufferedImage ct_SkeletonGuards_90 = null;
-    private BufferedImage ct_SkeletonGuards_180 = null;
-    private BufferedImage ct_SkeletonGuards_270 = null;
-    private BufferedImage ct_SphynxsRiddle = null;
-    private BufferedImage ct_SphynxsRiddle_90 = null;
-    private BufferedImage ct_SphynxsRiddle_180 = null;
-    private BufferedImage ct_SphynxsRiddle_270 = null;
-    private BufferedImage ct_SpikedPit = null;
-    private BufferedImage ct_SpikedPit_90 = null;
-    private BufferedImage ct_SpikedPit_180 = null;
-    private BufferedImage ct_SpikedPit_270 = null;
-    private BufferedImage ct_Vestibule = null;
-    private BufferedImage ct_Vestibule_90 = null;
-    private BufferedImage ct_Vestibule_180 = null;
-    private BufferedImage ct_Vestibule_270 = null;
-    private BufferedImage ct_VoraciousPlant = null;
-    private BufferedImage ct_VoraciousPlant_90 = null;
-    private BufferedImage ct_VoraciousPlant_180 = null;
-    private BufferedImage ct_VoraciousPlant_270 = null;
-    private BufferedImage ct_VoraxsFocus = null;
-    private BufferedImage ct_VoraxsFocus_90 = null;
-    private BufferedImage ct_VoraxsFocus_180 = null;
-    private BufferedImage ct_VoraxsFocus_270 = null;
-    private BufferedImage ct_VoraxsHeart = null;
-    private BufferedImage ct_VoraxsHeart_90 = null;
-    private BufferedImage ct_VoraxsHeart_180 = null;
-    private BufferedImage ct_VoraxsHeart_270 = null;
-    private BufferedImage ct_VoraxsKnowledge = null;
-    private BufferedImage ct_VoraxsKnowledge_90 = null;
-    private BufferedImage ct_VoraxsKnowledge_180 = null;
-    private BufferedImage ct_VoraxsKnowledge_270 = null;
+        private BufferedImage back_Of_CT = null;
+        private BufferedImage ct_AcidJets = null;
+        private BufferedImage ct_AcidJets_90 = null;
+        private BufferedImage ct_AcidJets_180 = null;
+        private BufferedImage ct_AcidJets_270 = null;
+        private BufferedImage ct_ArrowTrap = null;
+        private BufferedImage ct_ArrowTrap_90 = null;
+        private BufferedImage ct_ArrowTrap_180 = null;
+        private BufferedImage ct_ArrowTrap_270 = null;
+        private BufferedImage ct_DarkSlime = null;
+        private BufferedImage ct_DarkSlime_90 = null;
+        private BufferedImage ct_DarkSlime_180 = null;
+        private BufferedImage ct_DarkSlime_270 = null;
+        private BufferedImage ct_DenofSnakes = null;
+        private BufferedImage ct_DenofSnakes_90 = null;
+        private BufferedImage ct_DenofSnakes_180 = null;
+        private BufferedImage ct_DenofSnakes_270 = null;
+        private BufferedImage ct_Dragonling = null;
+        private BufferedImage ct_Dragonling_90 = null;
+        private BufferedImage ct_Dragonling_180 = null;
+        private BufferedImage ct_Dragonling_270 = null;
+        private BufferedImage ct_FelKnight = null;
+        private BufferedImage ct_FelKnight_90 = null;
+        private BufferedImage ct_FelKnight_180 = null;
+        private BufferedImage ct_FelKnight_270 = null;
+        private BufferedImage ct_FOE = null;
+        private BufferedImage ct_FOE_90 = null;
+        private BufferedImage ct_FOE_180 = null;
+        private BufferedImage ct_FOE_270 = null;
+        private BufferedImage ct_FloatingStones = null;
+        private BufferedImage ct_FloatingStones_90 = null;
+        private BufferedImage ct_FloatingStones_180 = null;
+        private BufferedImage ct_FloatingStones_270 = null;
+        private BufferedImage ct_HallofIlusions = null;
+        private BufferedImage ct_HallofIlusions_90 = null;
+        private BufferedImage ct_HallofIlusions_180 = null;
+        private BufferedImage ct_HallofIlusions_270 = null;
+        private BufferedImage ct_LaughingShadow = null;
+        private BufferedImage ct_LaughingShadow_90 = null;
+        private BufferedImage ct_LaughingShadow_180 = null;
+        private BufferedImage ct_LaughingShadow_270 = null;
+        private BufferedImage ct_LavaLake = null;
+        private BufferedImage ct_LavaLake_90 = null;
+        private BufferedImage ct_LavaLake_180 = null;
+        private BufferedImage ct_LavaLake_270 = null;
+        private BufferedImage ct_MimicChest = null;
+        private BufferedImage ct_MimicChest_90 = null;
+        private BufferedImage ct_MimicChest_180 = null;
+        private BufferedImage ct_MimicChest_270 = null;
+        private BufferedImage ct_Mindreader = null;
+        private BufferedImage ct_Mindreader_90 = null;
+        private BufferedImage ct_Mindreader_180 = null;
+        private BufferedImage ct_Mindreader_270 = null;
+        private BufferedImage ct_Minotaur = null;
+        private BufferedImage ct_Minotaur_90 = null;
+        private BufferedImage ct_Minotaur_180 = null;
+        private BufferedImage ct_Minotaur_270 = null;
+        private BufferedImage ct_OgerBrute = null;
+        private BufferedImage ct_OgerBrute_90 = null;
+        private BufferedImage ct_OgerBrute_180 = null;
+        private BufferedImage ct_OgerBrute_270 = null;
+        private BufferedImage ct_ParodoxPuzzle = null;
+        private BufferedImage ct_ParodoxPuzzle_90 = null;
+        private BufferedImage ct_ParodoxPuzzle_180 = null;
+        private BufferedImage ct_ParodoxPuzzle_270 = null;
+        private BufferedImage ct_PengulumBlades = null;
+        private BufferedImage ct_PengulumBlades_90 = null;
+        private BufferedImage ct_PengulumBlades_180 = null;
+        private BufferedImage ct_PengulumBlades_270 = null;
+        private BufferedImage ct_Portal = null;
+        private BufferedImage ct_Portal_90 = null;
+        private BufferedImage ct_Portal_180 = null;
+        private BufferedImage ct_Portal_270 = null;
+        private BufferedImage ct_Psycomancer = null;
+        private BufferedImage ct_Psycomancer_90 = null;
+        private BufferedImage ct_Psycomancer_180 = null;
+        private BufferedImage ct_Psycomancer_270 = null;
+        private BufferedImage ct_SPX = null;
+        private BufferedImage ct_SPX_90 = null;
+        private BufferedImage ct_SPX_180 = null;
+        private BufferedImage ct_SPX_270 = null;
+        private BufferedImage ct_SPY = null;
+        private BufferedImage ct_SPY_90 = null;
+        private BufferedImage ct_SPY_180 = null;
+        private BufferedImage ct_SPY_270 = null;
+        private BufferedImage ct_SkeletonGuards = null;
+        private BufferedImage ct_SkeletonGuards_90 = null;
+        private BufferedImage ct_SkeletonGuards_180 = null;
+        private BufferedImage ct_SkeletonGuards_270 = null;
+        private BufferedImage ct_SphynxsRiddle = null;
+        private BufferedImage ct_SphynxsRiddle_90 = null;
+        private BufferedImage ct_SphynxsRiddle_180 = null;
+        private BufferedImage ct_SphynxsRiddle_270 = null;
+        private BufferedImage ct_SpikedPit = null;
+        private BufferedImage ct_SpikedPit_90 = null;
+        private BufferedImage ct_SpikedPit_180 = null;
+        private BufferedImage ct_SpikedPit_270 = null;
+        private BufferedImage ct_Vestibule = null;
+        private BufferedImage ct_Vestibule_90 = null;
+        private BufferedImage ct_Vestibule_180 = null;
+        private BufferedImage ct_Vestibule_270 = null;
+        private BufferedImage ct_VoraciousPlant = null;
+        private BufferedImage ct_VoraciousPlant_90 = null;
+        private BufferedImage ct_VoraciousPlant_180 = null;
+        private BufferedImage ct_VoraciousPlant_270 = null;
+        private BufferedImage ct_VoraxsFocus = null;
+        private BufferedImage ct_VoraxsFocus_90 = null;
+        private BufferedImage ct_VoraxsFocus_180 = null;
+        private BufferedImage ct_VoraxsFocus_270 = null;
+        private BufferedImage ct_VoraxsHeart = null;
+        private BufferedImage ct_VoraxsHeart_90 = null;
+        private BufferedImage ct_VoraxsHeart_180 = null;
+        private BufferedImage ct_VoraxsHeart_270 = null;
+        private BufferedImage ct_VoraxsKnowledge = null;
+        private BufferedImage ct_VoraxsKnowledge_90 = null;
+        private BufferedImage ct_VoraxsKnowledge_180 = null;
+        private BufferedImage ct_VoraxsKnowledge_270 = null;
 
-    private BufferedImage back_Of_RDC = null;
-    private BufferedImage rdc_AcidJets = null;
-    private BufferedImage rdc_ArrowTrap = null;
-    private BufferedImage rdc_BlueEvent = null;
-    private BufferedImage rdc_GreenEvent = null;
-    private BufferedImage rdc_RedEvent = null;
-    private BufferedImage rdc_DarkSlime = null;
-    private BufferedImage rdc_DenofSnakes = null;
-    private BufferedImage rdc_Dragonling = null;
-    private BufferedImage rdc_FelKnight = null;
-    private BufferedImage rdc_FloatingStones = null;
-    private BufferedImage rdc_HallofIlusions = null;
-    private BufferedImage rdc_LaughingShadow = null;
-    private BufferedImage rdc_LavaLake = null;
-    private BufferedImage rdc_MimicChest = null;
-    private BufferedImage rdc_Mindreader = null;
-    private BufferedImage rdc_Minotaur = null;
-    private BufferedImage rdc_OgerBrute = null;
-    private BufferedImage rdc_ParodoxPuzzle = null;
-    private BufferedImage rdc_PengulumBlades = null;
-    private BufferedImage rdc_Psycomancer = null;
-    private BufferedImage rdc_SkeletonGuards = null;
-    private BufferedImage rdc_SphynxsRiddle = null;
-    private BufferedImage rdc_SpikedPit = null;
-    private BufferedImage rdc_VoraciousPlant = null;
+        private BufferedImage back_Of_RDC = null;
+        private BufferedImage rdc_AcidJets = null;
+        private BufferedImage rdc_ArrowTrap = null;
+        private BufferedImage rdc_BlueEvent = null;
+        private BufferedImage rdc_GreenEvent = null;
+        private BufferedImage rdc_RedEvent = null;
+        private BufferedImage rdc_DarkSlime = null;
+        private BufferedImage rdc_DenofSnakes = null;
+        private BufferedImage rdc_Dragonling = null;
+        private BufferedImage rdc_FelKnight = null;
+        private BufferedImage rdc_FloatingStones = null;
+        private BufferedImage rdc_HallofIlusions = null;
+        private BufferedImage rdc_LaughingShadow = null;
+        private BufferedImage rdc_LavaLake = null;
+        private BufferedImage rdc_MimicChest = null;
+        private BufferedImage rdc_Mindreader = null;
+        private BufferedImage rdc_Minotaur = null;
+        private BufferedImage rdc_OgerBrute = null;
+        private BufferedImage rdc_ParodoxPuzzle = null;
+        private BufferedImage rdc_PengulumBlades = null;
+        private BufferedImage rdc_Psycomancer = null;
+        private BufferedImage rdc_SkeletonGuards = null;
+        private BufferedImage rdc_SphynxsRiddle = null;
+        private BufferedImage rdc_SpikedPit = null;
+        private BufferedImage rdc_VoraciousPlant = null;
 
-    private BufferedImage rb_1 = null;
-    private BufferedImage rb_2 = null;
-    private BufferedImage rb_3 = null;
-    private BufferedImage rb_4 = null;
-    private BufferedImage rb_5 = null;
-    private BufferedImage rb_6 = null;
-    private BufferedImage rb_7 = null;
-    private BufferedImage rb_8 = null;
-    private BufferedImage rb_9 = null;
+        private BufferedImage rb_1 = null;
+        private BufferedImage rb_2 = null;
+        private BufferedImage rb_3 = null;
+        private BufferedImage rb_4 = null;
+        private BufferedImage rb_5 = null;
+        private BufferedImage rb_6 = null;
+        private BufferedImage rb_7 = null;
+        private BufferedImage rb_8 = null;
+        private BufferedImage rb_9 = null;
 
-    private BufferedImage book_Relic_Front = null;
-    private BufferedImage book_Relic_Back = null;
-    private BufferedImage crystal_Relic_Front = null;
-    private BufferedImage crystal_Relic_Back = null;
-    private BufferedImage heart_Relic_Front = null;
-    private BufferedImage heart_Relic_Back = null;
-    private BufferedImage cultist_Token = null;
-    private BufferedImage dex_Token = null;
-    private BufferedImage str_Token = null;
-    private BufferedImage int_Token = null;
-    private BufferedImage fireBall_Token = null;
-    private BufferedImage tl_Token = null;
-    private BufferedImage blueVorax_Token = null;
-    private BufferedImage greenVorax_Token = null;
-    private BufferedImage purpleVorax_Token = null;
-    private BufferedImage redVorax_Token = null;
-    BufferedImage bg;
+        private BufferedImage book_Relic_Front = null;
+        private BufferedImage book_Relic_Back = null;
+        private BufferedImage crystal_Relic_Front = null;
+        private BufferedImage crystal_Relic_Back = null;
+        private BufferedImage heart_Relic_Front = null;
+        private BufferedImage heart_Relic_Back = null;
+        private BufferedImage cultist_Token = null;
+        private BufferedImage dex_Token = null;
+        private BufferedImage str_Token = null;
+        private BufferedImage int_Token = null;
+        private BufferedImage fireBall_Token = null;
+        private BufferedImage tl_Token = null;
+        private BufferedImage blueVorax_Token = null;
+        private BufferedImage greenVorax_Token = null;
+        private BufferedImage purpleVorax_Token = null;
+        private BufferedImage redVorax_Token = null;
+        BufferedImage bg;
     public FOEPanel() throws IOException{
         setSize(1500,1000);
         this.gameData = new GameData();
@@ -667,56 +667,107 @@ public class FOEPanel extends JPanel{
         if(gamescreen){
             g.setFont(new Font("Sans Serif",Font.BOLD,100));
             if(gameData.getHeroesPlaying().size()==1){
-                //System.out.println("one");
-            }
-            for(int x=0; x<gameData.getHeroesPlaying().size(); x++){
-                if(gameData.getHeroesPlaying().get(x).getName().equals("Aelfric") && curHero == 0){
+                //System.out.println("Hi");
+                if(curHero==0){
                     g.drawImage(aelfric_Token,25,575,130,130,null);
                     g.drawImage(aelfric_Action_Token,1250,40,100,100,null);
                     g.drawImage(aelfric_Special_Token,1250,155,100,100,null);
-                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getDexTokenCount()),15,810);
-                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getStrTokenCount()),185,925);
-                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelTokenCount()),15,925);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(0).getDexTokenCount()),15,810);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(0).getStrTokenCount()),185,925);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(0).getIntelTokenCount()),15,925);
                 }
-                else if(gameData.getHeroesPlaying().get(x).getName().equals("Cecilia") && curHero == 1){
+                else if(curHero==1){
                     g.drawImage(cecelia_Token,25,575,130,130,null);
                     g.drawImage(cecelia_Action_Token,1250,40,100,100,null);
                     g.drawImage(cecelia_Special_Token,1250,155,100,100,null);
-                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getDexTokenCount()),15,810);
-                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getStrTokenCount()),185,925);
-                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelTokenCount()),15,925);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(0).getDexTokenCount()),15,810);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(0).getStrTokenCount()),185,925);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(0).getIntelTokenCount()),15,925);
                 }
-                else if(gameData.getHeroesPlaying().get(x).getName().equals("Daga") && curHero == 2){
+                else if(curHero==2){
                     g.drawImage(daga_Token,25,575,130,130,null);
                     g.drawImage(daga_Action_Token,1250,40,100,100,null);
                     g.drawImage(daga_Special_Token,1250,155,100,100,null);
-                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getDexTokenCount()),15,810);
-                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getStrTokenCount()),185,925);
-                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelTokenCount()),15,925);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(0).getDexTokenCount()),15,810);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(0).getStrTokenCount()),185,925);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(0).getIntelTokenCount()),15,925);
                 }
-                else if(gameData.getHeroesPlaying().get(x).getName().equals("Kalistos") && curHero == 3){
+                else if(curHero==3){
                     g.drawImage(kalistos_Token,25,575,130,130,null);
                     g.drawImage(kalistos_Action_Token,1250,40,100,100,null);
                     g.drawImage(kalistos_Special_Token,1250,155,100,100,null);
-                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getDexTokenCount()),15,810);
-                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getStrTokenCount()),185,925);
-                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelTokenCount()),15,925);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(0).getDexTokenCount()),15,810);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(0).getStrTokenCount()),185,925);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(0).getIntelTokenCount()),15,925);
                 }
-                else if(gameData.getHeroesPlaying().get(x).getName().equals("Kaylana") && curHero == 4){
+                else if(curHero==4){
                     g.drawImage(kaylana_Token,25,575,130,130,null);
                     g.drawImage(kaylana_Action_Token,1250,10,100,100,null);
                     g.drawImage(kaylana_Special_Token,1250,125,100,100,null);
-                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getDexTokenCount()),15,810);
-                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getStrTokenCount()),185,925);
-                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelTokenCount()),15,925);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(0).getDexTokenCount()),15,810);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(0).getStrTokenCount()),185,925);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(0).getIntelTokenCount()),15,925);
                 }
-                else if(gameData.getHeroesPlaying().get(x).getName().equals("Sirius") && curHero == 5){
+                else if(curHero==5){
                     g.drawImage(sirius_Token,25,575,130,130,null);
                     g.drawImage(sirius_Action_Token,1250,40,100,100,null);
                     g.drawImage(sirius_Special_Token,1250,155,100,100,null);
-                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getDexTokenCount()),15,810);
-                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getStrTokenCount()),185,925);
-                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelTokenCount()),15,925);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(0).getDexTokenCount()),15,810);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(0).getStrTokenCount()),185,925);
+                    g.drawString(Integer.toString(gameData.getHeroesPlaying().get(0).getIntelTokenCount()),15,925);
+                }
+            }
+            else {
+                //System.out.println("no "+gameData.getHeroesPlaying().size());
+                for(int x=0; x<gameData.getHeroesPlaying().size(); x++){
+                    if(gameData.getHeroesPlaying().get(x).getName().equals("Aelfric") && curHero == 0){
+                        g.drawImage(aelfric_Token,25,575,130,130,null);
+                        g.drawImage(aelfric_Action_Token,1250,40,100,100,null);
+                        g.drawImage(aelfric_Special_Token,1250,155,100,100,null);
+                        g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getDexTokenCount()),15,810);
+                        g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getStrTokenCount()),185,925);
+                        g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelTokenCount()),15,925);
+                    }
+                    else if(gameData.getHeroesPlaying().get(x).getName().equals("Cecilia") && curHero == 1){
+                        g.drawImage(cecelia_Token,25,575,130,130,null);
+                        g.drawImage(cecelia_Action_Token,1250,40,100,100,null);
+                        g.drawImage(cecelia_Special_Token,1250,155,100,100,null);
+                        g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getDexTokenCount()),15,810);
+                        g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getStrTokenCount()),185,925);
+                        g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelTokenCount()),15,925);
+                    }
+                    else if(gameData.getHeroesPlaying().get(x).getName().equals("Daga") && curHero == 2){
+                        g.drawImage(daga_Token,25,575,130,130,null);
+                        g.drawImage(daga_Action_Token,1250,40,100,100,null);
+                        g.drawImage(daga_Special_Token,1250,155,100,100,null);
+                        g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getDexTokenCount()),15,810);
+                        g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getStrTokenCount()),185,925);
+                        g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelTokenCount()),15,925);
+                    }
+                    else if(gameData.getHeroesPlaying().get(x).getName().equals("Kalistos") && curHero == 3){
+                        g.drawImage(kalistos_Token,25,575,130,130,null);
+                        g.drawImage(kalistos_Action_Token,1250,40,100,100,null);
+                        g.drawImage(kalistos_Special_Token,1250,155,100,100,null);
+                        g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getDexTokenCount()),15,810);
+                        g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getStrTokenCount()),185,925);
+                        g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelTokenCount()),15,925);
+                    }
+                    else if(gameData.getHeroesPlaying().get(x).getName().equals("Kaylana") && curHero == 4){
+                        g.drawImage(kaylana_Token,25,575,130,130,null);
+                        g.drawImage(kaylana_Action_Token,1250,10,100,100,null);
+                        g.drawImage(kaylana_Special_Token,1250,125,100,100,null);
+                        g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getDexTokenCount()),15,810);
+                        g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getStrTokenCount()),185,925);
+                        g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelTokenCount()),15,925);
+                    }
+                    else if(gameData.getHeroesPlaying().get(x).getName().equals("Sirius") && curHero == 5){
+                        g.drawImage(sirius_Token,25,575,130,130,null);
+                        g.drawImage(sirius_Action_Token,1250,40,100,100,null);
+                        g.drawImage(sirius_Special_Token,1250,155,100,100,null);
+                        g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getDexTokenCount()),15,810);
+                        g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getStrTokenCount()),185,925);
+                        g.drawString(Integer.toString(gameData.getHeroesPlaying().get(x).getIntelTokenCount()),15,925);
+                    }
                 }
             }
             g.drawImage(dex_Token,65,720,125,125,null);
@@ -2390,7 +2441,7 @@ public class FOEPanel extends JPanel{
                     g.drawImage(ct_FloatingStones_270,25,425,150,150,null);
                 }
             }
-            else if(gameData.getTileDeck().get(0).getName().equals("Hall of Illusions")){
+            else if(gameData.getTileDeck().get(0).getName().equals("Hall of Illusion")){
                 if(gameData.getTileDeck().get(0).getDegRot()==0){
                     g.drawImage(ct_HallofIlusions,25,425,150,150,null);
                 }
@@ -2446,7 +2497,7 @@ public class FOEPanel extends JPanel{
                     g.drawImage(ct_MimicChest_270,25,425,150,150,null);
                 }
             }
-            else if(gameData.getTileDeck().get(0).getName().equals("Mindreader")){
+            else if(gameData.getTileDeck().get(0).getName().equals("Mind Eater")){
                 if(gameData.getTileDeck().get(0).getDegRot()==0){
                     g.drawImage(ct_Mindreader,25,425,150,150,null);
                 }
@@ -2558,7 +2609,7 @@ public class FOEPanel extends JPanel{
                     g.drawImage(ct_SPY_270,25,425,150,150,null);
                 }
             }
-            else if(gameData.getTileDeck().get(0).getName().equals("Skeleton Guards")){
+            else if(gameData.getTileDeck().get(0).getName().equals("Skeletal Guards")){
                 if(gameData.getTileDeck().get(0).getDegRot()==0){
                     g.drawImage(ct_SkeletonGuards,25,425,150,150,null);
                 }
