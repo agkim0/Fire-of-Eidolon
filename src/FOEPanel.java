@@ -596,21 +596,21 @@ public class FOEPanel extends JPanel{
 
         }
         if(hostRoomCodeScreen){
-            //System.out.println("drawhostroomcode");
+            ////system.out.println("drawhostroomcode");
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
             //g.drawString("Username:",700,300);
             g.drawString("Room Code",500,450);
             g.drawImage(logo,500,-10,600,500,null);
         }
         if(setUpJoinScreen){
-            //System.out.println("drawjoinscreen");
+            ////system.out.println("drawjoinscreen");
             g.setFont(new Font("Sans Serif",Font.BOLD,20));
             g.drawString("Username:",500,450);
             g.drawString("Room Code:",500,600);
             g.drawImage(logo,500,-10,600,500,null);
         }
         if(drawrulebook){
-            //System.out.println("here");
+            ////system.out.println("here");
             if(rbNum.equals("1")){
                 g.drawImage(rb_1,100,50,600,900,null);
                 g.drawImage(rb_2,750,50,600,900,null);
@@ -632,7 +632,7 @@ public class FOEPanel extends JPanel{
             }
         }
         if(characterselectscreen){
-            //System.out.println("drawcharacterselectscreen");
+            ////system.out.println("drawcharacterselectscreen");
             g.setFont(new Font("Sans Serif",Font.BOLD,50));
             g.drawString("Choose Your Hero:",500,200);
             if(curHero == AELFRIC){
@@ -655,7 +655,7 @@ public class FOEPanel extends JPanel{
             }
         }
         if(drawTitlePage){
-            //System.out.println("drawTitlePage");
+            ////system.out.println("drawTitlePage");
             g.drawImage(logo,50,150,700,600,null);
             g.drawImage(aelfric_Token,100,810,125,125,null);
             g.drawImage(cecelia_Token,250,810,125,125,null);
@@ -667,7 +667,7 @@ public class FOEPanel extends JPanel{
         if(gamescreen){
             g.setFont(new Font("Sans Serif",Font.BOLD,100));
             if(gameData.getHeroesPlaying().size()==1){
-                //System.out.println("Hi");
+                ////system.out.println("Hi");
                 if(curHero==0){
                     g.drawImage(aelfric_Token,25,575,130,130,null);
                     g.drawImage(aelfric_Action_Token,1250,40,100,100,null);
@@ -718,7 +718,7 @@ public class FOEPanel extends JPanel{
                 }
             }
             else {
-                //System.out.println("no "+gameData.getHeroesPlaying().size());
+                ////system.out.println("no "+gameData.getHeroesPlaying().size());
                 for(int x=0; x<gameData.getHeroesPlaying().size(); x++){
                     if(gameData.getHeroesPlaying().get(x).getName().equals("Aelfric") && curHero == 0){
                         g.drawImage(aelfric_Token,25,575,130,130,null);
@@ -800,7 +800,7 @@ public class FOEPanel extends JPanel{
             else if (gameData.getDifficultyLevel().equals("Glitch")) {
                 g.drawImage(df_GlitchLevelBar,1375,40,100,500,null);
             }
-            //System.out.println(gameData.getThreatLevel());
+            ////system.out.println(gameData.getThreatLevel());
             g.drawImage(tl_Token,1295,479-(47*(gameData.getThreatLevel())),175,75,null);
             //g.drawImage(tl_Token,1220,449,175,75,null);
             g.drawImage(back_Of_CT,25,425,150,150,null);
@@ -811,11 +811,15 @@ public class FOEPanel extends JPanel{
             g.drawString("Actions:", 55,175);
             
             if(board[3][3]!=null){
-                //System.out.println("yay");
+                ////system.out.println("yay");
             }
             for(int r=0; r<board.length; r++){
                 for(int c=0; c<board[0].length; c++){
                     if(board[r][c]!=null){
+                        if(!board[r][c].getName().equals("nuul")){
+                            //System.out.println(board[r][c].getName()+" and "+board[r][c].getHeroesOn().size());
+                        }
+
                         if(board[r][c].getName().equals("Acid Jets")){
                             if(board[r][c].getDegRot()==0){
                                 g.drawImage(ct_AcidJets,355+(c*164), 60+(r*164), 164,164,null);
@@ -831,6 +835,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -882,6 +887,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -933,6 +939,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -984,6 +991,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -1035,6 +1043,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -1086,6 +1095,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -1137,6 +1147,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -1188,6 +1199,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -1239,6 +1251,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -1290,6 +1303,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -1341,6 +1355,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -1392,6 +1407,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -1443,6 +1459,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -1494,6 +1511,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -1545,6 +1563,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -1596,6 +1615,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -1647,6 +1667,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -1698,6 +1719,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -1749,6 +1771,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -1800,6 +1823,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -1851,6 +1875,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -1902,6 +1927,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -1953,6 +1979,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -2004,6 +2031,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -2044,6 +2072,7 @@ public class FOEPanel extends JPanel{
                             g.drawImage(ct_Vestibule,355+(c*164), 60+(r*164), 164,164,null);
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -2097,6 +2126,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -2148,6 +2178,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -2205,6 +2236,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -2262,6 +2294,7 @@ public class FOEPanel extends JPanel{
                             }
 
                             if(board[r][c].getHeroesOn()!=null){
+                                //system.out.println("players");
                                 for(int x=0; x<board[r][c].getHeroesOn().size(); x++){
                                     if(board[r][c].getHeroesOn().get(x).getName().equals("Aelfric")){
                                         g.drawImage(aelfric_Token,355+(c*164),60+(r*164),50,50,null);
@@ -2344,382 +2377,85 @@ public class FOEPanel extends JPanel{
         }
         if(showingTileOnTop){
             if(gameData.getTileDeck().get(0).getName().equals("Acid Jets")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_AcidJets,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_AcidJets_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_AcidJets_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_AcidJets_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_AcidJets,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Arrow Trap")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_ArrowTrap,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_ArrowTrap_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_ArrowTrap_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_ArrowTrap_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_ArrowTrap,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Dark Slime")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_DarkSlime,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_DarkSlime_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_DarkSlime_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_DarkSlime_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_DarkSlime,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Den of Snakes")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_DenofSnakes,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_DenofSnakes_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_DenofSnakes_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_DenofSnakes_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_DenofSnakes,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Dragonling")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_Dragonling,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_Dragonling_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_Dragonling_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_Dragonling_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_Dragonling,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Fel Knight")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_FelKnight,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_FelKnight_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_FelKnight_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_FelKnight_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_FelKnight,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Floating Stones")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_FloatingStones,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_FloatingStones_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_FloatingStones_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_FloatingStones_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_FloatingStones,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Hall of Illusion")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_HallofIlusions,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_HallofIlusions_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_HallofIlusions_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_HallofIlusions_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_HallofIlusions,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Laughing Shadow")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_LaughingShadow,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_LaughingShadow_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_LaughingShadow_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_LaughingShadow_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_LaughingShadow,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Lava Lake")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_LavaLake,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_LavaLake_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_LavaLake_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_LavaLake_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_LavaLake,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Mimic Chest")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_MimicChest,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_MimicChest_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_MimicChest_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_MimicChest_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_MimicChest,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Mind Eater")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_Mindreader,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_Mindreader_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_Mindreader_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_Mindreader_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_MimicChest,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Minotaur")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_Minotaur,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_Minotaur_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_Minotaur_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_Minotaur_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_Minotaur,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Ogre Brute")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_OgerBrute,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_OgerBrute_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_OgerBrute_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_OgerBrute_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_OgerBrute,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Paradox Puzzle")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_ParodoxPuzzle,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_ParodoxPuzzle_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_ParodoxPuzzle_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_ParodoxPuzzle_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_ParodoxPuzzle,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Pengulum Blades")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_PengulumBlades,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_PengulumBlades_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_PengulumBlades_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_PengulumBlades_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_PengulumBlades,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Psychomancer")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_Psycomancer,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_Psycomancer_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_Psycomancer_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_Psycomancer_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_Psycomancer,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Secret Passage X")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_SPX,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_SPX_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_SPX_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_SPX_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_SPX,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Secret Passage Y")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_SPY,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_SPY_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_SPY_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_SPY_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_SPY,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Skeletal Guards")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_SkeletonGuards,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_SkeletonGuards_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_SkeletonGuards_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_SkeletonGuards_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_SkeletonGuards,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Sphynx's Riddle")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_SphynxsRiddle,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_SphynxsRiddle_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_SphynxsRiddle_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_SphynxsRiddle_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_SphynxsRiddle,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Spiked Pit")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_SpikedPit,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_SpikedPit_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_SpikedPit_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_SpikedPit_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_SpikedPit,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Voracious Plant")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_VoraciousPlant,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_VoraciousPlant_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_VoraciousPlant_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_VoraciousPlant_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_VoraciousPlant,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Vorax's Focus")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_VoraxsFocus,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_VoraxsFocus_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_VoraxsFocus_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_VoraxsFocus_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_VoraxsFocus,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Vorax's Heart")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_VoraxsHeart,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_VoraxsHeart_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_VoraxsHeart_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_VoraxsHeart_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_VoraxsHeart,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Vorax's Knowledge")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_VoraxsKnowledge,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_VoraxsKnowledge_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_VoraxsKnowledge_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_VoraxsKnowledge_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_VoraxsKnowledge,25,425,150,150,null);
             }
             else if(gameData.getTileDeck().get(0).getName().equals("Fire Of Eidolon")){
-                if(gameData.getTileDeck().get(0).getDegRot()==0){
-                    g.drawImage(ct_FOE,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==90){
-                    g.drawImage(ct_FOE_90,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==180){
-                    g.drawImage(ct_FOE_180,25,425,150,150,null);
-                }
-                else if(gameData.getTileDeck().get(0).getDegRot()==270){
-                    g.drawImage(ct_FOE_270,25,425,150,150,null);
-                }
+                g.drawImage(ct_FOE,25,425,150,150,null);
             }
         }
         if(drawRitualDeck){
@@ -2800,7 +2536,7 @@ public class FOEPanel extends JPanel{
 
     public static BufferedImage rotate(BufferedImage src, int deg){
         if(deg == 90){
-//            System.out.println("rotate 90");
+//            //system.out.println("rotate 90");
             int width = src.getWidth();
             int height = src.getHeight();
             BufferedImage wen = new BufferedImage(height, width, src.getType());
@@ -2836,7 +2572,7 @@ public class FOEPanel extends JPanel{
     }
 
     public void setGameData(GameData gd) {
-        //System.out.println("game data recieved: "+gd.getDifficultyLevel());
+        ////system.out.println("game data recieved: "+gd.getDifficultyLevel());
         this.gameData = gd;
     }
 
