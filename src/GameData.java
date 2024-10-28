@@ -169,7 +169,7 @@ public class GameData implements Serializable{
         Tile darkSlime = new Tile("Dark Slime",Tile.STR,false,true,true,false);
         Tile denOfSnakes = new Tile("Den of Snakes",Tile.DEX,true,true,true,false);
         Tile dragonling = new Tile("Dragonling",Tile.STR,true,false,true,true);
-        Tile felKnight = new Tile("Fel Knight",Tile.DEX,true,true,true,false);
+        Tile felKnight = new Tile("Fel Knight",Tile.STR,true,true,true,false);
         Tile fireOfEidolon = new Tile("Fire of Eidolon",Tile.SPECIAL, false,false,true,false);
         Tile floatingStones = new Tile("Floating Stones",Tile.DEX,true,true,true,true);
         Tile hallOfIllustion = new Tile("Hall of Illusion",Tile.INTEL,false,true,true,false);

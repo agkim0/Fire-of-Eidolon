@@ -2092,37 +2092,47 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
                         }
                     }
                     else if(currAction==MOVE){
-                        if(((gridCol==c-1||gridCol==c+1)&&gridRow==r)||((gridRow==r-1||gridRow==r+1)&&gridCol==c)){
-                            if(!gameData.getGrid()[gridRow][gridCol].getName().equals(gameData.NUUL.getName())){
-                                System.out.println("valid move");
-                                if(gridRow==r-1){
-                                    moveUp();
-                                }
-                                else if(gridRow==r+1){
-                                    moveDown();
-                                }
-                                else if(gridCol==c-1){
-                                    moveRight();
-                                }
-                                else if(gridCol==c+1){
-                                    moveLeft();
-                                }
+                        System.out.println("MOVE");
+                        if(!gameData.getGrid()[gridRow][gridCol].getName().equals(gameData.NUUL.getName())){
+                            System.out.println("valid move");
+                            if(gridRow==r-1){
+                                System.out.println("Up");
+                                moveUp();
                             }
-
+                            else if(gridRow==r+1){
+                                System.out.println("Down");
+                                moveDown();
+                            }
+                            else if(gridCol==c-1){
+                                System.out.println("Right");
+                                moveRight();
+                            }
+                            else if(gridCol==c+1){
+                                System.out.println("Left");
+                                moveLeft();
+                            }
                         }
                     }
                     else if(currAction==EXPLORE){
-                        if(gameData.getGrid()[gridRow-1][gridCol]!=null){
-                            placeTileUp();
-                        }
-                        else if(gameData.getGrid()[gridRow+1][gridCol]!=null){
-                            placeTileDown();
-                        }
-                        else if(gameData.getGrid()[gridRow][gridCol-1]!=null){
-                            placeTileLeft();
-                        }
-                        else if(gameData.getGrid()[gridRow][gridCol+1]!=null){
-                            placeTileRight();
+                        System.out.println("Explore");
+                        if(!gameData.getGrid()[gridRow][gridCol].getName().equals(gameData.NUUL.getName())){
+                            System.out.println("valid move");
+                            if(gridRow==r-1 && gridCol==c){
+                                System.out.println("Up");
+                                placeTileUp();
+                            }
+                            else if(gridRow==r+1 && gridCol==c){
+                                System.out.println("Down");
+                                placeTileDown();
+                            }
+                            else if(gridCol==c-1 && gridRow==r){
+                                System.out.println("Left");
+                                placeTileLeft();
+                            }
+                            else if(gridCol==c+1 && gridRow==r){
+                                System.out.println("Right");
+                                placeTileRight();
+                            }
                         }
                     }
 
