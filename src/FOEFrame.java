@@ -346,9 +346,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
             allA.add("attack");
             allA.add("wait");
             allA.add("challenge");
+            allA.add("dive");
             allA.add("skill");
+            allA.add("end turn");
             actions.setListData(allA.toArray());
-            actions.setBounds(19, 152, 200, 150);
+            actions.setBounds(19, 152, 200, 200);
             add(actions);
             btn_backAction.setBounds(235, 188, 100, 50);
             add(btn_backAction);
@@ -1541,15 +1543,18 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
 
     //actions
     public void actionSelected(){
-        System.out.println("actions");
+        System.out.println("actions + ap: "+actionPts);
         if(gameData.getTurn().getName().equals(you.getName())){
             System.out.println("Your turn");
             if(actions.getSelectedValue().equals("end turn")){
+                actions.setEnabled(false);
+                btn_backAction.setVisible(true);
                 endTurn();
             }
             else if(actionPts<=0&&!actions.getSelectedValue().equals("end turn")){
-                actionPts=3;
+                System.out.println("out of ap: "+actionPts);
                 msgs.add("Server: You are out of AP! Click end turn to finish!");
+                msgList.setListData(msgs.toArray());
             }
             else {
                 if(actions.getSelectedValue().equals("move")){
@@ -1562,16 +1567,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
                 else if(actions.getSelectedValue().equals("explore")){
                     explore();
                 }
-                else if(actions.getSelectedValue().equals("end turn")){
-                    endTurn();
-                }
                 else if(actions.getSelectedValue().equals("attack")){
                     attack();
                 }
+                actions.setEnabled(false);
+                btn_backAction.setVisible(true);
             }
-
-            actions.setEnabled(false);
-            btn_backAction.setVisible(true);
         }
 
     }
@@ -1687,15 +1688,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
             foePanel.setShowingTileOnTop(false);
             if(currAction==MOVE_AND_PLACE_TILE){
                 for(int x = 0;x<gameData.getGrid()[r][c].getHeroesOn().size();x++){
-                    System.out.println("1 - heros: "+gameData.getHeroesPlaying().size());
                     if (gameData.getGrid()[r][c].getHeroesOn().get(x).getName().equals(you.getName())) {
-                        System.out.println("2 - heros: "+gameData.getHeroesPlaying().size());
                         gameData.getGrid()[r][c].getHeroesOn().remove(x);
-                        System.out.println("3 - heros: "+gameData.getHeroesPlaying().size());
                         break;
                     }
                 }
-                //THERE IS A PROBLEM WITH HEROS PLAYING TURNING INTO ZERO AFTER THIS CODE ^
                 System.out.println(gameData.getGrid()[r][c].getHeroesOn().toString());
                 r--;
                 gameData.getGrid()[r][c].getHeroesOn().add(you);
@@ -1804,6 +1801,33 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         foePanel.setShowingTileOnTop(true);
         //reppaintPanel();
     }
+    public void explorePlace(int r, int c){
+        if(gameData.getGrid()[r][c].getName().equals(gameData.NUUL.getName())){
+            System.out.println("empty place");
+            if(!gameData.getGrid()[r+1][c].getName().equals("nuul")&&gameData.getGrid()[r+1][c].isTopSide()&&gameData.getTileDeck().get(0).isBottomSide()){//up
+                gameData.getGrid()[r][c]=gameData.getTileDeck().get(0);
+                gameData.getTileDeck().remove(0);
+            }
+            else if(!gameData.getGrid()[r-1][c].getName().equals("nuul")&&gameData.getGrid()[r-1][c].isBottomSide()&&gameData.getTileDeck().get(0).isTopSide()){//down
+                gameData.getGrid()[r][c]=gameData.getTileDeck().get(0);
+                gameData.getTileDeck().remove(0);
+            }
+            else if(!gameData.getGrid()[r][c+1].getName().equals("nuul")&&gameData.getGrid()[r][c+1].isLeftSide()&&gameData.getTileDeck().get(0).isRightSide()){//left
+                gameData.getGrid()[r][c]=gameData.getTileDeck().get(0);
+                gameData.getTileDeck().remove(0);
+            }
+            else if(!gameData.getGrid()[r][c-1].getName().equals("nuul")&&gameData.getGrid()[r][c-1].isRightSide()&&gameData.getTileDeck().get(0).isLeftSide()){//down
+                gameData.getGrid()[r][c]=gameData.getTileDeck().get(0);
+                gameData.getTileDeck().remove(0);
+            }
+        }
+        foePanel.setShowingTileOnTop(false);
+        actionPts--;
+        btn_backAction.setVisible(false);
+        actions.setEnabled(true);
+        setBoard();
+        foePanel.repaint();
+    }
     public void attack(){
         currAction=ATTACK;
         if(gameData.getGrid()[r][c].getCultistNum()!=0){
@@ -1825,29 +1849,46 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         cultistTurn();
     }
     public void cultistTurn(){
-        for(int x = 0;x<gameData.getThreatLevel();x++){
+        for(int x = 0;x<gameData.getThreatLevelList().get(gameData.getThreatLevel());x++){
             foePanel.setDrawRitualDeck(true);
-            //reppaintPanel();
-            for (int r = 0;r<gameData.getGrid().length;r++){
-                for(int c = 0;c<gameData.getGrid()[0].length;c++){
-                    if(gameData.getCurrDeck().remove(0).equals(gameData.getGrid()[r][c].getCard())) {
-                        gameData.getGrid()[r][c].setCultistNum(gameData.getGrid()[r][c].getCultistNum()+1);
-                        if(gameData.getGrid()[r][c].getCultistNum()==2){
-                            for(Hero h:gameData.getGrid()[r][c].getHeroesOn()){
-                                gameData.getGrid()[r][c].setCollapsing(true);
-                                gameData.getCollapsingTiles().add(gameData.getGrid()[r][c]);
-                            }
-
-                        }
-                    }
-                }
-
+            gameData.getCurrDeck().remove(0);
+            try{
+                Thread.sleep(1000);
             }
+            catch(Exception e){
+                e.printStackTrace();
+            }
+            foePanel.setDrawRitualDeck(false);
+            try{
+                Thread.sleep(1000);
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
+            gameData.getCurrDeck().remove(0);
+            //reppaintPanel();
+//            for (int r = 0;r<gameData.getGrid().length;r++){
+//                for(int c = 0;c<gameData.getGrid()[0].length;c++){
+//                    if(gameData.getCurrDeck().remove(0).equals(gameData.getGrid()[r][c].getCard())) {
+//                        gameData.getGrid()[r][c].setCultistNum(gameData.getGrid()[r][c].getCultistNum()+1);
+//                        if(gameData.getGrid()[r][c].getCultistNum()==2){
+//                            for(Hero h:gameData.getGrid()[r][c].getHeroesOn()){
+//                                gameData.getGrid()[r][c].setCollapsing(true);
+//                                gameData.getCollapsingTiles().add(gameData.getGrid()[r][c]);
+//                            }
+//
+//                        }
+//                    }
+//                }
+//
+//            }
         }
-        gameData.divingSequence(gameData.getCollapsingTiles().get(0));
-        for(int x = 0;x<gameData.getPlayersNeedingDive();x++){
-//            sendCommand(CommandFromClient.DIVE,gameData.get,gameData);
+        if(gameData.getCollapsingTiles().size()!=0){
+            gameData.divingSequence(gameData.getCollapsingTiles().get(0));
         }
+//        for(int x = 0;x<gameData.getPlayersNeedingDive();x++){
+////            sendCommand(CommandFromClient.DIVE,gameData.get,gameData);
+//        }
 
 
     }
@@ -2115,24 +2156,10 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
                     }
                     else if(currAction==EXPLORE){
                         System.out.println("Explore");
-                        if(!gameData.getGrid()[gridRow][gridCol].getName().equals(gameData.NUUL.getName())){
+                        System.out.println(gameData.NUUL.getName());
+                        if(gameData.getGrid()[gridRow][gridCol].getName().equals(gameData.NUUL.getName())){
                             System.out.println("valid move");
-                            if(gridRow==r-1 && gridCol==c){
-                                System.out.println("Up");
-                                placeTileUp();
-                            }
-                            else if(gridRow==r+1 && gridCol==c){
-                                System.out.println("Down");
-                                placeTileDown();
-                            }
-                            else if(gridCol==c-1 && gridRow==r){
-                                System.out.println("Left");
-                                placeTileLeft();
-                            }
-                            else if(gridCol==c+1 && gridRow==r){
-                                System.out.println("Right");
-                                placeTileRight();
-                            }
+                            explorePlace(gridRow,gridCol);
                         }
                     }
 

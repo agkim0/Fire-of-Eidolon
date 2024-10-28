@@ -17,6 +17,7 @@ public class GameData implements Serializable{
     private ArrayList<Hero> orderOfTurns = new ArrayList<>();
     private int orderOfTurnIndex=0;
     private int threatLevel=0;
+    private ArrayList<Integer> threatLevelList = new ArrayList<>();
     private String difficultyLevel="Beginner";
     private int numOfPlayers=0;
     private int playersDove=0;
@@ -50,6 +51,7 @@ public class GameData implements Serializable{
 
     public GameData(){//change game rule to actual game rules!!!
         createAllHero();
+        createAllTilesAndCards();
         curHero = allHeroes.get(0);
         Random rand = new Random();
         //lobby code generation
@@ -116,7 +118,23 @@ public class GameData implements Serializable{
         grid[31][31].setDegRot(90);
         tileDeck.remove(getThistile("Vestibule"));
         Collections.shuffle(tileDeck);
+        currDeck=new ArrayList<>();
+        for(int x = 0;x<fullDeck.size();x++){
+            currDeck.add(fullDeck.get(x));
+        }
         Collections.shuffle(currDeck);
+
+        if(difficultyLevel.equals("Beginner")){
+            threatLevelList.add(1);
+            threatLevelList.add(1);
+            threatLevelList.add(2);
+            threatLevelList.add(2);
+            threatLevelList.add(2);
+            threatLevelList.add(3);
+            threatLevelList.add(3);
+            threatLevelList.add(3);
+            threatLevelList.add(4);
+        }
     }
     public void move(String dir){
         int crow = 0;
@@ -269,6 +287,8 @@ public class GameData implements Serializable{
         tileDeck.add(voraxsFocus);
         tileDeck.add(voraxsHeart);
         tileDeck.add(voraxsKnowledge);
+
+        //add all the cards to full deck
 
         if(vagrantPortal){
             tileDeck.add(secretPassageX);
@@ -517,5 +537,21 @@ public class GameData implements Serializable{
 
     public void setCollapsingTiles(ArrayList<Tile> collapsingTiles) {
         this.collapsingTiles = collapsingTiles;
+    }
+
+    public ArrayList<Tile> getFullTileDeck() {
+        return fullTileDeck;
+    }
+
+    public void setFullTileDeck(ArrayList<Tile> fullTileDeck) {
+        this.fullTileDeck = fullTileDeck;
+    }
+
+    public ArrayList<Integer> getThreatLevelList() {
+        return threatLevelList;
+    }
+
+    public void setThreatLevelList(ArrayList<Integer> threatLevelList) {
+        this.threatLevelList = threatLevelList;
     }
 }
