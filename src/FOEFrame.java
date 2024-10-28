@@ -1600,25 +1600,30 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
     }
     public void moveUp(){
         if (r -1>0){
-            if(r-2<rowShift){
+            /*if(r-2<rowShift){
                 screenUp();
-            }
+            }*/
             for(int x = 0;x<gameData.getGrid()[r][c].getHeroesOn().size();x++){
+                System.out.println("1 - heros: "+gameData.getGrid()[r][c].getName()+": "+gameData.getGrid()[r][c].getHeroesOn().size());
                 if (gameData.getGrid()[r][c].getHeroesOn().get(x).getName().equals(you.getName())) {
+                    System.out.println("2 - heros: "+gameData.getGrid()[r][c].getName()+": "+gameData.getGrid()[r][c].getHeroesOn().size());
                     gameData.getGrid()[r][c].getHeroesOn().remove(x);
+                    System.out.println("3 - heros: "+gameData.getGrid()[r][c].getName()+": "+gameData.getGrid()[r][c].getHeroesOn().size());
                     break;
                 }
             }
-            //THERE IS A PROBLEM WITH HEROS PLAYING TURNING INTO ZERO AFTER THIS CODE ^
+            gameData.getGrid()[r][c].getHeroesOn().remove(you);
+            System.out.println("4 - heros: "+gameData.getGrid()[r][c].getName()+": "+gameData.getGrid()[r][c].getHeroesOn().size());
             System.out.println(gameData.getGrid()[r][c].getHeroesOn().toString());
             r--;
             gameData.getGrid()[r][c].getHeroesOn().add(you);
+            System.out.println("5 - heros: "+gameData.getGrid()[r][c].getName()+": "+gameData.getGrid()[r][c].getHeroesOn().size());
             System.out.println(gameData.getGrid()[r][c].getHeroesOn().toString());
-            //reppaintPanel();
             actions.setEnabled(true);
             btn_backAction.setVisible(false);
             currAction=-1;
-            foePanel.repaint();
+            setBoard();
+            //foePanel.repaint();
             sendCommand(CommandFromClient.ACTION,"move",gameData);
         }
     }
@@ -1643,7 +1648,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
             actions.setEnabled(true);
             btn_backAction.setVisible(false);
             currAction=-1;
-            foePanel.repaint();
+            setBoard();
             sendCommand(CommandFromClient.ACTION,"move",gameData);
         }
     }
@@ -1660,7 +1665,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
             actions.setEnabled(true);
             btn_backAction.setVisible(false);
             currAction=-1;
-            foePanel.repaint();
+            setBoard();
             sendCommand(CommandFromClient.ACTION,"move",gameData);
         }
     }
@@ -1677,7 +1682,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
             actions.setEnabled(true);
             btn_backAction.setVisible(false);
             currAction=-1;
-            foePanel.repaint();
+            setBoard();
             sendCommand(CommandFromClient.ACTION,"move",gameData);
         }
     }
@@ -1687,6 +1692,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
             gameData.getTileDeck().remove(0);
             foePanel.setShowingTileOnTop(false);
             if(currAction==MOVE_AND_PLACE_TILE){
+                System.out.println("hey???");
                 for(int x = 0;x<gameData.getGrid()[r][c].getHeroesOn().size();x++){
                     if (gameData.getGrid()[r][c].getHeroesOn().get(x).getName().equals(you.getName())) {
                         gameData.getGrid()[r][c].getHeroesOn().remove(x);
@@ -1715,16 +1721,22 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
             gameData.getTileDeck().remove(0);
             foePanel.setShowingTileOnTop(false);
             if(currAction==MOVE_AND_PLACE_TILE){
+                System.out.println("hey???");
                 for(int x = 0;x<gameData.getGrid()[r][c].getHeroesOn().size();x++){
+                    System.out.println("1 - heros: "+gameData.getGrid()[r][c].getName()+": "+gameData.getGrid()[r][c].getHeroesOn().size());
                     if (gameData.getGrid()[r][c].getHeroesOn().get(x).getName().equals(you.getName())) {
+                        System.out.println("2 - heros: "+gameData.getGrid()[r][c].getName()+": "+gameData.getGrid()[r][c].getHeroesOn().size());
                         gameData.getGrid()[r][c].getHeroesOn().remove(x);
+                        System.out.println("3 - heros: "+gameData.getGrid()[r][c].getName()+": "+gameData.getGrid()[r][c].getHeroesOn().size());
                         break;
                     }
                 }
                 gameData.getGrid()[r][c].getHeroesOn().remove(you);
+                System.out.println("4 - heros: "+gameData.getGrid()[r][c].getName()+": "+gameData.getGrid()[r][c].getHeroesOn().size());
                 System.out.println(gameData.getGrid()[r][c].getHeroesOn().toString());
                 r++;
                 gameData.getGrid()[r][c].getHeroesOn().add(you);
+                System.out.println("5 - heros: "+gameData.getGrid()[r][c].getName()+": "+gameData.getGrid()[r][c].getHeroesOn().size());
                 System.out.println(gameData.getGrid()[r][c].getHeroesOn().toString());
             }
             actionPts--;
@@ -2145,12 +2157,12 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
                                 moveDown();
                             }
                             else if(gridCol==c-1){
-                                System.out.println("Right");
-                                moveRight();
-                            }
-                            else if(gridCol==c+1){
                                 System.out.println("Left");
                                 moveLeft();
+                            }
+                            else if(gridCol==c+1){
+                                System.out.println("Right");
+                                moveRight();
                             }
                         }
                     }
