@@ -22,6 +22,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
     String username;
     ArrayList<String> msgs = new ArrayList<>();
     private int actionPts = 3;
+    private boolean needStand=false;
     private GameData gameData;
     private FOEPanel foePanel;
     ObjectOutputStream os;
@@ -1850,8 +1851,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         }
     }
     public void challenge(){
-        if(gameData.getGrid()[r][c].getSkillType()!=Tile.SPECIAL){
-
+        if(gameData.getGrid()[r][c].getSkillType()!=Tile.SPECIAL&&gameData.getGrid()[r][c].isToken()==true){
+            
         }
     }
     public void wait_A(){}
@@ -1861,9 +1862,16 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         cultistTurn();
     }
     public void cultistTurn(){
+        gameData.setCollapsingTiles(new ArrayList<Tile>());
+        gameData.setPlayersNeedingDive(new ArrayList<Hero>());
+        try{
+            Thread.sleep(1000);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
         for(int x = 0;x<gameData.getThreatLevelList().get(gameData.getThreatLevel());x++){
             foePanel.setDrawRitualDeck(true);
-            gameData.getCurrDeck().remove(0);
             try{
                 Thread.sleep(1000);
             }
@@ -1877,38 +1885,40 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
             catch(Exception e){
                 e.printStackTrace();
             }
+            gameData.getCurrDeck().get(0).getTile().setCultistNum(gameData.getCurrDeck().get(0).getTile().getCultistNum()+1);
             gameData.getCurrDeck().remove(0);
             //reppaintPanel();
-//            for (int r = 0;r<gameData.getGrid().length;r++){
-//                for(int c = 0;c<gameData.getGrid()[0].length;c++){
-//                    if(gameData.getCurrDeck().remove(0).equals(gameData.getGrid()[r][c].getCard())) {
-//                        gameData.getGrid()[r][c].setCultistNum(gameData.getGrid()[r][c].getCultistNum()+1);
-//                        if(gameData.getGrid()[r][c].getCultistNum()==2){
-//                            for(Hero h:gameData.getGrid()[r][c].getHeroesOn()){
-//                                gameData.getGrid()[r][c].setCollapsing(true);
-//                                gameData.getCollapsingTiles().add(gameData.getGrid()[r][c]);
-//                            }
-//
-//                        }
-//                    }
-//                }
-//
-//            }
         }
-        if(gameData.getCollapsingTiles().size()!=0){
-            gameData.divingSequence(gameData.getCollapsingTiles().get(0));
+        for (int r = 0;r<gameData.getGrid().length;r++){
+            for(int c = 0;c<gameData.getGrid()[0].length;c++){
+                if(gameData.getCurrDeck().get(0).getName().equals(gameData.getGrid()[r][c].getCard().getName())) {
+                    gameData.getGrid()[r][c].setCultistNum(gameData.getGrid()[r][c].getCultistNum()+1);
+                    if(gameData.getGrid()[r][c].getCultistNum()==2){
+                        gameData.getGrid()[r][c].setCollapsing(true);
+                        gameData.getCollapsingTiles().add(gameData.getGrid()[r][c]);
+                    }
+                }
+            }
+
         }
+        for(int i = 0;i<gameData.getCollapsingTiles().size();i++){
+            for(int p = 0;p<gameData.getCollapsingTiles().get(i).getHeroesOn().size();p++){
+                gameData.getPlayersNeedingDive().add(gameData.getCollapsingTiles().get(i).getHeroesOn().get(p));
+            }
+        }
+        gameData.pause();
+        sendCommand(CommandFromClient.DIVE,null,gameData);
+        
+        
 //        for(int x = 0;x<gameData.getPlayersNeedingDive();x++){
 ////            sendCommand(CommandFromClient.DIVE,gameData.get,gameData);
 //        }
 
 
     }
-    public void dive(String u){
-        if(u.equals(you.getName())){
+    public void dive(){
+        if(gameData.getPlayersNeedingDive().contains(you)){
             currAction=DIVING;
-            actions.setEnabled(false);
-            btn_backAction.setEnabled(false);
         }
     }
     public void endCultistTurn(){
@@ -2178,40 +2188,27 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
                 }
                 //g.drawRect(355,60,820,820);
             }
-            if(currAction==DIVING){
-                if(e.getX()>355&&e.getX()<1175&&e.getY()>60&&e.getY()<880){//clicking board
-                    int boardCol = (e.getX()-355)/164;
-                    int boardRow = (e.getY()-60)/164;
-                    int gridCol = boardCol+colShift;
-                    int gridRow = boardRow+rowShift;
-                    int rt=r;
-                    int ct=c;
-                    if((((gridCol==c-1||gridCol==c+1)&&gridRow==r)||((gridRow==r-1||gridRow==r+1)&&gridCol==c))&&gameData.getGrid()[gridRow][gridCol]!=null){
-                        if(gridRow==r-1){
-                            r--;
-                        }
-                        else if(gridRow==r+1){
-                            r++;
-                        }
-                        else if(gridCol==c-1){
-                            c--;
-                        }
-                        else if(gridCol==c+1){
-                            c++;
-                        }
-                        gameData.getGrid()[r][c].getHeroesOn().add(you);
-                        gameData.setPlayersDove(gameData.getPlayersDove()+1);
-                        sendCommand(CommandFromClient.ACTION,"dove",gameData);
-                        if(gameData.allPlayersDove(gameData.getGrid()[rt][ct])){
-                            gameData.getGrid()[rt][ct]=null;
-                            sendCommand(CommandFromClient.END_CULTIST_TURN,null,gameData);
+        }
+        else if(currAction==DIVING){
+            if(e.getX()>355&&e.getX()<1175&&e.getY()>60&&e.getY()<880) {//clicking board
+                System.out.println("Clicking board");
+                int boardCol = (e.getX() - 355) / 164;
+                int boardRow = (e.getY() - 60) / 164;
+                int gridCol = boardCol + colShift;
+                int gridRow = boardRow + rowShift;
+                System.out.println("Grid row: " + gridRow + "   Curr Row: " + r);
+                System.out.println("Grid col: " + gridCol + "   Curr Col: " + c);
+                System.out.println("Tile on space: " + gameData.getGrid()[gridRow][gridCol].getName());
+                if(!gameData.getGrid()[gridRow][gridCol].getName().equals(gameData.NUUL.getName())&&!gameData.getGrid()[gridRow][gridCol].isCollapsing()&&
+                        (((gridRow==r-1||gridRow==r+1)&&gridCol==c)||(gridCol==c-1||gridCol==c+1)&&gridRow==r)){
+                    for(int i = 0;i<gameData.getGrid()[r][c].getHeroesOn().size();i++){
+                        if(gameData.getGrid()[r][c].getHeroesOn().get(i).getName().equals(you.getName())){
+                            gameData.getGrid()[gridRow][gridCol].getHeroesOn().add(you);
+                            gameData.getGrid()[r][c].getHeroesOn().remove(i);
+                            break;
                         }
                     }
-                    else{
-                        msgs.add("Server: You cannot dive there.");
-                        msgList.setListData(msgs.toArray());
-                    }
-
+                    sendCommand(CommandFromClient.DOVE,null,gameData);
                 }
             }
         }

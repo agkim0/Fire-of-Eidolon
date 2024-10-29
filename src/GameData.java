@@ -20,9 +20,9 @@ public class GameData implements Serializable{
     private ArrayList<Integer> threatLevelList = new ArrayList<>();
     private String difficultyLevel="Beginner";
     private int numOfPlayers=0;
-    private int playersDove=0;
-    private int playersNeedingDive=0;
     private ArrayList<Tile> collapsingTiles=new ArrayList<>();
+    private ArrayList<Hero> playersNeedingDive=new ArrayList<>();
+    public boolean paused=false;
 
     private boolean unstableVoid=false;
     private boolean vagrantPortal=false;
@@ -135,6 +135,28 @@ public class GameData implements Serializable{
             threatLevelList.add(3);
             threatLevelList.add(4);
         }
+        else if(difficultyLevel.equals("Normal")){
+            threatLevelList.add(1);
+            threatLevelList.add(2);
+            threatLevelList.add(1);
+            threatLevelList.add(2);
+            threatLevelList.add(2);
+            threatLevelList.add(3);
+            threatLevelList.add(3);
+            threatLevelList.add(3);
+            threatLevelList.add(4);
+        }
+        else if(difficultyLevel.equals("Hard")){
+            threatLevelList.add(1);
+            threatLevelList.add(2);
+            threatLevelList.add(2);
+            threatLevelList.add(1);
+            threatLevelList.add(2);
+            threatLevelList.add(3);
+            threatLevelList.add(3);
+            threatLevelList.add(3);
+            threatLevelList.add(4);
+        }
     }
     public void move(String dir){
         int crow = 0;
@@ -168,10 +190,14 @@ public class GameData implements Serializable{
         }
     }
 
-    public void explore(){
-
+    public void pause(){
+        paused=true;
+        turn=null;
     }
-
+    public void unpause(){
+        paused=false;
+        turn = orderOfTurns.get(orderOfTurnIndex);
+    }
     public void placeTile(Tile tile,int r,int c){
         if(tileDeck.contains(tile)){
             grid[r][c]=tile;
@@ -287,7 +313,27 @@ public class GameData implements Serializable{
         tileDeck.add(voraxsFocus);
         tileDeck.add(voraxsHeart);
         tileDeck.add(voraxsKnowledge);
-
+        
+        fullDeck.add(acidJetsCard);
+        fullDeck.add(arrowTrapCard);
+        fullDeck.add(darkSlimeCard);
+        fullDeck.add(denOfSnakesCard);
+        fullDeck.add(dragonlingCard);
+        fullDeck.add(felKnightCard);
+        fullDeck.add(floatingStonesCard);
+        fullDeck.add(hallOfIllusionsCard);
+        fullDeck.add(lavaLakeCard);
+        fullDeck.add(mimicChestCard);
+        fullDeck.add(mindeaterCard);
+        fullDeck.add(minotaurCard);
+        fullDeck.add(ogreBruteCard);
+        fullDeck.add(paradoxPuzzleCard);
+        fullDeck.add(pendulumBladesCard);
+        fullDeck.add(psychomancerCard);
+        fullDeck.add(skeletalGuardsCard);
+        fullDeck.add(sphynxsRiddleCard);
+        fullDeck.add(spikedPitCard);
+        
         //add all the cards to full deck
 
         if(vagrantPortal){
@@ -330,20 +376,6 @@ public class GameData implements Serializable{
         }
         System.out.println("fail");
         return null;
-    }
-    public void divingSequence(Tile t){
-        playersNeedingDive=t.getHeroesOn().size();
-        playersDove=0;
-    }
-    public boolean allPlayersDove(Tile t){
-        if(playersDove==playersNeedingDive){
-            playersDove=0;
-            playersNeedingDive=0;
-            return true;
-        }
-        else {
-            return false;
-        }
     }
 
     public Tile[][] getGrid() {
@@ -515,19 +547,11 @@ public class GameData implements Serializable{
         this.orderOfTurnIndex = orderOfTurnIndex;
     }
 
-    public int getPlayersDove() {
-        return playersDove;
-    }
-
-    public void setPlayersDove(int playersDove) {
-        this.playersDove = playersDove;
-    }
-
-    public int getPlayersNeedingDive() {
+    public ArrayList<Hero> getPlayersNeedingDive() {
         return playersNeedingDive;
     }
 
-    public void setPlayersNeedingDive(int playersNeedingDive) {
+    public void setPlayersNeedingDive(ArrayList<Hero> playersNeedingDive) {
         this.playersNeedingDive = playersNeedingDive;
     }
 
@@ -553,5 +577,13 @@ public class GameData implements Serializable{
 
     public void setThreatLevelList(ArrayList<Integer> threatLevelList) {
         this.threatLevelList = threatLevelList;
+    }
+
+    public boolean isPaused() {
+        return paused;
+    }
+
+    public void setPaused(boolean paused) {
+        this.paused = paused;
     }
 }
