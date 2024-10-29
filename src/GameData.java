@@ -117,6 +117,12 @@ public class GameData implements Serializable{
 
         grid[31][31].setDegRot(90);
         tileDeck.remove(getThistile("Vestibule"));
+        for(int x=0; x<tileDeck.size(); x++){
+            if(tileDeck.get(x).getName().equals("Vestibule")){
+                tileDeck.remove(x);
+                break;
+            }
+        }
         Collections.shuffle(tileDeck);
         currDeck=new ArrayList<>();
         for(int x = 0;x<fullDeck.size();x++){
