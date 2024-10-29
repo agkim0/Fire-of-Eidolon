@@ -1624,7 +1624,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
             btn_backAction.setVisible(false);
             currAction=-1;
             setBoard();
-            //foePanel.repaint();
+            foePanel.repaint();
             sendCommand(CommandFromClient.ACTION,"move",gameData);
         }
     }
@@ -1650,6 +1650,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
             btn_backAction.setVisible(false);
             currAction=-1;
             setBoard();
+            foePanel.repaint();
             sendCommand(CommandFromClient.ACTION,"move",gameData);
         }
     }
@@ -1667,6 +1668,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
             btn_backAction.setVisible(false);
             currAction=-1;
             setBoard();
+            foePanel.repaint();
             sendCommand(CommandFromClient.ACTION,"move",gameData);
         }
     }
@@ -1684,6 +1686,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
             btn_backAction.setVisible(false);
             currAction=-1;
             setBoard();
+            foePanel.repaint();
             sendCommand(CommandFromClient.ACTION,"move",gameData);
         }
     }
