@@ -1852,6 +1852,11 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
     }
     public void challenge(){
         if(gameData.getGrid()[r][c].getSkillType()!=Tile.SPECIAL&&gameData.getGrid()[r][c].isToken()==true){
+            if(gameData.getGrid()[r][c].getSkillType()==Tile.STR){
+                if(you.getStrengthLevel()<=actionPts){
+                    you.setStrTokenCount(you.getStrTokenCount()+1);
+                }
+            }
             
         }
     }
@@ -1891,7 +1896,7 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         }
         for (int r = 0;r<gameData.getGrid().length;r++){
             for(int c = 0;c<gameData.getGrid()[0].length;c++){
-                if(gameData.getCurrDeck().get(0).getName().equals(gameData.getGrid()[r][c].getCard().getName())) {
+                if(gameData.getGrid()[r][c].getCard()!=null&&gameData.getCurrDeck().get(0).getName().equals(gameData.getGrid()[r][c].getCard().getName())) {
                     gameData.getGrid()[r][c].setCultistNum(gameData.getGrid()[r][c].getCultistNum()+1);
                     if(gameData.getGrid()[r][c].getCultistNum()==2){
                         gameData.getGrid()[r][c].setCollapsing(true);
@@ -1922,9 +1927,16 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
         }
     }
     public void endCultistTurn(){
+        System.out.println("carferag");
+        gameData.unpause();
         gameData.nextTurn();
-        sendCommand(CommandFromClient.END_TURN,null,gameData);
+        if(gameData.getTurn().equals(you)){
+            actions.setEnabled(true);
+            btn_backAction.setVisible(false);
+            currAction=-1;
+        }
     }
+
     public void reset(){
        // System.out.println("reset");
         //character = new Hero();
@@ -2205,6 +2217,8 @@ public class FOEFrame extends JFrame implements WindowFocusListener, Runnable,Ke
                         if(gameData.getGrid()[r][c].getHeroesOn().get(i).getName().equals(you.getName())){
                             gameData.getGrid()[gridRow][gridCol].getHeroesOn().add(you);
                             gameData.getGrid()[r][c].getHeroesOn().remove(i);
+                            r=gridRow;
+                            c=gridCol;
                             break;
                         }
                     }
