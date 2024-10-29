@@ -245,9 +245,6 @@ public class FOEPanel extends JPanel{
         private BufferedImage ct_SpikedPit_180 = null;
         private BufferedImage ct_SpikedPit_270 = null;
         private BufferedImage ct_Vestibule = null;
-        private BufferedImage ct_Vestibule_90 = null;
-        private BufferedImage ct_Vestibule_180 = null;
-        private BufferedImage ct_Vestibule_270 = null;
         private BufferedImage ct_VoraciousPlant = null;
         private BufferedImage ct_VoraciousPlant_90 = null;
         private BufferedImage ct_VoraciousPlant_180 = null;
@@ -400,7 +397,7 @@ public class FOEPanel extends JPanel{
             ct_FelKnight_90 = ImageIO.read(new File("Game images/Chamber Tiles/Fel Knight_90.png"));
             ct_FelKnight_180 = ImageIO.read(new File("Game images/Chamber Tiles/Fel Knight_180.png"));
             ct_FelKnight_270 = ImageIO.read(new File("Game images/Chamber Tiles/Fel Knight_270.png"));
-            ct_FOE = ImageIO.read(new File("Game images/Chamber Tiles/Fire of Eidolon(final).png"));
+            ct_FOE = ImageIO.read(new File("Game images/Chamber Tiles/Fire of Eidolon.png"));
             ct_FOE_90 = ImageIO.read(new File("Game images/Chamber Tiles/Fire of Eidolon_90.png"));
             ct_FOE_180 = ImageIO.read(new File("Game images/Chamber Tiles/Fire of Eidolon_180.png"));
             ct_FOE_270 = ImageIO.read(new File("Game images/Chamber Tiles/Fire of Eidolon_270.png"));
